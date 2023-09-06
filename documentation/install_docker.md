@@ -50,7 +50,7 @@ sudo mkdir /etc/docker
 ```bash
 sudo <your_text_editor> /etc/docker/daemon.json
 ```
-You can use e.g. nano for editing daemon.json
+You can use nano for editing daemon.json, and add this to the file
 ```bash
 {
    "hosts": ["unix:///var/run/docker.sock"]
@@ -62,7 +62,16 @@ You can use e.g. nano for editing daemon.json
 ```bash
 sudo dockerd
 ```
-If the command ends with “API listen on /var/run/docker.sock”, docker works.
+If the command ends with “API listen on /var/run/docker.sock”, docker works. If you get an error like this
+```bash
+failed to start daemon, ensure docker is not running or delete /var/run/docker.pid: process with PID is still running
+```
+run this to stop a dockerd process
+```bash
+sudo pkill dockerd
+```
+and then try to start dockerd again.
+
 You can perform an additional test by opening a new terminal an running
 ```bash
 docker -H unix:///var/run/docker.sock run --rm hello-world
