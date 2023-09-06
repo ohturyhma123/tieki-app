@@ -1,5 +1,7 @@
 ## Instructions on how to install docker on Linux
 
+You can find instructions on how to install docker on wsl2 here: https://dev.solita.fi/2021/12/21/docker-on-wsl2-without-docker-desktop.html
+
 1. Install pre-required packages
 ```bash
 sudo apt update
