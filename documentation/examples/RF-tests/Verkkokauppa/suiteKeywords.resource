@@ -6,7 +6,6 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${EMAIL}    test@test.com
-${PASSWORD}    password
 
 
 *** Keywords ***
