@@ -1,8 +1,6 @@
 version: '3'
 services:
   frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: nikitaessine/tieki-app:latest # Specify your Docker image name here
     ports:
       - "8080:80"
