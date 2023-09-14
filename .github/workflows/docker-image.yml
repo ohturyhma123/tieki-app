@@ -3,6 +3,8 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
 
@@ -12,9 +14,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-      
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
@@ -34,5 +33,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
+        tags: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:latest
