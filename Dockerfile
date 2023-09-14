@@ -20,7 +20,10 @@ WORKDIR /app/frontend
 RUN npm run build
 
 # Expose a port (you can choose the port number)
-EXPOSE 3000
+EXPOSE 5173
+
+# Permissions for OpenShift
+RUN chgrp -R 0 /app && chmod -R g+rwX /app
 
 # Start the application
 CMD ["npm", "run", "dev"]
