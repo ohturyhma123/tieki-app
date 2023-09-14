@@ -28,7 +28,7 @@ jobs:
         images: secrets.DOCKER_USERNAME/secrets.DOCKER_REPOSITORY
     
     - name: Build and push Docker image
-      uses: docker/build-push-action@5
+      uses: docker/build-push-action@v5
       with:
         context: .
         file: ./Dockerfile
