@@ -138,5 +138,285 @@
         "value": -1
       }
     ]
+  },
+  {
+    "category":"Lukeminen ja lähteiden käyttö",
+    "statements": [
+      {
+        "id": 25,
+        "statement": "Minusta on helppoa kirjoittaa toisten tekstien pohjalta.",
+        "value": 1
+      },
+      {
+        "id": 26,
+        "statement": "Osaan olla kriittinen lukiessani tieteellistä tekstiä.",
+        "value": 1
+      },
+      {
+        "id": 27,
+        "statement": "Osaan esittää asiat omin sanoin, plagioimatta.",
+        "value": 1
+      },
+      {
+        "id": 28,
+        "statement": "Lähdetekstin ydinajatusten löytäminen on helppoa, etenkin kun tietää, kuinka oman alan tekstit rakentuvat.",
+        "value": 1
+      },
+      {
+        "id": 29,
+        "statement": "Osaan hyvin oman alani viittauskäytännöt.",
+        "value": 1
+      },
+      {
+        "id": 30,
+        "statement": "Olen lähdekriittinen ja löydän helposti tekstien ydinajatukset.",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "category":"Lukeminen ja lähteiden käyttö",
+    "statements": [
+      {
+        "id": 31,
+        "statement": "Tieteellisten artikkelien referoiminen on vaikeaa, koska en läheskään aina ymmärrä lukemaani.",
+        "value": -1
+      },
+      {
+        "id": 32,
+        "statement": "Tekstien tieteellisyyden arvioinnissa olen vielä epävarma.",
+        "value": -1
+      },
+      {
+        "id": 33,
+        "statement": "Lähdekriittisyyttä löytyy, mutta ydinajatusten löytäminen on minulle hankalaa.",
+        "value": -1
+      },
+      {
+        "id": 34,
+        "statement": "Osaan viitata hyvin lähteisiin, mutta minun on vaikea yhdistää eri lähteiden tietoja tai vertailla niitä keskenään.",
+        "value": -1
+      },
+      {
+        "id": 35,
+        "statement": "Kopioinnin ja oman tekstini raja tuntuu vaikealta hahmottaa.",
+        "value": -1
+      },
+      {
+        "id": 36,
+        "statement": "Olen hidas lukija, ja minun on vaikea keskittyä tieteellisten tekstien lukemiseen.",
+        "value": -1
+      }
+    ]
+  },
+  {
+    "category":"Kirjoittaminen prosessina",
+    "statements": [
+      {
+        "id": 37,
+        "statement": "Tekstini parantamisen kannalta on keskeistä kirjoittaa, saada palautetta ja sitten taas kirjoittaa.",
+        "value": 1
+      },
+      {
+        "id": 38,
+        "statement": "Tekstin tuottaminen on minulle helppoa ja saan tekstit halutessani nopeasti valmiiksi.",
+        "value": 1
+      },
+      {
+        "id": 39,
+        "statement": "Alkuun pääsemisen jälkeen kirjoittaminen tuntuu sujuvalta, jopa mielekkäältä",
+        "value": 1
+      },
+      {
+        "id": 40,
+        "statement": "Minulle on hyötyä tekstin suunnitteluvaiheesta, ja työstän tekstiä useissa vaiheissa.",
+        "value": 1
+      },
+      {
+        "id": 41,
+        "statement": "Ajanhallintani on tehokasta, ja teen tehtävät suunnitellussa aikataulussa.",
+        "value": 1
+      },
+      {
+        "id": 42,
+        "statement": "Osaan hyödyntää saamaani palautetta ja sen avulla usein saankin tekstini muokattua paremmaksi.",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "category":"Kirjoittaminen prosessina",
+    "statements": [
+      {
+        "id": 43,
+        "statement": "Saatan alkaa kirjoittaa tehokkaasti, mutta sitten jätän tekstini lojumaan, kunnes minulle tulee liian kiire tehdä se loppuun.",
+        "value": -1
+      },
+      {
+        "id": 44,
+        "statement": "Tiedän, että tieto rakentuu samalla kun tekstiä muokataan ja kirjoitetaan uudelleen, mutta minun on silti vaikea hyväksyä tekstin pitkäjänteistä työstämistä.",
+        "value": -1
+      },
+      {
+        "id": 45,
+        "statement": "Viimeistely voi jäädä ajan- tai kiinnostuksenpuutteen takia tekemättä",
+        "value": -1
+      },
+      {
+        "id": 46,
+        "statement": "Minun on vaikea suunnitella ajankäyttöäni, koska en aina hahmota, kuinka kauan mihinkin menee.",
+        "value": -1
+      },
+      {
+        "id": 47,
+        "statement": "Kireät aikataulut ahdistavat ja haittaavat kirjoittamista.",
+        "value": -1
+      },
+      {
+        "id": 48,
+        "statement": "Aloittaminen ahdistaa, ja sitä tulee usein lykättyä.",
+        "value": -1
+      }
+    ]
+  },
+  {
+    "category":"Tekstin rakenne",
+    "statements": [
+      {
+        "id": 49,
+        "statement": "Jäsentelen tekstini isot kokonaisuudet heti aluksi, minkä jälkeen voin keskittyä jokaiseen kohtaan erikseen vaivatta.",
+        "value": 1
+      },
+      {
+        "id": 50,
+        "statement": "Pyrin jäsentämään tekstini heti aluksi, mutta olen myös valmis muuttamaan asioiden esitysjärjestystä, jos alkuperäinen jäsennykseni ei toimi.",
+        "value": 1
+      },
+      {
+        "id": 51,
+        "statement": "Teksteissäni kappaleet ovat yhtenäisiä ja sidosteisia.",
+        "value": 1
+      },
+      {
+        "id": 52,
+        "statement": "Otsikoinnin ja jäsentelyn hallitsen hyvin.",
+        "value": 1
+      },
+      {
+        "id": 53,
+        "statement": "Saan rakennettua tekstini loogiseksi, mutta muiden palaute on tarpeellista.",
+        "value": 1
+      },
+      {
+        "id": 54,
+        "statement": "Osaan kirjoittaa johdonmukaista tekstiä, jossa on selvä rakenne ja punainen lanka.",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "category":"Tekstin rakenne",
+    "statements": [
+      {
+        "id": 55,
+        "statement": "Olen huono kirjoittamaan loogisessa järjestyksessä.",
+        "value": -1
+      },
+      {
+        "id": 56,
+        "statement": "Aiheen rajaaminen tuntuu usein vaikealta.",
+        "value": -1
+      },
+      {
+        "id": 57,
+        "statement": "Olen huono yhdistämään kokonaisuuksia, kun kirjoitan.",
+        "value": -1
+      },
+      {
+        "id": 58,
+        "statement": "Minulla on ongelmia saada repaleisista ajatuksistani ymmärrettäviä ja yhtenäisiä lauseita.",
+        "value": -1
+      },
+      {
+        "id": 59,
+        "statement": "Minun on vaikea päättää asioiden käsittelyjärjestys.",
+        "value": -1
+      },
+      {
+        "id": 60,
+        "statement": "Tekstieni sidosteisuudessa ja yhtenäisyydessä on parannettavaa.",
+        "value": -1
+      }
+    ]
+  },
+  {
+    "category":"Kielilliset seikat",
+    "statements": [
+      {
+        "id": 61,
+        "statement": "Tekstieni lauseet ja virkkeet ovat selkeitä ja ymmärrettäviä.",
+        "value": 1
+      },
+      {
+        "id": 62,
+        "statement": "Haluan, että tekstini on aina viimeistelty myös oikeinkirjoituksen osalta.",
+        "value": 1
+      },
+      {
+        "id": 63,
+        "statement": "Käytän aina aikaa myös tekstieni viimeistelyyn.",
+        "value": 1
+      },
+      {
+        "id": 64,
+        "statement": "Tarkistan oikeinkirjoitusasioita netistä ja kielioppaista.",
+        "value": 1
+      },
+      {
+        "id": 65,
+        "statement": "Suurin osa pilkuistani ja yhdyssanoistani on oikein.",
+        "value": 1
+      },
+      {
+        "id": 66,
+        "statement": "Oikeinkirjoitusasiat ovat hallussa.",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "category":"Kielilliset seikat",
+    "statements": [
+      {
+        "id": 67,
+        "statement": "Virkkeeni ovat usein liian pitkiä.",
+        "value": -1
+      },
+      {
+        "id": 68,
+        "statement": "Luen paljon englanniksi, ja se näkyy suomenkielisissä teksteissäni lauserakenteissa ja sanastossa.",
+        "value": -1
+      },
+      {
+        "id": 69,
+        "statement": "Oikeinkirjoituksessa minulla on hankaluuksia, varsinkin pilkutuksessa ja yhdyssanoissa.",
+        "value": -1
+      },
+      {
+        "id": 70,
+        "statement": "Minun on vaikea karsia täytesanoja ja epämääräisiä ei-tieteellisiä ilmaisuja teksteistäni.",
+        "value": -1
+      },
+      {
+        "id": 71,
+        "statement": "Aikamuotojen käyttö aiheuttaa joskus epäselvyyttä, kun kirjoitan tieteellistä tekstiä.",
+        "value": -1
+      },
+      {
+        "id": 72,
+        "statement": "Minulla ei ole hyvää tekniikkaa tekstin kieliasun viimeistelemiseen/tarkistamiseen.",
+        "value": -1
+      }
+    ]
   }
 ]
