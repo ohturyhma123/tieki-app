@@ -1,0 +1,14 @@
+.statement {
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  max-width: 450px;
+}
+
+.selected {
+  background-color: #a1f0ab;
+  transition: background-color 0.06s ease;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+}

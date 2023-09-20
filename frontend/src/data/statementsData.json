@@ -1,0 +1,142 @@
+[
+  {
+    "category": "Kirjoittamiseen liittyvät tunteet ja ajatukset",
+    "statements": [
+      {
+        "id": 1,
+        "statement": "Kirjoittaessani sosiaalinen tuki on avuksi.",
+        "value": 1
+      },
+      {
+        "id": 2,
+        "statement": "Hyvästä ja sujuvasta kirjoittamisesta tulee voittajafiilis!",
+        "value": 1
+      },
+      {
+        "id": 3,
+        "statement": "Rakentava palaute motivoi minua kirjoittamaan.",
+        "value": 1
+      },
+      {
+        "id": 4,
+        "statement": "Itsenäinen työskentely on minulle luontaista ja kirjoittaminen on näin ainakin perusluonteeltaan helppoa ja mielenkiintoista.",
+        "value": 1
+      },
+      {
+        "id": 5,
+        "statement": "Koen tekeväni mielekästä työtä, kun kirjoitan.",
+        "value": 1
+      },
+      {
+        "id": 6,
+        "statement": "Loppujen lopuksi löydän motivaation suorittaa pidemmätkin kirjoitukset loppuun.",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "category":"Kirjoittamiseen liittyvät tunteet ja ajatukset",
+    "statements": [
+      {
+        "id": 7,
+        "statement": "Täydellisyyteen pyrkiminen vaikeuttaa kirjoittamista, joten yleensä en kirjoita tosissani.",
+        "value": -1
+      },
+      {
+        "id": 8,
+        "statement": "Kirjoittaminen on ahdistavaa alusta loppuun.",
+        "value": -1
+      },
+      {
+        "id": 9,
+        "statement": "Suhtaudun omaan tekstiini liiankin kriittisesti, mikä toisinaan ahdistaa ja vaikeuttaa kirjoittamista.",
+        "value": -1
+      },
+      {
+        "id": 10,
+        "statement": "Kirjoittamiseen keskittyminen on usein hankalaa.",
+        "value": -1
+      },
+      {
+        "id": 11,
+        "statement": "En luota itseeni kirjoittajana.",
+        "value": -1
+      },
+      {
+        "id": 12,
+        "statement": "Minun on vaikeaa asettaa omia tavoitteitani kirjoittamiselle.",
+        "value": -1
+      }
+    ]
+  },
+  {
+    "category":"Akateemiset käytänteet ja tekstilajit",
+    "statements": [
+      {
+        "id": 13,
+        "statement": "Osaan kirjoittaa erilaisia oman alan tekstilajeja.",
+        "value": 1
+      },
+      {
+        "id": 14,
+        "statement": "Jos ymmärrän asian, minun on helppo kirjoittaa siitä niin, että muutkin ymmärtävät.",
+        "value": 1
+      },
+      {
+        "id": 15,
+        "statement": "Pyrin ottamaan tekstilajin huomioon etenkin sanavalinnoissa ja siinä, kuinka paljon tuon esille omia mielipiteitäni.",
+        "value": 1
+      },
+      {
+        "id": 16,
+        "statement": " Pyrin ottamaan lukijan huomioon kirjoittaessani erilaisia tekstejä.",
+        "value": 1
+      },
+      {
+        "id": 17,
+        "statement": "Oman alani kirjoitustyyli on hyvin hallussa.",
+        "value": 1
+      },
+      {
+        "id": 18,
+        "statement": "Kirjoittamistani helpottavat oman tiedeyhteisöni tekstien vakiintuneet rakenteet.",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "category":"Akateemiset käytänteet ja tekstilajit",
+    "statements": [
+      {
+        "id": 19,
+        "statement": "Lukijan huomiointi on haastavaa, sillä en voi tietää, mitkä asiat ovat lukijalla jo ennestään tiedossa.",
+        "value": -1
+      },
+      {
+        "id": 20,
+        "statement": "En ole vielä lukenut monia oman alan tekstejä, joten niiden laatiminen tuntuu vieraalta.",
+        "value": -1
+      },
+      {
+        "id": 21,
+        "statement": "Tieteellinen kirjoittaminen tuntuu vielä aika hankalalta.",
+        "value": -1
+      },
+      {
+        "id": 22,
+        "statement": "Joskus minulla on hankaluuksia pitää yhdenmukainen asiatyyli omassa tekstissäni.",
+        "value": -1
+      },
+      {
+        "id": 23,
+        "statement": "Asiatyylisen tekstin kirjoittaminen on vaikeaa, koska tykkään kirjoittaa vapaasti ja elävästi.",
+        "value": -1
+      },
+      {
+        "id": 24,
+        "statement": "Oman alan käytänteet eivät ole vielä tuttuja.",
+        "value": -1
+      }
+    ]
+  }
+]
