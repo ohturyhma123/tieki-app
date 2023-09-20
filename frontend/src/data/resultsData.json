@@ -1,0 +1,160 @@
+[
+  {
+    "category": "Kirjoittamiseen liittyvät tunteet ja ajatukset",
+    "results": [
+      {
+        "id": 1,
+        "textSegments": [
+          "Vastauksissasi korostuu kirjoittamisen palkitsevuus. Myönteinen asenne kirjoittamiseen sujuvoittaa työskentelyä monella tavalla: aloittaminen helpottuu, tekstiä syntyy helposti eri tarkoituksiin ja kirjoitusprosessista voi nauttia. Itsevarmuus kirjoittajana auttaa myös uusissa tilanteissa, sillä vaativiinkin kirjoitustehtäviin voi suhtautua luottavaisesti.",
+          "Tutkimusten mukaan sosiaalinen tuki auttaa kirjoitusprosessissa, ja sen vuoksi kirjoittamisesta kannattaakin tehdä yhteisöllistä. Hienoa, jos olet oivaltanut myös tämän kirjoittamisen ulottuvuuden ja mahdollisuuden kehittyä kirjoittajana koko ajan monipuolisemmaksi ja paremmaksi."
+        ],
+        "listPoints":[],
+        "positive": true
+      },
+      {
+        "id": 2,
+        "textSegments":[
+          "Vastaustesi perusteella saattaisit hyötyä siitä, että kokeilet uusia kirjoittamiseen liittyviä toimintatapoja. Kirjoittaminen on vaativaa kognitiivista toimintaa ja edellyttää myös sosiaalisten ja kielellisten käytänteiden hallitsemista, joten ei siis ole ihme, että kirjoittaminen aiheuttaa monelle kirjoittajalle ahdistuksen ja pelon tunteita. Kannattaakin pysähtyä miettimään, mitä on näiden ahdistavien tunteiden takana, ja etsiä keinoja, joilla kirjoittamisesi muuttuisi helpommaksi ja mukavammaksi.",
+          "Tässä muutamia neuvoja:"
+        ],
+        "listPoints": [
+          "Laske kirjoittamisen rimaa",
+          "Etsi sosiaalista tukea ja kannustusta",
+          "Kirjoita aiheista, jotka kiinnostavat sinua todella",
+          "Pilko isommat tehtävät pieniin konkreettisiin paloihin",
+          "Suunnittele, mitä asiaa edistät milloinkin."
+        ],
+        "positive": false
+      }
+    ]
+  },
+  {
+    "category":"Akateemiset käytänteet ja tekstilajit",
+    "results":[
+      {
+        "id": 3,
+        "textSegments": [
+          "Vastaustesi perusteella olet jo hyvin perillä oman alasi käytänteistä ja tieteellisten tekstilajien ominaispiirteistä. Kirjoittaminen voidaan ymmärtää sosiaalisena toimintana, joka tapahtuu sosiaalisessa kontekstissa, jollaista edustaa esimerkiksi oma ala ja oma oppiaine.",
+          "Oletkin arvattavasti jo harjoitellut tieteellistä kirjoittamista - taidon oppiminen nimittäin vaatii oman alan monesti hiljaisten käytänteiden omaksumista, mikä ei tapahdu aivan yhtäkkiä. Niinpä jos teet eri alojen opintoja, voi olla, että joudut samalla opettelemaan kokonaan uusia tekstilajeja ja uusia käytänteitä."
+        ],
+        "listPoints":[],
+        "positive": true
+      },
+      {
+        "id": 4,
+        "textSegments": [
+          "Vastaustesi perusteella akateemiset käytänteet ja akateemiset tekstilajit eivät ole välttämättä sinulle vielä tuttuja ja kaipaat varmuutta oman alan tekstien tuottamiseen.",
+          "Akateemiseen asiantuntijuuteen kuuluu paljon käytänteitä ja tapoja, joita omaksutaan osallistumalla oman alan yhteisössä, esimerkiksi lukemalla, kirjoittamalla ja kommentoimalla tieteellisiä tekstejä. Voitkin oppia akateemisia tekstitaitoja havainnoimalla, millaisia tekstejä ja millaista sanomisen tapaa alalla suositaan:"
+        ],
+        "listPoints": [
+          "Tutustu monenlaisiin oman alan teksteihin ja kiinnitä sisällön lisäksi huomiota tekstin rakenteeseen ja tyyliin.",
+          "Ota huomioon alakohtaiset ohjeet tutkielman rakenteesta ja viittaamisesta sekä yleiset tieteellisen kirjoittamisen ohjeet.",
+          "Ole aktiivinen, sillä asiantuntijaksi kasvaminen on sosiaalista; hakeudu esimerkiksi kursseille, joissa kirjoittamista harjoitellaan.",
+          "Anna tekstiäsi luettavaksi opiskelijakollegoille ja oman alasi osaajille."
+        ],
+        "positive": false
+      }
+    ]
+  },
+  {
+    "category":"Lukeminen ja lähteiden käyttö",
+    "results":[
+      {
+        "id": 5,
+        "textSegments":[
+          "Vastauksissasi korostuu lähteiden käytön hallinta. Sovitat käyttämäsi lähteet osaksi omaa tekstiäsi ja osaat hyödyntää niitä tuottaessasi uutta tietoa.",
+          "Tieteellisen kirjoittamisen ydintä onkin toisten kirjoittamien tekstien lukeminen, tiedon kriittinen arviointi ja analysointi sekä tekstien ydinajatusten löytäminen. Lisäksi on tärkeää hallita oman alan lähdeviittaustekniikka ja noudattaa sitä. Yhteiset pelisäännöt viittauksissa edistävät tieteellisen tiedon rakentumisen läpinäkyvyyttä ja ohjaavat lukijat käyttämiesi lähteiden äärelle. Lukiessasi ja kirjoittaessasi olet osa tiedeyhteisöä!"
+        ],
+        "listPoints":[],
+        "positive": true
+      },
+      {
+        "id": 6,
+        "textSegments":[
+          "Vastauksissasi korostuu lähteidenkäytön harjoittelemisen tarve ja lähdekirjallisuuden referoimiseen liittyvä epävarmuus. Kumpaakin taitoa voi onneksi harjoitella, ja pääset hyvään alkuun tutustumalla oman alasi teksteihin ja kirjoitusohjeisiin.",
+          "Kun luet vuorostaan lähdekirjallisuutta, on hyödyllistä miettiä, miten käsitellyt asiat liittyvät toisiinsa, mitkä ovat oman tekstisi kannalta olennaisia asioita ja miten onnistuneesti tekstissä argumentoidaan. Tee lukiessasi muistiinpanoja:",
+          "Anna toisinaan itsellesi mahdollisuus lukea myös vapaasti ja “pänttäämättä”. Tällöin teksteistä voi nousta esiin yllättäviä ja luovia ajatuksia. Voit vuorotella analyyttista lukemista ja vapaata, rentoa lukemista. Tieteellisiä tekstejä voi myös mahdollisuuksien mukaan lukea ja analysoida yhdessä muiden kanssa."
+        ],
+        "listPoints":[
+          "Kirjaa ylös havaintojasi, teksteistä heränneitä kysymyksiä sekä eri tekstien välisiä yhteyksiä, eroja ja mahdollisia ristiriitoja.",
+          "Hyödynnä erilaisia visuaalisia apukeinoja kuten miellekarttoja."
+        ],
+        "positive": false
+      }
+    ]
+  },
+  {
+    "category":"Kirjoittaminen prosessina",
+    "results":[
+      {
+        "id": 7,
+        "textSegments":[
+          "Olet vastaustesi perusteella selvästi ymmärtänyt tieteellisen kirjoittamisen prosessimaisen luonteen, vaikka et välttämättä aina voisikaan käyttää haluamaasi aikaa kirjoittamisen jokaiseen vaiheeseen. Olet omaksunut tavan työstää tekstiäsi useassa vaiheessa ja pystyt soveltamaan kirjoittamisprosessin eri vaiheita tarpeen mukaan. Pitkää tekstiä ei voikaan tehdä valmiiksi yhdeltä istumalta.",
+          "Tiedostat myös palautteen tärkeyden ja osaat tarvittaessa hyödyntää sitä. Palautetta kannattaa oman ohjaajan lisäksi pyytää opiskelukaverilta."
+        ],
+        "listPoints":[],
+        "positive": true
+      },
+      {
+        "id": 8,
+        "textSegments":[
+          "Vastauksissasi korostuvat kirjoittamisprosessin hallinnan ongelmat. Ajankäyttöä, kirjoittamislukkojen avaamista ja erilaisia työtapoja voi kuitenkin harjoitella monin tavoin:"
+        ],
+        "listPoints":[
+          "Tee työsuunnitelma ja pyri pitämään siitä kiinni.",
+          "Hyväksy se, että teksti rakentuu vaihe vaiheelta: luonnostele, kirjoita, muokkaa, kirjoita uudelleen, editoi, viimeistele.",
+          "Jaa suuren tekstikokonaisuuden kirjoittaminen pienempiin osiin.",
+          "Merkitse kalenteriin kirjoittamiselle varatut ajat ja suunnittele, mitä kirjoitat milloinkin.",
+          "Älä epäröi pyytää palautetta keskeneräisestä tekstistä!"
+        ],
+        "positive": false
+      }
+    ]
+  },
+  {
+    "category":"Tekstin rakenne",
+    "results":[
+      {
+        "id": 9,
+        "textSegments":[
+          "Vastauksiesi perusteella hahmotat hyvin sen, miten teksti rakentuu ja miten luoda eheää tekstiä. Tiedät, miten ajatukset saa tekstissä lukijalle ymmärrettävään muotoon ja myös, miten pystyt johdattamaan lukijaa tekstisi läpi.",
+          "Kirjoittaminen tulee kuitenkin sitä luontevammaksi, mitä enemmän ja mitä erilaisempia tekstejä kirjoitat. Yhdenlaisen tekstin rakenne ja keinot eivät välttämättä sovellukaan toisenlaiseen tekstiin, vaan kirjoittamisen tapaa täytyy muuttaa tilanteen mukaan. Ehkä voisitkin kehittää osaamistasi kokeilemalla erilaisten tekstilajien kirjoittamista."
+        ],
+        "listPoints":[],
+        "positive": true
+      },
+      {
+        "id": 10,
+        "textSegments":[
+          "Vastaustesi perusteella näyttää siltä, ettet ole vielä varma, miten omista ajatuksista koostetaan yhtenäinen ja helposti seurattava teksti. Tekstin rakentamisen taito kehittyy kuitenkin vähitellen: kun luet ja kirjoitat, kehityt varmemmaksi kirjoittajaksi.",
+          "Helppolukuisen ja yhtenäisen tekstin kirjoittaminen on haastava tehtävä, koska kirjoittaessaan joutuu pitämään mielessä paitsi sen, mitä itse tietää, myös sen, mitä lukija tietää tai ei tiedä. Monet tekstin rakenteen ongelmat juontavatkin juurensa siitä, että kirjoittaja ei muista kertoa lukijalle, mitä on tekemässä. Tekstiäsi voi siis vaivata sidoskeinojen ja metatekstin eli tekstistä kertovan tekstin puute."
+        ],
+        "listPoints":[],
+        "positive": false
+      }
+    ]
+  },
+  {
+    "category":"Kielilliset seikat",
+    "results":[
+      {
+        "id": 11,
+        "textSegments":[
+          "Vastauksissasi näkyy, että pidät tekstin hyvää kieliasua tärkeänä ja tunnet hallitsevasi oikeinkirjoitusasiat. Tekstien huolelliseen viimeistelyyn kannattaakin panostaa, sillä myös lukijat arvostavat selkeää kieltä ja kirjoitetun kielen normien hallintaa.",
+          "Kirjoittajan asiantuntemukseen kuuluu myös se, että osaa käyttää hakuteoksia ja kielioppaita oman kirjoittamisen tukena. Hienoa, jos hyödynnät tätäkin mahdollisuutta jo riittävästi."
+        ],
+        "listPoints":[],
+        "positive": true
+      },
+      {
+        "id": 12,
+        "textSegments":[
+          "Vastauksissasi näkyy, että koet oikeinkirjoitusasiat ja tekstin viimeistelyn hankalaksi. Onneksi oikeinkirjoitusasioita voi varsin hyvin opiskella myös itsenäisesti, ja tekstin viimeistelyssä voi hyödyntää kielioppaita.",
+          "Oma teksti kannattaa myös jättää kirjoittamisen jälkeen hetkeksi lepäämään, koska tauon jälkeen lauserakenteiden mahdolliset epäselvyydet havaitsee helpommin ja muokkaus sujuu paremmin. Tekstit kannattaa myös aina lukea huolellisesti viimeisen kerran läpi, ennen kuin luovuttaa ne eteenpäin."
+        ],
+        "listPoints":[],
+        "positive": false
+      }
+    ]
+  }
+]
