@@ -9,7 +9,7 @@ ${DELAY}    0.5 seconds
 
 *** Keywords ***
 Title Is Correct
-    Title Should Be    Vite + React
+    Title Should Be    Tieki
 
 Go To Frontpage
     [Documentation]    Opens the homepage
@@ -20,3 +20,7 @@ Open And Configure Browser
     Open Browser    browser=${BROWSER}
     Maximize Browser Window
     Set Selenium Speed    ${DELAY}
+
+Go To Testpage
+    [Documentation]    Opens the testpage
+    Go To    ${APP_URL}/test

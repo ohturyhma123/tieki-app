@@ -17,4 +17,9 @@ Frontpage Is Open
     Title Is Correct
 
 Header Is Correct
-    Element Text Should Be    tag:p    Hello Ohtu
+    [Documentation]    Checks that the header is correct
+    Element Text Should Be    tag:h1    Tieteellisen kirjoittamisen itsearviointitesti
+
+Click on Testiin! Button
+    [Documentation]    Clicks on the button that takes the user to the test
+    Click Element   //button[contains(text(), 'Testiin!')]
