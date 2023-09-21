@@ -12,6 +12,12 @@ const Statements = () => {
   const navigate = useNavigate()
   const homeRoute = () => { navigate('/') }
 
+  /**
+    Handles the event of clicking a statement.
+    If statement is already selected, it deselects and counter is decremented.
+    If statement is not selected and the count is less than 3, it selects the statement and increments count.
+    @param {string} statementId - The id of statement being clicked.
+  */
   const handleStatementClick = (statementId) => {
     if (selectedStatements.includes(statementId)) {
       setSelectedStatements(selectedStatements.filter((id) => id !== statementId))
@@ -23,6 +29,11 @@ const Statements = () => {
     }}
   }
 
+  /**
+    Handles advancing to the next statement set or navigating to the results page.
+    If at the last statement set, it navigates to the results page with the data and state of selected statements.
+    Otherwise, moves to the next set and resets selected statements count.
+  */
   const handleNextStatementSet = () => {
     if (currentStatementSetIndex < statementsData.length - 1) {
       setCurrentStatementSetIndex(currentStatementSetIndex + 1)
@@ -32,17 +43,17 @@ const Statements = () => {
     })}
   }
 
-  const getCurrentStatementSet = () => {
-    return statementsData[currentStatementSetIndex].statements
-  }
-
-  const statements = getCurrentStatementSet()
+  const statements = statementsData[currentStatementSetIndex].statements
 
   return (
     <div>
       <HomeButton onClick={homeRoute} />
       <h2>Väittämäsetti {currentStatementSetIndex + 1}/{statementsData.length}</h2>
       <p><i>Voit valita enintään kolme vaihtoehtoa.</i></p>
+      {/**
+        Iterate through the array and create an element for each statement.
+        Conditionally add the "selected" CSS class if the statement is in the "selectedStatements" array.
+      */}
       {statements.map((s) => (
         <div
           key={s.id}
@@ -51,6 +62,7 @@ const Statements = () => {
           {s.statement}
         </div>
       ))}
+      {/** Using ternary conditional operators, show different button text when there are no statement sets left */}
       <p>
         {currentStatementSetIndex < statementsData.length - 1
         ? <button onClick={handleNextStatementSet}>Seuraava</button>

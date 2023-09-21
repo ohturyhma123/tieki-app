@@ -4,6 +4,7 @@ import Statements from './pages/Statements'
 import Results from './pages/Results'
 
 const App = () => {
+  /** Client-side routing setup that redirects to home if the url path isn't /test or /results */
   return (
     <BrowserRouter>
       <Routes>
