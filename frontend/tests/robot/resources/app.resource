@@ -22,5 +22,5 @@ Open And Configure Browser
     Set Selenium Speed    ${DELAY}
 
 Go To Testpage
-    [Documentation]    Opens the testpage
+    [Documentation]    Opens the testpage.
     Go To    ${APP_URL}/test
