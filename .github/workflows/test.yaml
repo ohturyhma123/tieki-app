@@ -27,13 +27,13 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./frontend
+        working-directory: .
 
     steps:
     - uses: actions/checkout@v4
 
     - name: Install node packages
-      run: npm install
+      run: cd frontend && npm install
 
 
     - name: Set up Python 3.10
