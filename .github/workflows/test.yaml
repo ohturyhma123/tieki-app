@@ -27,7 +27,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./tests
+        working-directory: .
 
     steps:
     - uses: actions/checkout@v4
@@ -44,4 +44,4 @@ jobs:
       run: pip install robotframework && pip install robotframework-seleniumlibrary && pip install selenium==4.9.1
 
     - name: Run Robot tests
-      run: sh robot/actions_run_robot_tests.sh
+      run: sh tests/robot/actions_run_robot_tests.sh
