@@ -3,7 +3,7 @@ Documentation    This file contains common keywords and variables used with test
 Library    SeleniumLibrary
 
 *** Variables ***
-${APP_URL}    https://tieki.ext.ocp-test-0.k8s.it.helsinki.fi
+${APP_URL}    http://localhost:5173
 ${BROWSER}    chrome
 ${DELAY}    0.5 seconds
 
