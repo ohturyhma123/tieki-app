@@ -10,10 +10,6 @@ Suite Teardown    Close Browser
 Test Setup    Go To Testpage
 Test Tags    testpage
 
-*** Settings ***
-Library    SeleniumLibrary
-
-
 *** Test Cases ***
 Select Statements and Click Seuraava
     [Documentation]    Select Statements and Click Seuraava, unclick one statement
