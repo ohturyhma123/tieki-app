@@ -27,13 +27,16 @@ jobs:
 
     defaults:
       run:
-        working-directory: .
+        working-directory: ./frontend
 
     steps:
     - uses: actions/checkout@v4
 
     - name: Install node packages
       run: npm install
+
+      run: 
+        working-directory: ./tests
 
     - name: Set up Python 3.10
       uses: actions/setup-python@v4
@@ -44,4 +47,4 @@ jobs:
       run: pip install robotframework && pip install robotframework-seleniumlibrary && pip install selenium==4.9.1
 
     - name: Run Robot tests
-      run: sh tests/robot/actions_run_robot_tests.sh
+      run: sh robot/actions_run_robot_tests.sh
