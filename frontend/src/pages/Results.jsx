@@ -1,5 +1,7 @@
 import { useNavigate, useLocation } from 'react-router-dom'
+import resultsData from '../data/resultsData.json'
 import HomeButton from '../components/Button'
+import ResultBlock from '../components/ResultBlock'
 
 const Results = () => {
   const location = useLocation()
@@ -41,6 +43,19 @@ const Results = () => {
   /** Calculate and store category scores outside of JSX to prevent redundant calls with each render. */
   const scores = calculateScore()
 
+  const getResults = () => {
+
+    const positiveCategories = Object.keys(categoryScores).filter((category) => categoryScores[category] >= 2)
+    const negativeCategories = Object.keys(categoryScores).filter((category) => categoryScores[category] <= -2)
+
+    const positiveResults = resultsData.filter((result) => positiveCategories.includes(result.category) && result.positive)
+    const negativeResults = resultsData.filter((result) => negativeCategories.includes(result.category) && result.positive === false)
+
+    return [positiveResults, negativeResults]
+  }
+
+  const [positiveResults, negativeResults] = getResults()
+
   return (
     <div>
       <HomeButton onClick={homeRoute} />
@@ -54,6 +69,10 @@ const Results = () => {
           {category}: {scores[category]}<br />
         </div>
       ))}
+      <h2>Vahvuudet</h2>
+        {positiveResults.map((result) => <ResultBlock key={result.id} result={result} />)}
+      <h2>Heikkoudet</h2>
+        {negativeResults.map((result) => <ResultBlock key={result.id} result={result} />)}
     </div>
   )
 }
