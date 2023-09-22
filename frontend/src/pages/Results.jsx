@@ -32,8 +32,8 @@ const Results = () => {
 
   const getResults = () => {
 
-    const positiveCategories = Object.keys(categoryScores).filter((category) => categoryScores[category] >= 3)
-    const negativeCategories = Object.keys(categoryScores).filter((category) => categoryScores[category] <= -3)
+    const positiveCategories = Object.keys(categoryScores).filter((category) => categoryScores[category] >= 2)
+    const negativeCategories = Object.keys(categoryScores).filter((category) => categoryScores[category] <= -2)
 
     const positiveResults = resultsData.filter((result) => positiveCategories.includes(result.category) && result.positive)
     const negativeResults = resultsData.filter((result) => negativeCategories.includes(result.category) && result.positive === false)
