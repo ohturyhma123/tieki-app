@@ -130,7 +130,7 @@
     "positive": false
   },
   {
-    "category":"Kielilliset seikat",
+    "category":"Kielelliset seikat",
     "id": 11,
     "textSegments":[
       "Vastauksissasi näkyy, että pidät tekstin hyvää kieliasua tärkeänä ja tunnet hallitsevasi oikeinkirjoitusasiat. Tekstien huolelliseen viimeistelyyn kannattaakin panostaa, sillä myös lukijat arvostavat selkeää kieltä ja kirjoitetun kielen normien hallintaa.",
@@ -141,7 +141,7 @@
     "positive": true
   },
   {
-    "category":"Kielilliset seikat",
+    "category":"Kielelliset seikat",
     "id": 12,
     "textSegments":[
       "Vastauksissasi näkyy, että koet oikeinkirjoitusasiat ja tekstin viimeistelyn hankalaksi. Onneksi oikeinkirjoitusasioita voi varsin hyvin opiskella myös itsenäisesti, ja tekstin viimeistelyssä voi hyödyntää kielioppaita.",
