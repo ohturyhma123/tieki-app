@@ -1,6 +1,7 @@
 [
   {
     "category": "Kirjoittamiseen liittyvät tunteet ja ajatukset",
+    "boolean": "True",
     "statements": [
       {
         "id": 1,
@@ -36,6 +37,7 @@
   },
   {
     "category":"Kirjoittamiseen liittyvät tunteet ja ajatukset",
+    "boolean": "False",
     "statements": [
       {
         "id": 7,
@@ -71,6 +73,7 @@
   },
   {
     "category":"Akateemiset käytänteet ja tekstilajit",
+    "boolean": "True",
     "statements": [
       {
         "id": 13,
@@ -106,6 +109,7 @@
   },
   {
     "category":"Akateemiset käytänteet ja tekstilajit",
+    "boolean": "False",
     "statements": [
       {
         "id": 19,
@@ -141,6 +145,7 @@
   },
   {
     "category":"Lukeminen ja lähteiden käyttö",
+    "boolean": "True",
     "statements": [
       {
         "id": 25,
@@ -176,6 +181,7 @@
   },
   {
     "category":"Lukeminen ja lähteiden käyttö",
+    "boolean": "False",
     "statements": [
       {
         "id": 31,
@@ -211,6 +217,7 @@
   },
   {
     "category":"Kirjoittaminen prosessina",
+    "boolean": "True",
     "statements": [
       {
         "id": 37,
@@ -246,6 +253,7 @@
   },
   {
     "category":"Kirjoittaminen prosessina",
+    "boolean": "False",
     "statements": [
       {
         "id": 43,
@@ -281,6 +289,7 @@
   },
   {
     "category":"Tekstin rakenne",
+    "boolean": "True",
     "statements": [
       {
         "id": 49,
@@ -316,6 +325,7 @@
   },
   {
     "category":"Tekstin rakenne",
+    "boolean": "False",
     "statements": [
       {
         "id": 55,
@@ -351,6 +361,7 @@
   },
   {
     "category":"Kielilliset seikat",
+    "boolean": "True",
     "statements": [
       {
         "id": 61,
@@ -386,6 +397,7 @@
   },
   {
     "category":"Kielilliset seikat",
+    "boolean": "False",
     "statements": [
       {
         "id": 67,

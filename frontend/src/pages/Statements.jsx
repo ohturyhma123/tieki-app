@@ -4,14 +4,65 @@ import statementsData from '../data/statementsData.json'
 import HomeButton from '../components/Button'
 import '../assets/Statement.css'
 
+const getNegativeStatements = () => {
+  const negativeStatementSets = []
+
+  for (const statementSetIndex in statementsData) {
+    const statementSet = statementsData[statementSetIndex]
+    if (statementSet.boolean === "False") {
+      negativeStatementSets.push(statementSet)
+    }
+  }
+
+  return negativeStatementSets
+}
+
+const getPositiveStatements = () => {
+  const positiveStatementSets = []
+
+  for (const statementSetIndex in statementsData) {
+    const statementSet = statementsData[statementSetIndex]
+    if (statementSet.boolean === "True") {
+      positiveStatementSets.push(statementSet)
+    }
+  }
+
+  return positiveStatementSets
+}
+
 const Statements = () => {
   const [selectedStatements, setSelectedStatements] = useState([])
   const [selectedStatementsCount, setSelectedStatementsCount] = useState(0)
   const [currentStatementSetIndex, setCurrentStatementSetIndex] = useState(0)
+  const [usedPositiveStatements, setUsedPositiveStatements] = useState([])
+  const [usedNegativeStatements, setUsedNegativeStatements] = useState([])
 
   const navigate = useNavigate()
   const homeRoute = () => { navigate('/') }
 
+  const positiveSets = getPositiveStatements()
+  const negativeSets = getNegativeStatements()
+
+  const selectOneStatementFromEachPositiveSet = (index) => {
+    const resultSet = []
+    for (const setIndex in positiveSets) {
+      const set = positiveSets[setIndex].statements
+      const statement = set[index]
+      resultSet.push(statement)
+    }
+    return resultSet
+  }
+
+  const selectOneStatementFromEachNegativeSet = (index) => {
+    const resultSet = []
+    for (const setIndex in negativeSets) {
+      const set = negativeSets[setIndex].statements
+      const statement = set[index]
+      resultSet.push(statement)
+    }
+    return resultSet
+  }
+  
   /**
     Handles the event of clicking a statement.
     If statement is already selected, it deselects and counter is decremented.
@@ -43,6 +94,8 @@ const Statements = () => {
     })}
   }
 
+  console.log(currentStatementSetIndex)
+  console.log(selectOneStatementFromEachPositiveSet(currentStatementSetIndex))
   const statements = statementsData[currentStatementSetIndex].statements
 
   return (
