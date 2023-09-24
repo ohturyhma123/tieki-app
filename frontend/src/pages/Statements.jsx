@@ -4,6 +4,44 @@ import statementsData from '../data/statementsData.json'
 import HomeButton from '../components/Button'
 import '../assets/Statement.css'
 
+/**
+  Iterates through the statement data and selects all negative statement sets
+  based on the boolean value of the set. If False, the statement set is for
+  negative statements and it gets pushed to the returnable array.
+  @returns {negativeStatementSets} - all negative statement sets from categories.
+*/
+const getNegativeStatements = () => {
+  const negativeStatementSets = []
+
+  for (const statementSetIndex in statementsData) {
+    const statementSet = statementsData[statementSetIndex]
+    if (statementSet.boolean === "False") {
+      negativeStatementSets.push(statementSet)
+    }
+  }
+
+  return negativeStatementSets
+}
+
+/**
+  Iterates through the statement data and selects all positive statement sets
+  based on the boolean value of the set. If True, the statement set is for
+  positive statements and it gets pushed to the returnable array.
+  @returns {positiveStatementSets} - all negative statement sets from categories.
+*/
+const getPositiveStatements = () => {
+  const positiveStatementSets = []
+
+  for (const statementSetIndex in statementsData) {
+    const statementSet = statementsData[statementSetIndex]
+    if (statementSet.boolean === "True") {
+      positiveStatementSets.push(statementSet)
+    }
+  }
+
+  return positiveStatementSets
+}
+
 const Statements = () => {
   const [selectedStatements, setSelectedStatements] = useState([])
   const [selectedStatementsCount, setSelectedStatementsCount] = useState(0)
@@ -12,6 +50,43 @@ const Statements = () => {
   const navigate = useNavigate()
   const homeRoute = () => { navigate('/') }
 
+  const positiveSets = getPositiveStatements()
+  const negativeSets = getNegativeStatements()
+
+  /**
+    Iterates through the positive statement sets and selects one statement from each
+    category.
+    @param {number} index - Statements are selected from each set based on the index value.
+    @returns {resultSet} - The result set that has six positive statements in total.
+    One statement from each positive set.
+  */
+  const selectOneStatementFromEachPositiveSet = (index) => {
+    const resultSet = []
+    for (const setIndex in positiveSets) {
+      const set = positiveSets[setIndex].statements
+      const statement = set[index]
+      resultSet.push(statement)
+    }
+    return resultSet
+  }
+
+  /**
+   Iterates through the negative statement sets and selects one statement from each
+   category.
+   @param {number} index - Statements are selected from each set based on the index value.
+   @returns {resultSet} - The result set that has six negative statements in total.
+   One statement from each negative set.
+  */
+  const selectOneStatementFromEachNegativeSet = (index) => {
+    const resultSet = []
+    for (const setIndex in negativeSets) {
+      const set = negativeSets[setIndex].statements
+      const statement = set[index]
+      resultSet.push(statement)
+    }
+    return resultSet
+  }
+  
   /**
     Handles the event of clicking a statement.
     If statement is already selected, it deselects and counter is decremented.
@@ -43,7 +118,19 @@ const Statements = () => {
     })}
   }
 
-  const statements = statementsData[currentStatementSetIndex].statements
+  let statements
+  let setIndex
+
+  /**
+    Statement sets visible on the testpage are selected based on the set index.
+  */
+  if (currentStatementSetIndex % 2 === 0) {
+    setIndex = currentStatementSetIndex / 2
+    statements = selectOneStatementFromEachPositiveSet(setIndex)
+  } else {
+    setIndex = (currentStatementSetIndex - 1) / 2
+    statements = selectOneStatementFromEachNegativeSet(setIndex)
+  }
 
   return (
     <div>

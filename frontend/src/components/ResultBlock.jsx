@@ -18,7 +18,7 @@ const ResultBlock = ({result}) => {
                 }
                 <ul>
                   {result.listPoints && toggle
-                    ? result.listPoints.map((item) => <li>{item}</li>)
+                    ? result.listPoints.map((item, index) => <li key={index}>{item}</li>)
                     : null
                   }
                 </ul>
