@@ -67,7 +67,6 @@ const Statements = () => {
       const statement = set[index]
       resultSet.push(statement)
     }
-    console.log(resultSet)
     return resultSet
   }
 
