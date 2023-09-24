@@ -34,8 +34,6 @@ const Statements = () => {
   const [selectedStatements, setSelectedStatements] = useState([])
   const [selectedStatementsCount, setSelectedStatementsCount] = useState(0)
   const [currentStatementSetIndex, setCurrentStatementSetIndex] = useState(0)
-  const [usedPositiveStatements, setUsedPositiveStatements] = useState([])
-  const [usedNegativeStatements, setUsedNegativeStatements] = useState([])
 
   const navigate = useNavigate()
   const homeRoute = () => { navigate('/') }
@@ -50,6 +48,7 @@ const Statements = () => {
       const statement = set[index]
       resultSet.push(statement)
     }
+    console.log(resultSet)
     return resultSet
   }
 
@@ -94,9 +93,16 @@ const Statements = () => {
     })}
   }
 
-  console.log(currentStatementSetIndex)
-  console.log(selectOneStatementFromEachPositiveSet(currentStatementSetIndex))
-  const statements = statementsData[currentStatementSetIndex].statements
+  let statements
+  let setIndex
+
+  if (currentStatementSetIndex % 2 === 0) {
+    setIndex = currentStatementSetIndex / 2
+    statements = selectOneStatementFromEachPositiveSet(setIndex)
+  } else {
+    setIndex = (currentStatementSetIndex - 1) / 2
+    statements = selectOneStatementFromEachNegativeSet(setIndex)
+  }
 
   return (
     <div>
