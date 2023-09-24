@@ -4,6 +4,12 @@ import statementsData from '../data/statementsData.json'
 import HomeButton from '../components/Button'
 import '../assets/Statement.css'
 
+/**
+  Iterates through the statement data and selects all negative statement sets
+  based on the boolean value of the set. If False, the statement set is for
+  negative statements and it gets pushed to the returnable array.
+  @returns {negativeStatementSets} - all negative statement sets from categories.
+*/
 const getNegativeStatements = () => {
   const negativeStatementSets = []
 
@@ -17,6 +23,12 @@ const getNegativeStatements = () => {
   return negativeStatementSets
 }
 
+/**
+  Iterates through the statement data and selects all positive statement sets
+  based on the boolean value of the set. If True, the statement set is for
+  positive statements and it gets pushed to the returnable array.
+  @returns {positiveStatementSets} - all negative statement sets from categories.
+*/
 const getPositiveStatements = () => {
   const positiveStatementSets = []
 
@@ -41,6 +53,13 @@ const Statements = () => {
   const positiveSets = getPositiveStatements()
   const negativeSets = getNegativeStatements()
 
+  /**
+    Iterates through the positive statement sets and selects one statement from each
+    category.
+    @param {number} index - Statements are selected from each set based on the index value.
+    @returns {resultSet} - The result set that has six positive statements in total.
+    One statement from each positive set.
+  */
   const selectOneStatementFromEachPositiveSet = (index) => {
     const resultSet = []
     for (const setIndex in positiveSets) {
@@ -52,6 +71,13 @@ const Statements = () => {
     return resultSet
   }
 
+  /**
+   Iterates through the negative statement sets and selects one statement from each
+   category.
+   @param {number} index - Statements are selected from each set based on the index value.
+   @returns {resultSet} - The result set that has six negative statements in total.
+   One statement from each negative set.
+  */
   const selectOneStatementFromEachNegativeSet = (index) => {
     const resultSet = []
     for (const setIndex in negativeSets) {
@@ -96,6 +122,9 @@ const Statements = () => {
   let statements
   let setIndex
 
+  /**
+    Statement sets visible on the testpage are selected based on the set index.
+  */
   if (currentStatementSetIndex % 2 === 0) {
     setIndex = currentStatementSetIndex / 2
     statements = selectOneStatementFromEachPositiveSet(setIndex)
