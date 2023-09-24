@@ -8,7 +8,6 @@ const Results = () => {
   const navigate = useNavigate()
   const homeRoute = () => { navigate('/') }
 
-
   /**
     Calculates category scores based on user selected statements.
     @returns {Object} - Object containing scores by category.
@@ -44,9 +43,8 @@ const Results = () => {
   const scores = calculateScore()
 
   const getResults = () => {
-
-    const positiveCategories = Object.keys(categoryScores).filter((category) => categoryScores[category] >= 2)
-    const negativeCategories = Object.keys(categoryScores).filter((category) => categoryScores[category] <= -2)
+    const positiveCategories = Object.keys(scores).filter((category) => scores[category] >= 2)
+    const negativeCategories = Object.keys(scores).filter((category) => scores[category] <= -2)
 
     const positiveResults = resultsData.filter((result) => positiveCategories.includes(result.category) && result.positive)
     const negativeResults = resultsData.filter((result) => negativeCategories.includes(result.category) && result.positive === false)
