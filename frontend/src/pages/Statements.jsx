@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import statementsData from '../data/statementsData.json'
 import HomeButton from '../components/Button'
@@ -15,7 +15,7 @@ const getNegativeStatements = () => {
 
   for (const statementSetIndex in statementsData) {
     const statementSet = statementsData[statementSetIndex]
-    if (statementSet.boolean === "False") {
+    if (statementSet.boolean === 'False') {
       negativeStatementSets.push(statementSet)
     }
   }
@@ -34,7 +34,7 @@ const getPositiveStatements = () => {
 
   for (const statementSetIndex in statementsData) {
     const statementSet = statementsData[statementSetIndex]
-    if (statementSet.boolean === "True") {
+    if (statementSet.boolean === 'True') {
       positiveStatementSets.push(statementSet)
     }
   }
@@ -86,7 +86,7 @@ const Statements = () => {
     }
     return resultSet
   }
-  
+
   /**
     Handles the event of clicking a statement.
     If statement is already selected, it deselects and counter is decremented.
@@ -101,7 +101,7 @@ const Statements = () => {
       if (selectedStatementsCount < 3) {
         setSelectedStatements([...selectedStatements, statementId])
         setSelectedStatementsCount(selectedStatementsCount + 1)
-    }}
+      }}
   }
 
   /**
@@ -115,7 +115,7 @@ const Statements = () => {
       setSelectedStatementsCount(0)
     } else {
       navigate('/results', { state: { selectedStatements, statementsData }
-    })}
+      })}
   }
 
   let statements
@@ -152,8 +152,8 @@ const Statements = () => {
       {/** Using ternary conditional operators, show different button text when there are no statement sets left */}
       <p>
         {currentStatementSetIndex < statementsData.length - 1
-        ? <button onClick={handleNextStatementSet}>Seuraava</button>
-        : <button onClick={handleNextStatementSet}>Tulokset</button>
+          ? <button onClick={handleNextStatementSet}>Seuraava</button>
+          : <button onClick={handleNextStatementSet}>Tulokset</button>
         }
       </p>
     </div>

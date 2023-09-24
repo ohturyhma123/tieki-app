@@ -16,6 +16,15 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    'react/prop-types': 'off'
-  },
+    'react/prop-types': 'off',
+    'eqeqeq': 'error',
+    'no-trailing-spaces': 'warn',
+    'object-curly-spacing': ['warn', 'always'],
+    'arrow-spacing': ['warn', { before: true, after: true }],
+    'indent': ['warn', 2],
+    'linebreak-style': ['warn', 'unix'],
+    'quotes': ['warn', 'single'],
+    'semi': ['warn', 'never'],
+    'no-console': 'warn'
+  }
 }

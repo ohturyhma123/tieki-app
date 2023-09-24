@@ -33,9 +33,9 @@ const Results = () => {
         const statement = categoryData.statements.find((s) => s.id === statementId)
         if (categoryData.statements.find((s) => s.id === statementId)) {
           categoryScores[categoryData.category] += statement.value
-          }
         }
-      })
+      }
+    })
     return categoryScores
   }
 
@@ -59,7 +59,7 @@ const Results = () => {
       <HomeButton onClick={homeRoute} />
       <h2>Tulokset kategorioittain</h2>
       {/**
-        Object.keys(scores) returns an array of category names from the object, 
+        Object.keys(scores) returns an array of category names from the object,
         and .map((category) iterates through the array to render a list of categories and their scores.
       */}
       {Object.keys(scores).map((category) => (
@@ -68,9 +68,9 @@ const Results = () => {
         </div>
       ))}
       <h2>Vahvuudet</h2>
-        {positiveResults.map((result) => <ResultBlock key={result.id} result={result} />)}
+      {positiveResults.map((result) => <ResultBlock key={result.id} result={result} />)}
       <h2>Heikkoudet</h2>
-        {negativeResults.map((result) => <ResultBlock key={result.id} result={result} />)}
+      {negativeResults.map((result) => <ResultBlock key={result.id} result={result} />)}
     </div>
   )
 }
