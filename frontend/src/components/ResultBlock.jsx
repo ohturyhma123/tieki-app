@@ -13,7 +13,7 @@ const ResultBlock = ({ result }) => {
       <p onClick={handleToggle} className="statement">{toggle ? '> piilota analyysi' : '> nää analyysi'}</p>
       <div key={result.id} className={toggle ? 'statement' : ''}>
         {toggle
-          ? result.textSegments.map((result) => <p key={result.id}>{result}</p>)
+          ? result.textSegments.map((result,index) => <p key={index}>{result}</p>)
           : null
         }
         <ul>
@@ -22,13 +22,12 @@ const ResultBlock = ({ result }) => {
             : null
           }
         </ul>
-        <p>Hyödyllisiä linkkejä aiheista:</p>
         {result.links && toggle
           ? result.links.map((link) => {
             return(
               <>
-                <a className="link" href={link}>{link}</a>
-                <br></br>
+                <p>{link.description}</p>
+                <a className="link" href={link.link}>{link.link}</a>
               </>
             )
           })
