@@ -2,6 +2,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import resultsData from '../data/resultsData.json'
 import HomeButton from '../components/Button'
 import ResultBlock from '../components/ResultBlock'
+import RadarChart from '../components/RadarChart'
 
 const Results = () => {
   const location = useLocation()
@@ -67,6 +68,7 @@ const Results = () => {
           {category}: {scores[category]}<br />
         </div>
       ))}
+      <RadarChart categories={Object.keys(scores)} results={Object.values(scores)}/>
       <h2>Vahvuudet</h2>
       {positiveResults.map((result) => <ResultBlock key={result.id} result={result} />)}
       <h2>Heikkoudet</h2>
