@@ -55,20 +55,33 @@ const RadarChart = ({ categories, results }) => {
         backgroundColor: 'rgba(132, 99, 255, 0.2)',
         borderColor: 'rgba(132, 99, 255, 1)',
         borderWidth: 1,
-      },
-    ],
+      }
+    ]
   }
+
   const options = {
     responsive: true,
     maintainAspectRatio: true,
+    plugins: {
+      legend: {
+        display: false
+      }
+    },
     scales: {
       r: {
+        min: -6,
+        max: 6,
         ticks: {
-          stepSize: 1
+          display: false
         },
         pointLabels: {
-          font: {
-            size: 16
+          font: function(context) {
+            var width = context.chart.width
+            var size = Math.round(width / 32)
+            return {
+              weight: 'bold',
+              size: size
+            }
           }
         }
       }
