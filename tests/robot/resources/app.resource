@@ -2,13 +2,16 @@
 Documentation    This file contains common keywords and variables used with test suites.
 Library    SeleniumLibrary
 
+
 *** Variables ***
 ${APP_URL}    http://localhost:5173
 ${BROWSER}    chrome
 ${DELAY}    0.5 seconds
 
+
 *** Keywords ***
 Title Is Correct
+    [Documentation]    Checks that the correct title is shown.
     Title Should Be    Tieki
 
 Go To Frontpage
