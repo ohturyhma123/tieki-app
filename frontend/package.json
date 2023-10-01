@@ -12,6 +12,9 @@
     "preview": "vite preview"
   },
   "jest": {
+    "setupFiles": [
+      "<rootDir>/tests/jest/setup-jest.js"
+    ],
     "testEnvironment": "jsdom",
     "moduleNameMapper": {
       "^.+\\.svg$": "jest-svg-transformer",
