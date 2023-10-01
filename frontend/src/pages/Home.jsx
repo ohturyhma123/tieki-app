@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 const Home = () => {
   const navigate = useNavigate()
   const statementsRoute = () => { navigate('/test') }
+  const linksRoute = () => { navigate('/links') }
 
   return (
     <div>
@@ -16,6 +17,7 @@ const Home = () => {
         <li>Akateemiset käytänteet ja tekstilajit</li>
       </ul>
       <button id='statementsRoute' onClick={statementsRoute}>Testiin!</button>
+      <button id='linksRoute' onClick={linksRoute}>Linkkejä</button>
     </div>
   )
 }
