@@ -1,7 +1,3 @@
-import getNegativeStatements from './NegativeStatements'
-
-const negativeSets = getNegativeStatements()
-
 /**
    Iterates through the negative statement sets and selects one statement from each
    category.
@@ -9,7 +5,7 @@ const negativeSets = getNegativeStatements()
    @returns {resultSet} - The result set that has six negative statements in total.
    One statement from each negative set.
   */
-const selectOneStatementFromEachNegativeSet = (index) => {
+const selectOneStatementFromEachNegativeSet = (negativeSets, index) => {
   const resultSet = []
   for (const setIndex in negativeSets) {
     const set = negativeSets[setIndex].statements

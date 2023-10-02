@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import statementsData from '../data/statementsData.json'
 import HomeButton from '../components/Button'
+import getPositiveStatements from '../components/PositiveStatements'
+import getNegativeStatements from '../components/NegativeStatements'
 import selectOneStatementFromEachPositiveSet from '../components/SelectOnePositiveStatementFromEachCategory'
 import selectOneStatementFromEachNegativeSet from '../components/SelectOneNegativeStatementFromEachCategory'
 import '../assets/Statement.css'
@@ -13,6 +15,9 @@ const Statements = () => {
 
   const navigate = useNavigate()
   const homeRoute = () => { navigate('/') }
+
+  const positiveSets = getPositiveStatements(statementsData)
+  const negativeSets = getNegativeStatements(statementsData)
 
   /**
     Handles the event of clicking a statement.
@@ -53,10 +58,10 @@ const Statements = () => {
   */
   if (currentStatementSetIndex % 2 === 0) {
     setIndex = currentStatementSetIndex / 2
-    statements = selectOneStatementFromEachPositiveSet(setIndex)
+    statements = selectOneStatementFromEachPositiveSet(positiveSets, setIndex)
   } else {
     setIndex = (currentStatementSetIndex - 1) / 2
-    statements = selectOneStatementFromEachNegativeSet(setIndex)
+    statements = selectOneStatementFromEachNegativeSet(negativeSets, setIndex)
   }
 
   return (

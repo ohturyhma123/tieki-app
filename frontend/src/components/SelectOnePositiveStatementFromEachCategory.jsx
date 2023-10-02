@@ -1,7 +1,3 @@
-import getPositiveStatements from './PositiveStatements'
-
-const positiveSets = getPositiveStatements()
-
 /**
     Iterates through the positive statement sets and selects one statement from each
     category.
@@ -9,7 +5,7 @@ const positiveSets = getPositiveStatements()
     @returns {resultSet} - The result set that has six positive statements in total.
     One statement from each positive set.
   */
-const selectOneStatementFromEachPositiveSet = (index) => {
+const selectOneStatementFromEachPositiveSet = (positiveSets, index) => {
   const resultSet = []
   for (const setIndex in positiveSets) {
     const set = positiveSets[setIndex].statements
