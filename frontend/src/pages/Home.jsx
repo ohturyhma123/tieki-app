@@ -15,6 +15,10 @@ const Home = () => {
       <ul>
         <li>Kirjoittamiseen liittyvät tunteet ja ajatukset</li>
         <li>Akateemiset käytänteet ja tekstilajit</li>
+        <li>Lukeminen ja lähteiden käyttö</li>
+        <li>Kirjoittaminen prosessina</li>
+        <li>Tekstin rakenne</li>
+        <li>Kielelliset seikat</li>
       </ul>
       <button id='statementsRoute' onClick={statementsRoute}>Testiin!</button>
       <button id='linksRoute' onClick={linksRoute}>Linkkejä</button>
