@@ -11,6 +11,6 @@ Check Headers
 
 Check Analysis
     [Documentation]    Checks that only one analysis is shown.
-    ${analysis}=    Get WebElements    xpath=//p[contains(@class,'statement')]
+    ${analysis}=    Get WebElements    xpath=//p[contains(@class,'analysis')]
     ${analysis_count}=    Get Length    ${analysis}
     Should Be Equal As Integers    ${analysis_count}    1

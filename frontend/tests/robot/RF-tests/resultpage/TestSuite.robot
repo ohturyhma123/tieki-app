@@ -17,16 +17,18 @@ Test Tags    resultpage
 *** Test Cases ***
 Check resultpage
     [Documentation]    Goes through test and checks resultpage.
+    # robocop: disable
     FOR    ${index}    IN RANGE    1    10
             Go To Next Page
             Select Statements    1
-        END
+    END
+    # robocop: enable
+    
+    Go To Next Page
+    Go To Next Page
+    Select Statements    1
+    Go To Last Page
 
-        Go To Next Page
-        Go To Next Page
-        Select Statements    1
-        Go To Last Page
-
-        Check Headers
-        Check Analysis
-        Go Back To Frontpage
+    Check Headers
+    Check Analysis
+    Go Back To Frontpage

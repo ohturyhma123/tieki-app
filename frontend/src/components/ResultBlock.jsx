@@ -10,7 +10,7 @@ const ResultBlock = ({ result }) => {
   return(
     <>
       <h3>{result.category}</h3>
-      <p onClick={handleToggle} className="statement">{toggle ? '> piilota analyysi' : '> nää analyysi'}</p>
+      <p onClick={handleToggle} className='statement analysis'>{toggle ? '> piilota analyysi' : '> nää analyysi'}</p>
       <div key={result.id} className={toggle ? 'statement' : ''}>
         {toggle
           ? result.textSegments.map((result,index) => <p key={index}>{result}</p>)

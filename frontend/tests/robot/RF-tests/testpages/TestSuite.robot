@@ -2,7 +2,6 @@
 Documentation    Tests for the frontpage of the app.
 
 Resource    suiteKeywords.resource
-Resource    ../resultpage/suiteKeywords.resource
 Resource    ../../RF-keywords/CommonFunctions.resource
 
 Suite Setup
