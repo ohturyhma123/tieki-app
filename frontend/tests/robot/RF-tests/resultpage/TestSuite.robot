@@ -14,6 +14,7 @@ Suite Teardown    Close Browser
 Test Setup    Go To Testpage
 Test Tags    resultpage
 
+
 *** Test Cases ***
 Check resultpage
     [Documentation]    Goes through test and checks resultpage.
@@ -23,7 +24,7 @@ Check resultpage
             Select Statements    1
     END
     # robocop: enable
-    
+
     Go To Next Page
     Go To Next Page
     Select Statements    1
