@@ -44,8 +44,8 @@ const Results = () => {
   const scores = calculateScore()
 
   const getResults = () => {
-    const positiveCategories = Object.keys(scores).filter((category) => scores[category] >= 2)
-    const negativeCategories = Object.keys(scores).filter((category) => scores[category] <= -2)
+    const positiveCategories = Object.keys(scores).filter((category) => scores[category] >= 1)
+    const negativeCategories = Object.keys(scores).filter((category) => scores[category] <= -1)
 
     const positiveResults = resultsData.filter((result) => positiveCategories.includes(result.category) && result.positive)
     const negativeResults = resultsData.filter((result) => negativeCategories.includes(result.category) && result.positive === false)
@@ -69,9 +69,9 @@ const Results = () => {
         </div>
       ))}
       <RadarChart categories={Object.keys(scores)} results={Object.values(scores)}/>
-      <h2>Vahvuudet</h2>
+      <h2 className='strengths'>Vahvuudet</h2>
       {positiveResults.map((result) => <ResultBlock key={result.id} result={result} />)}
-      <h2>Heikkoudet</h2>
+      <h2 className='weaknesses'>Heikkoudet</h2>
       {negativeResults.map((result) => <ResultBlock key={result.id} result={result} />)}
     </div>
   )

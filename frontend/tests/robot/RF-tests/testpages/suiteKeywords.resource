@@ -25,7 +25,7 @@ Go To Next Page
 Go To Last Page
     [Documentation]    After 12th statement page, goes to the last page.
     Click Button    Tulokset
-    Page Should Contain    Tulokset
+    Page Should Contain    Tulokset kategorioittain
 
 Go Back To Front Page
     [Documentation]    Goes to the frontpage by clicking 'etusivulle' button.
