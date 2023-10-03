@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import HomeButton from '../components/Button'
 
 const Links = () => {
   const navigate = useNavigate()
@@ -6,6 +7,7 @@ const Links = () => {
 
   return (
     <div>
+      <HomeButton onClick={homeRoute} />
       <h1>Hyödyllisiä linkkejä</h1>
       <p>
       Lue lisää yhdessä kirjoittamisesta:
@@ -29,7 +31,6 @@ const Links = () => {
        Jos sinua mietityttää esim. lukivaikeuteen tai mielen hyvinvointiin liittyvät asiat, saat lisätietoa korkeakoulusi verkkosivuilta
         <a href='https://studies.helsinki.fi/ohjeet/artikkeli/opiskelun-tueksi'>(HY)</a> <br />
       </p>
-      <button id='statementsRoute' onClick={homeRoute}>Takaisin</button>
     </div>
   )
 }

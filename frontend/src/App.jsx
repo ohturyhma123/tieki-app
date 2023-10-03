@@ -5,7 +5,7 @@ import Results from './pages/Results'
 import Links from './pages/Links'
 
 const App = () => {
-  /** Client-side routing setup that redirects to home if the url path isn't /test or /results */
+  /** Client-side routing setup that redirects to home if the url path isn't /test, /links or /results */
   return (
     <BrowserRouter>
       <Routes>
