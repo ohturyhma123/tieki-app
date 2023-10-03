@@ -10,7 +10,7 @@ Check Headers
     Element Text Should Be    class:weaknesses    Heikkoudet
 
 Check Analysis
-
+    [Documentation]    Checks that only one analysis is shown.
     ${analysis}=    Get WebElements    xpath=//p[contains(@class,'statement')]
     ${analysis_count}=    Get Length    ${analysis}
     Should Be Equal As Integers    ${analysis_count}    1
