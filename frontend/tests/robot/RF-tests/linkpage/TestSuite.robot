@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Tests for the frontpage of the app.
+Documentation    Tests for the linkpage of the app.
 
 Resource    ../../RF-keywords/CommonFunctions.resource
 Resource    suiteKeywords.resource
