@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation    This file contains common keywords and variables used with test suites.
 
-
 *** Keywords ***
 Go To Links Page
     [Documentation]    Clicks on the button that takes the user to the linkpage.
@@ -15,4 +14,3 @@ Go Back To Front Page
     [Documentation]    Goes to the frontpage by clicking 'etusivulle' button.
     Click Button    Etusivulle
     Page Should Contain    Tieteellisen kirjoittamisen itsearviointitesti
-    
