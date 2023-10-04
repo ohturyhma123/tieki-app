@@ -1,13 +1,10 @@
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import resultsData from '../data/resultsData.json'
-import HomeButton from '../components/Button'
 import ResultBlock from '../components/ResultBlock'
 import RadarChart from '../components/RadarChart'
 
 const Results = () => {
   const location = useLocation()
-  const navigate = useNavigate()
-  const homeRoute = () => { navigate('/') }
 
   /**
     Calculates category scores based on user selected statements.
@@ -57,7 +54,6 @@ const Results = () => {
 
   return (
     <div>
-      <HomeButton onClick={homeRoute} />
       <h2>Tulokset kategorioittain</h2>
       {/**
         Object.keys(scores) returns an array of category names from the object,

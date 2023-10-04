@@ -1,13 +1,6 @@
-import { useNavigate } from 'react-router-dom'
-import HomeButton from '../components/Button'
-
 const Links = () => {
-  const navigate = useNavigate()
-  const homeRoute = () => { navigate('/home') }
-
   return (
     <div>
-      <HomeButton onClick={homeRoute} />
       <h1>Hyödyllisiä linkkejä</h1>
       <p>
       Lue lisää yhdessä kirjoittamisesta:
