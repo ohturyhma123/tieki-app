@@ -12,6 +12,7 @@ Suite Teardown    Close Browser
 Test Setup    Go To Frontpage
 Test Tags    linkpage
 
+
 *** Test Cases ***
 User can navigate to the linkpage
     [Documentation]    User can navigate to the linkpage and click on the link
