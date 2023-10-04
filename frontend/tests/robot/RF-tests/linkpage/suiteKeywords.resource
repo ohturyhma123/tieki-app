@@ -15,3 +15,4 @@ Go Back To Front Page
     [Documentation]    Goes to the frontpage by clicking 'etusivulle' button.
     Click Button    Etusivulle
     Page Should Contain    Tieteellisen kirjoittamisen itsearviointitesti
+    
