@@ -8,7 +8,7 @@ Select Statements
     [Arguments]    ${amount}
     ${end_index}=    Evaluate    ${amount}+${1}
     FOR    ${index}    IN RANGE    1    ${end_index}
-        Click Element    //*[@id="root"]/div/div[${index}]
+        Click Element    //*[@id="root"]/div/div[2]/div/div[${index}]
     END
 
 Number Of Statements Clicked
