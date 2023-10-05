@@ -14,9 +14,13 @@
   align-items: center;
   font-size: 1.4rem;
   font-family: "Shadows Into Light", sans-serif;
-  position: sticky;
-  top: 0;
+  position: fixed;
   z-index: 999;
+  box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.2);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .navbar-container {
@@ -47,8 +51,8 @@
 
 .navbar-icon {
   margin-right: 0.5rem;
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
 }
 
 .nav-menu {
@@ -61,7 +65,7 @@
 }
 
 .nav-item {
-  height: 40px;
+  height: 35px;
   border-bottom: 2px solid transparent;
 }
 
@@ -108,7 +112,7 @@
 
   .nav-links {
     text-align: center;
-    padding: 1rem;
+    padding: 0px;
     width: 100%;
     display: table;
   }
@@ -116,7 +120,7 @@
   .nav-links:hover {
     color: #09bef0;
     transform: scale(1.2);
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
   }
 
   .nav-item:hover {
@@ -125,13 +129,6 @@
 
   .nav-item {
     width: 100%;
-  }
-
-  .navbar-logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(25%, 50%);
   }
 
   .menu-icon {
