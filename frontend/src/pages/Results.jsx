@@ -19,7 +19,7 @@ const Results = () => {
     /** Initialize an object with category names as keys and 0 as the values. */
     let categoryScores = {}
     statementsData.forEach((categoryData) => {
-      categoryScores[categoryData.category] = 0
+      categoryScores[categoryData.category] = [0,0]
     })
 
     /**
@@ -31,7 +31,12 @@ const Results = () => {
       for (const categoryData of statementsData) {
         const statement = categoryData.statements.find((s) => s.id === statementId)
         if (categoryData.statements.find((s) => s.id === statementId)) {
-          categoryScores[categoryData.category] += statement.value
+          if(statement.value > 0) {
+            categoryScores[categoryData.category][0] += statement.value
+          }
+          else {
+            categoryScores[categoryData.category][1] += statement.value
+          }
         }
       }
     })
@@ -40,10 +45,15 @@ const Results = () => {
 
   /** Calculate and store category scores outside of JSX to prevent redundant calls with each render. */
   const scores = calculateScore()
+  const sumScores = {}
+
+  Object.entries(scores).forEach(([key, value]) => {
+    sumScores[key] = value[0]+value[1]
+  })
 
   const getResults = () => {
-    const positiveCategories = Object.keys(scores).filter((category) => scores[category] >= 2)
-    const negativeCategories = Object.keys(scores).filter((category) => scores[category] <= -2)
+    const positiveCategories = Object.keys(scores).filter((category) => scores[category][0] >= 2)
+    const negativeCategories = Object.keys(scores).filter((category) => scores[category][1] <= -2)
 
     const positiveResults = resultsData.filter((result) => positiveCategories.includes(result.category) && result.positive)
     const negativeResults = resultsData.filter((result) => negativeCategories.includes(result.category) && result.positive === false)
@@ -60,10 +70,10 @@ const Results = () => {
           <h2>Tulokset kategorioittain</h2>
           {Object.keys(scores).map((category) => (
             <div key={category}>
-              {category}: {scores[category]}<br />
+              {category}: {sumScores[category]}<br />
             </div>
           ))}
-          <RadarChart categories={Object.keys(scores)} results={Object.values(scores)}/>
+          <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
         </div>
       </Grid>
 
