@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom'
 import resultsData from '../data/resultsData.json'
 import ResultBlock from '../components/ResultBlock'
 import RadarChart from '../components/RadarChart'
+import Grid from '@mui/material/Grid'
 
 const Results = () => {
   const location = useLocation()
@@ -53,23 +54,28 @@ const Results = () => {
   const [positiveResults, negativeResults] = getResults()
 
   return (
-    <div>
-      <h2>Tulokset kategorioittain</h2>
-      {/**
-        Object.keys(scores) returns an array of category names from the object,
-        and .map((category) iterates through the array to render a list of categories and their scores.
-      */}
-      {Object.keys(scores).map((category) => (
-        <div key={category}>
-          {category}: {scores[category]}<br />
+    <Grid container spacing={4} justifyContent="center">
+      <Grid item xs={12} md={3}>
+        <div>
+          <h2>Tulokset kategorioittain</h2>
+          {Object.keys(scores).map((category) => (
+            <div key={category}>
+              {category}: {scores[category]}<br />
+            </div>
+          ))}
+          <RadarChart categories={Object.keys(scores)} results={Object.values(scores)}/>
         </div>
-      ))}
-      <RadarChart categories={Object.keys(scores)} results={Object.values(scores)}/>
-      <h2>Vahvuudet</h2>
-      {positiveResults.map((result) => <ResultBlock key={result.id} result={result} />)}
-      <h2>Heikkoudet</h2>
-      {negativeResults.map((result) => <ResultBlock key={result.id} result={result} />)}
-    </div>
+      </Grid>
+
+      <Grid item xs={12} md={3}>
+        <div>
+          <h2>Vahvuudet</h2>
+          {positiveResults.map((result) => <ResultBlock key={result.id} result={result} />)}
+          <h2>Heikkoudet</h2>
+          {negativeResults.map((result) => <ResultBlock key={result.id} result={result} />)}
+        </div>
+      </Grid>
+    </Grid>
   )
 }
 
