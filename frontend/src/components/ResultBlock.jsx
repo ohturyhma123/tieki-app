@@ -28,12 +28,12 @@ const ResultBlock = ({ result }) => {
           }
         </ul>
         {result.links && toggle
-          ? result.links.map((link) => {
+          ? result.links.map((link, index) => {
             return(
-              <>
+              <div key={index}>
                 <p>{link.description}</p>
                 <a className="link" href={link.link}>{link.link}</a>
-              </>
+              </div>
             )
           })
           : null
