@@ -12,16 +12,20 @@ const App = () => {
     Material UI components are used to improve the site's layout and navigation
   */
   return (
-    <Grid container direction="column" alignItems="center">
+    <Grid>
       <BrowserRouter>
-        <Navbar></Navbar>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/test" element={<Statements />} />
-          <Route path="/results" element={<Results />} />
-          <Route path="/links" element={<Links />} />
-          <Route path="/*" element={<Navigate to="/" />} />
-        </Routes>
+        <Grid item className="navbar-container">
+          <Navbar></Navbar>
+        </Grid>
+        <Grid container direction="column" justifyContent="center" alignItems="center">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/test" element={<Statements />} />
+            <Route path="/results" element={<Results />} />
+            <Route path="/links" element={<Links />} />
+            <Route path="/*" element={<Navigate to="/" />} />
+          </Routes>
+        </Grid>
       </BrowserRouter>
     </Grid>
   )

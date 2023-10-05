@@ -1,34 +1,44 @@
-import AppBar from '@mui/material/AppBar'
-import Toolbar from '@mui/material/Toolbar'
-import Button from '@mui/material/Button'
-import IconButton from '@mui/material/IconButton'
+import { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
+import CloseIcon from '@mui/icons-material/Close'
 import MenuIcon from '@mui/icons-material/Menu'
-import HomeIcon from '@mui/icons-material/HomeOutlined'
-import { useNavigate } from 'react-router-dom'
+import unilogo from '../assets/helsinki-uni-logo.png'
+import '../assets//Navbar.css'
 
 const Navbar = () => {
-  const navigate = useNavigate()
-  const homeRoute = () => { navigate('/') }
+  const [click, setClick] = useState(false)
+  const handleClick = () => { setClick(!click) }
+  const closeMobileMenu = () => { setClick(false) }
 
   return (
-    <AppBar position="static" color="default">
-      <Toolbar>
-        <IconButton
-          size="medium"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2 }}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Button color="inherit" onClick={homeRoute}>
-          <HomeIcon
-            sx={{ fontSize: '28px' }}
-          />
-        </Button>
-      </Toolbar>
-    </AppBar>
+    <nav className="navbar" style={{ width: '100%' }}>
+      <div className="navbar-container container">
+        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+          <img src={unilogo} className="navbar-icon" alt="unilogo" />
+        </Link>
+        <div className="menu-icon" onClick={handleClick}>
+          {click ? <CloseIcon /> : <MenuIcon />}
+        </div>
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li className="nav-item">
+            <NavLink
+              to="/palaute"
+              className='nav-links'
+              onClick={closeMobileMenu}>
+                Palaute
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              to="/admin-login"
+              className='nav-links'
+              onClick={closeMobileMenu}>
+                Admin
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+    </nav>
   )
 }
 
