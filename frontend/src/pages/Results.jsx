@@ -65,7 +65,7 @@ const Results = () => {
 
   return (
     <Grid container spacing={4} justifyContent="center">
-      <Grid item xs={12} md={3}>
+      <Grid item xs={12} md={'auto'}>
         <div>
           <h2>Tulokset kategorioittain</h2>
           {Object.keys(scores).map((category) => (
@@ -77,7 +77,7 @@ const Results = () => {
         </div>
       </Grid>
 
-      <Grid item xs={12} md={3}>
+      <Grid item xs={12} md={'auto'}>
         <div>
           <h2>Vahvuudet</h2>
           {positiveResults.map((result) => <ResultBlock key={result.id} result={result} />)}
