@@ -34,6 +34,12 @@ const Statements = () => {
       }}
   }
 
+  const handleStatementKeyDown = (e, statementId) => {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+      handleStatementClick(statementId)
+    }
+  }
+
   /**
     Handles advancing to the next statement set or navigating to the results page.
     If at the last statement set, it navigates to the results page with the data and state of selected statements.
@@ -74,7 +80,9 @@ const Statements = () => {
         <div
           key={s.id}
           className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
-          onClick={() => handleStatementClick(s.id)}>
+          onClick={() => handleStatementClick(s.id)}
+          onKeyDown={e => handleStatementKeyDown(e, s.id)}
+          tabIndex={0}>
           {s.statement}
         </div>
       ))}

@@ -62,7 +62,7 @@ const RadarChart = ({ categories, results }) => {
       }
     }
   }
-  return <Radar data={data} options={options} className="radarchart" />
+  return <Radar data={data} options={options} className="radarchart" aria-label='radar chart'/>
 }
 
 export default RadarChart
