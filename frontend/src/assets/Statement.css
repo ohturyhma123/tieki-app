@@ -7,6 +7,14 @@
   max-width: 450px;
 }
 
+.statement:focus {
+  transform: scale(1.05);
+}
+
+.statement:hover {
+  transform: scale(1.05);
+}
+
 .selected {
   background-color: #a1f0ab;
   transition: background-color 0.06s ease;
