@@ -25,4 +25,5 @@ First Test Page
 
 Go To Linkpage
     [Documentation]    Clicks on the button that takes the user to the linkpage.
-    Click Element    //*[@id="root"]/div/div[1]/nav/div/ul/li[1]/a
+    Click Link    Linkit
+    Page Should Contain    Hyödyllisiä linkkejä

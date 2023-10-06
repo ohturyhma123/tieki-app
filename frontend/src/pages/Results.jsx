@@ -79,9 +79,9 @@ const Results = () => {
 
       <Grid item xs={12} md={'auto'}>
         <div>
-          <h2>Vahvuudet</h2>
+          <h2 className='strengths'>Vahvuudet</h2>
           {positiveResults.map((result) => <ResultBlock key={result.id} result={result} />)}
-          <h2>Heikkoudet</h2>
+          <h2 className='weaknesses'>Heikkoudet</h2>
           {negativeResults.map((result) => <ResultBlock key={result.id} result={result} />)}
         </div>
       </Grid>
