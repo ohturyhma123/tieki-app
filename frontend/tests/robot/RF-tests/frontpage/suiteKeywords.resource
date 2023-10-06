@@ -22,3 +22,8 @@ Go To Test
 First Test Page
     [Documentation]    Checks that the first test page is shown correctly
     Page Should Contain    Väittämäsetti 1/12
+
+Click Linkit Link
+    [Documentation]    Clicks the link that takes an user to the links page.
+    Click Link    Linkit
+    Page Should Contain    Hyödyllisiä linkkejä
