@@ -6,6 +6,7 @@ Library    SeleniumLibrary
 *** Variables ***
 ${APP_URL}    http://localhost:5173
 ${TEST_URL}    http://localhost:5173/test
+${LINK_URL}    http://localhost:5173/links
 ${BROWSER}    chrome
 ${DELAY}    0.5 seconds
 
@@ -24,3 +25,7 @@ Open And Configure Browser
 Go To Testpage
     [Documentation]    Opens the testpage.
     Go To    ${APP_URL}/test
+
+Go To Linkspage
+    [Documentation]    Opens the linkpage.
+    Go To    ${LINK_URL}

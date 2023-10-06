@@ -30,6 +30,6 @@ User Can Start The Test
     Go To Test
     First Test Page
 
-User Can Go To Links Page
-    [Documentation]    Checks that the user is able to go to links page via link.
-    Click Linkit Link
+User Can Go to Linkpage
+    [Documentation]    Clicks on the button that takes the user to the linkpage.
+    Go To Linkpage
