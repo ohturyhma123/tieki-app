@@ -25,4 +25,4 @@ First Test Page
 
 Go To Linkpage
     [Documentation]    Clicks on the button that takes the user to the linkpage.
-    Click Button    id=linksRoute
+    Click Element    //*[@id="root"]/div/div[1]/nav/div/ul/li[1]/a
