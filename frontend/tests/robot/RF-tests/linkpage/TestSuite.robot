@@ -9,17 +9,19 @@ Suite Setup
 ...        AND    Register Keyword To Run On Failure    Nothing
 Suite Teardown    Close Browser
 
-Test Setup    Go To Frontpage
+Test Setup    CommonFunctions.Go To Linkspage
 Test Tags    linkpage
 
 
 *** Test Cases ***
-User can navigate to the linkpage
-    [Documentation]    User can navigate to the linkpage and click on the link
-    Go To Links Page
+Linkpage Is open
+    [Documentation]    Linkpage is opened
+    Header Is Correct
+
+User Can Click On The Link
+    [Documentation]    User can click on the link in the linkpage
     Click On Link
     
-User can navigate back to Front Page
+User Can Navigate Back To Front Page
     [Documentation]    User can navigate back to frontpage
-    Go To Links Page
     Go Back To Frontpage

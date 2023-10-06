@@ -29,3 +29,8 @@ User Can Start The Test
     [Documentation]    Clicks on the button that takes the user to the test.
     Go To Test
     First Test Page
+
+User Can Go to Linkpage
+    [Documentation]    Clicks on the button that takes the user to the linkpage.
+    Go To Linkpage
+    
