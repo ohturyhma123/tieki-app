@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import statementsData from '../data/statementsData.json'
-import HomeButton from '../components/Button'
 import getPositiveStatements from '../components/PositiveStatements'
 import getNegativeStatements from '../components/NegativeStatements'
 import selectOneStatementFromEachPositiveSet from '../components/SelectOnePositiveStatementFromEachCategory'
@@ -14,7 +13,6 @@ const Statements = () => {
   const [currentStatementSetIndex, setCurrentStatementSetIndex] = useState(0)
 
   const navigate = useNavigate()
-  const homeRoute = () => { navigate('/') }
 
   const positiveSets = getPositiveStatements(statementsData)
   const negativeSets = getNegativeStatements(statementsData)
@@ -34,6 +32,12 @@ const Statements = () => {
         setSelectedStatements([...selectedStatements, statementId])
         setSelectedStatementsCount(selectedStatementsCount + 1)
       }}
+  }
+
+  const handleStatementKeyDown = (e, statementId) => {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+      handleStatementClick(statementId)
+    }
   }
 
   /**
@@ -66,7 +70,6 @@ const Statements = () => {
 
   return (
     <div>
-      <HomeButton onClick={homeRoute} />
       <h2>Väittämäsetti {currentStatementSetIndex + 1}/{statementsData.length}</h2>
       <p><i>Voit valita enintään kolme vaihtoehtoa.</i></p>
       {/**
@@ -77,7 +80,9 @@ const Statements = () => {
         <div
           key={s.id}
           className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
-          onClick={() => handleStatementClick(s.id)}>
+          onClick={() => handleStatementClick(s.id)}
+          onKeyDown={e => handleStatementKeyDown(e, s.id)}
+          tabIndex={0}>
           {s.statement}
         </div>
       ))}
