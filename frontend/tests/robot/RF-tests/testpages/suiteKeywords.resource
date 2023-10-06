@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation    This file contains common keywords and variables used with test suites.
 
-Library    SeleniumLibrary
 
 *** Keywords ***
 Select Statements
