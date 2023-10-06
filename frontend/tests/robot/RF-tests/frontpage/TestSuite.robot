@@ -33,4 +33,3 @@ User Can Start The Test
 User Can Go to Linkpage
     [Documentation]    Clicks on the button that takes the user to the linkpage.
     Go To Linkpage
-    

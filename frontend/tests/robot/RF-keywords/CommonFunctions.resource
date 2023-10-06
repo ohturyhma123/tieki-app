@@ -6,7 +6,7 @@ Library    SeleniumLibrary
 *** Variables ***
 ${APP_URL}    http://localhost:5173
 ${TEST_URL}    http://localhost:5173/test
-${LINK_URL}    http://localhost:5173/links    
+${LINK_URL}    http://localhost:5173/links
 ${BROWSER}    chrome
 ${DELAY}    0.5 seconds
 

@@ -21,7 +21,7 @@ Linkpage Is open
 User Can Click On The Link
     [Documentation]    User can click on the link in the linkpage
     Click On Link
-    
+
 User Can Navigate Back To Front Page
     [Documentation]    User can navigate back to frontpage
     Go Back To Frontpage
