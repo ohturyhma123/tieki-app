@@ -5,6 +5,7 @@
   border: 1px solid #ccc;
   background-color: #fff;
   max-width: 600px;
+  border-radius: 7px;
 }
 
 .statement:focus {

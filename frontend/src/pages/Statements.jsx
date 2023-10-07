@@ -7,6 +7,7 @@ import selectOneStatementFromEachPositiveSet from '../components/SelectOnePositi
 import selectOneStatementFromEachNegativeSet from '../components/SelectOneNegativeStatementFromEachCategory'
 import Submit from '../components/ConfirmAlert'
 import '../assets/Statement.css'
+import { Paper, Typography, Button } from '@mui/material'
 
 const Statements = () => {
   const { urlIndex } = useParams()
@@ -134,9 +135,9 @@ const Statements = () => {
   }
 
   return (
-    <div>
-      <h2>Väittämäsetti {currentStatementSetIndex + 1}/{statementsData.length}</h2>
-      <p><i>Voit valita enintään kolme vaihtoehtoa.</i></p>
+    <Paper sx={{ m: 5, p: 7 }} variant='elevation'>
+      <Typography variant='h5'>Väittämäsetti {currentStatementSetIndex + 1}/{statementsData.length}</Typography>
+      <Typography sx={{ py: 2, fontStyle: 'italic' }}>Voit valita enintään kolme vaihtoehtoa.</Typography>
       {/**
         Iterate through the array and create an element for each statement.
         Conditionally add the "selected" CSS class if the statement is in the "selectedStatements" array.
@@ -148,7 +149,7 @@ const Statements = () => {
           onClick={() => handleStatementClick(s.id)}
           onKeyDown={e => handleStatementKeyDown(e, s.id)}
           tabIndex={0}>
-          {s.statement}
+          <Typography>{s.statement}</Typography>
         </div>
       ))}
       {/** Using ternary conditional operators, show different button text when there are no statement sets left */}
@@ -157,11 +158,11 @@ const Statements = () => {
           <button id='previous-btn' onClick={handlePreviousStatementSet}>Edellinen</button>
         )}
         {currentStatementSetIndex < statementsData.length - 1
-          ? <button id='next-btn' onClick={handleNextStatementSet}>Seuraava</button>
-          : <button id='results-btn' onClick={handleNextStatementSet}>Tulokset</button>
+          ? <Button id='next-btn' variant="contained" onClick={handleNextStatementSet}>Seuraava</Button>
+          : <Button id='results-btn' variant="contained" onClick={handleNextStatementSet}>Tulokset</Button>
         }
       </p>
-    </div>
+    </Paper>
   )
 }
 
