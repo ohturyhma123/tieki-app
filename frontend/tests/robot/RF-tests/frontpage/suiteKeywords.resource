@@ -9,7 +9,7 @@ Title Is Correct
 
 Check Header
     [Documentation]    Checks that the header is correct
-    Element Text Should Be    tag:h1    Tieteellisen kirjoittamisen itsearviointitesti
+    Element Text Should Be    id=frontpageHeader    Tieteellisen kirjoittamisen itsearviointitesti
 
 Check Intro
     [Documentation]    Checks that intro text is shown on front page.
