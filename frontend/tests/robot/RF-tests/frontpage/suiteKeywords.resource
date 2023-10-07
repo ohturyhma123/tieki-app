@@ -25,5 +25,5 @@ First Test Page
 
 Go To Linkpage
     [Documentation]    Clicks on the button that takes the user to the linkpage.
-    Click Link    Linkit
+    Wait Until Keyword Succeeds    3x    200ms    Click Link    Linkit
     Page Should Contain    Hyödyllisiä linkkejä
