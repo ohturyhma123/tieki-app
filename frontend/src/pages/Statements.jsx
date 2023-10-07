@@ -11,11 +11,13 @@ const Statements = () => {
   const [selectedStatements, setSelectedStatements] = useState([])
   const [selectedStatementsCount, setSelectedStatementsCount] = useState(0)
   const [currentStatementSetIndex, setCurrentStatementSetIndex] = useState(0)
+  const [visitedStatementSetIndices, setVisitedStatementSetIndices] = useState([])
 
   const navigate = useNavigate()
 
   const positiveSets = getPositiveStatements(statementsData)
   const negativeSets = getNegativeStatements(statementsData)
+
 
   /**
     Handles the event of clicking a statement.
@@ -47,11 +49,20 @@ const Statements = () => {
   */
   const handleNextStatementSet = () => {
     if (currentStatementSetIndex < statementsData.length - 1) {
+      setVisitedStatementSetIndices([...visitedStatementSetIndices, currentStatementSetIndex])
       setCurrentStatementSetIndex(currentStatementSetIndex + 1)
       setSelectedStatementsCount(0)
     } else {
       navigate('/results', { state: { selectedStatements, statementsData }
       })}
+  }
+
+  const handlePreviousStatementSet = () => {
+    if (visitedStatementSetIndices.length > 0) {
+      const previousIndex = visitedStatementSetIndices.pop()
+      setCurrentStatementSetIndex(previousIndex)
+      setSelectedStatementsCount(0)
+    }
   }
 
   let statements
@@ -88,6 +99,9 @@ const Statements = () => {
       ))}
       {/** Using ternary conditional operators, show different button text when there are no statement sets left */}
       <p>
+        {visitedStatementSetIndices.length > 0 && (
+          <button onClick={handlePreviousStatementSet}>Edellinen</button>
+        )}
         {currentStatementSetIndex < statementsData.length - 1
           ? <button onClick={handleNextStatementSet}>Seuraava</button>
           : <button onClick={handleNextStatementSet}>Tulokset</button>
