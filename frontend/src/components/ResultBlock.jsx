@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import '../assets/Statement.css'
-import '../assets/Link.css'
 import { Link, Typography } from '@mui/material'
 
 const ResultBlock = ({ result }) => {
