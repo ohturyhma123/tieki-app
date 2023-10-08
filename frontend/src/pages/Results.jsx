@@ -3,6 +3,7 @@ import resultsData from '../data/resultsData.json'
 import ResultAccordion from '../components/ResultAccordion'
 import RadarChart from '../components/RadarChart'
 import Grid from '@mui/material/Grid'
+import { Typography } from '@mui/material'
 
 const Results = () => {
   const location = useLocation()
@@ -69,11 +70,11 @@ const Results = () => {
         <Grid container spacing={4} justifyContent="center">
           <Grid item xs={12} md={'auto'}>
             <div>
-              <h2>Tulokset kategorioittain</h2>
+              <Typography sx={{ py: 2 }} variant='h4'>Tulokset kategorioittain</Typography>
               {Object.keys(scores).map((category) => (
-                <div key={category}>
-                  {category}: {sumScores[category]}<br />
-                </div>
+                <Typography sx={{ pl: 2 }} key={category}>
+                  {category}: <b>{sumScores[category]}</b><br />
+                </Typography>
               ))}
               <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
             </div>
@@ -81,9 +82,9 @@ const Results = () => {
 
           <Grid item xs={12} md={4}>
             <div>
-              <h2 className='strengths'>Vahvuudet</h2>
+              <Typography sx={{ pt: 2, pb: 1 }} variant='h5' className='strengths'>Vahvuudet</Typography>
               {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
-              <h2 className='weaknesses'>Kehityskohteet</h2>
+              <Typography sx={{ pt: 2, pb: 1 }} variant='h5' className='weaknesses'>Kehityskohteet</Typography>
               {negativeResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
             </div>
           </Grid>
