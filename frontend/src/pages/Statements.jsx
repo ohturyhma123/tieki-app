@@ -13,6 +13,7 @@ const Statements = () => {
   const [selectedStatementsCount, setSelectedStatementsCount] = useState(0)
   const [currentStatementSetIndex, setCurrentStatementSetIndex] = useState(0)
   const [visitedStatementSetIndices, setVisitedStatementSetIndices] = useState([])
+  const [selectedStatementsCountHistory, setSelectedStatementsCountHistory] = useState([])
 
   const navigate = useNavigate()
 
@@ -51,6 +52,7 @@ const Statements = () => {
   const handleNextStatementSet = () => {
     if (currentStatementSetIndex < statementsData.length - 1) {
       setVisitedStatementSetIndices([...visitedStatementSetIndices, currentStatementSetIndex])
+      setSelectedStatementsCountHistory([...selectedStatementsCountHistory, selectedStatementsCount])
       setCurrentStatementSetIndex(currentStatementSetIndex + 1)
       setSelectedStatementsCount(0)
     } else {
@@ -65,7 +67,8 @@ const Statements = () => {
     if (visitedStatementSetIndices.length > 0) {
       const previousIndex = visitedStatementSetIndices.pop()
       setCurrentStatementSetIndex(previousIndex)
-      setSelectedStatementsCount(0)
+      const previousCount = selectedStatementsCountHistory.pop()
+      setSelectedStatementsCount(previousCount)
     }
   }
 
