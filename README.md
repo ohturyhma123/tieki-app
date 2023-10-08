@@ -1,5 +1,10 @@
 # tieki-app
 
+![GHA workflow badge](https://github.com/ohturyhma123/tieki-app/actions/workflows/staging.yaml/badge.svg
+)
+![GHA workflow badge](https://github.com/ohturyhma123/tieki-app/actions/workflows/test.yaml/badge.svg
+)
+
 Linkki sovelluksen stagingiin: https://tieki.ext.ocp-test-0.k8s.it.helsinki.fi/
 
 ## Projekti
