@@ -5,6 +5,7 @@ import getPositiveStatements from '../components/PositiveStatements'
 import getNegativeStatements from '../components/NegativeStatements'
 import selectOneStatementFromEachPositiveSet from '../components/SelectOnePositiveStatementFromEachCategory'
 import selectOneStatementFromEachNegativeSet from '../components/SelectOneNegativeStatementFromEachCategory'
+import Submit from '../components/ConfirmAlert'
 import '../assets/Statement.css'
 
 const Statements = () => {
@@ -53,8 +54,8 @@ const Statements = () => {
       setCurrentStatementSetIndex(currentStatementSetIndex + 1)
       setSelectedStatementsCount(0)
     } else {
-      navigate('/results', { state: { selectedStatements, statementsData }
-      })}
+      Submit({ navigate, selectedStatements, statementsData })
+    }
   }
 
   const handlePreviousStatementSet = () => {
