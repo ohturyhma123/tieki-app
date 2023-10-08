@@ -13,6 +13,7 @@ Go To Resultpage
     END
     # robocop: enable
     Click Button    Tulokset
+    Click Button    Kyllä
 
 Check Headers
     [Documentation]    Checks that the headers are in order.

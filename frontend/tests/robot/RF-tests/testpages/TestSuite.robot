@@ -29,7 +29,8 @@ User Can't Select More Than Three Statements
 
 User Can Go Through All Test Pages
     [Documentation]    Checks that the user is able to go through every test page
-    ...                and is able to select statements from each page.
+    ...                and is able to select statements from each page. Before proceeding to
+    ...                the results page, user sees an alert.
     # robocop: disable
     FOR    ${index}    IN RANGE    1    12
         Go To Next Page
@@ -37,6 +38,16 @@ User Can Go Through All Test Pages
     END
     # robocop: enable
     Go To Last Page
+
+User Can Go Back To Previous Test Page And See Selected Statements
+    [Documentation]    Checks that the user is able to go back to previous test pages
+    ...                and see statemenets selected.
+    Select Statements    3
+    Go To Next Page
+    Select Statements    2
+    Go To Previous Page    1
+    ${previous_statements}=    Number Of Statements Clicked
+    Should Be Equal As Integers    ${previous_statements}    3
 
 User Can Go Back To Front Page
     [Documentation]    Checks that the user is able to go back to the frontpage.
