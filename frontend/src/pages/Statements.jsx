@@ -19,7 +19,6 @@ const Statements = () => {
   const positiveSets = getPositiveStatements(statementsData)
   const negativeSets = getNegativeStatements(statementsData)
 
-
   /**
     Handles the event of clicking a statement.
     If statement is already selected, it deselects and counter is decremented.
@@ -46,6 +45,7 @@ const Statements = () => {
   /**
     Handles advancing to the next statement set or navigating to the results page.
     If at the last statement set, it navigates to the results page with the data and state of selected statements.
+    Before navigating to results page, an alert appears to confirm.
     Otherwise, moves to the next set and resets selected statements count.
   */
   const handleNextStatementSet = () => {
@@ -58,6 +58,9 @@ const Statements = () => {
     }
   }
 
+  /**
+    Handles going back to the previous statement set.
+  */
   const handlePreviousStatementSet = () => {
     if (visitedStatementSetIndices.length > 0) {
       const previousIndex = visitedStatementSetIndices.pop()

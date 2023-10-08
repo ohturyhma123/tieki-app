@@ -22,9 +22,16 @@ Go To Next Page
     Click Button    Seuraava
     Page Should Contain    Väittämäsetti
 
+Go To Previous Page
+    [Documentation]    Clicks the 'edellinen' button
+    [Arguments]    ${set_number}
+    Click Button    Edellinen
+    Page Should Contain    Väittämäsetti ${set_number}/12
+
 Go To Last Page
-    [Documentation]    After 12th statement page, goes to the last page.
+    [Documentation]    After 12th statement page, goes to the last page and confirms the alert.
     Click Button    Tulokset
+    Click Button    Kyllä
     Page Should Contain    Tulokset
 
 Go Back To Front Page
