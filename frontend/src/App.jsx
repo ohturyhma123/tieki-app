@@ -20,7 +20,7 @@ const App = () => {
         <Grid container direction="column" justifyContent="center" alignItems="center">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/test" element={<Statements />} />
+            <Route path="/test/:urlIndex" element={<Statements />} />
             <Route path="/results" element={<Results />} />
             <Route path="/links" element={<Links />} />
             <Route path="/*" element={<Navigate to="/" />} />
