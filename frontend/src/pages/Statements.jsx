@@ -14,6 +14,20 @@ const Statements = () => {
   const [currentStatementSetIndex, setCurrentStatementSetIndex] = useState(0)
   const [visitedStatementSetIndices, setVisitedStatementSetIndices] = useState([])
   const [selectedStatementsCountHistory, setSelectedStatementsCountHistory] = useState([])
+  const [selectedStatementsCountOnPage, setSelectedStatementsCountOnPage] = useState({
+    0: 0,
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+    9: 0,
+    10: 0,
+    11: 0
+  })
 
   const navigate = useNavigate()
 
@@ -28,13 +42,28 @@ const Statements = () => {
   */
   const handleStatementClick = (statementId) => {
     if (selectedStatements.includes(statementId)) {
+      // Statement is already selected, so unselect it and decrease the count
       setSelectedStatements(selectedStatements.filter((id) => id !== statementId))
-      setSelectedStatementsCount(selectedStatementsCount - 1)
+      setSelectedStatementsCount((prevCount) => prevCount - 1)
+
+      // Update the count on the page accordingly
+      setSelectedStatementsCountOnPage((prevState) => ({
+        ...prevState,
+        [currentStatementSetIndex]: prevState[currentStatementSetIndex] - 1,
+      }))
     } else {
       if (selectedStatementsCount < 3) {
-        setSelectedStatements([...selectedStatements, statementId])
-        setSelectedStatementsCount(selectedStatementsCount + 1)
-      }}
+        // Statement is not selected, so select it and increase the count
+        setSelectedStatements((prevStatements) => [...prevStatements, statementId])
+        setSelectedStatementsCount((prevCount) => {
+          setSelectedStatementsCountOnPage((prevState) => ({
+            ...prevState,
+            [currentStatementSetIndex]: prevState[currentStatementSetIndex] + 1,
+          }))
+          return prevCount + 1
+        })
+      }
+    }
   }
 
   const handleStatementKeyDown = (e, statementId) => {
@@ -54,7 +83,8 @@ const Statements = () => {
       setVisitedStatementSetIndices([...visitedStatementSetIndices, currentStatementSetIndex])
       setSelectedStatementsCountHistory([...selectedStatementsCountHistory, selectedStatementsCount])
       setCurrentStatementSetIndex(currentStatementSetIndex + 1)
-      setSelectedStatementsCount(0)
+      const countOnNextPage = selectedStatementsCountOnPage[currentStatementSetIndex+1]
+      setSelectedStatementsCount(countOnNextPage)
     } else {
       Submit({ navigate, selectedStatements, statementsData })
     }
