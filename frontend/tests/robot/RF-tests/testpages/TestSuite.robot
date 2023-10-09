@@ -60,6 +60,18 @@ User Is Able To Only Select Three Statements In Total On Previous Page
     ${previous_statements}=    Number Of Statements Clicked
     Should Be Equal As Integers    ${previous_statements}    3
 
+User Can Go Back To Previous Test Page By Browser Back
+    [Documentation]    Checks that the browser's back button works correctly.
+    Select Statements    2
+    Go To Next Page
+    Select Statements    2
+    Go Back
+    ${previous_statements}=    Number Of Statements Clicked
+    Should Be Equal As Integers    ${previous_statements}    2
+    Go To Next Page
+    ${previous_statements}=    Number Of Statements Clicked
+    Should Be Equal As Integers    ${previous_statements}    2
+
 User Can Go Back To Front Page
     [Documentation]    Checks that the user is able to go back to the frontpage.
     Go Back To Front Page
