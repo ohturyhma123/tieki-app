@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
   const navigate = useNavigate()
-  const statementsRoute = () => { navigate('/test') }
+  const statementsRoute = () => { navigate('/test/0') }
 
   return (
     <div>

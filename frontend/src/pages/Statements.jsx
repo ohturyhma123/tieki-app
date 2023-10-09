@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import statementsData from '../data/statementsData.json'
 import getPositiveStatements from '../components/PositiveStatements'
 import getNegativeStatements from '../components/NegativeStatements'
@@ -9,6 +9,8 @@ import Submit from '../components/ConfirmAlert'
 import '../assets/Statement.css'
 
 const Statements = () => {
+  const { urlIndex } = useParams()
+
   const [selectedStatements, setSelectedStatements] = useState([])
   const [selectedStatementsCount, setSelectedStatementsCount] = useState(0)
   const [currentStatementSetIndex, setCurrentStatementSetIndex] = useState(0)
@@ -33,6 +35,18 @@ const Statements = () => {
 
   const positiveSets = getPositiveStatements(statementsData)
   const negativeSets = getNegativeStatements(statementsData)
+
+  /**
+    This effect will run whenever the URL changes. This renders the correct statement set
+    when the browser's back or forward button is clicked.
+   */
+  useEffect(() => {
+    const newIndex = parseInt(urlIndex, 10)
+    if (!isNaN(newIndex) && newIndex !== currentStatementSetIndex) {
+      setCurrentStatementSetIndex(newIndex)
+      setSelectedStatementsCount(selectedStatementsCountOnPage[newIndex])
+    }
+  }, [urlIndex, currentStatementSetIndex, selectedStatementsCountOnPage])
 
   /**
     Handles the event of clicking a statement.
@@ -85,6 +99,8 @@ const Statements = () => {
       setCurrentStatementSetIndex(currentStatementSetIndex + 1)
       const countOnNextPage = selectedStatementsCountOnPage[currentStatementSetIndex+1]
       setSelectedStatementsCount(countOnNextPage)
+
+      navigate(`/test/${currentStatementSetIndex + 1}`)
     } else {
       Submit({ navigate, selectedStatements, statementsData })
     }
@@ -99,6 +115,7 @@ const Statements = () => {
       setCurrentStatementSetIndex(previousIndex)
       const previousCount = selectedStatementsCountHistory.pop()
       setSelectedStatementsCount(previousCount)
+      navigate(-1)
     }
   }
 
