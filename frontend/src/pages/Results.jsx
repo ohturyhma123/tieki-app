@@ -1,12 +1,11 @@
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import resultsData from '../data/resultsData.json'
-import ResultBlock from '../components/ResultBlock'
+import ResultAccordion from '../components/ResultAccordion'
 import RadarChart from '../components/RadarChart'
 import Grid from '@mui/material/Grid'
 
 const Results = () => {
   const location = useLocation()
-
   /**
     Calculates category scores based on user selected statements.
     @returns {Object} - Object containing scores by category.
@@ -64,28 +63,39 @@ const Results = () => {
   const [positiveResults, negativeResults] = getResults()
 
   return (
-    <Grid container spacing={4} justifyContent="center">
-      <Grid item xs={12} md={'auto'}>
-        <div>
-          <h2>Tulokset kategorioittain</h2>
-          {Object.keys(scores).map((category) => (
-            <div key={category}>
-              {category}: {sumScores[category]}<br />
+    <div>
+      {location.state.selectedStatements.length > 0
+        ?
+        <Grid container spacing={4} justifyContent="center">
+          <Grid item xs={12} md={'auto'}>
+            <div>
+              <h2>Tulokset kategorioittain</h2>
+              {Object.keys(scores).map((category) => (
+                <div key={category}>
+                  {category}: {sumScores[category]}<br />
+                </div>
+              ))}
+              <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
             </div>
-          ))}
-          <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
-        </div>
-      </Grid>
+          </Grid>
 
-      <Grid item xs={12} md={'auto'}>
+          <Grid item xs={12} md={4}>
+            <div>
+              <h2 className='strengths'>Vahvuudet</h2>
+              {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
+              <h2 className='weaknesses'>Heikkoudet</h2>
+              {negativeResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
+            </div>
+          </Grid>
+        </Grid>
+        :
         <div>
-          <h2 className='strengths'>Vahvuudet</h2>
-          {positiveResults.map((result) => <ResultBlock key={result.id} result={result} />)}
-          <h2 className='weaknesses'>Heikkoudet</h2>
-          {negativeResults.map((result) => <ResultBlock key={result.id} result={result} />)}
+          <h2>Et valinnut tarpeeksi väittämiä analyysin muodostamiseen.</h2>
+          <p>Hyödyllisiä linkkejä löydät:</p>
+          <Link to='/links'>Linkkisivulta</Link>
         </div>
-      </Grid>
-    </Grid>
+      }
+    </div>
   )
 }
 
