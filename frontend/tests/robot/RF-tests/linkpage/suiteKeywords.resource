@@ -11,7 +11,18 @@ Click On Link
     [Documentation]    Clicks on the link that takes the user to one of the links.
     Click Element    //*[@id="root"]/div/div[2]/div/p/a[1]
 
+Keyboard Press Link
+    [Documentation]    Use keyboard to press the link that takes the user to one of the links.
+    Set Focus To Element    //*[@id="root"]/div/div[2]/div/p/a[1]
+    Press Keys    None    ENTER
+
 Go Back To Front Page
     [Documentation]    Goes to the frontpage by clicking 'etusivulle' button.
     Click Element    //*[@id="root"]/div/div[1]/nav/div/a
+    Page Should Contain    Tieteellisen kirjoittamisen itsearviointitesti
+
+Go Back To Front Page Using Keyboard
+    [Documentation]    Goes to the frontpage by clicking 'etusivulle' button.
+    Set Focus To Element    //*[@class="navbar-logo"]
+    Press Keys    None    ENTER
     Page Should Contain    Tieteellisen kirjoittamisen itsearviointitesti

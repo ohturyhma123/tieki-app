@@ -21,9 +21,21 @@ User Can Select Three Statements
     ${statements}=    Number Of Statements Clicked
     Should Be Equal As Integers    ${statements}    3
 
+User Can Select Three Statements Using Keyboard
+    [Documentation]    Checks that an user is able to select 0-3 statements using keyboard only
+    Select Statements Using Keyboard    3
+    ${statements}=    Number Of Statements Clicked
+    Should Be Equal As Integers    ${statements}    3
+
 User Can't Select More Than Three Statements
     [Documentation]    Checks that the user cannot select more than 3 statements
     Select Statements    4
+    ${statements}=    Number Of Statements Clicked
+    Should Be Equal As Integers    ${statements}    3
+
+User Can't Select More Than Three Statements Using Keyboard
+    [Documentation]    Checks that the user cannot select more than 3 statements using keyboard only
+    Select Statements Using Keyboard    4
     ${statements}=    Number Of Statements Clicked
     Should Be Equal As Integers    ${statements}    3
 
@@ -38,6 +50,18 @@ User Can Go Through All Test Pages
     END
     # robocop: enable
     Go To Last Page
+
+User Can Go Through All Test Pages Using Keyboard
+    [Documentation]    Checks that the user is able to go through every test page using keyboard only
+    ...                and is able to select statements from each page. Before proceeding to
+    ...                the results page, user sees an alert.
+    # robocop: disable
+    FOR    ${index}    IN RANGE    1    12
+        Select Statements Using Keyboard    1
+        Go To Next Page Using Keyboard
+    END
+    # robocop: enable
+    Go To Last Page Using Keyboard
 
 User Can Go Back To Previous Test Page And See Selected Statements
     [Documentation]    Checks that the user is able to go back to previous test pages
@@ -60,6 +84,17 @@ User Is Able To Only Select Three Statements In Total On Previous Page
     ${previous_statements}=    Number Of Statements Clicked
     Should Be Equal As Integers    ${previous_statements}    3
 
+User Is Able To Only Select Three Statements In Total On Previous Page Using Keyboard
+    [Documentation]    Checks that the user cannot choose more than 3 statements if navigating back to
+    ...                previous statement set, while using keyboard.
+    Select Statements Using Keyboard    2
+    Go To Next Page Using Keyboard
+    Go To Previous Page Using Keyboard    1
+    Select Statements Using Keyboard   2
+    Select Statements Using Keyboard   6
+    ${previous_statements}=    Number Of Statements Clicked
+    Should Be Equal As Integers    ${previous_statements}    3
+
 User Can Go Back To Previous Test Page By Browser Back
     [Documentation]    Checks that the browser's back button works correctly.
     Select Statements    2
@@ -75,3 +110,7 @@ User Can Go Back To Previous Test Page By Browser Back
 User Can Go Back To Front Page
     [Documentation]    Checks that the user is able to go back to the frontpage.
     Go Back To Front Page
+
+User Can Go Back To Front Page Using Keyboard
+    [Documentation]    Checks that the user is able to go back to the frontpage.
+    Go Back To Front Page Using Keyboard
