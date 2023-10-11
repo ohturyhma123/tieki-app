@@ -30,6 +30,15 @@ User Can Start The Test
     Go To Test
     First Test Page
 
+User Can Start The Test Using Keyboard
+    [Documentation]    Using keyboard only, press the button that takes the user to the test.
+    Go To Test Using Keyboard
+    First Test Page
+
 User Can Go to Linkpage
     [Documentation]    Clicks on the button that takes the user to the linkpage.
     Go To Linkpage
+
+User Can Go to Linkpage Using Keyboard
+    [Documentation]    Using keyboard only, press the button that takes the user to the linkpage.
+    Go To Linkpage Using Keyboard

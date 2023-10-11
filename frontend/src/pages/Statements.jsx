@@ -154,11 +154,11 @@ const Statements = () => {
       {/** Using ternary conditional operators, show different button text when there are no statement sets left */}
       <p>
         {visitedStatementSetIndices.length > 0 && (
-          <button onClick={handlePreviousStatementSet}>Edellinen</button>
+          <button id='previous-btn' onClick={handlePreviousStatementSet}>Edellinen</button>
         )}
         {currentStatementSetIndex < statementsData.length - 1
-          ? <button onClick={handleNextStatementSet}>Seuraava</button>
-          : <button onClick={handleNextStatementSet}>Tulokset</button>
+          ? <button id='next-btn' onClick={handleNextStatementSet}>Seuraava</button>
+          : <button id='results-btn' onClick={handleNextStatementSet}>Tulokset</button>
         }
       </p>
     </div>

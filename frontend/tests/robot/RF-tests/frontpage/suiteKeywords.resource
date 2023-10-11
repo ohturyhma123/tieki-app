@@ -19,6 +19,11 @@ Go To Test
     [Documentation]    Clicks on the button that takes the user to the test.
     Click Button    id=statementsRoute
 
+Go To Test Using Keyboard
+    [Documentation]    Use keyboard to press the button that takes the user to the test.
+    Set Focus To Element    id:statementsRoute
+    Press Keys    None    ENTER
+
 First Test Page
     [Documentation]    Checks that the first test page is shown correctly
     Page Should Contain    Väittämäsetti 1/12
@@ -26,4 +31,10 @@ First Test Page
 Go To Linkpage
     [Documentation]    Clicks on the button that takes the user to the linkpage.
     Wait Until Keyword Succeeds    3x    200ms    Click Link    Linkit
+    Page Should Contain    Hyödyllisiä linkkejä
+
+Go To Linkpage Using Keyboard
+    [Documentation]    Use keyboard to press the button that takes the user to the linkpage.
+    Set Focus To Element    //*[@id="root"]/div/div[1]/nav/div/ul/li[1]/a
+    Press Keys    None    ENTER
     Page Should Contain    Hyödyllisiä linkkejä

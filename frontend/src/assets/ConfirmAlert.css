@@ -1,0 +1,15 @@
+.yes-btn:focus {
+  background-color: #00aa00;
+}
+  
+.yes-btn:hover {
+  background-color: #00aa00;
+}
+
+.no-btn:focus {
+  background-color: #aa0000;
+}
+    
+.no-btn:hover {
+  background-color: #aa0000;
+}
