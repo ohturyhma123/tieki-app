@@ -83,7 +83,7 @@ const Results = () => {
             <div>
               <h2 className='strengths'>Vahvuudet</h2>
               {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
-              <h2 className='weaknesses'>Heikkoudet</h2>
+              <h2 className='weaknesses'>Kehityskohteet</h2>
               {negativeResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
             </div>
           </Grid>
