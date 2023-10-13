@@ -114,3 +114,10 @@ User Can Go Back To Front Page
 User Can Go Back To Front Page Using Keyboard
     [Documentation]    Checks that the user is able to go back to the frontpage.
     Go Back To Front Page Using Keyboard
+
+User Is Able To Continue Test After Reloading Page
+    [Documentation]    Reloads the page and checks that user can navigate in the test.
+    Select Statements    1
+    Go To Next Page
+    Reload Page
+    Go To Previous Page    1
