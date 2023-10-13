@@ -111,8 +111,8 @@ const Statements = () => {
     Handles going back to the previous statement set.
   */
   const handlePreviousStatementSet = () => {
-    if (visitedStatementSetIndices.length > 0) {
-      const previousIndex = visitedStatementSetIndices.pop()
+    if (urlIndex > 0) {
+      const previousIndex = urlIndex - 1
       setCurrentStatementSetIndex(previousIndex)
       const previousCount = selectedStatementsCountHistory.pop()
       setSelectedStatementsCount(previousCount)
@@ -172,7 +172,7 @@ const Statements = () => {
       ))}
       {/** Using ternary conditional operators, show different button text when there are no statement sets left */}
       <p>
-        {visitedStatementSetIndices.length > 0 && (
+        {urlIndex > 0 && (
           <Button id='previous-btn' sx={{ mr: 1 }} variant="contained" onClick={handlePreviousStatementSet}>Edellinen</Button>
         )}
         {currentStatementSetIndex < statementsData.length - 1
