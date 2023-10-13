@@ -4,7 +4,6 @@ import CloseIcon from '@mui/icons-material/Close'
 import MenuIcon from '@mui/icons-material/Menu'
 import logo from '../assets/helsinki-uni-logo.png'
 import '../assets//Navbar.css'
-import { AppBar, Typography } from '@mui/material'
 
 const Navbar = () => {
   const [click, setClick] = useState(false)
@@ -12,7 +11,7 @@ const Navbar = () => {
   const closeMobileMenu = () => { setClick(false) }
 
   return (
-    <AppBar className="navbar" style={{ width: '100%', background: '#353132' }}>
+    <nav className="navbar" style={{ width: '100%' }}>
       <div className="navbar-container container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
           <img src={logo} className="navbar-icon" alt="logo" />
@@ -25,32 +24,29 @@ const Navbar = () => {
             <NavLink
               to="/links"
               className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              <Typography sx={{ color: 'white' }}  variant='body1'>Linkit</Typography>
+              onClick={closeMobileMenu}>
+                Hyödylliset linkit
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink
               to="/feedback"
               className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              <Typography sx={{ color: 'white' }}  variant='body1'>Palaute</Typography>
+              onClick={closeMobileMenu}>
+                Palaute
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink
               to="/haka-login"
               className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              <Typography sx={{ color: 'white' }}  variant='body1'>Admin</Typography>
+              onClick={closeMobileMenu}>
+                Admin
             </NavLink>
           </li>
         </ul>
       </div>
-    </AppBar>
+    </nav>
   )
 }
 

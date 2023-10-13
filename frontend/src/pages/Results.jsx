@@ -2,8 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import resultsData from '../data/resultsData.json'
 import ResultAccordion from '../components/ResultAccordion'
 import RadarChart from '../components/RadarChart'
-import Grid from '@mui/material/Grid'
-import { Box, Paper, Typography } from '@mui/material'
+import { Box, Paper, Typography, Grid } from '@mui/material'
 
 const Results = () => {
   const location = useLocation()
@@ -64,37 +63,39 @@ const Results = () => {
   const [positiveResults, negativeResults] = getResults()
 
   return (
-    <Paper sx={{ m: 10, mt: 5, mb: 40, pt: 5, p: 10 }}>
-      {location.state.selectedStatements.length > 0
-        ?
-        <Grid container direction="row" spacing={20} justifyContent="center">
-          <Grid item xs={5} md={6}>
-            <div>
-              <Typography sx={{ py: 2 }} variant='h4'>Tulokset kategorioittain</Typography>
-              {Object.keys(scores).map((category) => (
-                <Typography sx={{ pl: 2 }} key={category}>
-                  {category}: <b>{sumScores[category]}</b><br />
-                </Typography>
-              ))}
-              <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
-            </div>
+    <Grid sx={{ background: '#FEF6E1' }} container direction="column" justifyContent="center" alignItems="center">
+      <Paper sx={{ m: 10, mt: 5, mb: 40, pt: 5, p: 10 }}>
+        {location.state.selectedStatements.length > 0
+          ?
+          <Grid container direction="row" spacing={20} justifyContent="center">
+            <Grid item xs={5} md={6}>
+              <div>
+                <Typography sx={{ py: 2 }} variant='h4'>Tulokset kategorioittain</Typography>
+                {Object.keys(scores).map((category) => (
+                  <Typography sx={{ pl: 2 }} key={category}>
+                    {category}: <b>{sumScores[category]}</b><br />
+                  </Typography>
+                ))}
+                <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
+              </div>
+            </Grid>
+            <Grid item xs={6} md={6}>
+              <div>
+                <Typography sx={{ pt: 2, pb: 1 }} variant='h5' className='strengths'>Vahvuudet</Typography>
+                {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
+                <Typography sx={{ pt: 4, pb: 1 }} variant='h5' className='weaknesses'>Kehityskohteet</Typography>
+                {negativeResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
+              </div>
+            </Grid>
           </Grid>
-          <Grid item xs={6} md={6}>
-            <div>
-              <Typography sx={{ pt: 2, pb: 1 }} variant='h5' className='strengths'>Vahvuudet</Typography>
-              {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
-              <Typography sx={{ pt: 4, pb: 1 }} variant='h5' className='weaknesses'>Kehityskohteet</Typography>
-              {negativeResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
-            </div>
-          </Grid>
-        </Grid>
-        :
-        <Box>
-          <Typography sx={{ pt: 2, pb: 5 }} variant='h4' >Et valinnut tarpeeksi väittämiä analyysin muodostamiseen.</Typography>
-          <Typography variant='h5' >Hyödyllisiä linkkejä löydät <Link to='/links'>linkkisivulta</Link></Typography>
-        </Box>
-      }
-    </Paper>
+          :
+          <Box>
+            <Typography sx={{ pt: 2, pb: 5 }} variant='h4' >Et valinnut tarpeeksi väittämiä analyysin muodostamiseen.</Typography>
+            <Typography variant='h5' >Hyödyllisiä linkkejä löydät <Link to='/links'>linkkisivulta</Link></Typography>
+          </Box>
+        }
+      </Paper>
+    </Grid>
   )
 }
 

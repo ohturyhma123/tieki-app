@@ -12,7 +12,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
+  font-family: "Shadows Into Light", sans-serif;
   position: fixed;
   z-index: 999;
   box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.2);
@@ -34,12 +35,12 @@
   max-width: 1300px;
   margin-right: auto;
   margin-left: auto;
-  padding-right: 50px;
-  padding-left: 50px;
+  padding-right: 0px;
+  padding-left: 70px;
 }
 
 .navbar-logo {
-  color: #000000;
+  color: #ffffff;
   justify-self: start;
   cursor: pointer;
   text-decoration: none;
@@ -50,8 +51,8 @@
 
 .navbar-icon {
   margin-right: 0.5rem;
-  width: 52px;
-  height: 52px;
+  width: 54px;
+  height: 54px;
 }
 
 .nav-menu {
@@ -64,12 +65,7 @@
 }
 
 .nav-item {
-  height: 35px;
-  border-bottom: 2px solid transparent;
-}
-
-.nav-item:hover {
-  border-bottom: 2px solid #09bef0;
+  border: none;
 }
 
 .nav-links {
@@ -79,6 +75,12 @@
   text-decoration: none;
   padding: 0.5rem 1rem;
   height: 100%;
+}
+
+.nav-links:hover {
+  color: #61b0b5;
+  transform: scale(1.04);
+  transition: all 0.07s ease;
 }
 
 .menu-icon {
@@ -95,7 +97,7 @@
     flex-direction: column;
     width: 100%;
     position: fixed;
-    top: 72px;
+    top: 52px;
     left: -100%;
     opacity: 1;
     transition: all 0.4s ease;
@@ -110,16 +112,17 @@
   }
 
   .nav-links {
+    display: block;
     text-align: center;
-    padding: 0px;
-    width: 100%;
+    padding: 4px;
+    width: 94%;
     display: table;
   }
 
   .nav-links:hover {
-    color: #09bef0;
-    transform: scale(1.2);
-    transition: all 0.1s ease;
+    color: #61b0b5;
+    transform: scale(1.04);
+    transition: all 0.07s ease;
   }
 
   .nav-item:hover {
@@ -133,10 +136,10 @@
   .menu-icon {
     display: block;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -10px;
+    right: 7px;
     transform: translate(-100%, 60%);
-    font-size: 1.7rem;
+    font-size: 2rem;
     cursor: pointer;
   }
 }
