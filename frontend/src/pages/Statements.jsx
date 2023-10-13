@@ -7,7 +7,7 @@ import selectOneStatementFromEachPositiveSet from '../components/SelectOnePositi
 import selectOneStatementFromEachNegativeSet from '../components/SelectOneNegativeStatementFromEachCategory'
 import Submit from '../components/ConfirmAlert'
 import '../assets/Statement.css'
-import { Paper, Typography, Button } from '@mui/material'
+import { Paper, Typography, Button, LinearProgress, Box } from '@mui/material'
 
 const Statements = () => {
   const { urlIndex } = useParams()
@@ -134,8 +134,26 @@ const Statements = () => {
     statements = selectOneStatementFromEachNegativeSet(negativeSets, setIndex)
   }
 
+  function LinearProgressWithLabel(props) {
+    return (
+      <Box sx={{ pt: 2, display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ width: '100%', mr: 1 }}>
+          <LinearProgress sx={{ height: 12, borderRadius: 1 }} color='success' variant="determinate" {...props} />
+        </Box>
+        <Box sx={{ width: 50 }}>
+          <Typography variant="body2" color="text.secondary">
+            {`${currentStatementSetIndex + 1} / ${statementsData.length}`}
+          </Typography>
+        </Box>
+      </Box>
+    )
+  }
+
   return (
-    <Paper sx={{ m: 5, p: 7 }} variant='elevation'>
+    <Paper
+      sx={{ mt: 5, mb: 10, p: 10, pb: 4, height: '75%', width: '80%' }}
+      variant='elevation'
+    >
       <Typography variant='h5'>Väittämäsetti {currentStatementSetIndex + 1}/{statementsData.length}</Typography>
       <Typography sx={{ py: 2, fontStyle: 'italic' }}>Voit valita enintään kolme vaihtoehtoa.</Typography>
       {/**
@@ -149,18 +167,19 @@ const Statements = () => {
           onClick={() => handleStatementClick(s.id)}
           onKeyDown={e => handleStatementKeyDown(e, s.id)}
           tabIndex={0}>
-          <Typography>{s.statement}</Typography>
+          <Typography sx={{ fontSize: 14 }}>{s.statement}</Typography>
         </div>
       ))}
       {/** Using ternary conditional operators, show different button text when there are no statement sets left */}
       <p>
         {visitedStatementSetIndices.length > 0 && (
-          <button id='previous-btn' onClick={handlePreviousStatementSet}>Edellinen</button>
+          <Button id='previous-btn' sx={{ mr: 1 }} variant="contained" onClick={handlePreviousStatementSet}>Edellinen</Button>
         )}
         {currentStatementSetIndex < statementsData.length - 1
           ? <Button id='next-btn' variant="contained" onClick={handleNextStatementSet}>Seuraava</Button>
           : <Button id='results-btn' variant="contained" onClick={handleNextStatementSet}>Tulokset</Button>
         }
+        <LinearProgressWithLabel value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
       </p>
     </Paper>
   )
