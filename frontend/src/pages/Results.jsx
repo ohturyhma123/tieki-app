@@ -3,7 +3,7 @@ import resultsData from '../data/resultsData.json'
 import ResultAccordion from '../components/ResultAccordion'
 import RadarChart from '../components/RadarChart'
 import Grid from '@mui/material/Grid'
-import { Typography } from '@mui/material'
+import { Box, Paper, Typography } from '@mui/material'
 
 const Results = () => {
   const location = useLocation()
@@ -64,11 +64,11 @@ const Results = () => {
   const [positiveResults, negativeResults] = getResults()
 
   return (
-    <div>
+    <Paper sx={{ m: 10, mt: 5, mb: 40, pt: 5, p: 10 }}>
       {location.state.selectedStatements.length > 0
         ?
-        <Grid container spacing={4} justifyContent="center">
-          <Grid item xs={12} md={'auto'}>
+        <Grid container direction="row" spacing={20} justifyContent="center">
+          <Grid item xs={5} md={6}>
             <div>
               <Typography sx={{ py: 2 }} variant='h4'>Tulokset kategorioittain</Typography>
               {Object.keys(scores).map((category) => (
@@ -79,24 +79,22 @@ const Results = () => {
               <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
             </div>
           </Grid>
-
-          <Grid item xs={12} md={4}>
+          <Grid item xs={6} md={6}>
             <div>
               <Typography sx={{ pt: 2, pb: 1 }} variant='h5' className='strengths'>Vahvuudet</Typography>
               {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
-              <Typography sx={{ pt: 2, pb: 1 }} variant='h5' className='weaknesses'>Kehityskohteet</Typography>
+              <Typography sx={{ pt: 4, pb: 1 }} variant='h5' className='weaknesses'>Kehityskohteet</Typography>
               {negativeResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
             </div>
           </Grid>
         </Grid>
         :
-        <div>
-          <h2>Et valinnut tarpeeksi väittämiä analyysin muodostamiseen.</h2>
-          <p>Hyödyllisiä linkkejä löydät:</p>
-          <Link to='/links'>Linkkisivulta</Link>
-        </div>
+        <Box>
+          <Typography sx={{ pt: 2, pb: 5 }} variant='h4' >Et valinnut tarpeeksi väittämiä analyysin muodostamiseen.</Typography>
+          <Typography variant='h5' >Hyödyllisiä linkkejä löydät <Link to='/links'>linkkisivulta</Link></Typography>
+        </Box>
       }
-    </div>
+    </Paper>
   )
 }
 
