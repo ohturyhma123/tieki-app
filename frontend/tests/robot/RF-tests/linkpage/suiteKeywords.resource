@@ -13,12 +13,12 @@ Click On Link
 
 Keyboard Press Link
     [Documentation]    Use keyboard to press the link that takes the user to one of the links.
-    Set Focus To Element    //*[@id="root"]/div/div[2]/div/p/a[1]
+    Set Focus To Element    id=testlink
     Press Keys    None    ENTER
 
 Go Back To Front Page
     [Documentation]    Goes to the frontpage by clicking 'etusivulle' button.
-    Click Element    //*[@id="root"]/div/div[1]/header/div/a/img
+    Click Element    //*[@class="navbar-logo"]
     Page Should Contain    Tieteellisen kirjoittamisen itsearviointitesti
 
 Go Back To Front Page Using Keyboard

@@ -35,6 +35,6 @@ Go To Linkpage
 
 Go To Linkpage Using Keyboard
     [Documentation]    Use keyboard to press the button that takes the user to the linkpage.
-    Set Focus To Element    //*[@id="root"]/div/div[1]/nav/div/ul/li[1]/a
+    Set Focus To Element    //*[@id="root"]/div/div[1]/header/div/ul/li[1]/a
     Press Keys    None    ENTER
     Page Should Contain    Hyödyllisiä linkkejä
