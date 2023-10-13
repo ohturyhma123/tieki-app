@@ -2,21 +2,36 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import CloseIcon from '@mui/icons-material/Close'
 import MenuIcon from '@mui/icons-material/Menu'
-import logo from '../assets/helsinki-uni-logo.png'
+import logo from '../assets/helsinki-uni-logo-white.png'
 import '../assets//Navbar.css'
-import { AppBar } from '@mui/material'
+import { AppBar, Typography, styled } from '@mui/material'
 
 const Navbar = () => {
   const [click, setClick] = useState(false)
   const handleClick = () => { setClick(!click) }
   const closeMobileMenu = () => { setClick(false) }
 
+  const Title = styled(Typography)(({ theme }) => ({
+    fontFamily: '"Lato", sans-serif',
+    fontSize: '30px',
+    color: '#fff',
+    fontWeight: 'bold',
+    margin: theme.spacing(2, 0, 0, 7),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '14px',
+      margin: theme.spacing(2.5, 2, 4, 2)
+    }
+  }))
+
   return (
-    <AppBar className="navbar" style={{ width: '100%', background: '#293649' }}>
+    <AppBar className="navbar" style={{ width: '100%', background: '#000012' }}>
       <div className="navbar-container container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
           <img src={logo} className="navbar-icon" alt="logo" />
         </Link>
+        <Title variant="h6">
+          Tieteellisen kirjoittamisen itsearviointitesti
+        </Title>
         <div className="menu-icon" onClick={handleClick}>
           {click ? <CloseIcon /> : <MenuIcon />}
         </div>

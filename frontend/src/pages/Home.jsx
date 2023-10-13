@@ -1,35 +1,24 @@
-import { Box, styled, Typography, List, ListItemText, Container } from '@mui/material'
+import { Box, Typography, List, ListItemText, Container } from '@mui/material'
 import LargeButton from '../components/LargeButton'
 import homeBackground from '../assets/home-background.jpg'
+import smallHomeBackground from '../assets/small-home-background.jpg'
 import CustomBox from '../components/CustomBox'
 
 const Home = () => {
-  const Title = styled(Typography)(({ theme }) => ({
-    fontFamily: '"Lato", sans-serif',
-    fontSize: '74px',
-    color: '#000336',
-    fontWeight: 'bold',
-    margin: theme.spacing(4.4, 0, 2.5, 1.2),
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '40px',
-      margin: theme.spacing(1, 0, -2, 2)
-    }
-  }))
-
   return (
     <Box sx={{ flex: '1' }}>
-      <img
-        src={homeBackground}
-        alt="homeBackground"
-        style={{ maxWidth: '100%', position: 'absolute', top: 75, left: 0, right: 0,
-          height: 'calc(100vh - 75px)', zIndex: -1 }}
-      />
+      <picture>
+        <source media="(max-width: 960px)" srcSet={smallHomeBackground} />
+        <img
+          src={homeBackground}
+          alt="homeBackground"
+          style={{ maxWidth: '100%', maxHeight: '100%', position: 'absolute', top: 0, left: 0, right: 0,
+            width: '100%', height: '100%', zIndex: -1 }}
+        />
+      </picture>
       <Container>
         <CustomBox>
           <Box sx={{ flex: '1' }}>
-            <Title variant='h1'>
-              Tieteellisen kirjoittamisen itsearviointitesti
-            </Title>
             <Typography
               variant='body2'
               sx={{ fontSize: '20px', fontFamily: '"Lato", sans-serif', color: '#000336', fontWeight: '500', mb: 2, mt: 5.2, ml: 2 }}>

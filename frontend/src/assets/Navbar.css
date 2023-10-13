@@ -36,7 +36,7 @@
   margin-right: auto;
   margin-left: auto;
   padding-right: 0px;
-  padding-left: 70px;
+  padding-left: 20px;
 }
 
 .navbar-logo {
@@ -73,13 +73,12 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.85rem;
   height: 100%;
   color: #ffffff;
 }
 
 .nav-links:hover {
-  color: #61b0b5;
   transform: scale(1.04);
   transition: all 0.07s ease;
 }
@@ -105,7 +104,7 @@
   }
 
   .nav-menu.active {
-    background: #293649;
+    background: #000012;
     left: 0;
     opacity: 1;
     transition: all 0.4s ease;
@@ -121,7 +120,6 @@
   }
 
   .nav-links:hover {
-    color: #61b0b5;
     transform: scale(1.04);
     transition: all 0.07s ease;
   }
