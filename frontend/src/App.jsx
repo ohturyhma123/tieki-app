@@ -12,7 +12,7 @@ const App = () => {
     Material UI components are used to improve the site's layout and navigation
   */
   return (
-    <Grid>
+    <Grid sx={{ background: '#FEF6E1' }} justifyContent="center" alignItems="center">
       <BrowserRouter>
         <Grid item className="navbar-container">
           <Navbar></Navbar>

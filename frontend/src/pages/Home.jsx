@@ -6,7 +6,7 @@ const Home = () => {
   const statementsRoute = () => { navigate('/test/0') }
 
   return (
-    <Paper sx={{ m: 5, p: 10 }} variant='elevation'>
+    <Paper sx={{ mt: 5, mb: 10, p: 10 }} variant='elevation'>
       <Typography id='frontpageHeader' variant='h4'>Tieteellisen kirjoittamisen itsearviointitesti</Typography>
       <Typography sx={{ pt: 2 }} variant='subtitle1'>
         Tämän testin avulla voit arvioida osaamistasi tieteellisen tekstin kirjoittajana.<br />
