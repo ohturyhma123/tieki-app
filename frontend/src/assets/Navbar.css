@@ -75,6 +75,7 @@
   text-decoration: none;
   padding: 0.5rem 1rem;
   height: 100%;
+  color: #ffffff;
 }
 
 .nav-links:hover {
@@ -136,7 +137,7 @@
   .menu-icon {
     display: block;
     position: absolute;
-    top: -10px;
+    top: -13px;
     right: 7px;
     transform: translate(-100%, 60%);
     font-size: 2rem;

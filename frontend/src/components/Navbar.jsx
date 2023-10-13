@@ -4,6 +4,7 @@ import CloseIcon from '@mui/icons-material/Close'
 import MenuIcon from '@mui/icons-material/Menu'
 import logo from '../assets/helsinki-uni-logo.png'
 import '../assets//Navbar.css'
+import { AppBar } from '@mui/material'
 
 const Navbar = () => {
   const [click, setClick] = useState(false)
@@ -11,7 +12,7 @@ const Navbar = () => {
   const closeMobileMenu = () => { setClick(false) }
 
   return (
-    <nav className="navbar" style={{ width: '100%' }}>
+    <AppBar className="navbar" style={{ width: '100%', background: '#293649' }}>
       <div className="navbar-container container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
           <img src={logo} className="navbar-icon" alt="logo" />
@@ -25,7 +26,7 @@ const Navbar = () => {
               to="/links"
               className='nav-links'
               onClick={closeMobileMenu}>
-                Hyödylliset linkit
+                Hyödyllisiä linkkejä
             </NavLink>
           </li>
           <li className="nav-item">
@@ -46,7 +47,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-    </nav>
+    </AppBar>
   )
 }
 
