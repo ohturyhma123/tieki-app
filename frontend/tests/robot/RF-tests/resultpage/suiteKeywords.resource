@@ -19,7 +19,7 @@ Check Headers
     [Documentation]    Checks that the headers are in order.
     Page Should Contain    Tulokset kategorioittain
     Element Text Should Be    class:strengths    Vahvuudet
-    Element Text Should Be    class:weaknesses    Heikkoudet
+    Element Text Should Be    class:weaknesses    Kehityskohteet
 
 Check Analysis
     [Documentation]    Checks that only one analysis is shown.
