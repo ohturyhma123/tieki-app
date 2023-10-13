@@ -7,7 +7,7 @@ Library    SeleniumLibrary
 ${APP_URL}    http://localhost:5173
 ${TEST_URL}    http://localhost:5173/test/0
 ${LINK_URL}    http://localhost:5173/links
-${BROWSER}    chrome
+${BROWSER}    headlesschrome
 ${DELAY}    0.5 seconds
 
 

@@ -4,15 +4,15 @@
   cursor: pointer;
   border: 1px solid #ccc;
   background-color: #fff;
-  max-width: 600px;
+  border-radius: 7px;
 }
 
 .statement:focus {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .statement:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .selected {

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import '../assets/Statement.css'
-import '../assets/Link.css'
+import { Link, Typography } from '@mui/material'
 
 const ResultBlock = ({ result }) => {
 
@@ -14,11 +14,13 @@ const ResultBlock = ({ result }) => {
 
   return(
     <>
-      <h3>{result.category}</h3>
-      <p onClick={handleToggle} onKeyDown={handleToggleKeyDown} tabIndex={0} className="statement analysis">{toggle ? '> piilota analyysi' : '> nää analyysi'}</p>
+      <Typography>{result.category}</Typography>
+      <p onClick={handleToggle} onKeyDown={handleToggleKeyDown} tabIndex={0} className="statement analysis">
+        <Typography>{toggle ? '> Piilota analyysi' : '> Näytä analyysi'}</Typography>
+      </p>
       <section key={result.id} className={toggle ? 'statement' : ''}>
         {toggle
-          ? result.textSegments.map((result, index) => <p key={index}>{result}</p>)
+          ? result.textSegments.map((result, index) => <Typography variant='body2' key={index}>{result}</Typography>)
           : null
         }
         <ul>
@@ -31,8 +33,8 @@ const ResultBlock = ({ result }) => {
           ? result.links.map((link, index) => {
             return(
               <div key={index}>
-                <p>{link.description}</p>
-                <a className="link" href={link.link}>{link.link}</a>
+                <Typography variant='body2'>{link.description}</Typography>
+                <Link sx={{ wordWrap: 'break-word' }} variant="body2" href={link.link}>{link.link}</Link>
               </div>
             )
           })
