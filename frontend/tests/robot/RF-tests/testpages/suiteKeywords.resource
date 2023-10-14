@@ -8,7 +8,7 @@ Select Statements
     [Arguments]    ${amount}
     ${end_index}=    Evaluate    ${amount}+${1}
     FOR    ${index}    IN RANGE    1    ${end_index}
-        Click Element    //*[@id="root"]/div/div[2]/div/div[${index}]
+        Click Element    //*[@id="root"]/div[2]/div/div[${index}]
     END
 
 Select Statements Using Keyboard
@@ -17,7 +17,7 @@ Select Statements Using Keyboard
     ${end_index}=    Evaluate    ${amount}+${1}
     # robocop: disable
     FOR    ${index}    IN RANGE    1    ${end_index}
-        Set Focus To Element    //*[@id="root"]/div/div[2]/div/div[${index}]
+        Set Focus To Element    //*[@id="root"]/div[2]/div/div[${index}]
         Press Keys    None    ENTER
     END
     # robocop: enable

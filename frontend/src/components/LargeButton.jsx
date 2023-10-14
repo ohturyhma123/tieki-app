@@ -33,7 +33,7 @@ const LargeButton = ({ backgroundColor, color, buttonText }) => {
     navigate('/test/0')
   }
 
-  return <StyledButton onClick={handleClick}>{buttonText}</StyledButton>
+  return <StyledButton id='statementsRoute' onClick={handleClick}>{buttonText}</StyledButton>
 }
 
 export default LargeButton

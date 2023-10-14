@@ -7,10 +7,6 @@ Title Is Correct
     [Documentation]    Checks that the correct title is shown.
     Title Should Be    Tieki
 
-Check Header
-    [Documentation]    Checks that the header is correct
-    Element Text Should Be    id=frontpageHeader    Tieteellisen kirjoittamisen itsearviointitesti
-
 Check Intro
     [Documentation]    Checks that intro text is shown on front page.
     Page Should Contain    Tämän testin avulla voit arvioida osaamistasi tieteellisen tekstin kirjoittajana.
@@ -30,11 +26,11 @@ First Test Page
 
 Go To Linkpage
     [Documentation]    Clicks on the button that takes the user to the linkpage.
-    Wait Until Keyword Succeeds    3x    200ms    Click Link    Linkit
+    Wait Until Keyword Succeeds    3x    200ms    Click Link    Hyödyllisiä linkkejä
     Page Should Contain    Hyödyllisiä linkkejä
 
 Go To Linkpage Using Keyboard
     [Documentation]    Use keyboard to press the button that takes the user to the linkpage.
-    Set Focus To Element    //*[@id="root"]/div/div[1]/header/div/ul/li[1]/a
+    Set Focus To Element    //*[@id="root"]/div[1]/header/div/ul/li[1]/a
     Press Keys    None    ENTER
     Page Should Contain    Hyödyllisiä linkkejä
