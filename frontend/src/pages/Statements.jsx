@@ -67,7 +67,7 @@ const Statements = () => {
         [currentStatementSetIndex]: prevState[currentStatementSetIndex] - 1,
       }))
     } else {
-      if (selectedStatementsCount < 3) {
+      if (selectedStatementsCountOnPage[currentStatementSetIndex] < 3) {
         // Statement is not selected, so select it and increase the count
         setSelectedStatements((prevStatements) => [...prevStatements, statementId])
         setSelectedStatementsCount((prevCount) => {
@@ -119,6 +119,29 @@ const Statements = () => {
       navigate(-1)
     }
   }
+
+  // Load selectedStatements and selectedStatementsCount from sessionStorage on component mount
+  useEffect(() => {
+    const savedStatements = sessionStorage.getItem('selectedStatements')
+    const savedCounts = sessionStorage.getItem('selectedStatementsCountOnPage')
+
+    if (savedStatements) {
+      setSelectedStatements(JSON.parse(savedStatements))
+    }
+
+    if (savedCounts) {
+      setSelectedStatementsCountOnPage(JSON.parse(savedCounts))
+    }
+  }, [])
+
+  // Save selectedStatements and selectedStatementsCount to sessionStorage whenever they change
+  useEffect(() => {
+    sessionStorage.setItem('selectedStatements', JSON.stringify(selectedStatements))
+  }, [selectedStatements])
+
+  useEffect(() => {
+    sessionStorage.setItem('selectedStatementsCountOnPage', JSON.stringify(selectedStatementsCountOnPage))
+  }, [selectedStatementsCountOnPage])
 
   let statements
   let setIndex
