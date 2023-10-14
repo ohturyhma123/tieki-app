@@ -5,13 +5,13 @@ Resource    ../../RF-keywords/CommonFunctions.resource
 Resource    ../testpages/suiteKeywords.resource
 Resource    suiteKeywords.resource
 
-Suite Setup
+Test Setup
 ...        Run Keywords
 ...        Open And Configure Browser
+...        AND    Go To Resultpage
 ...        AND    Register Keyword To Run On Failure    Nothing
-Suite Teardown    Close Browser
+Test Teardown    Close Browser
 
-Test Setup    Go To Resultpage
 Test Tags    resultpage
 
 

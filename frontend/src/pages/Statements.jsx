@@ -120,7 +120,10 @@ const Statements = () => {
     }
   }
 
-  // Load selectedStatements and selectedStatementsCount from sessionStorage on component mount
+  /**
+    Loads selectedStatements and selectedStatementsCount from sessionStorage on component mount
+    when reloading the page.
+  */
   useEffect(() => {
     const savedStatements = sessionStorage.getItem('selectedStatements')
     const savedCounts = sessionStorage.getItem('selectedStatementsCountOnPage')
@@ -134,7 +137,9 @@ const Statements = () => {
     }
   }, [])
 
-  // Save selectedStatements and selectedStatementsCount to sessionStorage whenever they change
+  /**
+    Save selectedStatements and selectedStatementsCount to sessionStorage whenever they change
+  */
   useEffect(() => {
     sessionStorage.setItem('selectedStatements', JSON.stringify(selectedStatements))
   }, [selectedStatements])

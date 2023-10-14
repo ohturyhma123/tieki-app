@@ -4,13 +4,13 @@ Documentation    Tests for the frontpage of the app.
 Resource    suiteKeywords.resource
 Resource    ../../RF-keywords/CommonFunctions.resource
 
-Suite Setup
+Test Setup
 ...        Run Keywords
 ...        Open And Configure Browser
+...        AND    Go To Testpage
 ...        AND    Register Keyword To Run On Failure    Nothing
-Suite Teardown    Close Browser
+Test Teardown    Close Browser
 
-Test Setup    Go To Testpage
 Test Tags    testpage
 
 
@@ -116,8 +116,18 @@ User Can Go Back To Front Page Using Keyboard
     Go Back To Front Page Using Keyboard
 
 User Is Able To Continue Test After Reloading Page
-    [Documentation]    Reloads the page and checks that user can navigate in the test.
+    [Documentation]    Reloads the page and checks that user can navigate in the test
+    ...                and see previously selected statements.
+    # robocop: disable
     Select Statements    1
     Go To Next Page
+    Select Statements    2
     Reload Page
     Go To Previous Page    1
+    ${previous_statements}=    Number Of Statements Clicked
+    Should Be Equal As Integers    ${previous_statements}    1
+    Go To Next Page
+    Select Statements    6
+    ${previous_statements}=    Number Of Statements Clicked
+    Should Be Equal As Integers    ${previous_statements}    3
+    # robocop: enable
