@@ -19,7 +19,7 @@ const Navbar = () => {
     margin: theme.spacing(2, 0, 0, 7),
     [theme.breakpoints.down('sm')]: {
       fontSize: '14px',
-      margin: theme.spacing(2.5, 2, 4, 2)
+      margin: theme.spacing(2.3, 0, 0, -10.5)
     }
   }))
 
