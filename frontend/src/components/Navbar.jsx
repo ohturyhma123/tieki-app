@@ -24,7 +24,7 @@ const Navbar = () => {
   }))
 
   return (
-    <AppBar className="navbar" style={{ width: '100%', background: '#000012' }}>
+    <AppBar className="navbar" style={{ width: '100%', background: '#00011b' }}>
       <div className="navbar-container container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
           <img src={logo} className="navbar-icon" alt="logo" />

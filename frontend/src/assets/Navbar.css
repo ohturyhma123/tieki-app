@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.7rem;
+  font-size: 1.55rem;
   font-family: "Shadows Into Light", sans-serif;
   position: fixed;
   z-index: 999;
@@ -36,7 +36,7 @@
   margin-right: auto;
   margin-left: auto;
   padding-right: 0px;
-  padding-left: 20px;
+  padding-left: 0px;
 }
 
 .navbar-logo {
@@ -50,9 +50,9 @@
 }
 
 .navbar-icon {
-  margin-right: 0.5rem;
-  width: 54px;
-  height: 54px;
+  margin-right: 8.5rem;
+  width: 52px;
+  height: 52px;
 }
 
 .nav-menu {
@@ -69,7 +69,6 @@
 }
 
 .nav-links {
-  color: #000000;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -104,7 +103,7 @@
   }
 
   .nav-menu.active {
-    background: #000012;
+    background: #00011b;
     left: 0;
     opacity: 1;
     transition: all 0.4s ease;
