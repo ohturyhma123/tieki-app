@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <Box sx={{ flex: '1' }}>
       <picture>
-        <source media="(max-width: 960px)" srcSet={homeBackgroundMobile} />
+        <source media="(max-width: 1200px), (max-height: 700px)" srcSet={homeBackgroundMobile} />
         <img
           src={homeBackground}
           alt="homeBackground"

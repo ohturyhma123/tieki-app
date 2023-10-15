@@ -15,11 +15,16 @@ const Navbar = () => {
     fontFamily: '"Lato", sans-serif',
     fontSize: '30px',
     color: '#fff',
+    display: 'flex',
     fontWeight: 'bold',
-    margin: theme.spacing(2, 0, 0, 7),
+    margin: theme.spacing(2, 0, 0, 3),
+    padding: theme.spacing(0, 1, 0, 0),
+    [theme.breakpoints.down('lg')]: {
+      fontSize: '24px',
+      margin: theme.spacing('auto'),
+    },
     [theme.breakpoints.down('sm')]: {
-      fontSize: '14px',
-      margin: theme.spacing(2.3, 0, 0, -10.5)
+      fontSize: '14px'
     }
   }))
 

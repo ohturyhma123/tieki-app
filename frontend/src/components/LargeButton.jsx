@@ -23,7 +23,7 @@ const LargeButton = ({ backgroundColor, color, buttonText }) => {
       display: 'flex',
       margin: 'auto',
       fontSize: '22px',
-      marginTop: '30px',
+      marginTop: '50px',
       padding: '0.75rem 4.5rem',
     }
   }))
