@@ -7,7 +7,7 @@ import selectOneStatementFromEachPositiveSet from '../components/SelectOnePositi
 import selectOneStatementFromEachNegativeSet from '../components/SelectOneNegativeStatementFromEachCategory'
 import Submit from '../components/ConfirmAlert'
 import '../assets/Statement.css'
-import { Paper, Typography, Button, LinearProgress, Box } from '@mui/material'
+import { Paper, Typography, Button, LinearProgress, Box, Grid } from '@mui/material'
 
 const Statements = () => {
   const { urlIndex } = useParams()
@@ -178,38 +178,40 @@ const Statements = () => {
   }
 
   return (
-    <Paper
-      sx={{ mt: 5, mb: 10, p: 10, pb: 4, height: '75%', width: '80%' }}
-      variant='elevation'
-    >
-      <Typography variant='h5'>Väittämäsetti {currentStatementSetIndex + 1}/{statementsData.length}</Typography>
-      <Typography sx={{ py: 2, fontStyle: 'italic' }}>Voit valita enintään kolme vaihtoehtoa.</Typography>
-      {/**
+    <Grid sx={{ background: '#FEF6E1' }} container direction="column" justifyContent="center" alignItems="center">
+      <Paper
+        sx={{ mt: 5, mb: 10, p: 10, pb: 4, height: '75%', width: '80%' }}
+        variant='elevation'
+      >
+        <Typography variant='h5'>Väittämäsetti {currentStatementSetIndex + 1}/{statementsData.length}</Typography>
+        <Typography sx={{ py: 2, fontStyle: 'italic' }}>Voit valita enintään kolme vaihtoehtoa.</Typography>
+        {/**
         Iterate through the array and create an element for each statement.
         Conditionally add the "selected" CSS class if the statement is in the "selectedStatements" array.
       */}
-      {statements.map((s) => (
-        <div
-          key={s.id}
-          className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
-          onClick={() => handleStatementClick(s.id)}
-          onKeyDown={e => handleStatementKeyDown(e, s.id)}
-          tabIndex={0}>
-          <Typography sx={{ fontSize: 14 }}>{s.statement}</Typography>
-        </div>
-      ))}
-      {/** Using ternary conditional operators, show different button text when there are no statement sets left */}
-      <p>
-        {urlIndex > 0 && (
-          <Button id='previous-btn' sx={{ mr: 1 }} variant="contained" onClick={handlePreviousStatementSet}>Edellinen</Button>
-        )}
-        {currentStatementSetIndex < statementsData.length - 1
-          ? <Button id='next-btn' variant="contained" onClick={handleNextStatementSet}>Seuraava</Button>
-          : <Button id='results-btn' variant="contained" onClick={handleNextStatementSet}>Tulokset</Button>
-        }
-        <LinearProgressWithLabel value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
-      </p>
-    </Paper>
+        {statements.map((s) => (
+          <div
+            key={s.id}
+            className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
+            onClick={() => handleStatementClick(s.id)}
+            onKeyDown={e => handleStatementKeyDown(e, s.id)}
+            tabIndex={0}>
+            <Typography sx={{ fontSize: 14 }}>{s.statement}</Typography>
+          </div>
+        ))}
+        {/** Using ternary conditional operators, show different button text when there are no statement sets left */}
+        <p>
+          {urlIndex > 0 && (
+            <Button id='previous-btn' sx={{ mr: 1 }} variant="contained" onClick={handlePreviousStatementSet}>Edellinen</Button>
+          )}
+          {currentStatementSetIndex < statementsData.length - 1
+            ? <Button id='next-btn' variant="contained" onClick={handleNextStatementSet}>Seuraava</Button>
+            : <Button id='results-btn' variant="contained" onClick={handleNextStatementSet}>Tulokset</Button>
+          }
+          <LinearProgressWithLabel value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
+        </p>
+      </Paper>
+    </Grid>
   )
 }
 

@@ -16,13 +16,11 @@ Test Tags    frontpage
 
 *** Test Cases ***
 Frontpage Is Open
-    [Documentation]    Checks that the home page opens correctly
+    [Documentation]    Checks that the home page opens correctly.
     Title Is Correct
 
 Frontpage Contains Correct Info
-    [Documentation]    Checks that the frontpage's header is correct and the frontpage
-    ...                contains introduction to the test
-    Check Header
+    [Documentation]    Checks that the frontpage contains introduction to the test.
     Check Intro
 
 User Can Start The Test
