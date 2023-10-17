@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom'
-import getPositiveStatements from '../../src/components/PositiveStatements'
-import getNegativeStatements from '../../src/components/NegativeStatements'
-import selectOneStatementFromEachNegativeSet from '../../src/components/SelectOneNegativeStatementFromEachCategory'
-import selectOneStatementFromEachPositiveSet from '../../src/components/SelectOnePositiveStatementFromEachCategory'
+import getPositiveStatements from '../../src/functions/PositiveStatements'
+import getNegativeStatements from '../../src/functions/NegativeStatements'
+import selectOneStatementFromEachNegativeSet from '../../src/functions/SelectOneNegativeStatementFromEachCategory'
+import selectOneStatementFromEachPositiveSet from '../../src/functions/SelectOnePositiveStatementFromEachCategory'
 
 const testStatements = [
   {
