@@ -131,3 +131,15 @@ User Is Able To Continue Test After Reloading Page
     ${previous_statements}=    Number Of Statements Clicked
     Should Be Equal As Integers    ${previous_statements}    3
     # robocop: enable
+
+ User Is Not Able To See Selected Statements After Going Back To Front Page
+    [Documentation]    Checks that the user is not able to see previously selected statements
+    ...                after going back to the frontpage.
+    Select Statements    1
+    Go To Next Page
+    Select Statements    2
+    Go Back To Front Page
+    Go To Testpage
+    Go To Next Page
+    ${previous_statements}=    Number Of Statements Clicked
+    Should Be Equal As Integers    ${previous_statements}    0
