@@ -50,6 +50,7 @@ const Results = () => {
     sumScores[key] = value[0]+value[1]
   })
 
+  /** Calculates which categories have enough statements selected to be shown on the resultpage. */
   const getResults = () => {
     const positiveCategories = Object.keys(scores).filter((category) => scores[category][0] >= 2)
     const negativeCategories = Object.keys(scores).filter((category) => scores[category][1] <= -2)
@@ -61,8 +62,6 @@ const Results = () => {
   }
 
   const [positiveResults, negativeResults] = getResults()
-
-  console.log(positiveResults, negativeResults)
 
   let strengthText = null
   let weaknessText = null
