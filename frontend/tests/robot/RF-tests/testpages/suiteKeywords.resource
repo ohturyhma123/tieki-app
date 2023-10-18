@@ -31,26 +31,26 @@ Number Of Statements Clicked
 Go To Next Page
     [Documentation]    Clicks the 'seuraava' button
     Click Button    Seuraava
-    Page Should Contain    Väittämäsetti
+    Page Should Contain    jotka kuvaavat sinua parhaiten
 
 Go To Next Page Using Keyboard
     [Documentation]    Presses the 'seuraava' button
     Set Focus To Element    id:next-btn
     Press Keys    None    ENTER
-    Page Should Contain    Väittämäsetti
+    Page Should Contain    jotka kuvaavat sinua parhaiten
 
 Go To Previous Page
     [Documentation]    Clicks the 'edellinen' button
     [Arguments]    ${set_number}
     Click Button    Edellinen
-    Page Should Contain    Väittämäsetti ${set_number}/12
+    Page Should Contain    ${set_number}/12
 
 Go To Previous Page Using Keyboard
     [Documentation]    Presses the 'edellinen' button
     [Arguments]    ${set_number}
     Set Focus To Element    id:previous-btn
     Press Keys    None    ENTER
-    Page Should Contain    Väittämäsetti ${set_number}/12
+    Page Should Contain    ${set_number}/12
 
 Go To Last Page
     [Documentation]    After 12th statement page, goes to the last page and confirms the alert.
