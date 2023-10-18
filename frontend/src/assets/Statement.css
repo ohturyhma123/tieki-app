@@ -7,16 +7,12 @@
   border-radius: 7px;
 }
 
-.statement:focus {
-  transform: scale(1.01);
-}
-
 .statement:hover {
   transform: scale(1.01);
 }
 
 .selected {
   background-color: #a1f0ab;
-  transition: background-color 0.06s ease;
+  transition: background-color 0.07s ease;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
 }
