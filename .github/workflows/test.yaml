@@ -4,11 +4,9 @@ on: [pull_request, workflow_call]
 
 jobs:
 
-  eslint-autofix:
+  eslint:
 
     runs-on: ubuntu-latest
-
-    if: github.ref != 'refs/heads/main'
 
     defaults:
       run:
@@ -33,25 +31,6 @@ jobs:
       with:
         commit_message: Auto-fix ESLint
         file_pattern: '*.js *.jsx'
-
-  eslint-main:
-
-    runs-on: ubuntu-latest
-
-    if: github.ref == 'refs/heads/main'
-
-    defaults:
-      run:
-        working-directory: ./frontend
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Install node packages
-      run: npm install
-
-    - name: Run ESLint
-      run: npm run lint
 
   jest:
 
