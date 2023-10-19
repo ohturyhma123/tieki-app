@@ -115,10 +115,11 @@ User Can Go Back To Front Page Using Keyboard
     [Documentation]    Checks that the user is able to go back to the frontpage.
     Go Back To Front Page Using Keyboard
 
+# robocop: disable
 User Is Able To Continue Test After Reloading Page
     [Documentation]    Reloads the page and checks that user can navigate in the test
     ...                and see previously selected statements.
-    # robocop: disable
+    # robocop: enable
     Select Statements    1
     Go To Next Page
     Select Statements    2
@@ -130,7 +131,6 @@ User Is Able To Continue Test After Reloading Page
     Select Statements    6
     ${previous_statements}=    Number Of Statements Clicked
     Should Be Equal As Integers    ${previous_statements}    3
-    # robocop: enable
 
 User Is Not Able To See Selected Statements After Going Back To Front Page
     [Documentation]    Checks that the user is not able to see previously selected statements
