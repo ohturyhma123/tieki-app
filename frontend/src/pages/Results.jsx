@@ -20,7 +20,7 @@ const Results = () => {
     statementsData.forEach((categoryData) => {
       categoryScores[categoryData.category] = [0,0]
     })
-
+     
     /**
       Calculate category scores by iterating through each selected statement id.
       For each category, find the statement with the matching id,
@@ -28,7 +28,7 @@ const Results = () => {
     */
     selectedStatements.forEach((statementId) => {
       for (const categoryData of statementsData) {
-        const statement = categoryData.statements.find((s) => s.id === statementId)
+        const statement = categoryData.statements.find((s) => s.id == statementId)
         if (categoryData.statements.find((s) => s.id === statementId)) {
           if(statement.value > 0) {
             categoryScores[categoryData.category][0] += statement.value
