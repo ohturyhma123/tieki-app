@@ -4,9 +4,11 @@ on: [pull_request, workflow_call]
 
 jobs:
 
-  eslint:
+  eslint-autofix:
 
     runs-on: ubuntu-latest
+
+    if: github.ref != 'refs/heads/main'
 
     defaults:
       run:
@@ -23,7 +25,7 @@ jobs:
     - name: Install node packages
       run: npm install
 
-    - name: Run ESLint
+    - name: Run lint-fix
       run: npm run lint-fix
 
     - name: Auto commit & push lint-fix
@@ -31,6 +33,25 @@ jobs:
       with:
         commit_message: Auto-fix ESLint
         file_pattern: '*.js *.jsx'
+
+  eslint-main:
+
+    runs-on: ubuntu-latest
+
+    if: github.ref == 'refs/heads/main'
+
+    defaults:
+      run:
+        working-directory: ./frontend
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install node packages
+      run: npm install
+
+    - name: Run ESLint
+      run: npm run lint
 
   jest:
 
