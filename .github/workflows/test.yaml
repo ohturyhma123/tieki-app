@@ -25,7 +25,7 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: Auto-fix ESLint
-        file_pattern: 'src/*.js src/*.jsx tests/*.js tests/*.jsx'
+        file_pattern: '*.js *.jsx'
 
   jest:
 
