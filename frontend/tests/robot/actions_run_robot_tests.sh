@@ -4,7 +4,7 @@
 npm run dev &
 
 # Run robot tests headless
-robot --variable browser:headlesschrome --variable delay:0 tests/robot/
+robot --variable browser:$1 --variable delay:0 tests/robot/
 
 # Status code
 status=$?
