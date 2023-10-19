@@ -28,7 +28,7 @@ const Results = () => {
     */
     selectedStatements.forEach((statementId) => {
       for (const categoryData of statementsData) {
-        const statement = categoryData.statements.find((s) => s.id == statementId)
+        const statement = categoryData.statements.find((s) => s.id === statementId)
         if (categoryData.statements.find((s) => s.id === statementId)) {
           if(statement.value > 0) {
             categoryScores[categoryData.category][0] += statement.value
