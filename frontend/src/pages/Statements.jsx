@@ -180,22 +180,27 @@ const Statements = () => {
     padding: '0.5rem 1.3rem',
     borderRadius: '24px',
     textTransform: 'none',
-    border: '2px solid'
+    border: '2px solid',
+    '&:hover': {
+      backgroundColor: '#fff',
+      color: '#00011b',
+      borderColor: '#00011b'
+    }
   }))
 
   return (
-    <Grid container direction="column" justifyContent="center" alignItems="center">
+    <Grid container direction="column" justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
       <img
         src={monochromeBackground}
         alt="monochromeBackground"
-        style={{ maxWidth: '100%', maxHeight: '100%', position: 'absolute', top: 0, left: 0, right: 0,
+        style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
           width: '100%', height: '100%', zIndex: -1 }}
       />
       <Paper
-        sx={{ mt: 10, mb: 22, p: 6, pb: 6, height: '100%', width: '80%' , background: '#fdf3e9' }}
+        sx={{ mt: 10.5, mb: 10, p: 6, pb: 3.5, height: '100%', width: '79%' , background: '#fdf3e9' }}
         variant='elevation'
       >
-        <Typography sx={{ py: 2, ml: 0.6, mb: 1.2, mt: -2, fontStyle: 'italic', fontSize: '24px', fontFamily: '"Lato", sans-serif' }}>
+        <Typography sx={{ py: 2, ml: 0.7, mb: 1.3, mt: -2.5, fontStyle: 'italic', fontSize: '22px', fontFamily: '"Lato", sans-serif' }}>
           Valitse 0–3 väitettä, jotka kuvaavat sinua parhaiten tieteellisen tekstin kirjoittajana
         </Typography>
         {/**
