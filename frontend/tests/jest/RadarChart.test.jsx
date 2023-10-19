@@ -8,7 +8,7 @@ test('renders content without crashing', () => {
   const results = [2, 0, -2]
   render(<RadarChart categories={categories} results={results} />)
 })
- 
+
 test('should split long strings into chunks', () => {
   const maxLength = 20
   const input = ['Here is a long string that should be splitted', 'Not long']
