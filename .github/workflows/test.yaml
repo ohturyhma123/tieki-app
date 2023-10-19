@@ -12,14 +12,25 @@ jobs:
       run:
         working-directory: ./frontend
 
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
     steps:
     - uses: actions/checkout@v4
 
     - name: Install node packages
       run: npm install
 
-    - name: Run eslint
-      run: npm run lint
+    - name: Run ESLint
+      run: npm run lint-fix
+
+    - name: Auto commit & push lint-fix
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: Auto-fix ESLint
+        file_pattern: '*.js *.jsx'
 
   jest:
 
@@ -38,7 +49,29 @@ jobs:
     - name: Run tests
       run: npm run test
 
-  robot:
+  robocop:
+
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./frontend
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    - name: Install Robot Framework, SeleniumLibrary & Robocop
+      run: pip install robotframework && pip install robotframework-seleniumlibrary && pip install selenium==4.9.1 && pip install robotframework-robocop
+
+    - name: Run Robocop Checks
+      run: robocop
+
+  robot-chrome:
 
     runs-on: ubuntu-latest
 
@@ -57,11 +90,35 @@ jobs:
       with:
         python-version: "3.10"
 
-    - name: Install Robot Framework, SeleniumLibrary & Robocop
-      run: pip install robotframework && pip install robotframework-seleniumlibrary && pip install selenium==4.9.1 && pip install robotframework-robocop
+    - name: Install Robot Framework & SeleniumLibrary
+      run: pip install robotframework && pip install robotframework-seleniumlibrary && pip install selenium==4.9.1
 
-    - name: Run Robocop Checks
-      run: robocop
+    - name: Run Robot tests in headless chrome
+      run: sh tests/robot/actions_run_robot_tests.sh headlesschrome
 
-    - name: Run Robot tests
-      run: sh tests/robot/actions_run_robot_tests.sh
+  robot-firefox:
+
+    runs-on: ubuntu-latest
+
+    if: github.ref == 'refs/heads/main'
+
+    defaults:
+      run:
+        working-directory: ./frontend
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install node packages
+      run: npm install
+
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    - name: Install Robot Framework & SeleniumLibrary
+      run: pip install robotframework && pip install robotframework-seleniumlibrary && pip install selenium==4.9.1
+
+    - name: Run Robot tests in headless firefox
+      run: sh tests/robot/actions_run_robot_tests.sh headlessfirefox
