@@ -10,15 +10,15 @@ test('renders analysis without crashing', () => {
     listPoints: ['list item 1', 'list item 2'],
     links: [
       {
-          description: 'description 1',
-          link: 'link 1'
+        description: 'description 1',
+        link: 'link 1'
       },
       {
-          description: 'description 2',
-          link: 'link 2'
+        description: 'description 2',
+        link: 'link 2'
       }
     ]
-    }
+  }
 
   render(<ResultAccordion result={result} />)
 
