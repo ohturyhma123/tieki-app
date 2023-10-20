@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Paper, Typography, Button, LinearProgress, Box, Grid, styled } from '@mui/material'
+import { Paper, Typography, LinearProgress, Box, Grid } from '@mui/material'
 import statementsData from '../data/statementsData.json'
 import getPositiveStatements from '../functions/PositiveStatements'
 import getNegativeStatements from '../functions/NegativeStatements'
@@ -8,11 +8,10 @@ import selectOneStatementFromEachPositiveSet from '../functions/SelectOnePositiv
 import selectOneStatementFromEachNegativeSet from '../functions/SelectOneNegativeStatementFromEachCategory'
 import Submit from '../components/ConfirmAlert'
 import monochromeBackground from '../assets/monochrome-background.jpg'
+import NextPrevButton from '../components/NextPrevButton'
 import '../assets/Statement.css'
 
 const Statements = () => {
-  const { urlIndex } = useParams()
-
   const [selectedStatements, setSelectedStatements] = useState([])
   const [selectedStatementsCount, setSelectedStatementsCount] = useState(0)
   const [currentStatementSetIndex, setCurrentStatementSetIndex] = useState(0)
@@ -23,7 +22,7 @@ const Statements = () => {
   )
 
   const navigate = useNavigate()
-
+  const { urlIndex } = useParams()
   const positiveSets = getPositiveStatements(statementsData)
   const negativeSets = getNegativeStatements(statementsData)
 
@@ -168,25 +167,6 @@ const Statements = () => {
       </Box>
     )
   }
-
-  const NextPrevButton = styled(Button)( () => ({
-    backgroundColor: '#fff',
-    color: '#00011b',
-    borderColor: '#fff',
-    fontWeight: '700',
-    fontSize: '17px',
-    fontFamily: '"Lato", sans-serif',
-    cursor: 'pointer',
-    padding: '0.5rem 1.3rem',
-    borderRadius: '24px',
-    textTransform: 'none',
-    border: '2px solid',
-    '&:hover': {
-      backgroundColor: '#fff',
-      color: '#00011b',
-      borderColor: '#00011b'
-    }
-  }))
 
   return (
     <Grid container direction="column" justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
