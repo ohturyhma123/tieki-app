@@ -22,7 +22,7 @@ Check Headers
     Element Text Should Be    class:weaknesses    Kehityskohteet
 
 Check Analysis
-    [Documentation]    Checks that only one analysis is shown.
+    [Documentation]    Checks that two analyses is shown.
     ${analysis}=    Get WebElements    xpath=//*[@id="panel1a-content"]
     ${analysis_count}=    Get Length    ${analysis}
     Should Be Equal As Integers    ${analysis_count}    2

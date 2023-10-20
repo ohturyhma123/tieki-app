@@ -218,7 +218,6 @@ const Statements = () => {
           </div>
         ))}
         {/** Using ternary conditional operators, show different button text when there are no statement sets left */}
-        <p>
           <LinearProgressWithLabel value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
           <Box sx={{ display: 'flex' }}>
             {urlIndex > 0 && (
@@ -231,7 +230,6 @@ const Statements = () => {
               }
             </Box>
           </Box>
-        </p>
       </Paper>
     </Grid>
   )
