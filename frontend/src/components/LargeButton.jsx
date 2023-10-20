@@ -7,7 +7,7 @@ const LargeButton = ({ backgroundColor, color, buttonText }) => {
     color: color,
     borderColor: backgroundColor,
     fontWeight: '700',
-    fontSize: '18px',
+    fontSize: '20px',
     fontFamily: '"Lato", sans-serif',
     cursor: 'pointer',
     padding: '0.5rem 2.25rem',

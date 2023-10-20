@@ -1,14 +1,14 @@
 import { Box, Typography, List, ListItemText, Container } from '@mui/material'
 import LargeButton from '../components/LargeButton'
 import homeBackground from '../assets/home-background.jpg'
-import homeBackgroundMobile from '../assets/home-background-mobile.jpg'
+import monochromeBackground from '../assets/monochrome-background.jpg'
 import CustomBox from '../components/CustomBox'
 
 const Home = () => {
   return (
     <Box sx={{ flex: '1' }}>
       <picture>
-        <source media="(max-width: 1200px), (max-height: 700px)" srcSet={homeBackgroundMobile} />
+        <source media="(max-width: 1200px), (max-height: 700px)" srcSet={monochromeBackground} />
         <img
           src={homeBackground}
           alt="homeBackground"

@@ -31,7 +31,10 @@ const Navbar = () => {
   return (
     <AppBar className="navbar" style={{ width: '100%', background: '#00011b' }}>
       <div className="navbar-container container">
-        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+        <Link to="/" className="navbar-logo" onClick={() => {
+          sessionStorage.clear()
+          closeMobileMenu()
+        }}>
           <img src={logo} className="navbar-icon" alt="logo" />
         </Link>
         <Title variant="h6">

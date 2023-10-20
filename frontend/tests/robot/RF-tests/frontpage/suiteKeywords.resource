@@ -22,7 +22,7 @@ Go To Test Using Keyboard
 
 First Test Page
     [Documentation]    Checks that the first test page is shown correctly
-    Page Should Contain    Väittämäsetti 1/12
+    Page Should Contain    jotka kuvaavat sinua parhaiten
 
 Go To Linkpage
     [Documentation]    Clicks on the button that takes the user to the linkpage.

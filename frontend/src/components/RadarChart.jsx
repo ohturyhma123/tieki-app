@@ -8,7 +8,7 @@ import {
   Legend,
 } from 'chart.js'
 import { Radar } from 'react-chartjs-2'
-import splitLongStrings from './splitLongStrings'
+import splitLongStrings from '../functions/splitLongStrings'
 import '../assets/RadarChart.css'
 
 ChartJS.register(
