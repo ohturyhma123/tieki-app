@@ -25,16 +25,16 @@ const Home = () => {
                 Tämän testin avulla voit arvioida osaamistasi tieteellisen tekstin kirjoittajana.<br />
                 Testissä on väitteitä seuraavilta kirjoittamisen osa-alueilta:
             </Typography>
-              <List 
-                variant='body2'
-                sx={{ fontSize: '20px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: 2, mt: 0.5, ml: 2}}>
-                <ListItemText primary="Kirjoittamiseen liittyvät tunteet ja ajatukset" />
-                <ListItemText primary="Akateemiset käytänteet ja tekstilajit" />
-                <ListItemText primary="Lukeminen ja lähteiden käyttö" />
-                <ListItemText primary="Kirjoittaminen prosessina" />
-                <ListItemText primary="Tekstin rakenne" />
-                <ListItemText primary="Kielelliset seikat" />
-              </List>
+            <List
+              variant='body2'
+              sx={{ fontSize: '20px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: 2, mt: 0.5, ml: 2 }}>
+              <ListItemText primary="Kirjoittamiseen liittyvät tunteet ja ajatukset" />
+              <ListItemText primary="Akateemiset käytänteet ja tekstilajit" />
+              <ListItemText primary="Lukeminen ja lähteiden käyttö" />
+              <ListItemText primary="Kirjoittaminen prosessina" />
+              <ListItemText primary="Tekstin rakenne" />
+              <ListItemText primary="Kielelliset seikat" />
+            </List>
             <LargeButton
               backgroundColor='#fff'
               color='#00011b'
