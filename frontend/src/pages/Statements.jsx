@@ -218,20 +218,18 @@ const Statements = () => {
           </div>
         ))}
         {/** Using ternary conditional operators, show different button text when there are no statement sets left */}
-        <p>
-          <LinearProgressWithLabel value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
-          <Box sx={{ display: 'flex' }}>
-            {urlIndex > 0 && (
-              <NextPrevButton id='previous-btn' sx={{ mr: 1 }} onClick={handlePreviousStatementSet}>Edellinen</NextPrevButton>
-            )}
-            <Box sx={{ marginLeft: 'auto' }}>
-              {currentStatementSetIndex < statementsData.length - 1
-                ? <NextPrevButton id='next-btn' onClick={handleNextStatementSet}>Seuraava</NextPrevButton>
-                : <NextPrevButton id='results-btn' onClick={handleNextStatementSet}>Tulokset</NextPrevButton>
-              }
-            </Box>
+        <LinearProgressWithLabel value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
+        <Box sx={{ display: 'flex' }}>
+          {urlIndex > 0 && (
+            <NextPrevButton id='previous-btn' sx={{ mr: 1 }} onClick={handlePreviousStatementSet}>Edellinen</NextPrevButton>
+          )}
+          <Box sx={{ marginLeft: 'auto' }}>
+            {currentStatementSetIndex < statementsData.length - 1
+              ? <NextPrevButton id='next-btn' onClick={handleNextStatementSet}>Seuraava</NextPrevButton>
+              : <NextPrevButton id='results-btn' onClick={handleNextStatementSet}>Tulokset</NextPrevButton>
+            }
           </Box>
-        </p>
+        </Box>
       </Paper>
     </Grid>
   )
