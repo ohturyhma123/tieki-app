@@ -50,6 +50,7 @@ const Results = () => {
     sumScores[key] = value[0]+value[1]
   })
 
+  /** Calculates which categories have enough statements selected to be shown on the resultpage. */
   const getResults = () => {
     const positiveCategories = Object.keys(scores).filter((category) => scores[category][0] >= 2)
     const negativeCategories = Object.keys(scores).filter((category) => scores[category][1] <= -2)
@@ -62,10 +63,20 @@ const Results = () => {
 
   const [positiveResults, negativeResults] = getResults()
 
+  let strengthText = null
+  let weaknessText = null
+
+  if (positiveResults.length < 1) {
+    strengthText = <Typography sx={{ pt: 2, pb: 1 }} variant='h5' className='strengths'>Valintojesi perusteella sinulla ei ole vahvuuksia.</Typography>
+  }
+  if (negativeResults.length < 1) {
+    weaknessText = <Typography sx={{ pt: 2, pb: 1 }} variant='h5' className='weaknesses'>Valintojesi perusteella sinulla ei ole kehityskohteita.</Typography>
+  }
+
   return (
     <Grid sx={{ background: '#FEF6E1' }} container direction="column" justifyContent="center" alignItems="center">
       <Paper sx={{ m: 10, mt: 5, mb: 40, pt: 5, p: 10 }}>
-        {location.state.selectedStatements.length > 0
+        {positiveResults.length > 0 || negativeResults.length > 0
           ?
           <Grid container direction="row" spacing={20} justifyContent="center">
             <Grid item xs={5} md={6}>
@@ -81,9 +92,11 @@ const Results = () => {
             </Grid>
             <Grid item xs={6} md={6}>
               <div>
-                <Typography sx={{ pt: 2, pb: 1 }} variant='h5' className='strengths'>Vahvuudet</Typography>
+                <Typography sx={{ pt: 2, pb: 1 }} variant='h4' className='strengths'>Vahvuudet</Typography>
+                {strengthText}
                 {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
-                <Typography sx={{ pt: 4, pb: 1 }} variant='h5' className='weaknesses'>Kehityskohteet</Typography>
+                <Typography sx={{ pt: 4, pb: 1 }} variant='h4' className='weaknesses'>Kehityskohteet</Typography>
+                {weaknessText}
                 {negativeResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
               </div>
             </Grid>
