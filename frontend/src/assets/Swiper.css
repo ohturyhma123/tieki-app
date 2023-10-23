@@ -1,0 +1,14 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-pagination-progressbar-fill {
+  border: 2px solid #3bbb8a;
+}
