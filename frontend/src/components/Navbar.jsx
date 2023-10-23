@@ -62,7 +62,7 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <NavLink
-              to="/haka-login"
+              to="/edit"
               className='nav-links'
               onClick={closeMobileMenu}>
                 Admin

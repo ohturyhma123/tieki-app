@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import resultsData from '../data/resultsData.json'
+import resultsData from '../../../data/resultsData.json'
 import ResultAccordion from '../components/ResultAccordion'
 import RadarChart from '../components/RadarChart'
 import { Box, Paper, Typography, Grid } from '@mui/material'
