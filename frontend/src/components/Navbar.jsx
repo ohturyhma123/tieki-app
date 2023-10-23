@@ -24,19 +24,19 @@ const Navbar = () => {
       fontSize: '25px',
       margin: theme.spacing(0.5, 23, 0, -2)
     },
-    [theme.breakpoints.down('960')]: {
-      fontSize: '26px',
-      margin: theme.spacing(2.3, 4, 0, -2)
+    [theme.breakpoints.down('950')]: {
+      fontSize: '25px',
+      margin: theme.spacing(2.5, 4, 0, -2)
     },
     [theme.breakpoints.down('670')]: {
-      fontSize: '24px',
+      fontSize: '22.5px',
       margin: theme.spacing(0.8, 4, 0, -2)
     },
-    [theme.breakpoints.down('456')]: {
+    [theme.breakpoints.down('450')]: {
       fontSize: '14.5px',
       margin: theme.spacing(2.3, 6, 0, -2)
     },
-    [theme.breakpoints.down('344')]: {
+    [theme.breakpoints.down('350')]: {
       fontSize: '14.5px',
       margin: theme.spacing(1.3, 6, 0, -2)
     }
