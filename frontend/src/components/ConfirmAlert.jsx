@@ -6,8 +6,9 @@ import '../assets/ConfirmAlert.css'
   Alert for confirming if an user wants to submit the test and proceed to results page.
 */
 const Submit = ({ navigate, selectedStatements, statementsData }) => {
+  const isMobile = window.innerWidth <= 768
+
   confirmAlert({
-    title: 'Lopeta testi',
     message: 'Oletko varma, että haluat lopettaa testin?',
     buttons: [
       {
@@ -20,6 +21,7 @@ const Submit = ({ navigate, selectedStatements, statementsData }) => {
       {
         className: 'no-btn',
         label: 'Ei',
+        onClick: isMobile ? () => navigate('/test/11', { state: { selectedStatements, statementsData } }) : null,
         tabIndex: 0
       }
     ]
