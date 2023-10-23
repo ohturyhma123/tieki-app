@@ -17,14 +17,28 @@ const Navbar = () => {
     color: '#fff',
     display: 'flex',
     fontWeight: 'bold',
+    lineHeight: '1.5',
     margin: theme.spacing(2, 0, 0, 3),
     padding: theme.spacing(0, 1, 0, 0),
-    [theme.breakpoints.down('lg')]: {
-      fontSize: '24px',
-      margin: theme.spacing('auto'),
+    [theme.breakpoints.down('1150')]: {
+      fontSize: '25px',
+      margin: theme.spacing(0.5, 23, 0, -2)
     },
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '14px'
+    [theme.breakpoints.down('960')]: {
+      fontSize: '26px',
+      margin: theme.spacing(2.3, 4, 0, -2)
+    },
+    [theme.breakpoints.down('670')]: {
+      fontSize: '24px',
+      margin: theme.spacing(0.8, 4, 0, -2)
+    },
+    [theme.breakpoints.down('456')]: {
+      fontSize: '14.5px',
+      margin: theme.spacing(2.3, 6, 0, -2)
+    },
+    [theme.breakpoints.down('344')]: {
+      fontSize: '14.5px',
+      margin: theme.spacing(1.3, 6, 0, -2)
     }
   }))
 
