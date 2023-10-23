@@ -21,15 +21,15 @@ const Navbar = () => {
     margin: theme.spacing(2, 0, 0, 3),
     padding: theme.spacing(0, 1, 0, 0),
     [theme.breakpoints.down('1150')]: {
-      fontSize: '25px',
+      fontSize: '24.5px',
       margin: theme.spacing(0.5, 23, 0, -2)
     },
-    [theme.breakpoints.down('950')]: {
+    [theme.breakpoints.down('962')]: {
       fontSize: '25px',
       margin: theme.spacing(2.5, 4, 0, -2)
     },
-    [theme.breakpoints.down('670')]: {
-      fontSize: '22.5px',
+    [theme.breakpoints.down('650')]: {
+      fontSize: '22px',
       margin: theme.spacing(0.8, 4, 0, -2)
     },
     [theme.breakpoints.down('450')]: {
