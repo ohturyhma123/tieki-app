@@ -25,7 +25,7 @@ const Navbar = () => {
       margin: theme.spacing(0.5, 23, 0, -2)
     },
     [theme.breakpoints.down('962')]: {
-      fontSize: '25px',
+      fontSize: '24.5px',
       margin: theme.spacing(2.5, 4, 0, -2)
     },
     [theme.breakpoints.down('650')]: {
@@ -51,8 +51,10 @@ const Navbar = () => {
         }}>
           <img src={logo} className="navbar-icon" alt="logo" />
         </Link>
-        <NavLink to="/" style={{ textDecoration: 'none' }}
-          onClick={() => { sessionStorage.clear() }}>
+        <NavLink to="/" style={{ textDecoration: 'none' }} onClick={() => {
+          sessionStorage.clear()
+          closeMobileMenu()
+        }}>
           <Title variant="h6">
             Tieteellisen kirjoittamisen itsearviointitesti
           </Title>
