@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import resultsData from '../data/resultsData.json'
 import ResultAccordion from '../components/ResultAccordion'
 import RadarChart from '../components/RadarChart'
+import monochromeBackground from '../assets/monochrome-background.jpg'
 import { Box, Paper, Typography, Grid, Container } from '@mui/material'
 
 const Results = () => {
@@ -74,9 +75,15 @@ const Results = () => {
   }
 
   return (
-    <Grid sx={{ background: '#FEF6E1' }} container direction="column" justifyContent="center" alignItems="center">
+    <Grid container direction="column" justifyContent="center" alignItems="center">
+      <img
+        src={monochromeBackground}
+        alt="monochromeBackground"
+        style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
+          width: '100%', height: '100%', zIndex: -1 }}
+      />
       <Container maxWidth='xl'>
-        <Paper sx={{ m: 10, mt: 5, mb: 10, pt: 5, p: 10 }}>
+        <Paper sx={{ m: 1, mt: 5, mb: 10, p: 3, pb: 7, background: '#fdf3e9' }}>
           {positiveResults.length > 0 || negativeResults.length > 0
             ?
             <div>
