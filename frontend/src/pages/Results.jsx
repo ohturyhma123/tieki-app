@@ -7,6 +7,11 @@ import { Box, Paper, Typography, Grid, Container } from '@mui/material'
 
 const Results = () => {
   const location = useLocation()
+
+  if (!location.state) {
+    return <div></div>
+  }
+
   /**
     Calculates category scores based on user selected statements.
     @returns {Object} - Object containing scores by category.
