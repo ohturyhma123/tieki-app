@@ -17,14 +17,28 @@ const Navbar = () => {
     color: '#fff',
     display: 'flex',
     fontWeight: 'bold',
+    lineHeight: '1.5',
     margin: theme.spacing(2, 0, 0, 3),
     padding: theme.spacing(0, 1, 0, 0),
-    [theme.breakpoints.down('lg')]: {
-      fontSize: '24px',
-      margin: theme.spacing('auto'),
+    [theme.breakpoints.down('1150')]: {
+      fontSize: '24.5px',
+      margin: theme.spacing(0.5, 23, 0, -2)
     },
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '14px'
+    [theme.breakpoints.down('962')]: {
+      fontSize: '24.5px',
+      margin: theme.spacing(2.5, 4, 0, -2)
+    },
+    [theme.breakpoints.down('650')]: {
+      fontSize: '22px',
+      margin: theme.spacing(0.8, 4, 0, -2)
+    },
+    [theme.breakpoints.down('450')]: {
+      fontSize: '14.5px',
+      margin: theme.spacing(2.3, 6, 0, -2)
+    },
+    [theme.breakpoints.down('350')]: {
+      fontSize: '14.5px',
+      margin: theme.spacing(1.3, 6, 0, -2)
     }
   }))
 
@@ -37,9 +51,14 @@ const Navbar = () => {
         }}>
           <img src={logo} className="navbar-icon" alt="logo" />
         </Link>
-        <Title variant="h6">
-          Tieteellisen kirjoittamisen itsearviointitesti
-        </Title>
+        <NavLink to="/" style={{ textDecoration: 'none' }} onClick={() => {
+          sessionStorage.clear()
+          closeMobileMenu()
+        }}>
+          <Title variant="h6">
+            Tieteellisen kirjoittamisen itsearviointitesti
+          </Title>
+        </NavLink>
         <div className="menu-icon" onClick={handleClick}>
           {click ? <CloseIcon /> : <MenuIcon />}
         </div>

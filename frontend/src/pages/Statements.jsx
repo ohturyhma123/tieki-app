@@ -184,6 +184,7 @@ const Statements = () => {
       {isMobile ? (
         <Swiper
           className="swiper"
+          spaceBetween={30}
           pagination={{ type: 'progressbar' }}
           modules={[Pagination]}
           onSlideChange={(swiper) => {
