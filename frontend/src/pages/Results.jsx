@@ -98,12 +98,12 @@ const Results = () => {
                   <div>
                     <Typography sx={{ py: 2, px:0, my: 2, textAlign: 'center' }} variant='h4' className='strengths'>Vahvuudet</Typography>
                     {strengthText}
-                    {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} color={"#d3e8df"} />)}
+                    {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} color={'#d3e8df'} />)}
                   </div>
                   <div>
                     <Typography sx={{ py: 2, px:0, mt: 4, mb: 2, textAlign: 'center' }} variant='h4' className='weaknesses'>Kehityskohteet</Typography>
                     {weaknessText}
-                    {negativeResults.map((result) => <ResultAccordion key={result.id} result={result} color={"bisque"}/>)}
+                    {negativeResults.map((result) => <ResultAccordion key={result.id} result={result} color={'bisque'}/>)}
                   </div>
                 </Grid>
               </Grid>

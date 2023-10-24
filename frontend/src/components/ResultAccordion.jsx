@@ -21,7 +21,7 @@ const ResultAccordion = ({ result, color }) => {
       >
         <Typography variant='h5'>{result.category}</Typography>
       </AccordionSummary>
-      <AccordionDetails sx={{pt: 2, backgroundColor: "silk"}}>
+      <AccordionDetails sx={{ pt: 2, backgroundColor: 'silk' }}>
         {result.textSegments.map((result) => <Typography variant='body1' key={result} paragraph>{result}</Typography>)}
         <List sx = {{
           listStyleType: 'disc',
