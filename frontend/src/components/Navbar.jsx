@@ -51,9 +51,12 @@ const Navbar = () => {
         }}>
           <img src={logo} className="navbar-icon" alt="logo" />
         </Link>
-        <Title variant="h6">
-          Tieteellisen kirjoittamisen itsearviointitesti
-        </Title>
+        <NavLink to="/" style={{ textDecoration: 'none' }}
+          onClick={() => { sessionStorage.clear() }}>
+          <Title variant="h6">
+            Tieteellisen kirjoittamisen itsearviointitesti
+          </Title>
+        </NavLink>
         <div className="menu-icon" onClick={handleClick}>
           {click ? <CloseIcon /> : <MenuIcon />}
         </div>
