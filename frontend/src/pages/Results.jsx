@@ -83,13 +83,13 @@ const Results = () => {
           width: '100%', height: '100%', zIndex: -1 }}
       />
       <Container maxWidth='xl'>
-        <Paper sx={{ m: 1, mt: 5, mb: 10, p: 3, pb: 7, background: '#fdf3e9' }}>
+        <Paper sx={{ m: 1, mt: 5, mb: 10, p: 3, pb: 7, background: '#fdf3e9' }} variant='elevation'>
           {positiveResults.length > 0 || negativeResults.length > 0
             ?
             <div>
               <Grid container direction="row" spacing={10} justifyContent="center">
                 <Grid item xs={12} sm={8} md={6} lg={4}>
-                  <Typography sx={{ py: 2, textAlign: 'center' }} variant='h4'>Tulokset kategorioittain</Typography>
+                  <Typography sx={{ py: 2, textAlign: 'center' }} variant='h3'>Tulokset kategorioittain</Typography>
                   <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
                 </Grid>
               </Grid>
@@ -98,7 +98,7 @@ const Results = () => {
                   <div>
                     <Typography sx={{ py: 2, px:0, my: 2, textAlign: 'center' }} variant='h4' className='strengths'>Vahvuudet</Typography>
                     {strengthText}
-                    {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} color={"navajowhite"} />)}
+                    {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} color={"#d3e8df"} />)}
                   </div>
                   <div>
                     <Typography sx={{ py: 2, px:0, mt: 4, mb: 2, textAlign: 'center' }} variant='h4' className='weaknesses'>Kehityskohteet</Typography>

@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { Link, List, ListItem } from '@mui/material'
 
-const ResultAccordion = ({ result }) => {
+const ResultAccordion = ({ result, color }) => {
   return (
     <Accordion sx={{ borderRadius: 2 }}>
       <AccordionSummary
@@ -13,13 +13,15 @@ const ResultAccordion = ({ result }) => {
         aria-controls="panel1a-content"
         id="panel1a-header"
         sx={{
-          backgroundColor: '#EFEFEF',
-          borderRadius: 2
+          backgroundColor: color,
+          borderRadius: 2,
+          py: 1,
+          px: 3,
         }}
       >
         <Typography variant='h5'>{result.category}</Typography>
       </AccordionSummary>
-      <AccordionDetails>
+      <AccordionDetails sx={{pt: 2, backgroundColor: "silk"}}>
         {result.textSegments.map((result) => <Typography variant='body1' key={result} paragraph>{result}</Typography>)}
         <List sx = {{
           listStyleType: 'disc',
