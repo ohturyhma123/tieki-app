@@ -2,7 +2,8 @@ import { Link, useLocation } from 'react-router-dom'
 import resultsData from '../data/resultsData.json'
 import ResultAccordion from '../components/ResultAccordion'
 import RadarChart from '../components/RadarChart'
-import { Box, Paper, Typography, Grid } from '@mui/material'
+import monochromeBackground from '../assets/monochrome-background.jpg'
+import { Box, Paper, Typography, Grid, Container } from '@mui/material'
 
 const Results = () => {
   const location = useLocation()
@@ -74,40 +75,47 @@ const Results = () => {
   }
 
   return (
-    <Grid sx={{ background: '#FEF6E1' }} container direction="column" justifyContent="center" alignItems="center">
-      <Paper sx={{ m: 10, mt: 5, mb: 40, pt: 5, p: 10 }}>
-        {positiveResults.length > 0 || negativeResults.length > 0
-          ?
-          <Grid container direction="row" spacing={20} justifyContent="center">
-            <Grid item xs={5} md={6}>
-              <div>
-                <Typography sx={{ py: 2 }} variant='h4'>Tulokset kategorioittain</Typography>
-                {Object.keys(scores).map((category) => (
-                  <Typography sx={{ pl: 2 }} key={category}>
-                    {category}: <b>{sumScores[category]}</b><br />
-                  </Typography>
-                ))}
-                <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
-              </div>
-            </Grid>
-            <Grid item xs={6} md={6}>
-              <div>
-                <Typography sx={{ pt: 2, pb: 1 }} variant='h4' className='strengths'>Vahvuudet</Typography>
-                {strengthText}
-                {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
-                <Typography sx={{ pt: 4, pb: 1 }} variant='h4' className='weaknesses'>Kehityskohteet</Typography>
-                {weaknessText}
-                {negativeResults.map((result) => <ResultAccordion key={result.id} result={result} />)}
-              </div>
-            </Grid>
-          </Grid>
-          :
-          <Box>
-            <Typography sx={{ pt: 2, pb: 5 }} variant='h4' >Et valinnut tarpeeksi väittämiä analyysin muodostamiseen.</Typography>
-            <Typography variant='h5' >Hyödyllisiä linkkejä löydät <Link to='/links'>linkkisivulta</Link></Typography>
-          </Box>
-        }
-      </Paper>
+    <Grid container direction="column" justifyContent="center" alignItems="center">
+      <img
+        src={monochromeBackground}
+        alt="monochromeBackground"
+        style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
+          width: '100%', height: '100%', zIndex: -1 }}
+      />
+      <Container maxWidth='xl'>
+        <Paper sx={{ m: 1, mt: 5, mb: 10, p: 3, pb: 7, background: '#fdf3e9' }} variant='elevation'>
+          {positiveResults.length > 0 || negativeResults.length > 0
+            ?
+            <div>
+              <Grid container direction="row" spacing={10} justifyContent="center">
+                <Grid item xs={12} sm={8} md={6} lg={4}>
+                  <Typography sx={{ py: 2, textAlign: 'center' }} variant='h3'>Tulokset kategorioittain</Typography>
+                  <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
+                </Grid>
+              </Grid>
+              <Grid container direction="row" spacing={10} justifyContent="center">
+                <Grid item xs={12} sm={10} md={10} lg={7} >
+                  <div>
+                    <Typography sx={{ py: 2, px:0, my: 2, textAlign: 'center' }} variant='h4' className='strengths'>Vahvuudet</Typography>
+                    {strengthText}
+                    {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} color={'#d3e8df'} />)}
+                  </div>
+                  <div>
+                    <Typography sx={{ py: 2, px:0, mt: 4, mb: 2, textAlign: 'center' }} variant='h4' className='weaknesses'>Kehityskohteet</Typography>
+                    {weaknessText}
+                    {negativeResults.map((result) => <ResultAccordion key={result.id} result={result} color={'bisque'}/>)}
+                  </div>
+                </Grid>
+              </Grid>
+            </div>
+            :
+            <Box>
+              <Typography sx={{ pt: 2, pb: 5 }} variant='h4' >Et valinnut tarpeeksi väittämiä analyysin muodostamiseen.</Typography>
+              <Typography variant='h5' >Hyödyllisiä linkkejä löydät <Link to='/links'>linkkisivulta</Link></Typography>
+            </Box>
+          }
+        </Paper>
+      </Container>
     </Grid>
   )
 }
