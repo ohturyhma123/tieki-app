@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-const baseUrl = '/api/links'
+const baseUrl = 'http://localhost:3001/api/links'
 
 const EditLinks = () => {
   const [links, setLinks] = useState([])

@@ -31,5 +31,5 @@ const PORT = 3001
 const HOST = '127.0.0.1'
 
 server.listen(PORT, HOST, () => {
-   console.log('Server running on port 3001')
+   console.log(`Server running on http://${HOST}:${PORT}`)
 })
