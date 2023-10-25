@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
-import linksData from '../../data/linksData.json' assert { type: 'json' };
+import linksData from '../../data/linksData.json' assert { type: 'json' }
 
 const app = express();
 
