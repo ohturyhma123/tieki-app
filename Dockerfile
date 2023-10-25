@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Permissions for OpenShift
-# RUN chgrp -R 0 /app && chmod -R g+rwX /app
+RUN chgrp -R 0 /app && chmod -R g+rwX /app
 
 # Expose a port (you can choose the port number)
 EXPOSE 3000
