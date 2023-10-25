@@ -47,5 +47,6 @@ Thumbs.db
 logs/
 *.log*
 *.html
+!index.html**
 *.xml
 results/
