@@ -4,9 +4,9 @@ Library    SeleniumLibrary
 
 
 *** Variables ***
-${APP_URL}    http://localhost:3001
-${TEST_URL}    http://localhost:3001/test/0
-${LINK_URL}    http://localhost:3001/links
+${APP_URL}    http://localhost:3000
+${TEST_URL}    http://localhost:3000/test/0
+${LINK_URL}    http://localhost:3000/links
 ${BROWSER}    headlesschrome
 ${DELAY}    0.5 seconds
 
