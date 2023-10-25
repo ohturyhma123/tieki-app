@@ -30,5 +30,6 @@ const server = http.createServer(app)
 const PORT = 3001
 
 server.listen(PORT, () => {
-   console.log(`Backend running on port ${PORT}`)
+  // eslint-disable-next-line no-console
+  console.log(`Backend running on port ${PORT}`)
 })
