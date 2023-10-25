@@ -10,10 +10,6 @@ jobs:
 
     if: github.ref != 'refs/heads/main'
 
-    defaults:
-      run:
-        working-directory: ./frontend
-
     permissions:
       # Give the default GITHUB_TOKEN write permission to commit and push the
       # added or changed files to the repository.
@@ -40,10 +36,6 @@ jobs:
 
     if: github.ref == 'refs/heads/main'
 
-    defaults:
-      run:
-        working-directory: ./frontend
-
     steps:
     - uses: actions/checkout@v4
 
@@ -57,10 +49,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./frontend
-
     steps:
     - uses: actions/checkout@v4
 
@@ -73,10 +61,6 @@ jobs:
   robocop:
 
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: ./frontend
 
     steps:
     - uses: actions/checkout@v4
@@ -95,10 +79,6 @@ jobs:
   robot-chrome:
 
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: ./frontend
 
     steps:
     - uses: actions/checkout@v4
@@ -122,10 +102,6 @@ jobs:
     runs-on: ubuntu-latest
 
     if: github.ref == 'refs/heads/main'
-
-    defaults:
-      run:
-        working-directory: ./frontend
 
     steps:
     - uses: actions/checkout@v4
