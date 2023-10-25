@@ -133,8 +133,8 @@
 
   .menu-icon {
     display: block;
-    position: absolute;
-    top: -13px;
+    position: relative;
+    top: -32px;
     right: 7px;
     transform: translate(-100%, 60%);
     font-size: 2rem;
