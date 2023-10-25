@@ -1,28 +1,37 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+const baseUrl = 'http://localhost:3001/api/links'
 
 const EditLinks = () => {
   const [links, setLinks] = useState([])
 
+  /**
+   * Fetch links from the backend when the component is mounted.
+   */
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/links') // Replace with your API endpoint
+        const response = await axios.get(baseUrl)
         setLinks(response.data)
       } catch (error) {
-        console.error('Error fetching data: ', error)
+        error
       }
     }
 
     fetchData()
   }, [])
 
-
+  /**
+    * Update the name of the link with the given id.
+   */
   const handleNameChange = (id, newName) => {
     const updatedLinks = links.map((link) => (link.id === id ? { ...link, name: newName } : link))
     setLinks(updatedLinks)
   }
 
+  /**
+    * Update the description of the link with the given id.
+   */
   const handleDescriptionChange = (id, newDescription) => {
     const updatedLinks = links.map((link) =>
       link.id === id ? { ...link, description: newDescription } : link
@@ -30,29 +39,34 @@ const EditLinks = () => {
     setLinks(updatedLinks)
   }
 
+  /**
+    * Update the url of the link with the given id.
+   */
   const handleUrlChange = (id, newUrl) => {
     const updatedLinks = links.map((link) => (link.id === id ? { ...link, url: newUrl } : link))
     setLinks(updatedLinks)
   }
 
+  /**
+   * Save the updated links to the backend.
+    */
+
   const handleSaveClick = async () => {
     try {
       // Update links on the backend
-      await axios.put('http://localhost:3001/api/links', links, {
+      await axios.put(baseUrl, links, {
         headers: {
           'Content-Type': 'application/json',
         },
       })
-
-      console.log('Links updated successfully')
     } catch (error) {
-      console.error('Error updating links:', error)
+      error
     }
   }
 
   return (
     <div>
-      <h1>Edit Links</h1>
+      <h1>Muokkaa linkkejä</h1>
       {links.map((link) => (
         <div key={link.id}>
           <input
@@ -72,7 +86,7 @@ const EditLinks = () => {
           />
         </div>
       ))}
-      <button onClick={handleSaveClick}>Save</button>
+      <button onClick={handleSaveClick}>Tallenna</button>
     </div>
   )
 }
