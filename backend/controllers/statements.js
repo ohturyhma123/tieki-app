@@ -1,11 +1,10 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import cors from 'cors'
 
 import statementsData from '../../data/statementsData.json' assert { type: 'json' }
 
 const app = express()
-app.use(cors())
+
 app.use(bodyParser.json())
 
 

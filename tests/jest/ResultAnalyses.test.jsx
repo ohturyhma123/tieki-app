@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import ResultAccordion from '../../frontend/src/components/ResultAccordion'
+import ResultAccordion from '../../frontend/components/ResultAccordion'
 
 test('renders analysis without crashing', () => {
   const result = {

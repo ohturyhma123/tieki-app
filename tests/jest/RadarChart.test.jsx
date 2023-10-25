@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
-import RadarChart from '../../frontend/src/components/RadarChart.jsx'
-import splitLongStrings from '../../frontend/src/functions/splitLongStrings.jsx'
+import RadarChart from '../../frontend/components/RadarChart.jsx'
+import splitLongStrings from '../../frontend/functions/splitLongStrings.jsx'
 
 test('renders content without crashing', () => {
   const categories = ['Category 1', 'Category 2', 'Category 3']
