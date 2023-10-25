@@ -16,7 +16,7 @@ const ResultAccordion = ({ result, color }) => {
           backgroundColor: color,
           borderRadius: 2,
           py: 1,
-          px: 3,
+          px: 2,
         }}
       >
         <Typography variant='h5'>{result.category}</Typography>
