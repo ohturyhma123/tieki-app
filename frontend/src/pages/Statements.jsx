@@ -174,7 +174,7 @@ const Statements = () => {
   }
 
   return (
-    <Grid container direction="column" justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
+    <Grid>
       <img
         src={monochromeBackground}
         alt="monochromeBackground"
@@ -217,42 +217,44 @@ const Statements = () => {
         </Swiper>
         /** End of the code for mobile UI, start of desktop UI code */
       ) : (
-        <Paper
-          sx={{ mt: 10.5, mb: 10, p: 6, pb: 3.5, height: '100%', width: '77%' , background: '#fdf3e9' }}
-          variant='elevation'
-        >
-          <Typography sx={{ py: 2, ml: 0.7, mb: 1.3, mt: -2.5, fontStyle: 'italic', fontSize: '22px', fontFamily: '"Lato", sans-serif' }}>
+        <Grid container direction="column" justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
+          <Paper
+            sx={{ mt: 10.5, mb: 10, p: 6, pb: 3.5, height: '100%', width: '77%' , background: '#fdf3e9' }}
+            variant='elevation'
+          >
+            <Typography sx={{ py: 2, ml: 0.7, mb: 1.3, mt: -2.5, fontStyle: 'italic', fontSize: '22px', fontFamily: '"Lato", sans-serif' }}>
             Valitse 0–3 väitettä, jotka kuvaavat sinua parhaiten tieteellisen tekstin kirjoittajana
-          </Typography>
-          {/**
+            </Typography>
+            {/**
           Iterate through the array and create an element for each statement.
           Conditionally add the "selected" CSS class if the statement is in the "selectedStatements" array.
           */}
-          {statements.map((s) => (
-            <div
-              key={s.id}
-              className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
-              onClick={() => handleStatementClick(s.id)}
-              onKeyDown={e => handleStatementKeyDown(e, s.id)}
-              tabIndex={0}>
-              <Typography sx={{ fontSize: 17, fontFamily: '"Lato", sans-serif' }}>{s.statement}</Typography>
-            </div>
-          ))}
-          <p>
-            <LinearProgressWithLabel value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
-            <Box sx={{ display: 'flex' }}>
-              {urlIndex > 0 && (
-                <NextPrevButton id='previous-btn' sx={{ mr: 1 }} onClick={handlePreviousStatementSet}>Edellinen</NextPrevButton>
-              )}
-              <Box sx={{ marginLeft: 'auto' }}>
-                {currentStatementSetIndex < statementsData.length - 1
-                  ? <NextPrevButton id='next-btn' onClick={handleNextStatementSet}>Seuraava</NextPrevButton>
-                  : <NextPrevButton id='results-btn' onClick={handleNextStatementSet}>Tulokset</NextPrevButton>
-                }
+            {statements.map((s) => (
+              <div
+                key={s.id}
+                className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
+                onClick={() => handleStatementClick(s.id)}
+                onKeyDown={e => handleStatementKeyDown(e, s.id)}
+                tabIndex={0}>
+                <Typography sx={{ fontSize: 17, fontFamily: '"Lato", sans-serif' }}>{s.statement}</Typography>
+              </div>
+            ))}
+            <p>
+              <LinearProgressWithLabel value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
+              <Box sx={{ display: 'flex' }}>
+                {urlIndex > 0 && (
+                  <NextPrevButton id='previous-btn' sx={{ mr: 1 }} onClick={handlePreviousStatementSet}>Edellinen</NextPrevButton>
+                )}
+                <Box sx={{ marginLeft: 'auto' }}>
+                  {currentStatementSetIndex < statementsData.length - 1
+                    ? <NextPrevButton id='next-btn' onClick={handleNextStatementSet}>Seuraava</NextPrevButton>
+                    : <NextPrevButton id='results-btn' onClick={handleNextStatementSet}>Tulokset</NextPrevButton>
+                  }
+                </Box>
               </Box>
-            </Box>
-          </p>
-        </Paper>)}
+            </p>
+          </Paper>
+        </Grid>)}
     </Grid>
   )
 }
