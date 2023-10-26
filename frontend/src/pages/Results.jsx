@@ -68,10 +68,10 @@ const Results = () => {
   let weaknessText = null
 
   if (positiveResults.length < 1) {
-    strengthText = <Typography sx={{ pt: 2, pb: 1 }} variant='h5' className='strengths'>Valintojesi perusteella sinulla ei ole vahvuuksia.</Typography>
+    strengthText = <Typography sx={{ pt: 2, pb: 1, textAlign: 'center' }} variant='h5' className='strengths'>Valintojesi perusteella sinulla ei ole vahvuuksia.</Typography>
   }
   if (negativeResults.length < 1) {
-    weaknessText = <Typography sx={{ pt: 2, pb: 1 }} variant='h5' className='weaknesses'>Valintojesi perusteella sinulla ei ole kehityskohteita.</Typography>
+    weaknessText = <Typography sx={{ pt: 2, pb: 1, textAlign: 'center' }} variant='h5' className='weaknesses'>Valintojesi perusteella sinulla ei ole kehityskohteita.</Typography>
   }
 
   return (
@@ -83,25 +83,25 @@ const Results = () => {
           width: '100%', height: '100%', zIndex: -1 }}
       />
       <Container maxWidth='xl'>
-        <Paper sx={{ m: 1, mt: 5, mb: 10, p: 3, pb: 7, background: '#fdf3e9' }} variant='elevation'>
+        <Paper sx={{ m: -1, mt: 3, mb: 5, p: 2, pb: 7, background: '#FCF8F4' }} variant='elevation' elevation={10}>
           {positiveResults.length > 0 || negativeResults.length > 0
             ?
             <div>
               <Grid container direction="row" spacing={10} justifyContent="center">
                 <Grid item xs={12} sm={8} md={6} lg={4}>
-                  <Typography sx={{ py: 2, textAlign: 'center' }} variant='h3'>Tulokset kategorioittain</Typography>
+                  <Typography sx={{ pt: 8, textAlign: 'center', color: '#323E45' }} variant='h3'>Tulokset</Typography>
                   <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
                 </Grid>
               </Grid>
               <Grid container direction="row" spacing={10} justifyContent="center">
                 <Grid item xs={12} sm={10} md={10} lg={7} >
                   <div>
-                    <Typography sx={{ py: 2, px:0, my: 2, textAlign: 'center' }} variant='h4' className='strengths'>Vahvuudet</Typography>
+                    <Typography sx={{ py: 2, px:0, my: 2, textAlign: 'center', color: '#323E45' }} variant='h4' className='strengths'>Vahvuudet</Typography>
                     {strengthText}
                     {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} color={'#d3e8df'} />)}
                   </div>
                   <div>
-                    <Typography sx={{ py: 2, px:0, mt: 4, mb: 2, textAlign: 'center' }} variant='h4' className='weaknesses'>Kehityskohteet</Typography>
+                    <Typography sx={{ py: 2, px:0, mt: 4, mb: 2, textAlign: 'center', color: '#323E45' }} variant='h4' className='weaknesses'>Kehityskohteet</Typography>
                     {weaknessText}
                     {negativeResults.map((result) => <ResultAccordion key={result.id} result={result} color={'bisque'}/>)}
                   </div>
