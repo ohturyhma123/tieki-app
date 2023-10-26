@@ -157,7 +157,7 @@ const Statements = () => {
   /** Progress bar for the desktop UI. */
   const LinearProgressWithLabel = (props) => {
     return (
-      <Box sx={{ pt: 2, pb: 3, display: 'flex', alignItems: 'center' }}>
+      <Box sx={{ pt: 2.5, pb: 3, display: 'flex', alignItems: 'center' }}>
         <Box sx={{ width: '100%', mr: 1 }}>
           <LinearProgress sx={{ height: 15, borderRadius: 3, '& .MuiLinearProgress-bar': {
             backgroundColor: '#40c178',
@@ -238,20 +238,18 @@ const Statements = () => {
               <Typography sx={{ fontSize: 17, fontFamily: '"Lato", sans-serif' }}>{s.statement}</Typography>
             </div>
           ))}
-          <p>
-            <LinearProgressWithLabel value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
-            <Box sx={{ display: 'flex' }}>
-              {urlIndex > 0 && (
-                <NextPrevButton id='previous-btn' sx={{ mr: 1 }} onClick={handlePreviousStatementSet}>Edellinen</NextPrevButton>
-              )}
-              <Box sx={{ marginLeft: 'auto' }}>
-                {currentStatementSetIndex < statementsData.length - 1
-                  ? <NextPrevButton id='next-btn' onClick={handleNextStatementSet}>Seuraava</NextPrevButton>
-                  : <NextPrevButton id='results-btn' onClick={handleNextStatementSet}>Tulokset</NextPrevButton>
-                }
-              </Box>
+          <LinearProgressWithLabel value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
+          <Box sx={{ display: 'flex' }}>
+            {urlIndex > 0 && (
+              <NextPrevButton id='previous-btn' sx={{ mr: 1 }} onClick={handlePreviousStatementSet}>Edellinen</NextPrevButton>
+            )}
+            <Box sx={{ marginLeft: 'auto' }}>
+              {currentStatementSetIndex < statementsData.length - 1
+                ? <NextPrevButton id='next-btn' onClick={handleNextStatementSet}>Seuraava</NextPrevButton>
+                : <NextPrevButton id='results-btn' onClick={handleNextStatementSet}>Tulokset</NextPrevButton>
+              }
             </Box>
-          </p>
+          </Box>
         </Paper>)}
     </Grid>
   )
