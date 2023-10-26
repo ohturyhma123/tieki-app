@@ -184,7 +184,7 @@ const Statements = () => {
       {isMobile ? (
         <Swiper
           className="swiper"
-          spaceBetween={30}
+          spaceBetween={35}
           pagination={{ type: 'progressbar' }}
           modules={[Pagination]}
           onSlideChange={(swiper) => {
@@ -194,22 +194,23 @@ const Statements = () => {
           }}>
           {statementsData.map((s, i) => (
             <SwiperSlide key={i}>
-              <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: '20px', fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
-                Valitse 0–3 väitettä
+              <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: '17px', fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
+                Valitse 0–3 väitettä<br />
+                Pyyhkäise mennäksesi eteen- tai taaksepäin
               </Typography>
               {statements.map((s) => (
                 <div
                   key={s.id}
                   className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
                   onClick={() => handleStatementClick(s.id)}>
-                  <Typography sx={{ fontSize: 15.5, fontFamily: '"Lato", sans-serif' }}>{s.statement}</Typography>
+                  <Typography sx={{ fontSize: 14.5, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>{s.statement}</Typography>
                 </div>
               ))}
             </SwiperSlide>
           ))}
           {/** Text-only slide at the end to trigger confirmation box */}
           <SwiperSlide>
-            <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: '20px', fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
+            <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: '17px', fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
                 Jos haluat vielä muuttaa vastauksiasi, pyyhkäise oikealle
             </Typography>
           </SwiperSlide>
