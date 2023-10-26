@@ -1,12 +1,16 @@
 .swiper {
   width: 100%;
   height: 100%;
+  overscroll-behavior-y: none;
 }
 
 .swiper-slide {
   text-align: center;
   justify-content: center;
   align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
 }
 
 .swiper-pagination-progressbar-fill {
