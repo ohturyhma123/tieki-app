@@ -10,6 +10,7 @@ const Navbar = () => {
   const [click, setClick] = useState(false)
   const handleClick = () => { setClick(!click) }
   const closeMobileMenu = () => { setClick(false) }
+  const isMobile = window.innerWidth <= 768
 
   const Title = styled(Typography)(({ theme }) => ({
     fontFamily: '"Lato", sans-serif',
@@ -51,14 +52,20 @@ const Navbar = () => {
         }}>
           <img src={logo} className="navbar-icon" alt="logo" />
         </Link>
-        <NavLink to="/" style={{ textDecoration: 'none' }} onClick={() => {
-          sessionStorage.clear()
-          closeMobileMenu()
-        }}>
+        {!isMobile ? (
+          <NavLink to="/" style={{ textDecoration: 'none' }} onClick={() => {
+            sessionStorage.clear()
+            closeMobileMenu()
+          }}>
+            <Title variant="h6">
+              Tieteellisen kirjoittamisen itsearviointitesti
+            </Title>
+          </NavLink>
+        ) : (
           <Title variant="h6">
             Tieteellisen kirjoittamisen itsearviointitesti
           </Title>
-        </NavLink>
+        )}
         <div className="menu-icon" onClick={handleClick}>
           {click ? <CloseIcon /> : <MenuIcon />}
         </div>

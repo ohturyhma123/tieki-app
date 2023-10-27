@@ -17,7 +17,7 @@ Go To Resultpage
 
 Check Headers
     [Documentation]    Checks that the headers are in order.
-    Page Should Contain    Tulokset kategorioittain
+    Page Should Contain    Tulokset
     Element Text Should Be    class:strengths    Vahvuudet
     Element Text Should Be    class:weaknesses    Kehityskohteet
 

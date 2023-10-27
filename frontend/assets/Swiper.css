@@ -7,6 +7,8 @@
   text-align: center;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .swiper-pagination-progressbar-fill {

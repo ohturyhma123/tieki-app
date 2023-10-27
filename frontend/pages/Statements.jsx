@@ -38,12 +38,12 @@ const Statements = () => {
    */
   useEffect(() => {
     const newIndex = parseInt(urlIndex, 10)
-    if (!isNaN(newIndex) && newIndex !== currentStatementSetIndex) {
-      setCurrentStatementSetIndex(newIndex)
-      setSelectedStatementsCount(selectedStatementsCountOnPage[newIndex])
+    const adjustedIndex = !isNaN(newIndex) ? newIndex - 1 : 0
+    if (adjustedIndex !== currentStatementSetIndex) {
+      setCurrentStatementSetIndex(adjustedIndex)
+      setSelectedStatementsCount(selectedStatementsCountOnPage[adjustedIndex])
     }
   }, [urlIndex, currentStatementSetIndex, selectedStatementsCountOnPage])
-
   /**
     Handles the event of clicking a statement.
     If statement is already selected, it deselects and counter is decremented.
@@ -96,8 +96,7 @@ const Statements = () => {
       const countOnNextPage = selectedStatementsCountOnPage[currentStatementSetIndex + 1]
       setSelectedStatementsCount(countOnNextPage)
 
-      navigate(`/test/${currentStatementSetIndex + 1}`)
-
+      navigate(`/test/${currentStatementSetIndex + 2}`)
     } else {
       Submit({ navigate, selectedStatements, statementsData })
     }
@@ -105,12 +104,12 @@ const Statements = () => {
 
   /** Handles going back to the previous statement set. */
   const handlePreviousStatementSet = () => {
-    if (urlIndex > 0) {
-      const previousIndex = urlIndex - 1
+    if (currentStatementSetIndex > 0) {
+      const previousIndex = currentStatementSetIndex - 1
       setCurrentStatementSetIndex(previousIndex)
       const previousCount = selectedStatementsCountHistory.pop()
       setSelectedStatementsCount(previousCount)
-      navigate(-1)
+      navigate(`/test/${currentStatementSetIndex}`)
     }
   }
 
@@ -157,7 +156,7 @@ const Statements = () => {
   /** Progress bar for the desktop UI. */
   const LinearProgressWithLabel = (props) => {
     return (
-      <Box sx={{ pt: 2, pb: 3, display: 'flex', alignItems: 'center' }}>
+      <Box sx={{ pt: 2.5, pb: 3, display: 'flex', alignItems: 'center' }}>
         <Box sx={{ width: '100%', mr: 1 }}>
           <LinearProgress sx={{ height: 15, borderRadius: 3, '& .MuiLinearProgress-bar': {
             backgroundColor: '#40c178',
@@ -194,22 +193,23 @@ const Statements = () => {
           }}>
           {statementsData.map((s, i) => (
             <SwiperSlide key={i}>
-              <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: '20px', fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
-                Valitse 0–3 väitettä
+              <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: '17px', fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
+                Valitse 0–3 väitettä<br />
+                Pyyhkäise mennäksesi eteen- tai taaksepäin
               </Typography>
               {statements.map((s) => (
                 <div
                   key={s.id}
                   className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
                   onClick={() => handleStatementClick(s.id)}>
-                  <Typography sx={{ fontSize: 15.5, fontFamily: '"Lato", sans-serif' }}>{s.statement}</Typography>
+                  <Typography sx={{ fontSize: 14.5, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>{s.statement}</Typography>
                 </div>
               ))}
             </SwiperSlide>
           ))}
           {/** Text-only slide at the end to trigger confirmation box */}
           <SwiperSlide>
-            <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: '20px', fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
+            <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: '17px', fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
                 Jos haluat vielä muuttaa vastauksiasi, pyyhkäise oikealle
             </Typography>
           </SwiperSlide>
@@ -237,20 +237,18 @@ const Statements = () => {
               <Typography sx={{ fontSize: 17, fontFamily: '"Lato", sans-serif' }}>{s.statement}</Typography>
             </div>
           ))}
-          <p>
-            <LinearProgressWithLabel value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
-            <Box sx={{ display: 'flex' }}>
-              {urlIndex > 0 && (
-                <NextPrevButton id='previous-btn' sx={{ mr: 1 }} onClick={handlePreviousStatementSet}>Edellinen</NextPrevButton>
-              )}
-              <Box sx={{ marginLeft: 'auto' }}>
-                {currentStatementSetIndex < statementsData.length - 1
-                  ? <NextPrevButton id='next-btn' onClick={handleNextStatementSet}>Seuraava</NextPrevButton>
-                  : <NextPrevButton id='results-btn' onClick={handleNextStatementSet}>Tulokset</NextPrevButton>
-                }
-              </Box>
+          <LinearProgressWithLabel value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
+          <Box sx={{ display: 'flex' }}>
+            {urlIndex > 0 && (
+              <NextPrevButton id='previous-btn' sx={{ mr: 1 }} onClick={handlePreviousStatementSet}>Edellinen</NextPrevButton>
+            )}
+            <Box sx={{ marginLeft: 'auto' }}>
+              {currentStatementSetIndex < statementsData.length - 1
+                ? <NextPrevButton id='next-btn' onClick={handleNextStatementSet}>Seuraava</NextPrevButton>
+                : <NextPrevButton id='results-btn' onClick={handleNextStatementSet}>Tulokset</NextPrevButton>
+              }
             </Box>
-          </p>
+          </Box>
         </Paper>)}
     </Grid>
   )

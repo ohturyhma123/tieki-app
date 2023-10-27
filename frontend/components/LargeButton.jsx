@@ -30,7 +30,7 @@ const LargeButton = ({ backgroundColor, color, buttonText }) => {
 
   const navigate = useNavigate()
   const handleClick = () => {
-    navigate('/test/0')
+    navigate('/test/1')
   }
 
   return <StyledButton id='statementsRoute' onClick={handleClick}>{buttonText}</StyledButton>
