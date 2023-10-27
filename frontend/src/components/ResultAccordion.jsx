@@ -33,7 +33,7 @@ const ResultAccordion = ({ result, color }) => {
           return(
             <div key={index}>
               <Typography variant='body1'>{link.description}</Typography>
-              <Link sx={{ overflowWrap: 'break-word' }} variant='body1' className="link" href={link.link}>{link.link}</Link>
+              <Link sx={{ overflowWrap: 'break-word' }} variant='body1' className="link" href={link.link} target="_blank" rel="noopener noreferrer">{link.link}</Link>
             </div>
           )
         })}
