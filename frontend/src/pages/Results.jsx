@@ -46,13 +46,17 @@ const Results = () => {
           {positiveResults.length > 0 || negativeResults.length > 0
             ?
             <div>
-              <Link to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements }}>
-                <Typography align='right'>Näytä tulokset PDF-tiedostona</Typography>
-              </Link>
-              <Grid container direction="row" spacing={10} justifyContent="center">
-                <Grid item xs={12} sm={8} md={6} lg={4}>
-                  <Typography sx={{ pt: 8, textAlign: 'center', color: '#323E45' }} variant='h3'>Tulokset</Typography>
-                  <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
+              <Grid container direction="column" spacing={10} justifyContent="center">
+                <Grid item>
+                  <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements }}>
+                    <Typography sx={{textAlign: 'right'}}>Näytä tulokset PDF-tiedostona</Typography>
+                  </Link>
+                </Grid>
+                <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
+                  <Typography sx={{ textAlign: 'center', color: '#323E45' }} variant='h3'>Tulokset</Typography>
+                  <Box display="flex" justifyContent="center">
+                    <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
+                  </Box>
                 </Grid>
               </Grid>
               <Grid container direction="row" spacing={10} justifyContent="center">
