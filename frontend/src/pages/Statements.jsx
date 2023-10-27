@@ -38,12 +38,12 @@ const Statements = () => {
    */
   useEffect(() => {
     const newIndex = parseInt(urlIndex, 10)
-    if (!isNaN(newIndex) && newIndex !== currentStatementSetIndex) {
-      setCurrentStatementSetIndex(newIndex)
-      setSelectedStatementsCount(selectedStatementsCountOnPage[newIndex])
+    const adjustedIndex = !isNaN(newIndex) ? newIndex - 1 : 0
+    if (adjustedIndex !== currentStatementSetIndex) {
+      setCurrentStatementSetIndex(adjustedIndex)
+      setSelectedStatementsCount(selectedStatementsCountOnPage[adjustedIndex])
     }
   }, [urlIndex, currentStatementSetIndex, selectedStatementsCountOnPage])
-
   /**
     Handles the event of clicking a statement.
     If statement is already selected, it deselects and counter is decremented.
@@ -96,8 +96,7 @@ const Statements = () => {
       const countOnNextPage = selectedStatementsCountOnPage[currentStatementSetIndex + 1]
       setSelectedStatementsCount(countOnNextPage)
 
-      navigate(`/test/${currentStatementSetIndex + 1}`)
-
+      navigate(`/test/${currentStatementSetIndex + 2}`)
     } else {
       Submit({ navigate, selectedStatements, statementsData })
     }
@@ -105,12 +104,12 @@ const Statements = () => {
 
   /** Handles going back to the previous statement set. */
   const handlePreviousStatementSet = () => {
-    if (urlIndex > 0) {
-      const previousIndex = urlIndex - 1
+    if (currentStatementSetIndex > 0) {
+      const previousIndex = currentStatementSetIndex - 1
       setCurrentStatementSetIndex(previousIndex)
       const previousCount = selectedStatementsCountHistory.pop()
       setSelectedStatementsCount(previousCount)
-      navigate(-1)
+      navigate(`/test/${currentStatementSetIndex}`)
     }
   }
 

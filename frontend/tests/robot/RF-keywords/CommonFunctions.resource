@@ -5,7 +5,7 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${APP_URL}    http://localhost:5173
-${TEST_URL}    http://localhost:5173/test/0
+${TEST_URL}    http://localhost:5173/test/1
 ${LINK_URL}    http://localhost:5173/links
 ${BROWSER}    headlesschrome
 ${DELAY}    0.5 seconds
