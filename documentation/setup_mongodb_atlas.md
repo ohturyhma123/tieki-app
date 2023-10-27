@@ -6,11 +6,15 @@ https://www.mongodb.com/cloud/atlas/register
 
 2. Follow fullstack open instructions on creating the cluster
 
-Make sure to write down the password for the database account somewhere
+Make sure to write down the password for the database account somewhere.
 
 fi: https://fullstackopen.com/osa3/tietojen_tallettaminen_mongo_db_tietokantaan#mongo-db
 
 eng: https://fullstackopen.com/en/part3/saving_data_to_mongo_db#mongo-db
+
+The instructions are slightly outdated. If there is no "allow access from anywhere", enter 0.0.0.0 for the IP.
+
+As long as you have created the cluster and created the database user, you can continue.
 
 3. Install MongoDB Database Tools
 
