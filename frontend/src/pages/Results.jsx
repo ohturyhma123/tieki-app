@@ -3,10 +3,31 @@ import ResultAccordion from '../components/ResultAccordion'
 import RadarChart from '../components/RadarChart'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import { Box, Paper, Typography, Grid, Container } from '@mui/material'
+import { useEffect, useState } from 'react'
+import * from htmlToImage
 import calculateCategoryScores from '../functions/CalculateCategoryScores'
 import getResults from '../functions/getResults'
 
 const Results = () => {
+
+  const [imgSource, setImageSource] = useState(null)
+
+  useEffect(() => {
+
+    const chart = document.getElementsByClassName('radarchart').radarchart
+    console.log(chart)
+
+    htmlToImage.toPng(chart)
+      .then((dataUrl) => {
+        console.log(dataUrl)
+        setImageSource(dataUrl)
+        let img = new Image()
+        img.src = dataUrl
+        document.body.appendChild(img)
+      })
+
+  }, [])
+
   const location = useLocation()
 
   if (!location.state) {
