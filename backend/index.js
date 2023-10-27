@@ -1,35 +1,25 @@
-// import { spawn } from 'child_process';
-// // Start links.js
-// const linksProcess = spawn('node', ['links.js']);
-
-// // Start statements.js
-// const statementsProcess = spawn('node', ['statements.js']);
-
-// // Log any errors from the child processes
-// linksProcess.on('error', (err) => {
-//   console.error('Error starting links.js:', err);
-// });
-
-// statementsProcess.on('error', (err) => {
-//   console.error('Error starting statements.js:', err);
-// });
-
-// // Log when the child processes are exited
-// linksProcess.on('exit', (code) => {
-//   console.log(`links.js process exited with code ${code}`);
-// });
-
-// statementsProcess.on('exit', (code) => {
-//   console.log(`statements.js process exited with code ${code}`);
-// });
-
 import app from './app.js'
 import http from 'http'
+import connectToDatabase from './db/connection.js'
 const server = http.createServer(app)
 
 const PORT = 3001
 
+const dbconnection = connectToDatabase()
+
 server.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Backend running on port ${PORT}`)
+  console.log(`Server running on port ${PORT}`)
+})
+
+server.on('close', () => {
+  dbconnection.close()
+  console.log('Database connection closed')
+})
+
+process.on('SIGINT', () => {
+  console.log('Server is stopping...')
+  server.close(() => {
+    console.log('Server has stopped.')
+    process.exit(0)
+  })
 })

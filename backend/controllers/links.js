@@ -1,35 +1,31 @@
 import express from 'express'
-import bodyParser from 'body-parser'
-
-import linksData from '../../data/linksData.json' assert { type: 'json' }
+import Link from '../db/models/LinkModel.js'
 
 const app = express()
 
-app.use(bodyParser.json())
-
-// app.get('/', (req, res) => {
-//   res.send('<h1>Hello World!</h1>');
-// });
-
-app.get('/', (req, res) => {
-  res.json(linksData)
+app.get('/', async (req, res) => {
+  try {
+    const linksData = await Link.find()
+    res.json(linksData)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: 'Failed to retrieve data' })
+  }
 })
 
-
 // PUT endpoint to update links
-app.put('/', (req, res) => {
+app.put('/', async (req, res) => {
   const updatedLinks = req.body
 
-  // Assuming linksData is an array of objects with an 'id' property
-  updatedLinks.forEach((updatedLink) => {
-    const index = linksData.findIndex((link) => link.id === updatedLink.id)
-    if (index !== -1) {
-      // Update the existing link with new data
-      linksData[index] = { ...linksData[index], ...updatedLink }
+  try {
+    for (const updatedLink of updatedLinks) {
+      await Link.findOneAndUpdate({ id: updatedLink.id }, updatedLink)
     }
-  })
-
-  res.json({ message: 'Links updated successfully' })
+    res.json({ message: 'Links updated successfully' })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: 'Failed to update links' })
+  }
 })
 
 export default app

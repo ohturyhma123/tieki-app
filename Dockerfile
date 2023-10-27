@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:18
+FROM node:iron-slim
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -19,5 +19,5 @@ RUN chgrp -R 0 /app && chmod -R g+rwX /app
 # Expose a port (you can choose the port number)
 EXPOSE 3000
 
-# Start the application
+# Start the application in development mode
 CMD ["npm", "run", "dev"]

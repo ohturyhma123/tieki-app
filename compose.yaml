@@ -6,3 +6,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:80"
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
