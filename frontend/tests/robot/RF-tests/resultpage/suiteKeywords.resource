@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    This file contains common keywords and variables used with test suites.
 
+Library    SeleniumLibrary
 
 *** Keywords ***
 Go To Resultpage
@@ -26,3 +27,9 @@ Check Analysis
     ${analysis}=    Get WebElements    xpath=//*[@id="panel1a-content"]
     ${analysis_count}=    Get Length    ${analysis}
     Should Be Equal As Integers    ${analysis_count}    2
+
+Go To PDF View
+    [Documentation]    Clicks the link that takes user to pdf view of the results.
+    Click Link    Näytä tulokset PDF-tiedostona
+    ${pdf_url}=    Get Location
+    Should Be Equal    ${pdf_url}    ${APP_URL}/pdfview
