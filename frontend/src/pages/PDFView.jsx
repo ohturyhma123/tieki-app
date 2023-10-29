@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import { Document, Page, Text, PDFViewer, StyleSheet, Link } from '@react-pdf/renderer'
+import { Document, Page, Text, PDFViewer, StyleSheet, Link, Image } from '@react-pdf/renderer'
 import { useLocation } from 'react-router-dom'
 import calculateCategoryScores from '../functions/CalculateCategoryScores'
 import getResults from '../functions/getResults'
@@ -7,6 +7,7 @@ import getResults from '../functions/getResults'
 const PDFView = () => {
   const location = useLocation()
   const scores = calculateCategoryScores(location.state.selectedStatements)
+  const imgSrc = location.state.imgSrc
   const [positiveResults, negativeResults] = getResults(scores)
 
   const styles = StyleSheet.create({
@@ -67,6 +68,7 @@ const PDFView = () => {
       <PDFViewer width={'100%'} height={'100%'} >
         <Document>
           <Page size={'A4'} style={styles.body}>
+            <Image src={imgSrc}></Image>
             <Text style={styles.title}>Vahvuudet</Text>
             {positiveResults.map(result => <Result key={result.id} result={result} />)}
             <Text style={ { paddingVertical: 25 } }> </Text>

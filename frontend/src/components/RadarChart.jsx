@@ -63,8 +63,8 @@ const RadarChart = ({ categories, results }) => {
     }
   }
   return (
-    <div className='radarchart'>
-      <Radar data={data} options={options} className="radarchart" aria-label='radar chart'/>
+    <div>
+      <Radar data={data} options={options} id="radarchart" className="radarchart" aria-label='radar chart'/>
     </div>
   )
 }
