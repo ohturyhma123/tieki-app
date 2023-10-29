@@ -63,8 +63,8 @@ const Results = () => {
             <div>
               <Grid container direction="column" spacing={10} justifyContent="center">
                 <Grid item>
-                  <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource}}>
-                    <Typography sx={{textAlign: 'right'}}>Näytä tulokset PDF-tiedostona</Typography>
+                  <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>
+                    <Typography sx={{ textAlign: 'right' }}>Näytä tulokset PDF-tiedostona</Typography>
                   </Link>
                 </Grid>
                 <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
