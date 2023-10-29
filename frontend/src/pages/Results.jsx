@@ -4,7 +4,7 @@ import RadarChart from '../components/RadarChart'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import { Box, Paper, Typography, Grid, Container } from '@mui/material'
 import { useEffect, useState } from 'react'
-import * from htmlToImage
+import * as htmlToImage from 'html-to-image'
 import calculateCategoryScores from '../functions/CalculateCategoryScores'
 import getResults from '../functions/getResults'
 
