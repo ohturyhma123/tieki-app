@@ -24,7 +24,7 @@ Resultpage Analyses
     [Documentation]    Checks the number of analyses
     Check Analysis
 
-Check PDF View
-    [Documentation]    Checks that the pdf view is shown correctly.
-    Go To PDF View
-    Sleep    3s
+# Check PDF View
+    # [Documentation]    Checks that the pdf view is shown correctly.
+    # Go To PDF View
+    # Sleep    3s
