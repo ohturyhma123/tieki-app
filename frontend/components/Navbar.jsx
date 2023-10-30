@@ -88,7 +88,7 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <NavLink
-              to={`${import.meta.env.VITE_BASE_PATH}/api/oidc`}
+              to="/api/oidc"
               className='nav-links'
               onClick={closeMobileMenu}>
                 Admin
