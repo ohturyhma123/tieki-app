@@ -40,11 +40,7 @@ const getClient = async () => {
   return client
 }
 
-const verifyLogin = async (
-  _tokenSet,
-  userinfo,
-  done ) => {
-  console.log('verifyLogin')
+const verifyLogin = async (_tokenSet, userinfo, done) => {
   const {
     uid: username,
     hyPersonSisuId: id,
@@ -53,19 +49,20 @@ const verifyLogin = async (
     preferredLanguage: language,
   } = userinfo
 
-  const user = new User({
-    username: username,
+  const user = {
+    username,
     id: id || username,
-    email: email,
-    iamGroups: iamGroups,
-    language: language,
+    email,
+    iamGroups,
+    language,
     isAdmin: checkAdmin(iamGroups),
-  })
+  }
 
   await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
 
-  done(null, User)
+  done(null, user)
 }
+
 const setupAuthentication = async () => {
 
   console.log('setupAuthentication')
