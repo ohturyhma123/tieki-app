@@ -3,15 +3,13 @@ import {
   Strategy
 } from 'openid-client'
 import passport from 'passport'
-
-import UserModel from '../db/models/UserModel.js'
-import dotenv from 'dotenv'
-dotenv.config()
-
-const OIDC_ISSUER = 'https://login-test.it.helsinki.fi/.well-known/openid-configuration'
-const OIDC_CLIENT_ID = process.env.OIDC_CLIENT_ID
-const OIDC_CLIENT_SECRET = process.env.OIDC_CLIENT_SECRET
-const OIDC_REDIRECT_URI = process.env.OIDC_REDIRECT_URI
+import {
+  OIDC_ISSUER,
+  OIDC_CLIENT_ID,
+  OIDC_CLIENT_SECRET,
+  OIDC_REDIRECT_URI,
+} from './config.js'
+import User from '../db/models/UserModel.js'
 
 const params = {
   claims: {
@@ -27,7 +25,7 @@ const params = {
   },
 }
 
-const checkAdmin = (iamGroups) => iamGroups.includes('tieki123')
+const checkAdmin = (iamGroups) => iamGroups.includes('grp-tieki')
 
 const getClient = async () => {
   const issuer = await Issuer.discover(OIDC_ISSUER)
@@ -55,7 +53,7 @@ const verifyLogin = async (
     preferredLanguage: language,
   } = userinfo
 
-  const user = new UserModel({
+  const user = new User({
     username: username,
     id: id || username,
     email: email,
@@ -64,9 +62,9 @@ const verifyLogin = async (
     isAdmin: checkAdmin(iamGroups),
   })
 
-  await UserModel.findOneAndUpdate({ username }, { ...user }, { upsert: true })
+  await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
 
-  done(null, UserModel)
+  done(null, User)
 }
 const setupAuthentication = async () => {
 
@@ -83,7 +81,7 @@ const setupAuthentication = async () => {
       { username, iamGroups },
       done
     ) => {
-      const user = await UserModel.findOne({ username }).lean()
+      const user = await User.findOne({ username }).lean()
 
       if (!user) return done(new Error('User not found'))
 

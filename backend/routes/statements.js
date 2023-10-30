@@ -3,16 +3,16 @@ import bodyParser from 'body-parser'
 
 import statementsData from '../../data/statementsData.json' assert { type: 'json' }
 
-const app = express()
+const statementsRouter = express()
 
-app.use(bodyParser.json())
+statementsRouter.use(bodyParser.json())
 
 
-app.get('/', (req, res) => {
+statementsRouter.get('/', (req, res) => {
   res.json(statementsData)
 })
 
-app.put('/', (req, res) => {
+statementsRouter.put('/', (req, res) => {
   try {
     const updatedStatements = req.body
     updatedStatements.forEach((updatedStatement) => {
@@ -23,10 +23,9 @@ app.put('/', (req, res) => {
     })
     res.json({ message: 'Statements updated successfully', data: statementsData })
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('Error updating statements:', error)
     res.status(500).json({ error: 'Internal server error' })
   }
 })
 
-export default app
+export default statementsRouter

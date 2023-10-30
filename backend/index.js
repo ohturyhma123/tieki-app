@@ -1,43 +1,28 @@
-import app from './app.js'
-import http from 'http'
-import connectToDatabase from './db/connection.js'
-import passport from 'passport'
+import express from 'express'
 import session from 'express-session'
-import dotenv from 'dotenv'
+import passport from 'passport'
+import { SESSION_SECRET } from './util/config.js'
+import router from './routes/router.js'
+import connectToDatabase from './db/connection.js'
 import setupAuthentication from './util/oidc.js'
 
-dotenv.config()
-const server = http.createServer(app)
-
 const PORT = 3001
+const app = express()
 
-const dbconnection = connectToDatabase()
-
-const SESSION_SECRET = process.env.SESSION_SECRET
-
-app.use(
-  session({
-    secret: SESSION_SECRET,
-  })
-)
+app.use(session({
+  secret: SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true
+}))
 
 app.use(passport.initialize())
 app.use(passport.session())
 
-server.listen(PORT, async () => {
-  console.log(`Server running on port ${PORT}`)
+app.use('/api', (req, res, next) => router(req, res, next))
+app.use('/api', (_, res) => res.sendStatus(404))
+
+app.listen(PORT, async () => {
+  await connectToDatabase()
   await setupAuthentication()
-})
-
-server.on('close', () => {
-  dbconnection.close()
-  console.log('Database connection closed')
-})
-
-process.on('SIGINT', () => {
-  console.log('Server is stopping...')
-  server.close(() => {
-    console.log('Server has stopped.')
-    process.exit(0)
-  })
+  console.log(`Server running on port ${PORT}`)
 })

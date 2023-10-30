@@ -1,4 +1,4 @@
-name: Deploy to staging
+name: Deploy to oidc-tieki-test
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
       with:
         username: nikitaessine
         password: ${{ secrets.OIDC }}
-    
+
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:

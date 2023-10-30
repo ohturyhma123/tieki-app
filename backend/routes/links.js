@@ -1,9 +1,9 @@
 import express from 'express'
 import Link from '../db/models/LinkModel.js'
 
-const app = express()
+const linksRouter = express()
 
-app.get('/', async (req, res) => {
+linksRouter.get('/', async (req, res) => {
   try {
     const linksData = await Link.find()
     res.json(linksData)
@@ -14,7 +14,7 @@ app.get('/', async (req, res) => {
 })
 
 // PUT endpoint to update links
-app.put('/', async (req, res) => {
+linksRouter.put('/', async (req, res) => {
   const updatedLinks = req.body
 
   try {
@@ -28,4 +28,4 @@ app.put('/', async (req, res) => {
   }
 })
 
-export default app
+export default linksRouter

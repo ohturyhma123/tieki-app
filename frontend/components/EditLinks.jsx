@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { TextField, Button } from '@mui/material'
 import '../assets/EditLinks.css'
