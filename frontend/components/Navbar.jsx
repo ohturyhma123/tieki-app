@@ -88,7 +88,7 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <NavLink
-              to="/edit"
+              to="https://openid.ext.ocp-test-0.k8s.it.helsinki.fi/api/oidc"
               className='nav-links'
               onClick={closeMobileMenu}>
                 Admin
