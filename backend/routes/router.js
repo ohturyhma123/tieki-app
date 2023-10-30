@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import userMiddleware from '../middleware/user.js'
+//import userMiddleware from '../middleware/user.js'
 import loginRouter from './login.js'
 import linksRouter from './links.js'
 import statementsRouter from './statements.js'
@@ -14,7 +14,7 @@ router.use(express.json())
 
 if (process.env.NODE_ENV === 'development') {
   router.use(cors())
-  router.use(userMiddleware)
+  //router.use(userMiddleware)
 }
 
 router.use('/', loginRouter)
