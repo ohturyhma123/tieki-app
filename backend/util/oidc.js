@@ -46,7 +46,7 @@ const verifyLogin = async (
   _tokenSet,
   userinfo,
   done ) => {
-    console.log('verifyLogin')
+  console.log('verifyLogin')
   const {
     uid: username,
     hyPersonSisuId: id,
@@ -55,14 +55,22 @@ const verifyLogin = async (
     preferredLanguage: language,
   } = userinfo
 
+  const user = new UserModel({
+    username: username,
+    id: id || username,
+    email: email,
+    iamGroups: iamGroups,
+    language: language,
+    isAdmin: checkAdmin(iamGroups),
+  })
 
-  await UserModel.findOneAndUpdate({ username }, { ...UserModel }, { upsert: true })
+  await UserModel.findOneAndUpdate({ username }, { ...user }, { upsert: true })
 
   done(null, UserModel)
 }
 const setupAuthentication = async () => {
 
-    console.log('setupAuthentication')
+  console.log('setupAuthentication')
   const client = await getClient()
 
   passport.serializeUser((user, done) => {
