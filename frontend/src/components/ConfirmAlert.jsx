@@ -5,7 +5,7 @@ import '../assets/ConfirmAlert.css'
 /**
   Alert for confirming if an user wants to submit the test and proceed to results page.
 */
-const Submit = ({ navigate, selectedStatements, statementsData }) => {
+const Submit = ({ navigate, selectedStatements }) => {
   const isMobile = window.innerWidth <= 768
 
   confirmAlert({
@@ -14,14 +14,13 @@ const Submit = ({ navigate, selectedStatements, statementsData }) => {
       {
         className: 'yes-btn',
         label: 'Kyllä',
-        onClick: () => navigate('/results', { state: { selectedStatements, statementsData }
-        }),
+        onClick: () => navigate('/results', { state: { selectedStatements } }),
         tabIndex: 0
       },
       {
         className: 'no-btn',
         label: 'Ei',
-        onClick: isMobile ? () => navigate('/test/11', { state: { selectedStatements, statementsData } }) : null,
+        onClick: isMobile ? () => navigate('/test/11', { state: { selectedStatements } }) : null,
         tabIndex: 0
       }
     ]

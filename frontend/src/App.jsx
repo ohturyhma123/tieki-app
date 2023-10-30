@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import Statements from './pages/Statements'
 import Results from './pages/Results'
 import Links from './pages/Links'
+import PDFView from './pages/PDFView'
 import Grid from '@mui/material/Grid'
 import Navbar from './components/Navbar'
 
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/test/:urlIndex" element={<Statements />} />
         <Route path="/results" element={<Results />} />
+        <Route path="/pdfview" element={<PDFView />} />
         <Route path="/links" element={<Links />} />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
