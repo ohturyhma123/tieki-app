@@ -58,6 +58,10 @@ const verifyLogin = async (_tokenSet, userinfo, done) => {
     isAdmin: checkAdmin(iamGroups),
   }
 
+  if (!user.isAdmin) {
+    return done(new Error('Access Forbidden'))
+  }
+
   await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
 
   done(null, user)
