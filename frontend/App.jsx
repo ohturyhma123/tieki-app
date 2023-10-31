@@ -6,6 +6,7 @@ import Links from './pages/Links'
 import Edit from './pages/Edit'
 import EditLinks from './components/EditLinks'
 import Login from './pages/Login'
+import PDFView from './pages/PDFView'
 import Grid from '@mui/material/Grid'
 import Navbar from './components/Navbar'
 
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/test/:urlIndex" element={<Statements />} />
         <Route path="/results" element={<Results />} />
+        <Route path="/pdfview" element={<PDFView />} />
         <Route path="/links" element={<Links />} />
         <Route path="/edit" element={<Edit />} />
         <Route path="/edit/links" element={<EditLinks />} />

@@ -98,7 +98,7 @@ const Statements = () => {
 
       navigate(`/test/${currentStatementSetIndex + 2}`)
     } else {
-      Submit({ navigate, selectedStatements, statementsData })
+      Submit({ navigate, selectedStatements })
     }
   }
 
