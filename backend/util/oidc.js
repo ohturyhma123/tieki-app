@@ -58,23 +58,13 @@ const verifyLogin = async (_tokenSet, userinfo, done) => {
     isAdmin: checkAdmin(iamGroups),
   }
 
-
-
   if (!user.isAdmin) {
-    // Allow only admins (users in grp-tieki)
-    return done(new Error('Access denied.'), false)
+    return done(new Error('Access Forbidden'))
   }
 
-  console.log('User to be saved:', user) // Log the user data
+  await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
 
-  // Attempt to save the user to the database
-  try {
-    await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
-    done(null, user)
-  } catch (error) {
-    console.error('Error saving user to database:', error) // Log errors
-    done(error, null)
-  }
+  done(null, user)
 }
 
 const setupAuthentication = async () => {

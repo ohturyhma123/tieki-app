@@ -4,7 +4,9 @@ dotenv.config()
 
 export const inDevelopment = process.env.NODE_ENV === 'development'
 
-export const inProduction = process.env.NODE_ENV === 'production'
+export const inStaging = process.env.STAGING === 'true'
+
+export const inProduction = !inStaging && process.env.NODE_ENV === 'production'
 
 export const MONGODB_URI = process.env.MONGODB_URI || ''
 

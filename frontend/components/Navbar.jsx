@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import CloseIcon from '@mui/icons-material/Close'
 import MenuIcon from '@mui/icons-material/Menu'
 import logo from '../assets/helsinki-uni-logo-white.png'
@@ -90,7 +90,7 @@ const Navbar = () => {
             <NavLink
               to="/api/oidc"
               className='nav-links'
-              onClick={closeMobileMenu}>
+              onClick={useNavigate}>
                 Admin
             </NavLink>
           </li>
