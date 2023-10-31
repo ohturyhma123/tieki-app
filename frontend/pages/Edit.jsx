@@ -11,8 +11,8 @@ const Edit = () => {
 
   return (
     <div>
-
       <Typography sx={{ pb: 3 }} variant='h3'>Muokkaus sivu</Typography>
+      <Link sx={{ pl: 0.5 }} href="/api/logout" >Kirjaudu ulos</Link>
       <List>
         <ListItem>
           <Typography>
@@ -20,7 +20,6 @@ const Edit = () => {
           </Typography>
         </ListItem>
       </List>
-
     </div>
   )
 }

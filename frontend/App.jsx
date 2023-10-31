@@ -5,6 +5,7 @@ import Results from './pages/Results'
 import Links from './pages/Links'
 import Edit from './pages/Edit'
 import EditLinks from './components/EditLinks'
+import Login from './pages/Login'
 import Grid from '@mui/material/Grid'
 import Navbar from './components/Navbar'
 
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/links" element={<Links />} />
         <Route path="/edit" element={<Edit />} />
         <Route path="/edit/links" element={<EditLinks />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
