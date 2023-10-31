@@ -13,9 +13,13 @@ const router = express()
 
 router.use(express.json())
 
-if (inDevelopment && !inProduction && !inStaging) {
+if (inDevelopment) {
+  console.log('Server in development environment')
   router.use(cors())
-  router.use(userMiddleware)
+  if (inDevelopment && !inProduction && !inStaging) {
+    console.log('Applying userMiddleware')
+    router.use(userMiddleware)
+  }
 }
 
 router.use('/', loginRouter)

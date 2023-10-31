@@ -1,6 +1,14 @@
 import { Link, List, ListItem, Typography } from '@mui/material'
+import AdminCheck from '../functions/AdminCheck'
 
 const Edit = () => {
+  const isAdmin = AdminCheck()
+
+  if (!isAdmin) {
+    // Wait for server to check admin status
+    return null
+  }
+
   return (
     <div>
 

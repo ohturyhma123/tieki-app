@@ -1,5 +1,6 @@
 import express from 'express'
 import Link from '../db/models/LinkModel.js'
+import AdminCheck from '../middleware/AdminCheck.js'
 
 const linksRouter = express()
 
@@ -14,7 +15,7 @@ linksRouter.get('/', async (req, res) => {
 })
 
 // PUT endpoint to update links
-linksRouter.put('/', async (req, res) => {
+linksRouter.put('/', AdminCheck, async (req, res) => {
   const updatedLinks = req.body
 
   try {

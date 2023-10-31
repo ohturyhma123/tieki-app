@@ -9,20 +9,16 @@ import {
   OIDC_CLIENT_SECRET,
   OIDC_REDIRECT_URI,
 } from './config.js'
-import User from '../db/models/UserModel.js'
 
 const params = {
   claims: {
     id_token: {
-      uid: { essential: true },
-      hyPersonSisuId: { essential: true },
+      uid: { essential: true }
     },
     userinfo: {
-      email: { essential: true },
-      hyGroupCn: { essential: true },
-      preferredLanguage: null,
-    },
-  },
+      hyGroupCn: { essential: true }
+    }
+  }
 }
 
 const checkAdmin = (iamGroups) => iamGroups.includes('grp-tieki')
@@ -43,26 +39,14 @@ const getClient = async () => {
 const verifyLogin = async (_tokenSet, userinfo, done) => {
   const {
     uid: username,
-    hyPersonSisuId: id,
-    email,
     hyGroupCn: iamGroups,
-    preferredLanguage: language,
   } = userinfo
 
   const user = {
     username,
-    id: id || username,
-    email,
     iamGroups,
-    language,
     isAdmin: checkAdmin(iamGroups),
   }
-
-  if (!user.isAdmin) {
-    return done(new Error('Access Forbidden'))
-  }
-
-  await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
 
   done(null, user)
 }
@@ -77,15 +61,8 @@ const setupAuthentication = async () => {
   })
 
   passport.deserializeUser(
-    async (
-      { username, iamGroups },
-      done
-    ) => {
-      const user = await User.findOne({ username }).lean()
-
-      if (!user) return done(new Error('User not found'))
-
-      return done(null, { ...user, iamGroups })
+    async ({ iamGroups }, done) => {
+      return done(null, { iamGroups })
     }
   )
 

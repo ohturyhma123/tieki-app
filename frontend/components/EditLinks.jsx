@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { TextField, Button } from '@mui/material'
 import '../assets/EditLinks.css'
+import AdminCheck from '../functions/AdminCheck'
 
 const baseUrl = '/api/links'
 
@@ -72,6 +73,13 @@ const EditLinks = () => {
     } catch (error) {
       console.error(error)
     }
+  }
+
+  const isAdmin = AdminCheck()
+
+  if (!isAdmin) {
+    // Wait for server to check admin status
+    return null
   }
 
   return (
