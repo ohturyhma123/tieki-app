@@ -14,12 +14,15 @@ import User from '../db/models/UserModel.js'
 const params = {
   claims: {
     id_token: {
-      uid: { essential: true }
+      uid: { essential: true },
+      hyPersonSisuId: { essential: true },
     },
     userinfo: {
-      hyGroupCn: { essential: true }
-    }
-  }
+      email: { essential: true },
+      hyGroupCn: { essential: true },
+      preferredLanguage: null,
+    },
+  },
 }
 
 const checkAdmin = (iamGroups) => iamGroups.includes('grp-tieki')
@@ -40,14 +43,22 @@ const getClient = async () => {
 const verifyLogin = async (_tokenSet, userinfo, done) => {
   const {
     uid: username,
+    hyPersonSisuId: id,
+    email,
     hyGroupCn: iamGroups,
+    preferredLanguage: language,
   } = userinfo
 
   const user = {
     username,
+    id: id || username,
+    email,
     iamGroups,
+    language,
     isAdmin: checkAdmin(iamGroups),
   }
+
+  await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
 
   done(null, user)
 }
