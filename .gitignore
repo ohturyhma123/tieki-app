@@ -2,3 +2,52 @@
 *.xml
 *.log
 results/
+
+# Dependency
+node_modules/
+*.pnp*
+
+# Build
+build/
+dist/
+
+# Environment
+*.env*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Runtime
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Secrets
+*.secret
+*.key
+*.pem
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Temp
+.tmp/
+.temp/
+
+# Cache
+.cache/
+.cached/
+
+# Logs
+logs/
+*.log*
