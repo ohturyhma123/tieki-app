@@ -9,6 +9,7 @@ import {
   OIDC_CLIENT_SECRET,
   OIDC_REDIRECT_URI,
 } from './config.js'
+import User from '../db/models/UserModel.js'
 
 const params = {
   claims: {
@@ -61,8 +62,15 @@ const setupAuthentication = async () => {
   })
 
   passport.deserializeUser(
-    async ({ iamGroups }, done) => {
-      return done(null, { iamGroups })
+    async (
+      { username, iamGroups },
+      done
+    ) => {
+      const user = await User.findOne({ username }).lean()
+
+      if (!user) return done(new Error('User not found'))
+
+      return done(null, { ...user, iamGroups })
     }
   )
 
