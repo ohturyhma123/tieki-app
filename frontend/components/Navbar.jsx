@@ -80,7 +80,9 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <NavLink
-              to="/feedback"
+              to="https://elomake.helsinki.fi/lomakkeet/126370/lomake.html"
+              target="_blank"
+              rel='noopener noreferrer'
               className='nav-links'
               onClick={closeMobileMenu}>
                 Palaute
