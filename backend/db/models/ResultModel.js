@@ -17,6 +17,6 @@ const resultSchema = new mongoose.Schema({
   collection: 'results'
 })
 
-const ResultModel = mongoose.model('Result', resultSchema)
+const Result = mongoose.model('Result', resultSchema)
 
-export default ResultModel
+export default Result
