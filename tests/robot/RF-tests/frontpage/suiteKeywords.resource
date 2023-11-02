@@ -22,15 +22,15 @@ Go To Test Using Keyboard
 
 First Test Page
     [Documentation]    Checks that the first test page is shown correctly
-    Page Should Contain    jotka kuvaavat sinua parhaiten
+    Wait Until Page Contains    jotka kuvaavat sinua parhaiten
 
 Go To Linkpage
     [Documentation]    Clicks on the button that takes the user to the linkpage.
     Wait Until Keyword Succeeds    3x    200ms    Click Link    Hyödyllisiä linkkejä
-    Page Should Contain    Hyödyllisiä linkkejä
+    Wait Until Page Contains    Hyödyllisiä linkkejä
 
 Go To Linkpage Using Keyboard
     [Documentation]    Use keyboard to press the button that takes the user to the linkpage.
     Set Focus To Element    //*[@id="root"]/div[1]/header/div/ul/li[1]/a
     Press Keys    None    ENTER
-    Page Should Contain    Hyödyllisiä linkkejä
+    Wait Until Page Contains    Hyödyllisiä linkkejä

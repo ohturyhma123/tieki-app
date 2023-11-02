@@ -8,7 +8,7 @@ ${APP_URL}    http://localhost:3000
 ${TEST_URL}    http://localhost:3000/test/1
 ${LINK_URL}    http://localhost:3000/links
 ${BROWSER}    headlesschrome
-${DELAY}    0.5 seconds
+${DELAY}    0 seconds
 
 
 *** Keywords ***

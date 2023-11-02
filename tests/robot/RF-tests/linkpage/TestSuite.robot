@@ -9,7 +9,10 @@ Suite Setup
 ...        AND    Register Keyword To Run On Failure    Nothing
 Suite Teardown    Close Browser
 
-Test Setup    CommonFunctions.Go To Linkspage
+Test Setup
+...        Run Keywords
+...        CommonFunctions.Go To Linkspage
+...        AND    Wait Until Page Contains    Lue
 Test Tags    linkpage
 
 

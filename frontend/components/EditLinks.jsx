@@ -24,7 +24,7 @@ const EditLinks = () => {
         const response = await axios.get(baseUrl)
         setLinks(response.data)
       } catch (error) {
-        console.error(error)
+        throw new Error('Failed to fetch data')
       }
     }
 
@@ -34,7 +34,7 @@ const EditLinks = () => {
   /**
    * Prevent scrolling when the component is mounted.
    */
-  
+
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => {
@@ -85,7 +85,7 @@ const EditLinks = () => {
       })
       navigate('/edit')
     } catch (error) {
-      console.error(error)
+      throw new Error('Failed to save data')
     }
   }
 

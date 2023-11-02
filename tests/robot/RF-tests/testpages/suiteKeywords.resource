@@ -56,7 +56,7 @@ Go To Last Page
     [Documentation]    After 12th statement page, goes to the last page and confirms the alert.
     Click Button    Tulokset
     Click Button    Kyllä
-    Page Should Contain    Tulokset
+    Wait Until Page Contains    Tulokset
 
 Go To Last Page Using Keyboard
     [Documentation]    After 12th statement page, goes to the last page and confirms the alert, using keyboard.
@@ -64,7 +64,7 @@ Go To Last Page Using Keyboard
     Press Keys    None    ENTER
     Set Focus To Element    //*[@class="yes-btn"]
     Press Keys    None    ENTER
-    Page Should Contain    Tulokset
+    Wait Until Page Contains    Tulokset
 
 Go Back To Front Page
     [Documentation]    Goes to the frontpage by clicking 'etusivulle' button.

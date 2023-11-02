@@ -8,6 +8,7 @@ Test Setup
 ...        Run Keywords
 ...        Open And Configure Browser
 ...        AND    Go To Testpage
+...        AND    Wait Until Page Contains    jotka kuvaavat sinua parhaiten
 ...        AND    Register Keyword To Run On Failure    Nothing
 Test Teardown    Close Browser
 
@@ -124,6 +125,7 @@ User Is Able To Continue Test After Reloading Page
     Go To Next Page
     Select Statements    2
     Reload Page
+    Wait Until Page Contains    jotka kuvaavat sinua parhaiten
     Go To Previous Page    1
     ${previous_statements}=    Number Of Statements Clicked
     Should Be Equal As Integers    ${previous_statements}    1
@@ -140,6 +142,7 @@ User Is Not Able To See Selected Statements After Going Back To Front Page
     Select Statements    2
     Go Back To Front Page
     Go To Testpage
+    Wait Until Page Contains    jotka kuvaavat sinua parhaiten
     Go To Next Page
     ${previous_statements}=    Number Of Statements Clicked
     Should Be Equal As Integers    ${previous_statements}    0
