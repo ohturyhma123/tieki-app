@@ -1,4 +1,4 @@
-const splitLongStrings = (arr, maxLength) => {
+const SplitLongStrings = (arr, maxLength) => {
   return arr.map((str) => {
     if (str.length <= maxLength) {
       return [str] //**If the string is shorter than or equal to maxLength, no splitting needed */
@@ -24,4 +24,4 @@ const splitLongStrings = (arr, maxLength) => {
   })
 }
 
-export default splitLongStrings
+export default SplitLongStrings

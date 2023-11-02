@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Paper, Typography, LinearProgress, Box, Grid } from '@mui/material'
-import statementsData from '../../data/statementsData.json'
 import getPositiveStatements from '../functions/PositiveStatements'
 import getNegativeStatements from '../functions/NegativeStatements'
 import selectOneStatementFromEachPositiveSet from '../functions/SelectOnePositiveStatementFromEachCategory'
@@ -15,6 +14,7 @@ import '../assets/Statement.css'
 import '../assets/Swiper.css'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import useApi from '../hooks/useApi'
 
 const Statements = () => {
   const [selectedStatements, setSelectedStatements] = useState([])
@@ -25,6 +25,7 @@ const Statements = () => {
   const [selectedStatementsCountOnPage, setSelectedStatementsCountOnPage] = useState(
     Array.from({ length: 12 }, () => 0)
   )
+  const { data: statementsData, loading, error } = useApi('/api/statements')
 
   const navigate = useNavigate()
   const { urlIndex } = useParams()
@@ -152,6 +153,17 @@ const Statements = () => {
     statements = selectOneStatementFromEachNegativeSet(negativeSets, setIndex)
   }
 
+  if (loading) {
+    return <div>Ladataan sivua...</div>
+  }
+
+  if (!statements) {
+    return <div>Ladataan väitteitä...</div>
+  }
+
+  if (error) {
+    return <div>Virhe väitteiden lataamisessa</div>
+  }
 
   /** Progress bar for the desktop UI. */
   const LinearProgressWithLabel = (props) => {

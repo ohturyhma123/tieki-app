@@ -5,8 +5,9 @@ import monochromeBackground from '../assets/monochrome-background.jpg'
 import { Box, Paper, Typography, Grid, Container } from '@mui/material'
 import { useEffect, useState } from 'react'
 import * as htmlToImage from 'html-to-image'
-import calculateCategoryScores from '../functions/CalculateCategoryScores'
-import getResults from '../functions/getResults'
+import CalculateCategoryScores from '../functions/CalculateCategoryScores'
+import GetResults from '../functions/GetResults'
+import useApi from '../hooks/useApi'
 
 const Results = () => {
 
@@ -22,6 +23,9 @@ const Results = () => {
       })
   })
 
+  const { data: statementsData, loading: loadingStatements, error: errorStatements } = useApi('/api/statements')
+  const { data: resultsData, loading: loadingResults, error: errorResults } = useApi('/api/results')
+
   const location = useLocation()
 
   if (!location.state) {
@@ -29,14 +33,14 @@ const Results = () => {
   }
 
   /** Calculate and store category scores outside of JSX to prevent redundant calls with each render. */
-  const scores = calculateCategoryScores(location.state.selectedStatements)
+  const scores = CalculateCategoryScores(location.state.selectedStatements, statementsData)
 
   const sumScores = {}
   Object.entries(scores).forEach(([key, value]) => {
     sumScores[key] = value[0]+value[1]
   })
 
-  const [positiveResults, negativeResults] = getResults(scores)
+  const [positiveResults, negativeResults] = GetResults(scores, resultsData)
 
   let strengthText = null
   let weaknessText = null
@@ -46,6 +50,18 @@ const Results = () => {
   }
   if (negativeResults.length < 1) {
     weaknessText = <Typography sx={{ pt: 2, pb: 1, textAlign: 'center' }} variant='h5' className='weaknesses'>Valintojesi perusteella sinulla ei ole kehityskohteita.</Typography>
+  }
+
+  if (loadingStatements || loadingResults) {
+    return <div>Ladataan sivua...</div>
+  }
+
+  if (!statementsData || !resultsData) {
+    return <div>Ladataan tuloksia...</div>
+  }
+
+  if (errorStatements || errorResults) {
+    return <div>Virhe tulosten lataamisessa</div>
   }
 
   return (

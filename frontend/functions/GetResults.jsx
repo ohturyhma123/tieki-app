@@ -1,6 +1,5 @@
-import resultsData from '../../data/resultsData.json'
+const GetResults = (scores, resultsData) => {
 
-const getResults = (scores) => {
   const positiveCategories = Object.keys(scores).filter((category) => scores[category][0] >= 2)
   const negativeCategories = Object.keys(scores).filter((category) => scores[category][1] <= -2)
 
@@ -10,4 +9,4 @@ const getResults = (scores) => {
   return [positiveResults, negativeResults]
 }
 
-export default getResults
+export default GetResults

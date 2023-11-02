@@ -6,6 +6,7 @@ import loginRouter from './login.js'
 import linksRouter from './links.js'
 import statementsRouter from './statements.js'
 import { inDevelopment, inProduction, inStaging } from '../util/config.js'
+import resultsRouter from './results.js'
 
 dotenv.config()
 
@@ -25,5 +26,6 @@ if (inDevelopment) {
 router.use('/', loginRouter)
 router.use('/links', linksRouter)
 router.use('/statements', statementsRouter)
+router.use('/results', resultsRouter)
 
 export default router

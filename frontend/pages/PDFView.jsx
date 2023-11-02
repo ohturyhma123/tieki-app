@@ -1,14 +1,29 @@
 import { Box } from '@mui/material'
 import { Document, Page, Text, PDFViewer, StyleSheet, Link, Image } from '@react-pdf/renderer'
 import { useLocation } from 'react-router-dom'
-import calculateCategoryScores from '../functions/CalculateCategoryScores'
-import getResults from '../functions/getResults'
+import CalculateCategoryScores from '../functions/CalculateCategoryScores'
+import GetResults from '../functions/GetResults'
+import useApi from '../hooks/useApi'
 
 const PDFView = () => {
   const location = useLocation()
-  const scores = calculateCategoryScores(location.state.selectedStatements)
+  const { data: statementsData, loading: loadingStatements, error: errorStatements } = useApi('/api/statements')
+  const { data: resultsData, loading: loadingResults, error: errorResults } = useApi('/api/results')
+  const scores = CalculateCategoryScores(location.state.selectedStatements, statementsData)
   const imgSrc = location.state.imgSrc
-  const [positiveResults, negativeResults] = getResults(scores)
+  const [positiveResults, negativeResults] = GetResults(scores, resultsData)
+
+  if (loadingStatements || loadingResults) {
+    return <div>Ladataan sivua...</div>
+  }
+
+  if (!statementsData || !resultsData) {
+    return <div>Ladataan tuloksia...</div>
+  }
+
+  if (errorStatements || errorResults) {
+    return <div>Virhe tulosten lataamisessa</div>
+  }
 
   const styles = StyleSheet.create({
     body: {

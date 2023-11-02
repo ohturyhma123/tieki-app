@@ -8,7 +8,7 @@ import {
   Legend,
 } from 'chart.js'
 import { Radar } from 'react-chartjs-2'
-import splitLongStrings from '../functions/splitLongStrings'
+import SplitLongStrings from '../functions/SplitLongStrings'
 import '../assets/RadarChart.css'
 
 ChartJS.register(
@@ -22,7 +22,7 @@ ChartJS.register(
 
 const RadarChart = ({ categories, results }) => {
   const data = {
-    labels: splitLongStrings(categories, 20),
+    labels: SplitLongStrings(categories, 20),
     datasets: [
       {
         label: 'Tulokset',

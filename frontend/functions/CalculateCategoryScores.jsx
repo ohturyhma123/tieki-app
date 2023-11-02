@@ -1,10 +1,8 @@
-import statementsData from '../../data/statementsData.json'
-
 /**
   Calculates category scores based on user selected statements.
   @returns {Object} - Object containing scores by category.
 */
-const calculateCategoryScores = (selectedStatements) => {
+const CalculateCategoryScores = (selectedStatements, statementsData) => {
   /** Initialize an object with category names as keys and 0 as the values. */
   let categoryScores = {}
   statementsData.forEach((categoryData) => {
@@ -32,4 +30,4 @@ const calculateCategoryScores = (selectedStatements) => {
   return categoryScores
 }
 
-export default calculateCategoryScores
+export default CalculateCategoryScores

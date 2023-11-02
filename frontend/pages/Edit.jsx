@@ -1,12 +1,19 @@
 import { Link, List, ListItem, Typography } from '@mui/material'
-import AdminCheck from '../functions/AdminCheck'
+import useAdminCheck from '../hooks/useAdminCheck'
 
 const Edit = () => {
-  const isAdmin = AdminCheck()
+  const { isAdmin, loading, error } = useAdminCheck()
+
+  if (loading) {
+    return <div>Ladataan sivua...</div>
+  }
 
   if (!isAdmin) {
-    // Wait for server to check admin status
-    return null
+    return <div>Käyttö estetty</div>
+  }
+
+  if (error) {
+    return <div>Virhe käyttäjän oikeuksien tarkistuksessa</div>
   }
 
   return (

@@ -6,7 +6,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import '../assets/EditLinks.css'
 import homeBackground from '../assets/home-background.jpg'
 import monochromeBackground from '../assets/monochrome-background.jpg'
-import AdminCheck from '../functions/AdminCheck'
+import useAdminCheck from '../hooks/useAdminCheck'
 
 const baseUrl = '/api/links'
 
@@ -89,11 +89,18 @@ const EditLinks = () => {
     }
   }
 
-  const isAdmin = AdminCheck()
+  const { isAdmin, loading, error } = useAdminCheck()
+
+  if (loading) {
+    return <div>Ladataan sivua...</div>
+  }
 
   if (!isAdmin) {
-    // Wait for server to check admin status
-    return null
+    return <div>Käyttö estetty</div>
+  }
+
+  if (error) {
+    return <div>Virhe käyttäjän oikeuksien tarkistuksessa</div>
   }
 
   return (

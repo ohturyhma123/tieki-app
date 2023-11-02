@@ -1,4 +1,5 @@
 import express from 'express'
+import Statement from '../db/models/StatementModel.js'
 import bodyParser from 'body-parser'
 
 import statementsData from '../../data/statementsData.json' assert { type: 'json' }
@@ -8,8 +9,14 @@ const statementsRouter = express()
 statementsRouter.use(bodyParser.json())
 
 
-statementsRouter.get('/', (req, res) => {
-  res.json(statementsData)
+statementsRouter.get('/', async (req, res) => {
+  try {
+    const statementsData = await Statement.find()
+    res.json(statementsData)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: 'Failed to retrieve data' })
+  }
 })
 
 statementsRouter.put('/', (req, res) => {
