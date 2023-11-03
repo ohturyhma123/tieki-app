@@ -1,15 +1,10 @@
 import mongoose from 'mongoose'
 
 const userSchema = new mongoose.Schema({
-  id: {
-    type: String,
-    required: true,
-  },
   username: {
     type: String,
     required: true,
   },
-  language: String,
   isAdmin: {
     type: Boolean,
     default: false,
