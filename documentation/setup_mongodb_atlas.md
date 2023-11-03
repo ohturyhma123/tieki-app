@@ -41,7 +41,7 @@ Go version: go1.20.10
 
 4. Setup project to use your database
 
-Copy .env-template file and rename it .env. Replace `<connection_string>` with your databse URI. You can get the URI from "Connect" -> "Drivers" -> "Step 3". Replace `<password>` with the database password. MAKE SURE to add the DATABASE NAME to the URI (example mondodb.net/tieki-app), it's not there by default.
+Copy .env-template file and rename it .env. Replace `<connection_string>` with your databse URI. You can get the URI from "Connect" -> "Drivers" -> "Step 3". Replace `<password>` with the database password. MAKE SURE to add the DATABASE NAME to the URI (example mongodb.net/tieki-app), it's not there by default.
 
 Example:
 ```bash
