@@ -195,7 +195,7 @@ const Statements = () => {
             <SwiperSlide key={i}>
               <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
                 '@media (max-width: 340px)': { fontSize: 13 } }}>
-                Valitse 0-3 väitettä<br />
+                Valitse 0-3 väitettä ... 1<br />
                 Mene eteen- ja taaksepäin pyyhkäisemällä
               </Typography>
               {statements.map((s) => (

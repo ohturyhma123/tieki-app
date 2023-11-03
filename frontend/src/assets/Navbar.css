@@ -6,6 +6,10 @@
   padding: 1;
 }
 
+html, body {
+  overscroll-behavior-y: none;
+}
+
 .navbar {
   background: #ffffff;
   height: 80px;
