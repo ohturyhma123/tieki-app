@@ -55,10 +55,6 @@ const verifyLogin = async (_tokenSet, userinfo, done) => {
     isAdmin: checkAdmin(iamGroups),
   }
 
-  if (!user.isAdmin) {
-    done(null, false)
-  }
-
   await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
 
   done(null, user)
