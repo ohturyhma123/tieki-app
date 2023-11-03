@@ -39,7 +39,7 @@ const Navbar = () => {
     },
     [theme.breakpoints.down('350')]: {
       fontSize: '14px',
-      margin: theme.spacing(1, 6, 0, -2)
+      margin: theme.spacing(1.1, 6, 0, -2)
     }
   }))
 

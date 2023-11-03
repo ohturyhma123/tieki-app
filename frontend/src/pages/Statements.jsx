@@ -203,7 +203,7 @@ const Statements = () => {
                   key={s.id}
                   className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
                   onClick={() => handleStatementClick(s.id)}>
-                  <Typography sx={{ fontSize: 14.5, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                  <Typography sx={{ fontSize: 14.4, fontFamily: '"Lato", sans-serif', color: '#00011b',
                     '@media (max-width: 340px)': { fontSize: 10 } }}>
                     {s.statement}
                   </Typography>
