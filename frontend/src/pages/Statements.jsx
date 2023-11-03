@@ -15,6 +15,7 @@ import '../assets/Statement.css'
 import '../assets/Swiper.css'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import GoToResultsButtonMobile from '../components/GoToResultsButtonMobile'
 
 const Statements = () => {
   const [selectedStatements, setSelectedStatements] = useState([])
@@ -195,7 +196,7 @@ const Statements = () => {
             <SwiperSlide key={i}>
               <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
                 '@media (max-width: 340px)': { fontSize: 13 } }}>
-                Valitse 0-3 väitettä ... 2<br />
+                Valitse 0-3 väitettä<br />
                 Mene eteen- ja taaksepäin pyyhkäisemällä
               </Typography>
               {statements.map((s) => (
@@ -211,14 +212,21 @@ const Statements = () => {
               ))}
             </SwiperSlide>
           ))}
-          {/** Text-only slide at the end to trigger confirmation box */}
+          {/** Separate slide at the end for the results button. */}
           <SwiperSlide>
-            <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: '17px', fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
-                Jos haluat vielä muuttaa vastauksiasi, pyyhkäise oikealle
+            <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
+              '@media (max-width: 340px)': { fontSize: 13 } }}>
+                Jos haluat vielä muuttaa vastauksiasi,<br />
+                pyyhkäise oikealle
             </Typography>
+            <GoToResultsButtonMobile
+              id='results-btn-mobile'
+              onClick={() => navigate('/results', { state: { selectedStatements } })}>
+                Tulokset
+            </GoToResultsButtonMobile>
           </SwiperSlide>
         </Swiper>
-        /** End of the code for mobile UI, start of desktop UI code */
+        /** End of the code for mobile UI, start of desktop UI code. */
       ) : (
         <Paper
           sx={{ mt: 10.5, mb: 10, p: 6, pb: 3.5, height: '100%', width: '77%' , background: '#fdf3e9' }}
