@@ -1,5 +1,5 @@
 import { Box, Typography, List, ListItemText, Container } from '@mui/material'
-import LargeButton from '../components/LargeButton'
+import GoToTestButton from '../components/GoToTestButton'
 import homeBackground from '../assets/home-background.jpg'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import CustomBox from '../components/CustomBox'
@@ -35,7 +35,7 @@ const Home = () => {
               <ListItemText primary="Tekstin rakenne" />
               <ListItemText primary="Kielelliset seikat" />
             </List>
-            <LargeButton
+            <GoToTestButton
               backgroundColor='#fff'
               color='#00011b'
               buttonText='Testiin!'
