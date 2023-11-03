@@ -8,6 +8,7 @@ dist/
 
 # Environment
 *.env*
+!.env-template**
 
 # Testing
 coverage/

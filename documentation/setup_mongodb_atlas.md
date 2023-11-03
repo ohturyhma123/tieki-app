@@ -6,6 +6,8 @@ https://www.mongodb.com/cloud/atlas/register
 
 2. Follow fullstack open instructions on creating the cluster
 
+Choose AWS Stockholm for the cluster.
+
 Make sure to write down the password for the database account somewhere.
 
 fi: https://fullstackopen.com/osa3/tietojen_tallettaminen_mongo_db_tietokantaan#mongo-db
@@ -22,49 +24,35 @@ Needed for mongoimport
 
 https://www.mongodb.com/docs/database-tools/installation/installation/
 
-Run
+After installing, run:
 ```bash
 mongoimport --version
 ```
-To verify if installed succesfully
+Output should resemble something like this:
+
+```bash
+mongoimport version: 100.9.0
+git version: 4ba95fe0a5b89e20a209c90d0261f6b30bbc0169
+Go version: go1.20.10
+   os: linux
+   arch: amd64
+   compiler: gc
+```
 
 4. Setup project to use your database
 
-Create a .env file in the project root with your URI. You can get the URI from "Cmd line tools" -> "Connect instructions" -> "Drivers (step 3)". MAKE SURE to add the DATABASE NAME to the URI (example mondodb.net/tieki-app), it's not there by default.
+Copy .env-template file and rename it .env. Replace `<connection_string>` with your databse URI. You can get the URI from "Connect" -> "Drivers" -> "Step 3". Replace `<password>` with the database password. MAKE SURE to add the DATABASE NAME to the URI (example mondodb.net/tieki-app), it's not there by default.
 
-Example
+Example:
 ```bash
 MONGODB_URI=mongodb+srv://mycoolusername:supersecretpassword@cluster0.ahbnuse.mongodb.net/tieki-app?retryWrites=true&w=majority
 ```
 
 5. Import JSON files to MongoDB
 
-In MongoDB Atlas go to "Cmd line tools" tab in the cluster.
-
-Scroll down to "Data Import and Export Tools" and follow the guide.
-
-PASSWORD is your database password
-
-DATABASE can be anything, but just name it tieki-app
-
-COLLECTION is the collection name
-
-You NEED to name the collections correctly for each json:
-- links -> linksData.json
-- results -> resultsData.json
-- statements -> statementsData.json
-
-FILETYPE is JSON
-
-FILENAME is the json file
-
-It is REQUIRED that you add --jsonArray to the end of the command, otherwise import will fail.
-
-You need to import all 3 json files one by one.
-
-Example:
+Run in project root:
 ```bash
-mongoimport --uri  mongodb+srv://mycoolusername:supersecretpassword@cluster0.ahbnuse.mongodb.net/tieki-app  --collection  links  --type JSON   --file  data/linksData.json --jsonArray
+npm run init
 ```
 
 If successful you should see the data in the "collections" tab in the cluster and the database and collections properly named.
