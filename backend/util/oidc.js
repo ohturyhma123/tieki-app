@@ -14,18 +14,21 @@ import User from '../db/models/UserModel.js'
 const params = {
   claims: {
     id_token: {
-      uid: { essential: true },
-      hyPersonSisuId: { essential: true },
+      uid: { essential: true }
     },
     userinfo: {
-      email: { essential: true },
-      hyGroupCn: { essential: true },
-      preferredLanguage: null,
+      hyGroupCn: { essential: true }
     },
   },
 }
 
-const checkAdmin = (iamGroups) => iamGroups.includes('grp-tieki')
+const checkAdmin = (iamGroups) => {
+  if (iamGroups.length > 0) {
+    return iamGroups.includes('grp-tieki')
+  }
+  return false
+}
+
 
 const getClient = async () => {
   const issuer = await Issuer.discover(OIDC_ISSUER)
@@ -43,23 +46,17 @@ const getClient = async () => {
 const verifyLogin = async (_tokenSet, userinfo, done) => {
   const {
     uid: username,
-    hyPersonSisuId: id,
-    email,
     hyGroupCn: iamGroups,
-    preferredLanguage: language,
   } = userinfo
 
   const user = {
     username,
-    id: id || username,
-    email,
     iamGroups,
-    language,
     isAdmin: checkAdmin(iamGroups),
   }
 
   if (!user.isAdmin) {
-    return done(new Error('Access Forbidden'))
+    done(null, false)
   }
 
   await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
