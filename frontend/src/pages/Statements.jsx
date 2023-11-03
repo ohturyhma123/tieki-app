@@ -195,7 +195,7 @@ const Statements = () => {
             <SwiperSlide key={i}>
               <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
                 '@media (max-width: 340px)': { fontSize: 13 } }}>
-                Valitse 0-3 väitettä ... 1<br />
+                Valitse 0-3 väitettä ... 2<br />
                 Mene eteen- ja taaksepäin pyyhkäisemällä
               </Typography>
               {statements.map((s) => (
@@ -203,7 +203,7 @@ const Statements = () => {
                   key={s.id}
                   className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
                   onClick={() => handleStatementClick(s.id)}>
-                  <Typography sx={{ fontSize: 14.4, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                  <Typography sx={{ fontSize: 14, fontFamily: '"Lato", sans-serif', color: '#00011b',
                     '@media (max-width: 340px)': { fontSize: 10 } }}>
                     {s.statement}
                   </Typography>
