@@ -194,7 +194,7 @@ const Statements = () => {
           {statementsData.map((s, i) => (
             <SwiperSlide key={i}>
               <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: '17px', fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
-                Valitse 0–3 väitettä ... 2<br />
+                Valitse 0–3 väitettä ... 3<br />
                 Pyyhkäise mennäksesi eteen- tai taaksepäin
               </Typography>
               {statements.map((s) => (
