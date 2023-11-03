@@ -23,12 +23,12 @@ const params = {
 }
 
 const checkAdmin = (iamGroups) => {
-  if (iamGroups.length > 0) {
+  try {
     return iamGroups.includes('grp-tieki')
+  } catch (error) {
+    return false
   }
-  return false
 }
-
 
 const getClient = async () => {
   const issuer = await Issuer.discover(OIDC_ISSUER)
