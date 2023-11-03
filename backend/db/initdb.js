@@ -4,9 +4,10 @@ import { MONGODB_URI } from '../util/config.js'
 /**
   This file is only needed to run once: npm run init
 */
-
-// Imports the 3 .json files to the database using mongoimport
-if (MONGODB_URI !== '') {
+if (MONGODB_URI === '<connection_string>' || MONGODB_URI === '') {
+  console.log('MONGODB_URI environment variable is not set.')
+} else {
+  // Imports the 3 .json files to the database using mongoimport
   // Check if the URI contains '?', if yes cut the string after, including the ?
   const index = MONGODB_URI.indexOf('?')
   const formattedURI = index !== -1 ? MONGODB_URI.slice(0, index) : MONGODB_URI
@@ -49,6 +50,4 @@ if (MONGODB_URI !== '') {
     }
     console.log(`stdout: ${stdout}`)
   })
-} else {
-  console.log('MONGODB_URI environment variable is not set.')
 }

@@ -1,14 +1,11 @@
 import express from 'express'
 import cors from 'cors'
-import dotenv from 'dotenv'
 import userMiddleware from '../middleware/user.js'
 import loginRouter from './login.js'
 import linksRouter from './links.js'
 import statementsRouter from './statements.js'
 import { inDevelopment, inProduction, inStaging } from '../util/config.js'
 import resultsRouter from './results.js'
-
-dotenv.config()
 
 const router = express()
 
