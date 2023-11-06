@@ -10,6 +10,8 @@ export const inProduction = !inStaging && process.env.NODE_ENV === 'production'
 
 export const MONGODB_URI = process.env.MONGODB_URI || ''
 
+export const MONGODB_TEST_URI = process.env.MONGODB_TEST_URI || ''
+
 export const OIDC_ISSUER = inProduction
   ? 'https://login.helsinki.fi/.well-known/openid-configuration'
   : 'https://login-test.it.helsinki.fi/.well-known/openid-configuration'

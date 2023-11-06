@@ -1,6 +1,8 @@
 *** Settings ***
 Documentation    This file contains libraries and common keywords used with test suites.
+Library    Collections
 Library    SeleniumLibrary
+Library    RequestsLibrary
 
 
 *** Variables ***
@@ -9,6 +11,10 @@ ${TEST_URL}    http://localhost:3000/test/1
 ${LINK_URL}    http://localhost:3000/links
 ${BROWSER}    headlesschrome
 ${DELAY}    0 seconds
+
+${LINKSAPI}    http://localhost:3000/api/links
+${STATEMENTSAPI}    http://localhost:3000/api/statements
+${RESULTSAPI}    http://localhost:3000/api/results
 
 
 *** Keywords ***

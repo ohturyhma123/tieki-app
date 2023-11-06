@@ -1,8 +1,9 @@
 import express from 'express'
 import Statement from '../db/models/StatementModel.js'
 import bodyParser from 'body-parser'
+import AdminCheck from '../middleware/AdminCheck.js'
 
-import statementsData from '../../data/statementsData.json' assert { type: 'json' }
+// import statementsData from '../../data/statementsData.json' assert { type: 'json' }
 
 const statementsRouter = express()
 
@@ -19,16 +20,15 @@ statementsRouter.get('/', async (req, res) => {
   }
 })
 
-statementsRouter.put('/', (req, res) => {
+statementsRouter.put('/', AdminCheck, async (req, res) => {
+  const updatedStatements = req.body
+
   try {
-    const updatedStatements = req.body
-    updatedStatements.forEach((updatedStatement) => {
-      const index = statementsData.findIndex((statement) => statement.id === updatedStatement.id)
-      if (index !== -1) {
-        statementsData[index] = { ...statementsData[index], ...updatedStatement }
-      }
-    })
-    res.json({ message: 'Statements updated successfully', data: statementsData })
+    for (const updatedStatement of updatedStatements) {
+      const { _id, ...updateData } = updatedStatement
+      await Statement.findOneAndUpdate({ _id: _id }, { $set: updateData })
+    }
+    res.json({ message: 'Statements updated successfully' })
   } catch (error) {
     console.error('Error updating statements:', error)
     res.status(500).json({ error: 'Internal server error' })
