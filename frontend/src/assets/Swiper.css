@@ -7,6 +7,11 @@
   text-align: center;
   justify-content: center;
   align-items: center;
+  opacity: 0!important;
+}
+
+.swiper-slide-active {
+  opacity: 1!important;
 }
 
 .swiper-pagination-progressbar-fill {
