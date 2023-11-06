@@ -10,12 +10,12 @@ import Submit from '../components/ConfirmAlert'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import NextPrevButton from '../components/NextPrevButton'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, EffectFade } from 'swiper/modules'
+import { Pagination, EffectCreative } from 'swiper/modules'
 import '../assets/Statement.css'
 import '../assets/Swiper.css'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import 'swiper/css/effect-fade'
+import 'swiper/css/effect-creative'
 import GoToResultsButtonMobile from '../components/GoToResultsButtonMobile'
 
 const Statements = () => {
@@ -187,9 +187,16 @@ const Statements = () => {
           className="swiper"
           spaceBetween={30}
           pagination={{ type: 'progressbar' }}
-          modules={[Pagination, EffectFade]}
-          effect={'fade'}
-          crossFade={true}
+          modules={[Pagination, EffectCreative]}
+          effect={'creative'}
+          creativeEffect={{
+            prev: {
+              translate: [80, 0, 0],
+            },
+            next: {
+              translate: [80, 0, 0]
+            },
+          }}
           onSlideChange={(swiper) => {
             swiper.realIndex > swiper.previousIndex ?
               handleNextStatementSet() :
