@@ -192,10 +192,10 @@ const Statements = () => {
           speed={175}
           creativeEffect={{
             prev: {
-              translate: [50, 0, 25],
+              translate: [75, 0, 0],
             },
             next: {
-              translate: [50, 0, 25]
+              translate: [75, 0, 0]
             },
           }}
           onSlideChange={(swiper) => {
