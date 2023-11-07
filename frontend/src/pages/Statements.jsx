@@ -189,12 +189,13 @@ const Statements = () => {
           pagination={{ type: 'progressbar' }}
           modules={[Pagination, EffectCreative]}
           effect={'creative'}
+          speed={175}
           creativeEffect={{
             prev: {
-              translate: [80, 0, 0],
+              translate: [50, 0, 25],
             },
             next: {
-              translate: [80, 0, 0]
+              translate: [50, 0, 25]
             },
           }}
           onSlideChange={(swiper) => {
