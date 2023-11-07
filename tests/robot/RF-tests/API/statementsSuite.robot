@@ -3,7 +3,6 @@ Documentation    This test suite contains tests for statements API.
 
 Resource    ../../RF-keywords/CommonFunctions.resource
 Resource    suiteKeywords.resource
-Resource    ./resources/resourcejson.resource
 
 Suite Setup    Initialize Session
 
