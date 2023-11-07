@@ -11,6 +11,9 @@ jobs:
   start-backend:
 
     runs-on: ubuntu-latest
+    env:
+      MONGODB_TEST_URI: ${{ secrets.MONGODB_TEST_URI }}
+      SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
 
     if: github.ref != 'refs/heads/main'
 
@@ -20,7 +23,7 @@ jobs:
     - name: Install node packages
       run: npm install
 
-    - name: Start your backend (modify this command based on your backend setup)
+    - name: Start your backend
       run: npm run test-api
 
   eslint-autofix:
