@@ -1,16 +1,16 @@
 import { exec } from 'child_process'
-import { MONGODB_TEST_URI } from '../util/config.js'
+import { MONGODB_URI } from '../util/config.js'
 
 /**
   This file is only needed to run once: npm run init
 */
-if (MONGODB_TEST_URI === '<connection_string>' || MONGODB_TEST_URI === '') {
-  console.log('MONGODB_TEST_URI environment variable is not set.')
+if (MONGODB_URI === '<connection_string>' || MONGODB_URI === '') {
+  console.log('MONGODB_URI environment variable is not set.')
 } else {
   // Imports the 3 .json files to the database using mongoimport
   // Check if the URI contains '?', if yes cut the string after, including the ?
-  const index = MONGODB_TEST_URI.indexOf('?')
-  const formattedURI = index !== -1 ? MONGODB_TEST_URI.slice(0, index) : MONGODB_TEST_URI
+  const index = MONGODB_URI.indexOf('?')
+  const formattedURI = index !== -1 ? MONGODB_URI.slice(0, index) : MONGODB_URI
   const command1 = `mongoimport --uri ${formattedURI} --collection links --type JSON --file data/linksData.json --jsonArray --maintainInsertionOrder`
 
   exec(command1, (error, stdout, stderr) => {

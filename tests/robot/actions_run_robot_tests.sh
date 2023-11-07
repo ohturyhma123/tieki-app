@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Start server in background
-npm run dev &
+# Start server in background in test mode
+npm run e2e &
 
 # Run robot tests headless
 robot --variable browser:$1 --variable delay:0 tests/robot/

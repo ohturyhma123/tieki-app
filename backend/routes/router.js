@@ -4,19 +4,18 @@ import userMiddleware from '../middleware/user.js'
 import loginRouter from './login.js'
 import linksRouter from './links.js'
 import statementsRouter from './statements.js'
-import { inDevelopment, inProduction, inStaging } from '../util/config.js'
+import { inDevelopment, inStaging, inTestMode } from '../util/config.js'
 import resultsRouter from './results.js'
 
 const router = express()
 
 router.use(express.json())
 
-if (inDevelopment) {
-  console.log('Server in development environment')
+if (inDevelopment || inTestMode) {
   router.use(cors())
-  if (inDevelopment && !inProduction && !inStaging) {
-    console.log('Applying userMiddleware')
+  if (!inStaging) {
     router.use(userMiddleware)
+    console.log('Applying userMiddleware')
   }
 }
 
