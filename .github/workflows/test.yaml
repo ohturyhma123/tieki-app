@@ -80,6 +80,13 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      MONGODB_TEST_URI: ${{ secrets.MONGODB_TEST_URI }}
+      SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+      OIDC_CLIENT_ID: ${{ secrets.OIDC_CLIENT_ID }}
+      OIDC_CLIENT_SECRET: ${{ secrets.OIDC_CLIENT_SECRET }}
+      OIDC_REDIRECT_URI: ${{ secrets.OIDC_REDIRECT_URI }}
+
     steps:
     - uses: actions/checkout@v4
 
@@ -92,7 +99,7 @@ jobs:
         python-version: "3.10"
 
     - name: Install Robot Framework & SeleniumLibrary
-      run: pip install robotframework && pip install robotframework-seleniumlibrary && pip install selenium==4.9.1
+      run: pip install robotframework && pip install robotframework-seleniumlibrary && pip install selenium==4.9.1 && pip install robotframework-requests
 
     - name: Run Robot tests in headless chrome
       run: sh tests/robot/actions_run_robot_tests.sh headlesschrome
