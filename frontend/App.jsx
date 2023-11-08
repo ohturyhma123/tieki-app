@@ -12,7 +12,7 @@ import Navbar from './components/Navbar'
 
 const App = () => {
   /**
-    Client-side routing setup that redirects to home if the url path isn't /test, /links or /results
+    Client-side routing setup that redirects to home if the url path isn't /test, /links, /pdfview or /results
     Material UI components are used to improve the site's layout and navigation
   */
   return (
@@ -23,6 +23,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/test/:urlIndex" element={<Statements />} />
+        <Route path="/test/confirm" element={<Statements />} />
         <Route path="/results" element={<Results />} />
         <Route path="/pdfview" element={<PDFView />} />
         <Route path="/links" element={<Links />} />

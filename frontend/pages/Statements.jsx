@@ -9,12 +9,17 @@ import Submit from '../components/ConfirmAlert'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import NextPrevButton from '../components/NextPrevButton'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper/modules'
+import { Pagination, EffectCreative } from 'swiper/modules'
 import '../assets/Statement.css'
 import '../assets/Swiper.css'
 import 'swiper/css'
 import 'swiper/css/pagination'
+<<<<<<< HEAD:frontend/pages/Statements.jsx
 import useApi from '../hooks/useApi'
+=======
+import 'swiper/css/effect-creative'
+import GoToResultsButtonMobile from '../components/GoToResultsButtonMobile'
+>>>>>>> main:frontend/src/pages/Statements.jsx
 
 const Statements = () => {
   const [selectedStatements, setSelectedStatements] = useState([])
@@ -32,6 +37,7 @@ const Statements = () => {
   const positiveSets = getPositiveStatements(statementsData)
   const negativeSets = getNegativeStatements(statementsData)
   const isMobile = window.innerWidth <= 768
+  const currentURL = location.pathname
 
   /**
     This effect will run whenever the URL changes. This renders the correct statement set
@@ -197,36 +203,69 @@ const Statements = () => {
           className="swiper"
           spaceBetween={30}
           pagination={{ type: 'progressbar' }}
-          modules={[Pagination]}
+          modules={[Pagination, EffectCreative]}
+          effect={'creative'}
+          speed={200}
+          creativeEffect={{
+            prev: {
+              translate: [75, 0, 0],
+            },
+            next: {
+              translate: [75, 0, 0]
+            },
+          }}
+          /**
+            User is navigated to /test/confirm/ after the last statement set and back to /test/12/ from /test/confirm/ when swiping right.
+            Otherwise, runs function handleNextStatementSet when swiping left to the next slide,
+            and handlePreviousStatementSet when swiping right to the previous slide.
+           */
           onSlideChange={(swiper) => {
-            swiper.realIndex > swiper.previousIndex ?
-              handleNextStatementSet() :
-              handlePreviousStatementSet()
+            currentURL === '/test/confirm' ?
+              navigate('/test/12') :
+              swiper.realIndex === 12 ?
+                navigate('/test/confirm') :
+                swiper.realIndex > swiper.previousIndex ?
+                  handleNextStatementSet() :
+                  handlePreviousStatementSet()
           }}>
           {statementsData.map((s, i) => (
             <SwiperSlide key={i}>
-              <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: '17px', fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
-                Valitse 0–3 väitettä<br />
-                Pyyhkäise mennäksesi eteen- tai taaksepäin
+              <Typography sx={{ mt: 0.7, fontSize: 9, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
+                <i>{`${currentStatementSetIndex + 1}/12`}</i>
+              </Typography>
+              <Typography sx={{ py: 1.5, ml: 0, mb: 0, mt: 0, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                '@media (max-width: 340px)': { fontSize: 13 } }}>
+                Valitse 0-3 väitettä<br />
+                Mene eteen- ja taaksepäin pyyhkäisemällä
               </Typography>
               {statements.map((s) => (
                 <div
                   key={s.id}
                   className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
                   onClick={() => handleStatementClick(s.id)}>
-                  <Typography sx={{ fontSize: 14.5, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>{s.statement}</Typography>
+                  <Typography sx={{ fontSize: 14, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                    '@media (max-width: 340px)': { fontSize: 10 } }}>
+                    {s.statement}
+                  </Typography>
                 </div>
               ))}
             </SwiperSlide>
           ))}
-          {/** Text-only slide at the end to trigger confirmation box */}
+          {/** Separate slide at the end with the url /test/confirm/ for the results button. */}
           <SwiperSlide>
-            <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: '17px', fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
-                Jos haluat vielä muuttaa vastauksiasi, pyyhkäise oikealle
+            <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
+              '@media (max-width: 340px)': { fontSize: 13 } }}>
+                Jos haluat vielä muuttaa vastauksiasi,<br />
+                pyyhkäise oikealle
             </Typography>
+            <GoToResultsButtonMobile
+              id='results-btn-mobile'
+              onClick={() => navigate('/results', { state: { selectedStatements } })}>
+                Tulokset
+            </GoToResultsButtonMobile>
           </SwiperSlide>
         </Swiper>
-        /** End of the code for mobile UI, start of desktop UI code */
+        /** End of the code for mobile UI, start of desktop UI code. */
       ) : (
         <Paper
           sx={{ mt: 10.5, mb: 10, p: 6, pb: 3.5, height: '100%', width: '77%' , background: '#fdf3e9' }}

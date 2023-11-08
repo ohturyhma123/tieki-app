@@ -7,8 +7,11 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  overflow-y: auto;
-  overflow-x: hidden;
+  opacity: 0!important;
+}
+
+.swiper-slide-active {
+  opacity: 1!important;
 }
 
 .swiper-pagination-progressbar-fill {

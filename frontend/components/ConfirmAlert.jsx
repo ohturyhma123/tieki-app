@@ -8,23 +8,25 @@ import '../assets/ConfirmAlert.css'
 const Submit = ({ navigate, selectedStatements }) => {
   const isMobile = window.innerWidth <= 768
 
-  confirmAlert({
-    message: 'Oletko varma, että haluat lopettaa testin?',
-    buttons: [
-      {
-        className: 'yes-btn',
-        label: 'Kyllä',
-        onClick: () => navigate('/results', { state: { selectedStatements } }),
-        tabIndex: 0
-      },
-      {
-        className: 'no-btn',
-        label: 'Ei',
-        onClick: isMobile ? () => navigate('/test/11', { state: { selectedStatements } }) : null,
-        tabIndex: 0
-      }
-    ]
-  })
+  if (!isMobile) {
+    confirmAlert({
+      message: 'Oletko varma, että haluat lopettaa testin?',
+      buttons: [
+        {
+          className: 'yes-btn',
+          label: 'Kyllä',
+          onClick: () => navigate('/results', { state: { selectedStatements } }),
+          tabIndex: 0
+        },
+        {
+          className: 'no-btn',
+          label: 'Ei',
+          onClick: () => navigate('/test/12', { state: { selectedStatements } }),
+          tabIndex: 0
+        }
+      ]
+    })
+  }
 }
 
 export default Submit

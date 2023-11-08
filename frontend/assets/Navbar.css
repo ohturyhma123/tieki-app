@@ -6,6 +6,10 @@
   padding: 1;
 }
 
+html, body {
+  overscroll-behavior-y: none;
+}
+
 .navbar {
   background: #ffffff;
   height: 80px;
@@ -75,6 +79,7 @@
   padding: 0.5rem 0.85rem;
   height: 100%;
   color: #ffffff;
+  font: 1.45rem "Shadows Into Light", sans-serif;
 }
 
 .nav-links:hover {

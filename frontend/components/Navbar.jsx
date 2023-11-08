@@ -19,7 +19,7 @@ const Navbar = () => {
     display: 'flex',
     fontWeight: 'bold',
     lineHeight: '1.5',
-    margin: theme.spacing(2, 0, 0, 3),
+    margin: theme.spacing(2.1, 0, 0, 3),
     padding: theme.spacing(0, 1, 0, 0),
     [theme.breakpoints.down('1150')]: {
       fontSize: '24.5px',
@@ -38,8 +38,8 @@ const Navbar = () => {
       margin: theme.spacing(2.3, 6, 0, -2)
     },
     [theme.breakpoints.down('350')]: {
-      fontSize: '14.5px',
-      margin: theme.spacing(1.3, 6, 0, -2)
+      fontSize: '14px',
+      margin: theme.spacing(1.1, 7, 0, -2)
     }
   }))
 
