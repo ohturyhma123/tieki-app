@@ -90,6 +90,16 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Create env file
+      run: |
+        touch .env
+        echo MONGODB_TEST_URI: ${{ secrets.MONGODB_TEST_URI }} >> .env
+        echo SESSION_SECRET: ${{ secrets.SESSION_SECRET }} >> .env
+        echo OIDC_CLIENT_ID: ${{ secrets.OIDC_CLIENT_ID }} >> .env
+        echo OIDC_CLIENT_SECRET: ${{ secrets.OIDC_CLIENT_SECRET }} >> .env
+        echo OIDC_REDIRECT_URI: ${{ secrets.OIDC_REDIRECT_URI }} >> .env
+        cat .env
+
     - name: Install node packages
       run: npm install
 
