@@ -1,14 +1,12 @@
 name: tests
 
-on: [pull_request, workflow_call]
+on: [pull_request]
 
 jobs:
 
   eslint-autofix:
 
     runs-on: ubuntu-latest
-
-    if: github.ref != 'refs/heads/main'
 
     permissions:
       # Give the default GITHUB_TOKEN write permission to commit and push the
@@ -29,21 +27,6 @@ jobs:
       with:
         commit_message: Auto-fix ESLint
         file_pattern: '*.js *.jsx'
-
-  eslint-main:
-
-    runs-on: ubuntu-latest
-
-    if: github.ref == 'refs/heads/main'
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Install node packages
-      run: npm install
-
-    - name: Run ESLint
-      run: npm run lint
 
   jest:
 
