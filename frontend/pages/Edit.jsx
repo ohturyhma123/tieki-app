@@ -50,6 +50,7 @@ const Edit = () => {
                       backgroundColor='#fff'
                       color='#00011b'
                       buttonText='Muokkaa väittämiä'
+                      href='/edit/statements'
                     />
                     <div style={{ marginBottom: '10px' }}></div>
                     <EditObject
