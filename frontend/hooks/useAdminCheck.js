@@ -12,8 +12,6 @@ const useAdminCheck = () => {
         const response = await axios.get('/api/login')
         if (response.status === 200) {
           setIsAdmin(response.data.isAdmin)
-        } else {
-          throw new Error('Failed to fetch admin status')
         }
       } catch (error) {
         setError(true)

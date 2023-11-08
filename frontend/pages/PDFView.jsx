@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, CircularProgress, Grid, Typography } from '@mui/material'
 import { Document, Page, Text, PDFViewer, StyleSheet, Link, Image } from '@react-pdf/renderer'
 import { useLocation } from 'react-router-dom'
 import CalculateCategoryScores from '../functions/CalculateCategoryScores'
@@ -12,18 +12,6 @@ const PDFView = () => {
   const scores = CalculateCategoryScores(location.state.selectedStatements, statementsData)
   const imgSrc = location.state.imgSrc
   const [positiveResults, negativeResults] = GetResults(scores, resultsData)
-
-  if (loadingStatements || loadingResults) {
-    return <div>Ladataan sivua...</div>
-  }
-
-  if (!statementsData || !resultsData) {
-    return <div>Ladataan tuloksia...</div>
-  }
-
-  if (errorStatements || errorResults) {
-    return <div>Virhe tulosten lataamisessa</div>
-  }
 
   const styles = StyleSheet.create({
     body: {
@@ -55,6 +43,27 @@ const PDFView = () => {
       paddingTop: 7
     }
   })
+
+  if (loadingStatements || loadingResults) {
+    return (
+      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <CircularProgress sx={{ mr: 2 }} />
+          <Typography>Ladataan sivua...</Typography>
+        </Box>
+      </Grid>
+    )
+  }
+
+  if (errorStatements || errorResults) {
+    return (
+      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
+        <Box sx={{ p: 5 }}>
+          <Typography>Virhe tulosten lataamisessa</Typography>
+        </Box>
+      </Grid>
+    )
+  }
 
   const Result = ({ result }) => {
     return (

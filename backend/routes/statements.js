@@ -1,14 +1,8 @@
 import express from 'express'
 import Statement from '../db/models/StatementModel.js'
-import bodyParser from 'body-parser'
 import AdminCheck from '../middleware/AdminCheck.js'
 
-// import statementsData from '../../data/statementsData.json' assert { type: 'json' }
-
 const statementsRouter = express()
-
-statementsRouter.use(bodyParser.json())
-
 
 statementsRouter.get('/', async (req, res) => {
   try {

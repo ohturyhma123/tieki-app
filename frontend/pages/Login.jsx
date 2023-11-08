@@ -1,12 +1,11 @@
-import { Box, Link, List, ListItem, Typography, Container } from '@mui/material'
+import { Box, Link, List, ListItem, Typography, Container, Grid } from '@mui/material'
 import homeBackground from '../assets/home-background.jpg'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import CustomBox from '../components/CustomBox'
 
 const Login = () => {
-
   return (
-    <div>
+    <Grid>
       <Box sx={{ flex: '1' }}>
         <picture>
           <source media="(max-width: 1200px), (max-height: 700px)" srcSet={monochromeBackground} />
@@ -36,7 +35,7 @@ const Login = () => {
           </CustomBox>
         </Container>
       </Box>
-    </div>
+    </Grid>
   )
 }
 
