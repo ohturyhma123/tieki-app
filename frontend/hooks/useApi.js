@@ -12,8 +12,6 @@ const useApi = (source) => {
         const response = await axios.get(source)
         if (response.status === 200) {
           setData(response.data)
-        } else {
-          throw new Error('Failed to fetch data')
         }
       } catch (error) {
         setError(true)

@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
-import { MONGODB_URI, MONGODB_TEST_URI } from '../util/config.js'
+import { MONGODB_URI, MONGODB_TEST_URI, inTestMode } from '../util/config.js'
 
 const connectToDatabase = () => {
-  const uri = process.env.NODE_ENV === 'test' ? MONGODB_TEST_URI : MONGODB_URI
+  const uri = inTestMode ? MONGODB_TEST_URI : MONGODB_URI
 
   mongoose.connect(uri)
   const connection = mongoose.connection

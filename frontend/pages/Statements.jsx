@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Paper, Typography, LinearProgress, Box, Grid } from '@mui/material'
+import { Paper, Typography, LinearProgress, Box, Grid, CircularProgress } from '@mui/material'
 import getPositiveStatements from '../functions/PositiveStatements'
 import getNegativeStatements from '../functions/NegativeStatements'
 import selectOneStatementFromEachPositiveSet from '../functions/SelectOnePositiveStatementFromEachCategory'
@@ -157,15 +157,36 @@ const Statements = () => {
   }
 
   if (loading) {
-    return <div>Ladataan sivua...</div>
-  }
-
-  if (!statements) {
-    return <div>Ladataan väitteitä...</div>
+    return (
+      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
+        <img
+          src={monochromeBackground}
+          alt="monochromeBackground"
+          style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
+            width: '100%', height: '100%', zIndex: -1 }}
+        />
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <CircularProgress sx={{ mr: 2 }} />
+          <Typography>Ladataan sivua...</Typography>
+        </Box>
+      </Grid>
+    )
   }
 
   if (error) {
-    return <div>Virhe väitteiden lataamisessa</div>
+    return (
+      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
+        <img
+          src={monochromeBackground}
+          alt="monochromeBackground"
+          style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
+            width: '100%', height: '100%', zIndex: -1 }}
+        />
+        <Box sx={{ p: 5 }}>
+          <Typography>Virhe väitteiden lataamisessa</Typography>
+        </Box>
+      </Grid>
+    )
   }
 
   /** Progress bar for the desktop UI. */

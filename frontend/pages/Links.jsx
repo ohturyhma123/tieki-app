@@ -1,19 +1,28 @@
-import { Box, Link, List, ListItem, Typography, Grid } from '@mui/material'
+import { Box, Link, List, ListItem, Typography, Grid, CircularProgress } from '@mui/material'
 import useApi from '../hooks/useApi'
 
 const Links = () => {
   const { data: links, loading, error } = useApi('/api/links')
 
   if (loading) {
-    return <div>Ladataan sivua...</div>
-  }
-
-  if (!links) {
-    return <div>Ladataan linkkejä...</div>
+    return (
+      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <CircularProgress sx={{ mr: 2 }} />
+          <Typography>Ladataan sivua...</Typography>
+        </Box>
+      </Grid>
+    )
   }
 
   if (error) {
-    return <div>Virhe linkkien lataamisessa</div>
+    return (
+      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
+        <Box sx={{ p: 5 }}>
+          <Typography>Virhe linkkien lataamisessa</Typography>
+        </Box>
+      </Grid>
+    )
   }
 
   const formatLinkText = (text) => {
