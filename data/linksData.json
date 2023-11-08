@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "name": "Kirjoittajan ABC",
+    "description": "Lue lisää yhdessä kirjoittamisesta.",
+    "url": "https://webcgi.oulu.fi/oykk/abc/kirjoittamisprosessi/yhdessa_kirjoittaminen_ja_yhteiskirjoittaminen/"
+  },
+  {
+    "id": 2,
+    "name": "Gradutakuu",
+    "description": "Lue lisää motivaatiosta ja tavoitteiden asettamisesta.",
+    "url": "https://gradutakuu.fi/sisallys/"
+  },
+  {
+    "id": 3,
+    "name": "Kokonaisvaltainen kirjoittaminen -blogi",
+    "description": "Lue lisää akateemisista tekstitaidoista.",
+    "url": "https://kokonaisvaltainenkirjoittaminen.fi/2011/02/15/akateemisen-kirjoittamisen-opetus/"
+  },
+  {
+    "id": 4,
+    "name": "Tiede ja teksti - Tehoa ja taitoa tutkielman kirjoittamiseen",
+    "description": "Lue tieteellisen referoimisesta (luku 6) e-kirjasta.",
+    "url": "https://www.ellibslibrary.com/book/9789523455115"
+  },
+  {
+    "id": 5,
+    "name": "Plotti",
+    "description": "Lue lisää palautteesta.",
+    "url": "http://www.plotti.fi/2020/08/14/palautetta-hopeatarjottimella-vaikuta-palautekokemuksiisi/"
+  },
+  {
+    "id": 6,
+    "name": "Sinun tekstisi ei ole sinun",
+    "description": "Lue kirjoittamisen sosiaalisesta luonteesta.",
+    "url": "https://antroblogi.fi/2017/06/sinun-tekstisi-ei-ole-sinun/"
+  },
+  {
+    "id": 7,
+    "name": "Tiede ja teksti - Tehoa ja taitoa tutkielman kirjoittamiseen",
+    "description": "Lue tieteellisen tekstin rakenteesta ja argumentoinnista (luvut 4 ja 5) e-kirjasta.",
+    "url": "https://www.ellibslibrary.com/book/9789523455115"
+  },
+  {
+    "id": 8,
+    "name": "Kielijelppi",
+    "description": "Tukea tekstin viimeistelyyn.",
+    "url": "https://blogs.helsinki.fi/kielijelppi/viimeistely/"
+  },
+  {
+    "id": 9,
+    "name": "Plotti",
+    "description": "Kangertaako kandityö?",
+    "url": "http://www.plotti.fi/2018/01/29/kangertaako-kandityo/"
+  },
+  {
+    "id": 10,
+    "name": "Nyyti ry",
+    "description": "Miten vähentää prokrastinaatiota?",
+    "url": "https://www.nyyti.fi/opiskelijoille/opi-elamantaitoa/ajanhallinta/prokrastinaatio/miten-vahentaa-prokrastinaatiota/"
+  },
+  {
+    "id": 11,
+    "name": "Kielijelppi",
+    "description": "Kokeile vapaan kirjoittamisen tekniikoita.",
+    "url": "https://blogs.helsinki.fi/kielijelppi/ideointivaihe/"
+  },
+  {
+    "id": 12,
+    "name": "HY",
+    "description": "Jos sinua mietityttää esim. lukivaikeuteen tai mielen hyvinvointiin liittyvät asiat, saat lisätietoa korkeakoulusi verkkosivuilta.",
+    "url": "https://studies.helsinki.fi/ohjeet/artikkeli/opiskelun-tueksi"
+  },
+  {
+    "id": 13,
+    "name": "Kielitoimiston ohjepankki",
+    "description": "Kielitoimiston ohjepankki",
+    "url": "http://www.kielitoimistonohjepankki.fi/"
+  }
+]

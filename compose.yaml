@@ -1,8 +1,14 @@
 version: '3'
 services:
-  frontend:
+  tieki-app:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "8080:80"
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - SESSION_SECRET=${SESSION_SECRET}
+      - OIDC_CLIENT_ID=${OIDC_CLIENT_ID}
+      - OIDC_CLIENT_SECRET=${OIDC_CLIENT_SECRET}
+      - OIDC_REDIRECT_URI=${OIDC_REDIRECT_URI}
