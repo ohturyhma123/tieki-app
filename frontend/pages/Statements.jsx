@@ -14,12 +14,9 @@ import '../assets/Statement.css'
 import '../assets/Swiper.css'
 import 'swiper/css'
 import 'swiper/css/pagination'
-<<<<<<< HEAD:frontend/pages/Statements.jsx
 import useApi from '../hooks/useApi'
-=======
 import 'swiper/css/effect-creative'
 import GoToResultsButtonMobile from '../components/GoToResultsButtonMobile'
->>>>>>> main:frontend/src/pages/Statements.jsx
 
 const Statements = () => {
   const [selectedStatements, setSelectedStatements] = useState([])
