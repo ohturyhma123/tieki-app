@@ -2,6 +2,13 @@ name: tests
 
 on: [pull_request, workflow_call]
 
+env:
+  MONGODB_TEST_URI: ${{ secrets.MONGODB_TEST_URI }}
+  SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+  OIDC_CLIENT_ID: ${{ secrets.OIDC_CLIENT_ID }}
+  OIDC_CLIENT_SECRET: ${{ secrets.OIDC_CLIENT_SECRET }}
+  OIDC_REDIRECT_URI: ${{ secrets.OIDC_REDIRECT_URI }}
+
 jobs:
 
   eslint-autofix:
@@ -76,29 +83,24 @@ jobs:
     - name: Run Robocop Checks
       run: robocop
 
+  get-env-vars:
+      name: Get repository secrets
+      runs-on: ubuntu-latest
+      outputs:
+        MONGODB_TEST_URI: ${{ secrets.MONGODB_TEST_URI }}
+        SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+        OIDC_CLIENT_ID: ${{ secrets.OIDC_CLIENT_ID }}
+        OIDC_CLIENT_SECRET: ${{ secrets.OIDC_CLIENT_SECRET }}
+        OIDC_REDIRECT_URI: ${{ secrets.OIDC_REDIRECT_URI }}
+      steps:
+        - run: echo "null"
+
   robot-chrome:
 
     runs-on: ubuntu-latest
 
-    env:
-      MONGODB_TEST_URI: ${{ secrets.MONGODB_TEST_URI }}
-      SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
-      OIDC_CLIENT_ID: ${{ secrets.OIDC_CLIENT_ID }}
-      OIDC_CLIENT_SECRET: ${{ secrets.OIDC_CLIENT_SECRET }}
-      OIDC_REDIRECT_URI: ${{ secrets.OIDC_REDIRECT_URI }}
-
     steps:
     - uses: actions/checkout@v4
-
-    - name: Create env file
-      run: |
-        touch .env
-        echo MONGODB_TEST_URI: ${{ secrets.MONGODB_TEST_URI }} >> .env
-        echo SESSION_SECRET: ${{ secrets.SESSION_SECRET }} >> .env
-        echo OIDC_CLIENT_ID: ${{ secrets.OIDC_CLIENT_ID }} >> .env
-        echo OIDC_CLIENT_SECRET: ${{ secrets.OIDC_CLIENT_SECRET }} >> .env
-        echo OIDC_REDIRECT_URI: ${{ secrets.OIDC_REDIRECT_URI }} >> .env
-        cat .env
 
     - name: Install node packages
       run: npm install
