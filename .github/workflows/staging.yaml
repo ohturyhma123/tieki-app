@@ -7,19 +7,21 @@ on:
 jobs:
 
   test:
+    runs-on: ubuntu-latest
     permissions:
       # Give the default GITHUB_TOKEN write permission to commit and push the
       # added or changed files to the repository.
       contents: write
-    uses: ./.github/workflows/test.yaml
-  
-  build:
     env:
       MONGODB_TEST_URI: ${{ secrets.MONGODB_TEST_URI }}
       SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
       OIDC_CLIENT_ID: ${{ secrets.OIDC_CLIENT_ID }}
       OIDC_CLIENT_SECRET: ${{ secrets.OIDC_CLIENT_SECRET }}
       OIDC_REDIRECT_URI: ${{ secrets.OIDC_REDIRECT_URI }}
+    steps:
+      - uses: ./.github/workflows/test.yaml
+  
+  build:
     runs-on: ubuntu-latest
     needs: test
 
