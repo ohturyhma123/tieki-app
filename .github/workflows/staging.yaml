@@ -19,7 +19,9 @@ jobs:
       OIDC_CLIENT_SECRET: ${{ secrets.OIDC_CLIENT_SECRET }}
       OIDC_REDIRECT_URI: ${{ secrets.OIDC_REDIRECT_URI }}
     steps:
-      - uses: ./.github/workflows/test.yaml
+      - uses: actions/checkout@v4
+      - name: Run tests
+        uses: ./.github/workflows/test.yaml
   
   build:
     runs-on: ubuntu-latest
