@@ -3,6 +3,9 @@ import GoToTestButton from '../components/GoToTestButton'
 import homeBackground from '../assets/home-background.jpg'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import CustomBox from '../components/CustomBox'
+import SchoolIcon from '@mui/icons-material/School'
+import ListItem from '@mui/material/ListItem'
+import ListItemIcon from '@mui/material/ListItemIcon'
 
 const Home = () => {
   return (
@@ -27,13 +30,13 @@ const Home = () => {
             </Typography>
             <List
               variant='body2'
-              sx={{ fontSize: '20px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: 2, mt: 0.5, ml: 2 }}>
-              <ListItemText primary="Kirjoittamiseen liittyvät tunteet ja ajatukset" />
-              <ListItemText primary="Akateemiset käytänteet ja tekstilajit" />
-              <ListItemText primary="Lukeminen ja lähteiden käyttö" />
-              <ListItemText primary="Kirjoittaminen prosessina" />
-              <ListItemText primary="Tekstin rakenne" />
-              <ListItemText primary="Kielelliset seikat" />
+              sx={{ flex: '1', fontSize: '20px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: 2, mt: 0.5, ml: 2 }}>
+              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primary='Kirjoittamiseen liittyvät tunteet ja ajatukset' /> </ListItem>
+              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primary='Akateemiset käytänteet ja tekstilajit' /> </ListItem>
+              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primary='Lukeminen ja lähteiden käyttö' /> </ListItem>
+              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primary='Kirjoittaminen prosessina' /> </ListItem>
+              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primary='Tekstin rakenne' /> </ListItem>
+              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primary='Kielelliset seikat' /> </ListItem>
             </List>
             <GoToTestButton
               backgroundColor='#fff'

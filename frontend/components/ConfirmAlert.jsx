@@ -10,7 +10,7 @@ const Submit = ({ navigate, selectedStatements }) => {
 
   if (!isMobile) {
     confirmAlert({
-      message: 'Oletko varma, että haluat lopettaa testin?',
+      message: 'Haluatko siirtyä tuloksiin?',
       buttons: [
         {
           className: 'yes-btn',
