@@ -52,10 +52,10 @@ const EditStatements = () => {
    */
   const handleStatementChange = (setId, statementId, newStatement) => {
     const updatedStatements = statementSets.map((statementSet) =>
-    statementSet._id === setId 
-      ? 
-        {...statementSet, statements: statementSet.statements.map((statement) => statement.id === statementId ? {...statement, statement: newStatement} : statement)}
-      : statementSet
+      statementSet._id === setId
+        ?
+        { ...statementSet, statements: statementSet.statements.map((statement) => statement.id === statementId ? { ...statement, statement: newStatement } : statement) }
+        : statementSet
     )
     setStatementSets(updatedStatements)
   }
@@ -104,7 +104,7 @@ const EditStatements = () => {
           />
         </picture>
         <h1 style={{ fontSize: '34px', fontWeight: 'bold', marginBottom: '20px', fontFamily: '"Lato", sans-serif' }}>Muokkaa väittämiä</h1>
-        <h1 style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '40px', fontFamily: '"Lato", sans-serif', color: "darkgreen" }}>Positiiviset väittämät</h1>
+        <h1 style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '40px', fontFamily: '"Lato", sans-serif', color: 'darkgreen' }}>Positiiviset väittämät</h1>
 
         {positiveStatements.map((statementSet) => {
           return(
@@ -120,26 +120,26 @@ const EditStatements = () => {
                   <Typography>{statementSet.category}</Typography>
                 </AccordionSummary>
                 <AccordionDetails style={{ display: 'flex', flexDirection: 'column' }}>
-                {statementSet.statements.map((statement, index) => {
-                  return(
-                    <TextField
-                      key={statement.id}
-                      id={`${statementSet._id}`}
-                      label={`Väite ${index+1}`}
-                      variant="outlined"
-                      value={statement.statement}
-                      onChange={(e) => handleStatementChange(statementSet._id, statement.id, e.target.value)}
-                      style={{ marginBottom: '20px' }}
-                    />
+                  {statementSet.statements.map((statement, index) => {
+                    return(
+                      <TextField
+                        key={statement.id}
+                        id={`${statementSet._id}`}
+                        label={`Väite ${index+1}`}
+                        variant="outlined"
+                        value={statement.statement}
+                        onChange={(e) => handleStatementChange(statementSet._id, statement.id, e.target.value)}
+                        style={{ marginBottom: '20px' }}
+                      />
                     )
-                })}
+                  })}
                 </AccordionDetails>
               </Accordion>
             </div>
           )
         })}
 
-        <h1 style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '40px', marginTop: '40px', fontFamily: '"Lato", sans-serif', color: "darkred" }}>Negatiiviset väittämät</h1>
+        <h1 style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '40px', marginTop: '40px', fontFamily: '"Lato", sans-serif', color: 'darkred' }}>Negatiiviset väittämät</h1>
         {negativeStatements.map((statementSet) => {
           return(
             <div key={statementSet.category}>
@@ -154,19 +154,19 @@ const EditStatements = () => {
                   <Typography>{statementSet.category}</Typography>
                 </AccordionSummary>
                 <AccordionDetails style={{ display: 'flex', flexDirection: 'column' }}>
-                {statementSet.statements.map((statement, index) => {
-                  return(
-                    <TextField
-                      key={statement.id}
-                      id={`${statementSet._id}`}
-                      label={`Väite ${index+1}`}
-                      variant="outlined"
-                      value={statement.statement}
-                      onChange={(e) => handleStatementChange(statementSet._id, statement.id, e.target.value)}
-                      style={{ marginBottom: '20px' }}
-                    />
+                  {statementSet.statements.map((statement, index) => {
+                    return(
+                      <TextField
+                        key={statement.id}
+                        id={`${statementSet._id}`}
+                        label={`Väite ${index+1}`}
+                        variant="outlined"
+                        value={statement.statement}
+                        onChange={(e) => handleStatementChange(statementSet._id, statement.id, e.target.value)}
+                        style={{ marginBottom: '20px' }}
+                      />
                     )
-                })}
+                  })}
                 </AccordionDetails>
               </Accordion>
             </div>
