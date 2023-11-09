@@ -9,6 +9,7 @@ import Login from './pages/Login'
 import PDFView from './pages/PDFView'
 import Grid from '@mui/material/Grid'
 import Navbar from './components/Navbar'
+import EditStatements from './components/EditStatements'
 
 const App = () => {
   /**
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/links" element={<Links />} />
         <Route path="/edit" element={<Edit />} />
         <Route path="/edit/links" element={<EditLinks />} />
+        <Route path="/edit/statements" element={<EditStatements />} />
         <Route path="/login" element={<Login />} />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
