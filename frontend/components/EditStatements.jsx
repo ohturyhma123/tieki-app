@@ -51,7 +51,6 @@ const EditStatements = () => {
    * Update the name of the statement with the given id.
    */
   const handleStatementChange = (setId, statementId, newStatement) => {
-    statementSets.map((statementSet) => console.log(statementSet))
     const updatedStatements = statementSets.map((statementSet) =>
     statementSet._id === setId 
       ? 
