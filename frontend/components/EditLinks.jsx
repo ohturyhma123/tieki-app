@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+//import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { TextField, Button, Accordion, AccordionSummary, AccordionDetails, Typography, Grid, CircularProgress, Box } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
@@ -7,13 +7,17 @@ import '../assets/EditLinks.css'
 import homeBackground from '../assets/home-background.jpg'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import useAdminCheck from '../hooks/useAdminCheck'
+import SaveConfirm from './SaveConfirm'
+import SaveError from './SaveError'
 
 const baseUrl = '/api/links'
 
 const EditLinks = () => {
   const [links, setLinks] = useState([])
+  const [openSaveConfirm, setOpenSaveConfirm] = useState(false)
+  const [hasError, setHasError] = useState(false)
 
-  const navigate = useNavigate()
+  //const navigate = useNavigate()
 
   /**
    * Fetch links from the backend when the component is mounted.
@@ -76,16 +80,20 @@ const EditLinks = () => {
    * Save the updated links to the backend.
    */
   const handleSaveClick = async () => {
+
     try {
+
+      //throw new Error('Simulated error')
       // Update links on the backend
       await axios.put(baseUrl, links, {
         headers: {
           'Content-Type': 'application/json',
         },
       })
-      navigate('/edit')
+      setOpenSaveConfirm(true)
+      ///navigate('/edit')
     } catch (error) {
-      throw new Error('Failed to save data')
+      setHasError(true)
     }
   }
 
@@ -209,6 +217,8 @@ const EditLinks = () => {
         >
           Tallenna
         </Button>
+        <SaveConfirm open={openSaveConfirm} onClose={() => setOpenSaveConfirm(false)} />
+        <SaveError open={hasError} onClose={() => setHasError(false)} />
       </div>
     </div>
   )

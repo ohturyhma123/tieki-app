@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { TextField, Button, Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
@@ -9,16 +8,18 @@ import monochromeBackground from '../assets/monochrome-background.jpg'
 import useAdminCheck from '../hooks/useAdminCheck'
 import getPositiveStatements from '../functions/PositiveStatements'
 import getNegativeStatements from '../functions/NegativeStatements'
+import SaveConfirm from './SaveConfirm'
+import SaveError from './SaveError'
 
 const baseUrl = '/api/statements'
 
 const EditStatements = () => {
   const [statementSets, setStatementSets] = useState([])
+  const [openSaveConfirm, setOpenSaveConfirm] = useState(false)
+  const [hasError, setHasError] = useState(false)
 
   const positiveStatements = getPositiveStatements(statementSets)
   const negativeStatements = getNegativeStatements(statementSets)
-
-  const navigate = useNavigate()
 
   /**
    * Fetch statements from the backend when the component is mounted.
@@ -64,19 +65,22 @@ const EditStatements = () => {
    * Save the updated statements to the backend.
    */
   const handleSaveClick = async () => {
+
     try {
-      // Update statements on the backend
+
+      //throw new Error('Simulated error')
+      // Update links on the backend
       await axios.put(baseUrl, statementSets, {
         headers: {
           'Content-Type': 'application/json',
         },
       })
-      navigate('/edit')
+      setOpenSaveConfirm(true)
+      ///navigate('/edit')
     } catch (error) {
-      throw new Error('Failed to save data')
+      setHasError(true)
     }
   }
-
   const { isAdmin, loading, error } = useAdminCheck()
 
   if (loading) {
@@ -180,6 +184,8 @@ const EditStatements = () => {
         >
           Tallenna
         </Button>
+        <SaveConfirm open={openSaveConfirm} onClose={() => setOpenSaveConfirm(false)} />
+        <SaveError open={hasError} onClose={() => setHasError(false)} />
       </div>
     </div>
   )
