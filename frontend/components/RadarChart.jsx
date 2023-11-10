@@ -29,7 +29,7 @@ const RadarChart = ({ categories, results }) => {
         data: results,
         backgroundColor: 'rgba(132, 99, 255, 0.2)',
         borderColor: 'rgba(132, 99, 255, 1)',
-        borderWidth: 1,
+        borderWidth: 2,
       }
     ]
   }
@@ -63,7 +63,7 @@ const RadarChart = ({ categories, results }) => {
     }
   }
   return (
-    <div>
+    <div style= { { width: '500px', height: '500px' } }>
       <Radar data={data} options={options} id="radarchart" className="radarchart" aria-label='radar chart'/>
     </div>
   )
