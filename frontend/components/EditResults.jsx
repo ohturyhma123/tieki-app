@@ -55,8 +55,8 @@ const EditResults = () => {
 
     const updatedResults = results.map((result) =>
       result._id === setId
-      ? updatedResult[0]
-      : result
+        ? updatedResult[0]
+        : result
     )
 
     setResults(updatedResults)
@@ -69,8 +69,8 @@ const EditResults = () => {
 
     const updatedResults = results.map((result) =>
       result._id === setId
-      ? updatedResult[0]
-      : result
+        ? updatedResult[0]
+        : result
     )
 
     setResults(updatedResults)
@@ -83,8 +83,8 @@ const EditResults = () => {
 
     const updatedResults = results.map((result) =>
       result._id === setId
-      ? updatedResult[0]
-      : result
+        ? updatedResult[0]
+        : result
     )
 
     setResults(updatedResults)
@@ -97,8 +97,8 @@ const EditResults = () => {
 
     const updatedResults = results.map((result) =>
       result._id === setId
-      ? updatedResult[0]
-      : result
+        ? updatedResult[0]
+        : result
     )
 
     setResults(updatedResults)
@@ -148,7 +148,7 @@ const EditResults = () => {
           />
         </picture>
         <h1 style={{ fontSize: '34px', fontWeight: 'bold', marginBottom: '20px', fontFamily: '"Lato", sans-serif' }}>Muokkaa analyyseja</h1>
-        <h1 style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '40px', fontFamily: '"Lato", sans-serif', color: "darkgreen" }}>Positiiviset analyysit</h1>
+        <h1 style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '40px', fontFamily: '"Lato", sans-serif', color: 'darkgreen' }}>Positiiviset analyysit</h1>
 
         {positiveResults.map((results) => {
           return(
@@ -186,7 +186,7 @@ const EditResults = () => {
                             onChange={(e) => handleTextSegmentChange(results._id, index, e.target.value)}
                             style={{ marginBottom: '20px' }}
                           />
-                          )
+                        )
                       })}
                     </AccordionDetails>
                   </Accordion>
@@ -235,7 +235,7 @@ const EditResults = () => {
           )
         })}
 
-        <h1 style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '40px', marginTop: '40px', fontFamily: '"Lato", sans-serif', color: "darkred" }}>Negatiiviset analyysit</h1>
+        <h1 style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '40px', marginTop: '40px', fontFamily: '"Lato", sans-serif', color: 'darkred' }}>Negatiiviset analyysit</h1>
         {negativeResults.map((results) => {
           return(
             <div key={results.category}>
@@ -261,19 +261,19 @@ const EditResults = () => {
                       <Typography>Teksti segmentit</Typography>
                     </AccordionSummary>
                     <AccordionDetails style={{ display: 'flex', flexDirection: 'column' }}>
-                    {results.textSegments.map((result, index) => {
-                      return(
-                        <TextField
-                          key={index}
-                          id={`${results._id}`}
-                          label={`Teksti segmentti ${index+1}`}
-                          variant="outlined"
-                          value={result}
-                          onChange={(e) => handleTextSegmentChange(results._id, index, e.target.value)}
-                          style={{ marginBottom: '20px' }}
-                        />
+                      {results.textSegments.map((result, index) => {
+                        return(
+                          <TextField
+                            key={index}
+                            id={`${results._id}`}
+                            label={`Teksti segmentti ${index+1}`}
+                            variant="outlined"
+                            value={result}
+                            onChange={(e) => handleTextSegmentChange(results._id, index, e.target.value)}
+                            style={{ marginBottom: '20px' }}
+                          />
                         )
-                    })}
+                      })}
                     </AccordionDetails>
                   </Accordion>
                   <Accordion style={{
