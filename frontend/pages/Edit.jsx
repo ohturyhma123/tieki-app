@@ -103,6 +103,7 @@ const Edit = () => {
                       backgroundColor='#fff'
                       color='#00011b'
                       buttonText='Muokkaa analyyseja'
+                      href='/edit/results'
                     />
                   </Box>
                 </ListItem>
