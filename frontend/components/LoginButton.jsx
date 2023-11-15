@@ -1,7 +1,6 @@
-import { useNavigate } from 'react-router-dom'
 import { Button, styled } from '@mui/material'
 
-const LargeButton = ({ backgroundColor, color, buttonText, href }) => {
+const LoginButton = ({ backgroundColor, color, buttonText, href }) => {
   const StyledButton = styled(Button)( () => ({
     backgroundColor: backgroundColor,
     color: color,
@@ -28,12 +27,7 @@ const LargeButton = ({ backgroundColor, color, buttonText, href }) => {
     }
   }))
 
-  const navigate = useNavigate()
-  const handleClick = () => {
-    navigate(href)
-  }
-
-  return <StyledButton id='editObject' onClick={handleClick}>{buttonText}</StyledButton>
+  return <StyledButton id='loginButton' href={href}>{buttonText}</StyledButton>
 }
 
-export default LargeButton
+export default LoginButton
