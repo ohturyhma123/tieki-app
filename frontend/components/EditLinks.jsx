@@ -247,43 +247,56 @@ const EditLinks = () => {
             </AccordionDetails>
           </Accordion>
         ))}
+        <div style={{ order: 1 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSaveClick}
+            style={{ backgroundColor: '#00000', marginBottom: '20px' }}
+          >
+      Tallenna
+          </Button>
+        </div>
         <TextField
-          label="New Link Name"
+          label="Uuden linkin nimi"
           variant="outlined"
           value={newLink.name}
           onChange={(e) => setNewLink({ ...newLink, name: e.target.value })}
           style={{ marginBottom: '20px' }}
+          InputProps={{
+            style: { backgroundColor: 'white' },
+          }}
         />
         <TextField
-          label="New Link Description"
+          label="Uuden linkin kuvaus"
           variant="outlined"
           value={newLink.description}
           onChange={(e) => setNewLink({ ...newLink, description: e.target.value })}
           style={{ marginBottom: '20px' }}
+          InputProps={{
+            style: { backgroundColor: 'white' },
+          }}
         />
         <TextField
-          label="New Link URL"
+          label="Uuden linkin URL"
           variant="outlined"
           value={newLink.url}
           onChange={(e) => setNewLink({ ...newLink, url: e.target.value })}
           style={{ marginBottom: '20px' }}
+          InputProps={{
+            style: { backgroundColor: 'white' },
+          }}
         />
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleAddLink}
-          style={{ backgroundColor: '#00000', marginBottom: '20px' }}
-        >
-      Add New Link
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleSaveClick}
-          style={{ backgroundColor: '#00000', marginBottom: '20px' }}
-        >
-          Tallenna
-        </Button>
+        <div style={{ order: 1 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleAddLink}
+            style={{ backgroundColor: '#00000', marginBottom: '20px' }}
+          >
+      Lisää uusi linkki
+          </Button>
+        </div>
         <SaveConfirm open={openSaveConfirm} onClose={() => setOpenSaveConfirm(false)} />
         <SaveError open={hasError} onClose={() => setHasError(false)} />
       </div>
