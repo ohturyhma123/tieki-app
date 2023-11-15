@@ -24,7 +24,10 @@ linksRouter.put('/', AdminCheck, async (req, res) => {
         throw new Error('Name can not be empty')
       }
       if (updatedLink.url.length === 0) {
-        throw new Error('Link can not be empty')
+        throw new Error('Link URL can not be empty')
+      }
+      if (updatedLink.description.length === 0) {
+        throw new Error('Link dexcription can not be empty')
       }
       await Link.findOneAndUpdate({ id: updatedLink.id }, updatedLink)
     }
