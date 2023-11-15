@@ -30,20 +30,33 @@ const Edit = () => {
 
   if (!isAdmin) {
     return (
-      <Grid container justifyContent="center" alignItems="c<div style={{ marginBottom: '10px' }}></div>                    enter" style={{ height: '80vh' }}>
-        <picture>
-          <source media="(max-width: 1200px), (max-height: 700px)" srcSet={monochromeBackground} />
-          <img
-            src={homeBackground}
-            alt="homeBackground"
-            style={{ maxWidth: '100%', maxHeight: '100%', position: 'absolute', top: 0, left: 0, right: 0,
-              width: '100%', height: '100%', zIndex: -1 }}
-          />
-        </picture>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography>Tämä sivu on vain ylläpitäjille</Typography>
+      <div>
+        <Box sx={{ flex: '1' }}>
+          <picture>
+            <source media="(max-width: 1200px), (max-height: 700px)" srcSet={monochromeBackground} />
+            <img
+              src={homeBackground}
+              alt="homeBackground"
+              style={{ maxWidth: '100%', maxHeight: '100%', position: 'absolute', top: 0, left: 0, right: 0,
+                width: '100%', height: '100%', zIndex: -1 }}
+            />
+          </picture>
+          <Container>
+            <CustomBox>
+              <Box sx={{ flex: '1' }}>
+                <Typography sx={{ pb: 3 }} variant='h3'>Tämä sivu on vain ylläpitäjille</Typography>
+                <Box sx={{ display: 'flex', flexDirection: 'column' }}></Box>
+                <EditObject
+                  backgroundColor='#fff'
+                  color='#00011b'
+                  buttonText='Kirjaudu ulos'
+                  href='/api/logout'
+                />
+              </Box>
+            </CustomBox>
+          </Container>
         </Box>
-      </Grid>
+      </div>
     )
   }
 
@@ -81,7 +94,7 @@ const Edit = () => {
         <Container>
           <CustomBox>
             <Box sx={{ flex: '1' }}>
-              <Typography sx={{ pb: 3 }} variant='h3'>Muokkaus sivu</Typography>
+              <Typography sx={{ pb: 3 }} variant='h3'>Muokkaussivu</Typography>
               <List>
                 <ListItem>
                   <Box sx={{ display: 'flex', flexDirection: 'column' }}>
