@@ -22,14 +22,13 @@ if (inDevelopment || inTestMode) {
 
 const sessionConfig = {
   secret: SESSION_SECRET,
+  cookie: { maxAge: 8 * 60 * 60 * 1000 },
   resave: false,
   saveUninitialized: false,
 }
 
 if (inProduction) {
   sessionConfig.store = store
-} else {
-  sessionConfig.cookie = { maxAge: 8 * 60 * 60 * 1000 }
 }
 
 app.use(session(sessionConfig))
