@@ -9,6 +9,7 @@ Library    RequestsLibrary
 ${APP_URL}    http://localhost:3000
 ${TEST_URL}    http://localhost:3000/test/1
 ${LINK_URL}    http://localhost:3000/links
+${EDIT_URL}    http://localhost:3000/edit
 ${BROWSER}    headlesschrome
 ${DELAY}    0 seconds
 
@@ -35,3 +36,7 @@ Go To Testpage
 Go To Linkspage
     [Documentation]    Opens the linkpage.
     Go To    ${LINK_URL}
+
+Go To Editpage
+    [Documentation]    Opens the editpage.
+    Go To    ${EDIT_URL}

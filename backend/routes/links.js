@@ -20,6 +20,12 @@ linksRouter.put('/', AdminCheck, async (req, res) => {
 
   try {
     for (const updatedLink of updatedLinks) {
+      if (updatedLink.name.length === 0) {
+        throw new Error('Name can not be empty')
+      }
+      if (updatedLink.url.length === 0) {
+        throw new Error('Link can not be empty')
+      }
       await Link.findOneAndUpdate({ id: updatedLink.id }, updatedLink)
     }
     res.json({ message: 'Links updated successfully' })

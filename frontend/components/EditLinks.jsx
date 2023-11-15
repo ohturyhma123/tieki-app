@@ -82,7 +82,6 @@ const EditLinks = () => {
   const handleSaveClick = async () => {
 
     try {
-
       //throw new Error('Simulated error')
       // Update links on the backend
       await axios.put(baseUrl, links, {
@@ -91,7 +90,6 @@ const EditLinks = () => {
         },
       })
       setOpenSaveConfirm(true)
-      ///navigate('/edit')
     } catch (error) {
       setHasError(true)
     }

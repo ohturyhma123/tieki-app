@@ -19,8 +19,14 @@ statementsRouter.put('/', AdminCheck, async (req, res) => {
 
   try {
     for (const updatedStatement of updatedStatements) {
-      const { _id, ...updateData } = updatedStatement
-      await Statement.findOneAndUpdate({ _id: _id }, { $set: updateData })
+      for (const statement of updatedStatement.statements) {
+
+        if (statement.statement.length === 0) {
+          throw new Error('Statement can not be empty')
+        }
+        const { _id, ...updateData } = updatedStatement
+        await Statement.findOneAndUpdate({ _id: _id }, { $set: updateData })
+      }
     }
     res.json({ message: 'Statements updated successfully' })
   } catch (error) {
