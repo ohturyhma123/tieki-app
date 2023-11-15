@@ -3,6 +3,7 @@ import useAdminCheck from '../hooks/useAdminCheck'
 import homeBackground from '../assets/home-background.jpg'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import EditObject from '../components/EditObject'
+import LoginButton from '../components/LoginButton'
 import CustomBox from '../components/CustomBox'
 
 const Edit = () => {
@@ -46,8 +47,7 @@ const Edit = () => {
               <Box sx={{ flex: '1' }}>
                 <Typography sx={{ pb: 3 }} variant='h3'>Tämä sivu on vain ylläpitäjille</Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}></Box>
-                <EditObject
-                  backgroundColor='#fff'
+                <LoginButton backgroundColor='#fff'
                   color='#00011b'
                   buttonText='Kirjaudu ulos'
                   href='/api/logout'
@@ -119,8 +119,7 @@ const Edit = () => {
                       href='/edit/results'
                     />
                     <Box sx={{ marginBottom: '10px' }} />
-                    <EditObject
-                      backgroundColor='#fff'
+                    <LoginButton backgroundColor='#fff'
                       color='#00011b'
                       buttonText='Kirjaudu ulos'
                       href='/api/logout'
