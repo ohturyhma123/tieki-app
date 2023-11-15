@@ -11,6 +11,7 @@ Suite Setup
 Suite Teardown    Close Browser
 
 Test Setup    Go To Editpage
+
 Test Tags    edit
 
 
@@ -26,15 +27,17 @@ Edit Page Is Open
 Edit Link Successfully
     [Documentation]    Checks that an user can edit a links name.
     Go To Edit Link Page
-    Open Link Info To Be Edited    1
+    Open Link Info   1
     Edit Link Name    1    Testinimi
     Send Edited Link
     Check Link Was Updated Successfully
 
+    Set Link DB To Initial State    link_index=1    edited_part=name    initial_value=Kirjoittajan ABC
+
 Edit Link Unsuccessfully
     [Documentation]    Checks that an user can't input empty link description.
     Go To Edit Link Page
-    Open Link Info To Be Edited    2
+    Open Link Info    2
     Edit Link Description    2    new_description=
     Send Edited Link
     Check Link Was Updated Unsuccessfully
