@@ -16,6 +16,7 @@ const EditLinks = () => {
   const [links, setLinks] = useState([])
   const [openSaveConfirm, setOpenSaveConfirm] = useState(false)
   const [hasError, setHasError] = useState(false)
+  const [newLink, setNewLink] = useState({ name: '', description: '', url: '' })
 
   //const navigate = useNavigate()
 
@@ -64,6 +65,37 @@ const EditLinks = () => {
       link.id === id ? { ...link, description: newDescription } : link
     )
     setLinks(updatedLinks)
+  }
+
+  const handleAddLink = async () => {
+    try {
+      // Save new link to the backend
+      const response = await axios.post(baseUrl, newLink, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      // Add new link to the links array in the state
+      setLinks([...links, response.data])
+
+      // Reset new link
+      setNewLink({ name: '', description: '', url: '' })
+    } catch (error) {
+      setHasError(true)
+    }
+  }
+
+  const handleDelete = async (id) => {
+    try {
+      // Delete link from the backend
+      await axios.delete(`${baseUrl}/${id}`)
+
+      // Remove link from the links array in the state
+      setLinks(links.filter((link) => link.id !== id))
+    } catch (error) {
+      setHasError(true)
+    }
   }
 
   /**
@@ -204,9 +236,46 @@ const EditLinks = () => {
                 onChange={(e) => handleUrlChange(link.id, e.target.value)}
                 style={{ marginBottom: '20px' }}
               />
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={() => handleDelete(link.id)}
+                style={{ marginTop: '20px' }}
+              >
+        Delete
+              </Button>
             </AccordionDetails>
           </Accordion>
         ))}
+        <TextField
+          label="New Link Name"
+          variant="outlined"
+          value={newLink.name}
+          onChange={(e) => setNewLink({ ...newLink, name: e.target.value })}
+          style={{ marginBottom: '20px' }}
+        />
+        <TextField
+          label="New Link Description"
+          variant="outlined"
+          value={newLink.description}
+          onChange={(e) => setNewLink({ ...newLink, description: e.target.value })}
+          style={{ marginBottom: '20px' }}
+        />
+        <TextField
+          label="New Link URL"
+          variant="outlined"
+          value={newLink.url}
+          onChange={(e) => setNewLink({ ...newLink, url: e.target.value })}
+          style={{ marginBottom: '20px' }}
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleAddLink}
+          style={{ backgroundColor: '#00000', marginBottom: '20px' }}
+        >
+      Add New Link
+        </Button>
         <Button
           variant="contained"
           color="primary"
