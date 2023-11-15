@@ -1,11 +1,12 @@
 import express from 'express'
-import cookieSession from 'cookie-session'
+import session from 'express-session'
 import passport from 'passport'
 import cors from 'cors'
 import path from 'path'
 import { inDevelopment, inProduction, inStaging, inTestMode, SESSION_SECRET } from './util/config.js'
 import router from './routes/router.js'
 import userMiddleware from './middleware/user.js'
+import store from './util/mongostore.js'
 
 const app = express()
 
@@ -19,13 +20,26 @@ if (inDevelopment || inTestMode) {
   }
 }
 
-app.use(
-  cookieSession({
-    name: 'session',
-    keys: [SESSION_SECRET],
-    maxAge: 24 * 60 * 60 * 1000
-  })
-)
+if (inProduction) {
+  app.use(
+    session({
+      store: store,
+      secret: SESSION_SECRET,
+      maxAge: 8 * 60 * 60 * 1000,
+      resave: false,
+      saveUninitialized: false,
+    })
+  )
+} else {
+  app.use(
+    session({
+      secret: SESSION_SECRET,
+      maxAge: 8 * 60 * 60 * 1000,
+      resave: false,
+      saveUninitialized: false,
+    })
+  )
+}
 
 app.use(passport.initialize())
 app.use(passport.session())

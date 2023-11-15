@@ -29,10 +29,10 @@ loginRouter.get(
   }
 )
 
-loginRouter.get('/logout', async (req, res) => {
-  req.session = null
-  req.sessionOptions.maxAge = 0
-  res.clearCookie('session', { path: '/' })
+loginRouter.get('/logout', async (req, res, next) => {
+  req.logout((err) => {
+    if (err) return next(err)
+  })
   res.clearCookie('connect.sid', { path: '/' })
   res.redirect('/')
 })
