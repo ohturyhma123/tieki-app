@@ -1,7 +1,8 @@
-import { Box, Link, List, ListItem, Typography, Container, Grid } from '@mui/material'
+import { Box, Typography, Container, Grid } from '@mui/material'
 import homeBackground from '../assets/home-background.jpg'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import CustomBox from '../components/CustomBox'
+import EditObject from '../components/EditObject'
 
 const Login = () => {
   return (
@@ -20,15 +21,13 @@ const Login = () => {
           <CustomBox>
             <Box sx={{ flex: '1' }}>
               <Typography sx={{ pb: 3 }} variant='h3'>Kirjaudu sisään (vain ylläpitäjät)</Typography>
-              <Typography>
-                <List>
-                  <ListItem>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <Link sx={{ pl: 0.5 }} href='/api/oidc'>HY-kirjautuminen</Link>
-                    </div>
-                  </ListItem>
-                </List>
-              </Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'column' }}></Box>
+              <EditObject
+                backgroundColor='#fff'
+                color='#00011b'
+                buttonText='HY-kirjautuminen'
+                href='/api/oidc'
+              />
             </Box>
           </CustomBox>
         </Container>
