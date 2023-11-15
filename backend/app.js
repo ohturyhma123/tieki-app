@@ -29,7 +29,7 @@ const sessionConfig = {
 if (inProduction) {
   sessionConfig.store = store
 } else {
-  sessionConfig.cookie = { maxAge: 8 * 60 * 60 * 1000, }
+  sessionConfig.cookie = { maxAge: 8 * 60 * 60 * 1000 }
 }
 
 app.use(session(sessionConfig))
