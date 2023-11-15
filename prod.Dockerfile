@@ -22,5 +22,5 @@ RUN chgrp -R 0 /app && chmod -R g+rwX /app
 # Expose a port (you can choose the port number)
 EXPOSE 3001
 
-# Start the application in development mode
+# Start the application in production mode
 CMD ["npm", "run", "prod"]
