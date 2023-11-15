@@ -20,26 +20,19 @@ if (inDevelopment || inTestMode) {
   }
 }
 
-if (inProduction) {
-  app.use(
-    session({
-      store: store,
-      secret: SESSION_SECRET,
-      maxAge: 8 * 60 * 60 * 1000,
-      resave: false,
-      saveUninitialized: false,
-    })
-  )
-} else {
-  app.use(
-    session({
-      secret: SESSION_SECRET,
-      maxAge: 8 * 60 * 60 * 1000,
-      resave: false,
-      saveUninitialized: false,
-    })
-  )
+const sessionConfig = {
+  secret: SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
 }
+
+if (inProduction) {
+  sessionConfig.store = store
+} else {
+  sessionConfig.cookie = { maxAge: 8 * 60 * 60 * 1000, }
+}
+
+app.use(session(sessionConfig))
 
 app.use(passport.initialize())
 app.use(passport.session())
