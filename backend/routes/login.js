@@ -1,6 +1,5 @@
 import express from 'express'
 import passport from 'passport'
-import { OIDC_LOGOUT_URI } from '../util/config.js'
 
 const loginRouter = express.Router()
 
@@ -30,12 +29,12 @@ loginRouter.get(
   }
 )
 
-loginRouter.get('/logout', async (req, res, next) => {
-  req.logout((err) => {
-    if (err) return next(err)
-  })
+loginRouter.get('/logout', async (req, res) => {
+  req.session = null
+  req.sessionOptions.maxAge = 0
+  res.clearCookie('session', { path: '/' })
   res.clearCookie('connect.sid', { path: '/' })
-  res.redirect(OIDC_LOGOUT_URI)
+  res.redirect('/')
 })
 
 export default loginRouter

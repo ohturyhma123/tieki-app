@@ -6,8 +6,6 @@ import resultsRouter from './results.js'
 
 const router = express()
 
-router.use(express.json())
-
 router.use('/', loginRouter)
 router.use('/links', linksRouter)
 router.use('/statements', statementsRouter)
