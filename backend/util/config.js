@@ -18,10 +18,6 @@ export const OIDC_ISSUER = inProduction
   ? 'https://login.helsinki.fi/.well-known/openid-configuration'
   : 'https://login-test.it.helsinki.fi/.well-known/openid-configuration'
 
-export const OIDC_LOGOUT_URI = inProduction
-  ? 'https://login.helsinki.fi/idp/profile/Logout'
-  : 'https://login-test.it.helsinki.fi/idp/profile/Logout'
-
 export const OIDC_CLIENT_ID = process.env.OIDC_CLIENT_ID || ''
 
 export const OIDC_CLIENT_SECRET = process.env.OIDC_CLIENT_SECRET || ''
