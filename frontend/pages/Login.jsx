@@ -1,7 +1,8 @@
-import { Box, Link, List, ListItem, Typography, Container, Grid } from '@mui/material'
+import { Box, List, ListItem, Typography, Container, Grid } from '@mui/material'
 import homeBackground from '../assets/home-background.jpg'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import CustomBox from '../components/CustomBox'
+import LoginButton from '../components/LoginButton'
 
 const Login = () => {
   return (
@@ -24,9 +25,11 @@ const Login = () => {
                 <List>
                   <ListItem>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <Link sx={{ pl: 0.5 }} href='/api/oidc'>HY-kirjautuminen</Link>
-                      <div style={{ marginBottom: '10px' }}></div>
-                      <Link sx={{ pl: 0.5 }} href="/api/logout">Kirjaudu ulos</Link>
+                      <LoginButton backgroundColor='#fff'
+                        color='#00011b'
+                        buttonText='HY-kirjautuminen'
+                        href='/api/oidc'
+                      />
                     </div>
                   </ListItem>
                 </List>
