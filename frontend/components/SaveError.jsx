@@ -24,7 +24,7 @@ const SaveConfirm = ({ open, onClose }) => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => { onClose(); navigate('/edit') }} color="primary" autoFocus>
+        <Button onClick={() => { onClose() }} color="primary" autoFocus>
           OK
         </Button>
       </DialogActions>
