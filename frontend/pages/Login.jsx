@@ -25,8 +25,6 @@ const Login = () => {
                   <ListItem>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                       <Link sx={{ pl: 0.5 }} href='/api/oidc'>HY-kirjautuminen</Link>
-                      <div style={{ marginBottom: '10px' }}></div>
-                      <Link sx={{ pl: 0.5 }} href="/api/logout">Kirjaudu ulos</Link>
                     </div>
                   </ListItem>
                 </List>

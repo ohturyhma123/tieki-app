@@ -30,7 +30,7 @@ const Edit = () => {
 
   if (!isAdmin) {
     return (
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
+      <Grid container justifyContent="center" alignItems="c<div style={{ marginBottom: '10px' }}></div>                    enter" style={{ height: '80vh' }}>
         <picture>
           <source media="(max-width: 1200px), (max-height: 700px)" srcSet={monochromeBackground} />
           <img
@@ -104,6 +104,13 @@ const Edit = () => {
                       color='#00011b'
                       buttonText='Muokkaa analyyseja'
                       href='/edit/results'
+                    />
+                    <Box sx={{ marginBottom: '10px' }} />
+                    <EditObject
+                      backgroundColor='#fff'
+                      color='#00011b'
+                      buttonText='Kirjaudu ulos'
+                      href='/api/logout'
                     />
                   </Box>
                 </ListItem>
