@@ -1,6 +1,6 @@
 import express from 'express'
 import passport from 'passport'
-import { OIDC_LOGOUT_URI } from '../util/config'
+import { OIDC_LOGOUT_URI } from '../util/config.js'
 
 const loginRouter = express.Router()
 
