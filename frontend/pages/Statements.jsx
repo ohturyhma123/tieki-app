@@ -8,15 +8,15 @@ import selectOneStatementFromEachNegativeSet from '../functions/SelectOneNegativ
 import Submit from '../components/ConfirmAlert'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import NextPrevButton from '../components/NextPrevButton'
+import GoToResultsButtonMobile from '../components/GoToResultsButtonMobile'
+import useApi from '../hooks/useApi'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, EffectCreative } from 'swiper/modules'
 import '../assets/Statement.css'
 import '../assets/Swiper.css'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import useApi from '../hooks/useApi'
 import 'swiper/css/effect-creative'
-import GoToResultsButtonMobile from '../components/GoToResultsButtonMobile'
 
 const Statements = () => {
   const [selectedStatements, setSelectedStatements] = useState([])
@@ -33,7 +33,7 @@ const Statements = () => {
   const { urlIndex } = useParams()
   const positiveSets = getPositiveStatements(statementsData)
   const negativeSets = getNegativeStatements(statementsData)
-  const isMobile = window.innerWidth <= 768
+  const isMobile = window.innerWidth <= 480
   const currentURL = location.pathname
 
   /**
@@ -271,7 +271,7 @@ const Statements = () => {
           ))}
           {/** Separate slide at the end with the url /test/confirm/ for the results button. */}
           <SwiperSlide>
-            <Typography sx={{ py: 2, ml: 0, mb: 0, mt: 0.5, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
+            <Typography sx={{ py: 2, ml: 0, mb: 10, mt: 0.5, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
               '@media (max-width: 340px)': { fontSize: 13 } }}>
                 Jos haluat vielä muuttaa vastauksiasi,<br />
                 pyyhkäise oikealle

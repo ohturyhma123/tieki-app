@@ -8,17 +8,31 @@ import ListItem from '@mui/material/ListItem'
 import ListItemIcon from '@mui/material/ListItemIcon'
 
 const Home = () => {
+  const isMobile = window.innerWidth <= 480
+  const backgroundStyle = {
+    maxWidth: '100%',
+    maxHeight: '100%',
+    width: '100%',
+    height: '100%',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: -1,
+  }
+
   return (
     <Box sx={{ flex: '1' }}>
-      <picture>
-        <source media="(max-width: 1200px), (max-height: 700px)" srcSet={monochromeBackground} />
-        <img
-          src={homeBackground}
-          alt="homeBackground"
-          style={{ maxWidth: '100%', maxHeight: '100%', position: 'absolute', top: 0, left: 0, right: 0,
-            width: '100%', height: '100%', zIndex: -1 }}
-        />
-      </picture>
+      {isMobile ? (
+        <img src={monochromeBackground} alt="background"
+          style={backgroundStyle} />
+      ) : (
+        <picture>
+          <source media="(max-width: 1280px), (max-height: 720px)" srcSet={monochromeBackground} />
+          <img src={homeBackground} alt="background"
+            style={backgroundStyle} />
+        </picture>)}
       <Container>
         <CustomBox>
           <Box sx={{ flex: '1' }}>
