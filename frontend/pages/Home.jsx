@@ -25,13 +25,15 @@ const Home = () => {
   return (
     <Box sx={{ flex: '1' }}>
       {isMobile ? (
-        <img src={monochromeBackground} alt="background"
-          style={backgroundStyle} />
+        <img src={monochromeBackground} alt="monochrome background" style={backgroundStyle} />
       ) : (
         <picture>
           <source media="(max-width: 1280px), (max-height: 720px)" srcSet={monochromeBackground} />
-          <img src={homeBackground} alt="background"
-            style={backgroundStyle} />
+          <img src={homeBackground} alt="background with markers" style={backgroundStyle} />
+          {/**
+           Photo: Karolina Grabowska / Pexels
+           License: "All photos and videos on Pexels are free to use. Attribution is not required. You can modify the photos and videos from Pexels."
+           */}
         </picture>)}
       <Container>
         <CustomBox>
