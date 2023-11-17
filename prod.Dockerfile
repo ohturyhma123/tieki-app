@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 
 # Install dependencies, omit devDependencies
-RUN npm ci --omit-dev --ignore-scripts
+RUN npm ci --omit=dev --ignore-scripts
 
 # Copy the rest of the application code to the container
 COPY . .
