@@ -15,12 +15,13 @@ const Results = () => {
 
   useEffect(() => {
 
-    const chart = document.getElementsByClassName('radarchart').radarchart
+    const fetchImage = async () => {
 
-    htmlToImage.toPng(chart)
-      .then((dataUrl) => {
-        setImageSource(dataUrl)
-      })
+      const chart = document.getElementsByClassName('radarchart').radarchart
+      const image = await htmlToImage.toPng(chart)
+      setImageSource(image)
+    }
+    fetchImage()
   })
 
   const { data: statementsData, loading: loadingStatements, error: errorStatements } = useApi('/api/statements')
