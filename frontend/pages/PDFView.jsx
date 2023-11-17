@@ -5,14 +5,6 @@ import CalculateCategoryScores from '../functions/CalculateCategoryScores'
 import GetResults from '../functions/GetResults'
 import useApi from '../hooks/useApi'
 
-const Doc = () => (
-  <Document>
-    <Page wrap>
-      <Text>hello</Text>
-    </Page>
-  </Document>
-)
-
 const PDFView = () => {
 
   const location = useLocation()
@@ -45,7 +37,7 @@ const PDFView = () => {
     )
   }
 
-  const View = () => {
+  const PDFViewerView = () => {
     return(
       <PDFViewer width={'100%'} height={'100%'} >
         <Document>
@@ -59,6 +51,21 @@ const PDFView = () => {
           </Page>
         </Document>
       </PDFViewer>
+    )
+  }
+
+  const View = () => {
+    return(
+      <Document>
+        <Page size={'A4'} style={styles.body}>
+          <Image src={imgSrc}></Image>
+          <Text style={styles.title}>Vahvuudet</Text>
+          {positiveResults.map(result => <Result key={result.id} result={result} />)}
+          <Text style={ { paddingVertical: 25 } }> </Text>
+          <Text style={styles.title}>Kehityskohteet</Text>
+          {negativeResults.map(result => <Result key={result.id} result={result} />)}
+        </Page>
+      </Document>
     )
   }
 
@@ -118,19 +125,18 @@ const PDFView = () => {
     return(
       <div>
         <Typography variant="h5">PDF-näkymä ei tue mobiililaitteita. Lataa PDF alla olevasta linkistä!</Typography>
-        <PDFDownloadLink document={<doc />} fileName="somename.pdf">
-          {({ blob, url, loading, error }) =>
-            loading ? 'Loading document...' : 'Download now!'
+        <PDFDownloadLink document={<View/>} fileName="somename.pdf">
+          {({ blob, url, isLoading, error }) =>
+            isLoading ? 'Loading document...' : 'Download now!'
           }
         </PDFDownloadLink>
-        <Doc></Doc>
       </div>
     )
   }
 
   return (
     <Box sx={{ height: 1000 }} >
-      <View></View>
+      <PDFViewerView/>
     </Box>
   )
 }
