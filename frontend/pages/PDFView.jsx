@@ -1,5 +1,5 @@
 import { Box, CircularProgress, Grid, Typography } from '@mui/material'
-import { Document, Page, Text, PDFViewer, StyleSheet, Link, usePDF, PDFDownloadLink, Image } from '@react-pdf/renderer'
+import { Document, Page, Text, PDFViewer, StyleSheet, Link, PDFDownloadLink, Image } from '@react-pdf/renderer'
 import { useLocation } from 'react-router-dom'
 import CalculateCategoryScores from '../functions/CalculateCategoryScores'
 import GetResults from '../functions/GetResults'
