@@ -80,3 +80,9 @@ Set Link DB To Initial State
     END
     Send Edited Link
     Check Link Was Updated Successfully
+
+Delete Link
+    [Documentation]    Deletes the link.
+    [Arguments]    ${link_index}
+    Click Element    xpath=//*[@id="root"]/div[2]/div/div[2]/div[${link_index}]/div/div/div/div/button
+    Page Should Contain    Muokkaa linkkejä

@@ -41,3 +41,10 @@ Edit Link Unsuccessfully
     Edit Link Description    2    new_description=
     Send Edited Link
     Check Link Was Updated Unsuccessfully
+
+Delete Link Successfully
+    [Documentation]    Checks that an user can delete a link.
+    Go To Edit Link Page
+    Open Link Info    2
+    Sleep    3s
+    Delete Link    2

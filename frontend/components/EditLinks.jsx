@@ -242,7 +242,7 @@ const EditLinks = () => {
                 onClick={() => handleDelete(link.id)}
                 style={{ marginTop: '20px' }}
               >
-        Delete
+        Poista linkki
               </Button>
             </AccordionDetails>
           </Accordion>
