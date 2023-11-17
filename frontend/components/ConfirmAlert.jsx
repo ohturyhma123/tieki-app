@@ -6,7 +6,7 @@ import '../assets/ConfirmAlert.css'
   Alert for confirming if an user wants to submit the test and proceed to results page.
 */
 const Submit = ({ navigate, selectedStatements }) => {
-  const isMobile = window.innerWidth <= 768
+  const isMobile = window.innerWidth <= 480
 
   if (!isMobile) {
     confirmAlert({
