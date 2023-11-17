@@ -125,9 +125,9 @@ const PDFView = () => {
     return(
       <div>
         <Typography variant="h5">PDF-näkymä ei tue mobiililaitteita. Lataa PDF alla olevasta linkistä!</Typography>
-        <PDFDownloadLink document={<View/>} fileName="somename.pdf">
-          {({ blob, url, isLoading, error }) =>
-            isLoading ? 'Loading document...' : 'Download now!'
+        <PDFDownloadLink document={<View/>} fileName="Tieteellisen kirjoittamisen itsearviontitesti.pdf">
+          {({ isLoading }) =>
+            isLoading ? 'Loading document...' : 'Lataa pdf'
           }
         </PDFDownloadLink>
       </div>
