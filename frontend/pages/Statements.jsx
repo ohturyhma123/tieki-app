@@ -248,8 +248,8 @@ const Statements = () => {
           }}>
           {statementsData.map((s, i) => (
             <SwiperSlide key={i}>
-              <Typography sx={{ mt: 0.7, fontSize: 9, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
-                <i>{`${currentStatementSetIndex + 1}/12`}</i>
+              <Typography sx={{ mt: 0.7, fontSize: 9, fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
+                {`${currentStatementSetIndex + 1}/12`}
               </Typography>
               <Typography sx={{ py: 1.5, ml: 0, mb: 0, mt: 0, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
                 '@media (max-width: 340px)': { fontSize: 13 } }}>

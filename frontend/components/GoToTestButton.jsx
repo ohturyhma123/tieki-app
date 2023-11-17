@@ -19,11 +19,11 @@ const LargeButton = ({ backgroundColor, color, buttonText }) => {
       color: backgroundColor,
       borderColor: color
     },
-    '@media (max-width: 450px)': {
+    '@media (max-width: 480px)': {
       display: 'flex',
       margin: 'auto',
       fontSize: '22px',
-      marginTop: '50px',
+      marginTop: '33px',
       padding: '0.7rem 4rem',
     }
   }))
