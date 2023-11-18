@@ -107,13 +107,13 @@ const Results = () => {
                 </Grid>
                 <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
                   <Typography sx={{ textAlign: 'center', color: '#323E45', mb: 15 }} variant='h2'>Tulokset</Typography>
-                  <Typography sx={{ fontSize: '20px', textAlign: 'center', color: '#323E45', mb: 4 }} variant='body2'>
+                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45', mb: 4 }} variant='body2'>
                     <strong>Tästä koosteesta näet, mitä kirjoittamisen osa-alueita painotit valinnoissasi.</strong>
                   </Typography>
-                  <Typography sx={{ fontSize: '20px', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
                     Tulokset näyttävät ensin vahvuutesi kirjoittajana ja sitten alueet, joissa tarvitset harjoitusta.
                   </Typography>
-                  <Typography sx={{ fontSize: '20px', textAlign: 'center', color: '#323E45',  mt: 4, mb: 15, lineHeight: 2 }} variant='body2'>
+                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45',  mt: 4, mb: 15, lineHeight: 2 }} variant='body2'>
                     Voit saada vahvuuksiin ja kehittämiskohteisiin saman osa-alueen, jos olet painottanut sitä aluetta valinnoissasi.<br/>
                     Tämä tarkoittaa, että pidät sitä tärkeänä: hallitset siihen kuuluvia asioita jo paljon, mutta haluat kehittyä yhä paremmaksi.<br/>
                     Lue tuloksesi ja niistä annetut tulkinnat huolellisesti ja hyödynnä niitä tarpeen mukaan.
@@ -139,10 +139,10 @@ const Results = () => {
               </Grid>
               <Grid sx={{ my: 3 }} container direction="column" spacing={10} justifyContent="center">
                 <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
-                  <Typography sx={{ fontSize: '20px', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
                     Voit tallentaa koosteen itsellesi <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>pdf-muodossa.</Link>
                   </Typography>
-                  <Typography sx={{ fontSize: '20px', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
                     Voit halutessasi <Link to="https://elomake.helsinki.fi/lomakkeet/126370/lomake.html" target="_blank" rel='noopener noreferrer'>antaa palautetta</Link> testin tekijöille. Kiitos!
                   </Typography>
                 </Grid>
