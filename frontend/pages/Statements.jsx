@@ -271,7 +271,7 @@ const Statements = () => {
           ))}
           {/** Separate slide at the end with the url /test/confirm/ for the results button. */}
           <SwiperSlide>
-            <Typography sx={{ py: 2, ml: 0, mb: 10, mt: 0.5, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
+            <Typography sx={{ py: 2, ml: 0, mb: 12, mt: 0.5, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
               '@media (max-width: 340px)': { fontSize: 13 } }}>
                 Jos haluat vielä muuttaa vastauksiasi,<br />
                 pyyhkäise oikealle
