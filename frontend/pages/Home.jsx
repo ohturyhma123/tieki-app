@@ -77,12 +77,12 @@ const Home = () => {
             <List
               dense
               sx={{ flex: '1', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: 2, mt: 0.5, ml: 2 }}>
-              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primaryTypographyProps={{fontSize: '16px'}} primary='Kirjoittamiseen liittyvät tunteet ja ajatukset' /> </ListItem>
-              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primaryTypographyProps={{fontSize: '16px'}} primary='Akateemiset käytänteet ja tekstilajit' /> </ListItem>
-              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primaryTypographyProps={{fontSize: '16px'}} primary='Lukeminen ja lähteiden käyttö' /> </ListItem>
-              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primaryTypographyProps={{fontSize: '16px'}} primary='Kirjoittaminen prosessina' /> </ListItem>
-              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primaryTypographyProps={{fontSize: '16px'}} primary='Tekstin rakenne' /> </ListItem>
-              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primaryTypographyProps={{fontSize: '16px'}} primary='Kielelliset seikat' /> </ListItem>
+              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primaryTypographyProps={{ fontSize: '16px' }} primary='Kirjoittamiseen liittyvät tunteet ja ajatukset' /> </ListItem>
+              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primaryTypographyProps={{ fontSize: '16px' }} primary='Akateemiset käytänteet ja tekstilajit' /> </ListItem>
+              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primaryTypographyProps={{ fontSize: '16px' }} primary='Lukeminen ja lähteiden käyttö' /> </ListItem>
+              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primaryTypographyProps={{ fontSize: '16px' }} primary='Kirjoittaminen prosessina' /> </ListItem>
+              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primaryTypographyProps={{ fontSize: '16px' }} primary='Tekstin rakenne' /> </ListItem>
+              <ListItem><ListItemIcon sx={{ color: '#00011b' }}><SchoolIcon /></ListItemIcon><ListItemText primaryTypographyProps={{ fontSize: '16px' }} primary='Kielelliset seikat' /> </ListItem>
             </List>
             <Typography
               variant='body2'
