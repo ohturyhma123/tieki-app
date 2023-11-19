@@ -5,8 +5,8 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 
 const ListItemMobile = ({ text }) => {
   return (
-    <ListItem sx={{ margin: '-12.5px 0' }}>
-      <ListItemIcon sx={{ color: '#00011b', marginRight: '-8px' }}>
+    <ListItem sx={{ margin: '-10px 0' }}>
+      <ListItemIcon sx={{ color: '#00011b', marginRight: '-8px', marginLeft: '-10px' }}>
         <SchoolIcon style={{ fontSize: '15px' }} />
       </ListItemIcon>
       <ListItemText
@@ -14,7 +14,7 @@ const ListItemMobile = ({ text }) => {
         primary={
           <Typography
             variant='body2'
-            style={{ color: '#00011b', fontSize: '13px', fontFamily: '"Lato", sans-serif', fontStyle: 'italic', fontWeight: '500', marginLeft: -23 }}>
+            style={{ color: '#00011b', fontSize: '13.5px', fontFamily: '"Lato", sans-serif', fontStyle: 'italic', fontWeight: '500', marginLeft: -23 }}>
             {text}
           </Typography>
         }/>

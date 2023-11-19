@@ -13,6 +13,7 @@ const LargeButton = ({ backgroundColor, color, buttonText }) => {
     padding: '0.5rem 2.25rem',
     borderRadius: '24px',
     textTransform: 'none',
+    marginTop: '20px',
     border: '2px solid',
     '&:hover': {
       backgroundColor: color,
@@ -23,7 +24,8 @@ const LargeButton = ({ backgroundColor, color, buttonText }) => {
       display: 'flex',
       margin: 'auto',
       fontSize: '22px',
-      marginTop: '33px',
+      marginTop: '40px',
+      marginBottom: '40px',
       padding: '0.7rem 4rem',
     }
   }))
