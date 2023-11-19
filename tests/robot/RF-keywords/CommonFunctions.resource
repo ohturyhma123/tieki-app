@@ -9,8 +9,8 @@ Library    RequestsLibrary
 ${APP_URL}    http://localhost:3000
 ${TEST_URL}    http://localhost:3000/test/1
 ${LINK_URL}    http://localhost:3000/links
-${BROWSER}    headlesschrome
-${DELAY}    0 seconds
+${BROWSER}    chrome
+${DELAY}    0.025 seconds
 
 ${LINKSAPI}    http://localhost:3000/api/links
 ${STATEMENTSAPI}    http://localhost:3000/api/statements

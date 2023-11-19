@@ -24,6 +24,12 @@ Resultpage Analyses
     [Documentation]    Checks the number of analyses
     Check Analysis
 
-Check PDF View
-    [Documentation]    Checks that the pdf view is shown correctly.
-    Go To PDF View
+Check PDF View From Top Of The Page
+    [Documentation]    Checks that the pdf view is shown correctly when clicking link
+    ...                from top of the result page.
+    Go To PDF View From Top
+
+Check PDF View From Bottom Of The Page
+    [Documentation]    Checks that the pdf view is shown correctly when clicking link
+    ...                from bottom of the result page.
+    Go To PDF View From Bottom
