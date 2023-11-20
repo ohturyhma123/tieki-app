@@ -1,17 +1,73 @@
 import { Box, CircularProgress, Grid, Typography } from '@mui/material'
-import { Document, Page, Text, PDFViewer, StyleSheet, Link, Image } from '@react-pdf/renderer'
+import { Document, Page, Text, PDFViewer, StyleSheet, Link, PDFDownloadLink, Image } from '@react-pdf/renderer'
 import { useLocation } from 'react-router-dom'
 import CalculateCategoryScores from '../functions/CalculateCategoryScores'
 import GetResults from '../functions/GetResults'
 import useApi from '../hooks/useApi'
 
 const PDFView = () => {
+
   const location = useLocation()
   const { data: statementsData, loading: loadingStatements, error: errorStatements } = useApi('/api/statements')
   const { data: resultsData, loading: loadingResults, error: errorResults } = useApi('/api/results')
   const scores = CalculateCategoryScores(location.state.selectedStatements, statementsData)
   const imgSrc = location.state.imgSrc
   const [positiveResults, negativeResults] = GetResults(scores, resultsData)
+  const isMobile = window.innerWidth <= 768
+
+  const Result = ({ result }) => {
+    return (
+      <div>
+        <Text style={styles.subtitle} key={result.id}>{result.category}</Text>
+        {result.textSegments.map((textSegment) => <Text style={styles.segment} key={textSegment}>{textSegment}</Text>)}
+        <ul style={styles.list}>
+          {result.listPoints.map((item, index) =>
+            <li style={styles.listItem} key={index}>
+              <Text>-  {item}</Text>
+            </li>
+          )}
+          {result.links.map((link, index) => (
+            <div style={styles.link} key={index}>
+              <Text>{link.description}</Text>
+              <Link href={link.link}>{link.link}</Link>
+            </div>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  const PDFViewerView = () => {
+    return(
+      <PDFViewer width={'100%'} height={'100%'} >
+        <Document>
+          <Page size={'A4'} style={styles.body}>
+            <Image src={imgSrc}></Image>
+            <Text style={styles.title}>Vahvuudet</Text>
+            {positiveResults.map(result => <Result key={result.id} result={result} />)}
+            <Text style={ { paddingVertical: 25 } }> </Text>
+            <Text style={styles.title}>Kehityskohteet</Text>
+            {negativeResults.map(result => <Result key={result.id} result={result} />)}
+          </Page>
+        </Document>
+      </PDFViewer>
+    )
+  }
+
+  const View = () => {
+    return(
+      <Document>
+        <Page size={'A4'} style={styles.body}>
+          <Image src={imgSrc}></Image>
+          <Text style={styles.title}>Vahvuudet</Text>
+          {positiveResults.map(result => <Result key={result.id} result={result} />)}
+          <Text style={ { paddingVertical: 25 } }> </Text>
+          <Text style={styles.title}>Kehityskohteet</Text>
+          {negativeResults.map(result => <Result key={result.id} result={result} />)}
+        </Page>
+      </Document>
+    )
+  }
 
   const styles = StyleSheet.create({
     body: {
@@ -65,42 +121,22 @@ const PDFView = () => {
     )
   }
 
-  const Result = ({ result }) => {
-    return (
+  if (isMobile) {
+    return(
       <div>
-        <Text style={styles.subtitle} key={result.id}>{result.category}</Text>
-        {result.textSegments.map((textSegment) => <Text style={styles.segment} key={textSegment}>{textSegment}</Text>)}
-        <ul style={styles.list}>
-          {result.listPoints.map((item, index) =>
-            <li style={styles.listItem} key={index}>
-              <Text>-  {item}</Text>
-            </li>
-          )}
-          {result.links.map((link, index) => (
-            <div style={styles.link} key={index}>
-              <Text>{link.description}</Text>
-              <Link href={link.link}>{link.link}</Link>
-            </div>
-          ))}
-        </ul>
+        <Typography variant="h5">PDF-näkymä ei tue mobiililaitteita. Lataa PDF alla olevasta linkistä!</Typography>
+        <PDFDownloadLink document={<View/>} fileName="Tieteellisen kirjoittamisen itsearviontitesti.pdf">
+          {({ isLoading }) =>
+            isLoading ? 'Loading document...' : 'Lataa pdf'
+          }
+        </PDFDownloadLink>
       </div>
     )
   }
 
   return (
     <Box sx={{ height: 1000 }} >
-      <PDFViewer width={'100%'} height={'100%'} >
-        <Document>
-          <Page size={'A4'} style={styles.body}>
-            <Image src={imgSrc}></Image>
-            <Text style={styles.title}>Vahvuudet</Text>
-            {positiveResults.map(result => <Result key={result.id} result={result} />)}
-            <Text style={ { paddingVertical: 25 } }> </Text>
-            <Text style={styles.title}>Kehityskohteet</Text>
-            {negativeResults.map(result => <Result key={result.id} result={result} />)}
-          </Page>
-        </Document>
-      </PDFViewer>
+      <PDFViewerView/>
     </Box>
   )
 }

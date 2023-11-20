@@ -15,12 +15,13 @@ const Results = () => {
 
   useEffect(() => {
 
-    const chart = document.getElementsByClassName('radarchart').radarchart
+    const fetchImage = async () => {
 
-    htmlToImage.toPng(chart)
-      .then((dataUrl) => {
-        setImageSource(dataUrl)
-      })
+      const chart = document.getElementsByClassName('radarchart').radarchart
+      const image = await htmlToImage.toPng(chart)
+      setImageSource(image)
+    }
+    fetchImage()
   })
 
   const { data: statementsData, loading: loadingStatements, error: errorStatements } = useApi('/api/statements')
@@ -100,12 +101,23 @@ const Results = () => {
             <div>
               <Grid container direction="column" spacing={10} justifyContent="center">
                 <Grid item>
-                  <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>
+                  <Link id='to_pdfview' to={'/pdfview'} target='_blank' state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>
                     <Typography sx={{ textAlign: 'right' }}>Näytä tulokset PDF-tiedostona</Typography>
                   </Link>
                 </Grid>
                 <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
-                  <Typography sx={{ textAlign: 'center', color: '#323E45' }} variant='h3'>Tulokset</Typography>
+                  <Typography sx={{ textAlign: 'center', color: '#323E45', mb: 15 }} variant='h2'>Tulokset</Typography>
+                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45', mb: 4 }} variant='body2'>
+                    <strong>Tästä koosteesta näet, mitä kirjoittamisen osa-alueita painotit valinnoissasi.</strong>
+                  </Typography>
+                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                    Tulokset näyttävät ensin vahvuutesi kirjoittajana ja sitten alueet, joissa tarvitset harjoitusta.
+                  </Typography>
+                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45',  mt: 4, mb: 15, lineHeight: 2 }} variant='body2'>
+                    Voit saada vahvuuksiin ja kehittämiskohteisiin saman osa-alueen, jos olet painottanut sitä aluetta valinnoissasi.<br/>
+                    Tämä tarkoittaa, että pidät sitä tärkeänä: hallitset siihen kuuluvia asioita jo paljon, mutta haluat kehittyä yhä paremmaksi.<br/>
+                    Lue tuloksesi ja niistä annetut tulkinnat huolellisesti ja hyödynnä niitä tarpeen mukaan.
+                  </Typography>
                   <Box display="flex" justifyContent="center">
                     <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
                   </Box>
@@ -125,10 +137,21 @@ const Results = () => {
                   </div>
                 </Grid>
               </Grid>
+              <Grid sx={{ my: 3 }} container direction="column" spacing={10} justifyContent="center">
+                <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
+                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                    Voit tallentaa koosteen itsellesi <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>pdf-muodossa.</Link>
+                  </Typography>
+                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                    Voit halutessasi <Link to="https://elomake.helsinki.fi/lomakkeet/126370/lomake.html" target="_blank" rel='noopener noreferrer'>antaa palautetta</Link> testin tekijöille. Kiitos!
+                  </Typography>
+                </Grid>
+              </Grid>
             </div>
             :
             <Box>
-              <Typography sx={{ pt: 2, pb: 5 }} variant='h4' >Et valinnut tarpeeksi väittämiä analyysin muodostamiseen.</Typography>
+              <Typography sx={{ pt: 2 }} variant='h4'>Et valinnut tarpeeksi väitteitä, jotta koosteen voisi muodostaa</Typography>
+              <Typography sx={{ pt: 2, pb: 10 }} variant='h5'>Voit tehdä testin uudelleen ja valita tällä kertaa enemmän väitteitä.</Typography>
               <Typography variant='h5' >Hyödyllisiä linkkejä löydät <Link to='/links'>linkkisivulta</Link></Typography>
             </Box>
           }
