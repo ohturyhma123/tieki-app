@@ -10,7 +10,7 @@ ${APP_URL}    http://localhost:3000
 ${TEST_URL}    http://localhost:3000/test/1
 ${LINK_URL}    http://localhost:3000/links
 ${EDIT_URL}    http://localhost:3000/edit
-${BROWSER}    chrome
+${BROWSER}    headlesschrome
 ${DELAY}    0.05 seconds
 
 ${LINKSAPI}    http://localhost:3000/api/links
@@ -26,7 +26,7 @@ Go To Frontpage
 Open And Configure Browser
     [Documentation]    Opens and configures the browser
     Open Browser    browser=${BROWSER}
-    Maximize Browser Window
+    Set Window Size    1920    1080
     Set Selenium Speed    ${DELAY}
 
 Go To Testpage
