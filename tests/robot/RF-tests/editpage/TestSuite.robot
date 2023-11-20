@@ -27,8 +27,10 @@ Edit Page Is Open
 Check Link Was Added Successfully
     [Documentation]    Checks that a link was added successfully.
     Go To Edit Link Page
+    Sleep    3
     ${count_before}=    Get Element Count    id=linkComponent
     Add Link    Test Link    Test Description    http://test.com
+    Sleep    3
     ${COUNTAFTER}=    Get Element Count    id=linkComponent
     Should Be True    ${COUNTAFTER} == ${count_before} + 1
     Set Suite Variable    ${COUNTAFTER}

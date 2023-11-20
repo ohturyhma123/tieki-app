@@ -85,7 +85,8 @@ Edit Statement
         Press Keys    id=statement-${statement_id}    BACKSPACE
         IF    ${index_n} == ${statement_length}    BREAK
     END
-    Input Text    id=statement-${statement_id}    ${new_statement}
+    Wait Until Keyword Succeeds    5x    1s
+    ...    Input Text    id=statement-${statement_id}    ${new_statement}
 
 Add Link
     [Documentation]    Adds a new link.
@@ -103,25 +104,25 @@ Edit Link Name
     # robocop: disable=0508
     [Documentation]    Removes old link name and inputs new name.
     [Arguments]    ${link_index}    ${new_name}
-    ${name}=    Get Element Attribute    locator=xpath:/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[1]/div/input    attribute=value
+    ${name}=    Get Element Attribute    locator=id:name-${link_index}    attribute=value
     ${name_length}=    Get Length    ${name}
     FOR    ${index_n}    IN RANGE    0    ${name_length}+1
-        Press Keys    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[1]/div/input    BACKSPACE
+        Press Keys    id=name-${link_index}    BACKSPACE
         IF    ${index_n} == ${name_length}+1    BREAK
     END
-    Input Text    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[1]/div/input    ${new_name}
+    Input Text    id=name-${link_index}     ${new_name}
 
 Edit Link Description
     # robocop: disable=0508
     [Documentation]    Removes old link name and inputs new name.
     [Arguments]    ${link_index}    ${new_description}
-    ${description}=    Get Element Attribute    locator=xpath:/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[2]/div/input    attribute=value
+    ${description}=    Get Element Attribute    locator=id:description-${link_index}    attribute=value
     ${description_length}=    Get Length    ${description}
     FOR    ${index_d}    IN RANGE    0    ${description_length}+1
-        Press Keys    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[2]/div/input      BACKSPACE
+        Press Keys    id=description-${link_index}      BACKSPACE
         IF    ${index_d} == ${description_length}+1    BREAK
     END
-    Input Text    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[2]/div/input    ${new_description}
+    Input Text    id=description-${link_index}    ${new_description}
 
 Send Edited Object
     [Documentation]    Saves the edited link.
