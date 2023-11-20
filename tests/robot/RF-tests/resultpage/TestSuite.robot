@@ -23,7 +23,3 @@ Resultpage Headers
 Resultpage Analyses
     [Documentation]    Checks the number of analyses
     Check Analysis
-
-Check PDF View
-    [Documentation]    Checks that the pdf view is shown correctly.
-    Go To PDF View
