@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation    This file contains common keywords and variables used with test suites.
 
-Library    SeleniumLibrary
 
 *** Keywords ***
 Check Edit Links Is Visible
@@ -80,15 +79,28 @@ Edit Analysis Link
 Edit Statement
     [Documentation]    Removes old statement and inputs new statement.
     [Arguments]    ${statement_id}    ${new_statement}
-    ${statement}=    Get Element Attribute    locator=id:${statement_id}   attribute=value
+    ${statement}=    Get Element Attribute    locator=id:statement-${statement_id}   attribute=value
     ${statement_length}=    Get Length    ${statement}
     FOR    ${index_n}    IN RANGE    0    ${statement_length}
-        Press Keys    id=${statement_id}    BACKSPACE
+        Press Keys    id=statement-${statement_id}    BACKSPACE
         IF    ${index_n} == ${statement_length}    BREAK
     END
-    Input Text    id=${statement_id}    ${new_statement}
+    Input Text    id=statement-${statement_id}    ${new_statement}
+
+Add Link
+    [Documentation]    Adds a new link.
+    [Arguments]    ${link_name}    ${link_description}    ${link_url}
+    Wait Until Element Is Visible    id=newLinkName
+    Input Text    id=newLinkName   ${link_name}
+    Wait Until Element Is Visible    id=newLinkDescription
+    Input Text    id=newLinkDescription    ${link_description}
+    Wait Until Element Is Visible    id=newLinkURL
+    Input Text    id=newLinkURL    ${link_url}
+    Click Button    Lisää uusi linkki
+    Wait Until Page Contains    Muokkaa linkkejä
 
 Edit Link Name
+    # robocop: disable=0508
     [Documentation]    Removes old link name and inputs new name.
     [Arguments]    ${link_index}    ${new_name}
     ${name}=    Get Element Attribute    locator=xpath:/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[1]/div/input    attribute=value
@@ -100,6 +112,7 @@ Edit Link Name
     Input Text    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[1]/div/input    ${new_name}
 
 Edit Link Description
+    # robocop: disable=0508
     [Documentation]    Removes old link name and inputs new name.
     [Arguments]    ${link_index}    ${new_description}
     ${description}=    Get Element Attribute    locator=xpath:/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[2]/div/input    attribute=value
@@ -119,12 +132,14 @@ Check Object Was Updated Successfully
     [Documentation]    Checks that correct alert occurs if link is saved successfully.
     Page Should Contain    Tiedot tallennettu onnistuneesti
     Click Button    OK
+    Sleep    3
     Page Should Contain    Muokkaussivu
 
 Check Object Was Updated Unsuccessfully
     [Documentation]    Checks that correct alert occurs if link is not saved.
     Page Should Contain    Tietojen tallennus epäonnistui
     Click Button    OK
+    Sleep    3
     Page Should Contain    Tallenna
 
 Set Link DB To Initial State
@@ -161,28 +176,6 @@ Set Analysis DB To Initial State
 Delete Link
     [Documentation]    Deletes the link.
     [Arguments]    ${link_index}
-    # Scroll Element Into View    id=delete-${link_index}
-    Sleep    1
-    Click Element    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/button
+    Wait Until Keyword Succeeds    5x    1s
+    ...    Click Element    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/button
     Page Should Contain    Muokkaa linkkejä
-
-Add Link
-    [Documentation]    Adds a new link.
-    [Arguments]    ${link_name}    ${link_description}    ${link_url}
-    #Click Element    id=add-new-link-button
-    Wait Until Element Is Visible    id=newLinkName
-    Input Text    id=newLinkName   ${link_name}
-    Wait Until Element Is Visible    id=newLinkDescription
-    Input Text    id=newLinkDescription    ${link_description}
-    Wait Until Element Is Visible    id=newLinkURL
-    Input Text    id=newLinkURL    ${link_url}
-    Click Button    Lisää uusi linkki
-    Wait Until Page Contains    Muokkaa linkkejä
-
-Check Link Was Added Successfully
-    [Documentation]    Checks that a link was added successfully.
-    ${count_before}=    Get Element Count    id=linkComponent
-    Add Link    Test Link    Test Description    http://test.com
-    ${count_after}=    Get Element Count    id=linkComponent
-    Should Be True    ${count_after} > ${count_before}
-
