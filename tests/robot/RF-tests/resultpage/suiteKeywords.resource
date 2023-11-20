@@ -29,9 +29,16 @@ Check Analysis
     ${analysis_count}=    Get Length    ${analysis}
     Should Be Equal As Integers    ${analysis_count}    2
 
-Go To PDF View
+Go To PDF View From Top
     [Documentation]    Clicks the link that takes user to pdf view of the results.
     Wait Until Page Contains    Tulokset
     Click Link    Näytä tulokset PDF-tiedostona
+    ${pdf_url}=    Get Location
+    Should Be Equal    ${pdf_url}    ${APP_URL}/pdfview
+
+Go To PDF View From Bottom
+    [Documentation]    Clicks the link that takes user to pdf view of the results.
+    Wait Until Page Contains    Tulokset
+    Click Link    pdf-muodossa.
     ${pdf_url}=    Get Location
     Should Be Equal    ${pdf_url}    ${APP_URL}/pdfview
