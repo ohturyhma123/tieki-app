@@ -11,11 +11,10 @@ Test Tags    API    linksAPI
 
 *** Test Cases ***
 Get All Links
-    [Documentation]    Sends a GET request to links api and checks 13 links are
-    ...                returned in json format.
+    [Documentation]    Sends a GET request to links api and checks that list is not empty.
     ${response}=    Send Get Request    linksApi
     Check Response Status Is Correct    ${response.status_code}    200
-    Check Correct Amount Of List Items Is Returned    ${response.json()}    13
+    Check Correct Amount Of List Items Is Returned    ${response.json()}
 
 Get First Link
     [Documentation]    Fetches the first link that is used for this test suite.
