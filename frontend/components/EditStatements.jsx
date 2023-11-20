@@ -127,7 +127,7 @@ const EditStatements = () => {
                     return(
                       <TextField
                         key={statement.id}
-                        id={`${statementSet._id}`}
+                        id={`statement-${index+1}`}
                         label={`Väite ${index+1}`}
                         variant="outlined"
                         value={statement.statement}
@@ -161,7 +161,7 @@ const EditStatements = () => {
                     return(
                       <TextField
                         key={statement.id}
-                        id={`${statementSet._id}`}
+                        id={`statement-${index+1}`}
                         label={`Väite ${index+1}`}
                         variant="outlined"
                         value={statement.statement}
