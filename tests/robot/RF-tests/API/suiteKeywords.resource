@@ -24,7 +24,7 @@ Check Response Status Is Correct
 
 Check Correct Amount Of List Items Is Returned
     [Documentation]    Checks that the json API response has correct amount of items.
-    [Arguments]    ${response_json}    ${expected_amount}
+    [Arguments]    ${response_json}
     ${items}=    Get Length    ${response_json}
     Should Not Be Equal As Integers    ${items}    0
 
