@@ -32,24 +32,24 @@ Open Link Info
 Edit Link Name
     [Documentation]    Removes old link name and inputs new name.
     [Arguments]    ${link_index}    ${new_name}
-    ${name}=    Get Element Attribute    locator=id:name-${link_index}    attribute=value
+    ${name}=    Get Element Attribute    locator=xpath:/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[1]/div/input    attribute=value
     ${name_length}=    Get Length    ${name}
-    FOR    ${index_n}    IN RANGE    0    ${name_length}
-        Press Keys    id=name-${link_index}    BACKSPACE
-        IF    ${index_n} == ${name_length}    BREAK
+    FOR    ${index_n}    IN RANGE    0    ${name_length}+1
+        Press Keys    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[1]/div/input    BACKSPACE
+        IF    ${index_n} == ${name_length}+1    BREAK
     END
-    Input Text    id=name-${link_index}    ${new_name}
+    Input Text    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[1]/div/input    ${new_name}
 
 Edit Link Description
     [Documentation]    Removes old link name and inputs new name.
     [Arguments]    ${link_index}    ${new_description}
-    ${description}=    Get Element Attribute    locator=id:description-${link_index}    attribute=value
+    ${description}=    Get Element Attribute    locator=xpath:/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[2]/div/input    attribute=value
     ${description_length}=    Get Length    ${description}
-    FOR    ${index_d}    IN RANGE    0    ${description_length}
-        Press Keys    id=description-${link_index}    BACKSPACE
-        IF    ${index_d} == ${description_length}    BREAK
+    FOR    ${index_d}    IN RANGE    0    ${description_length}+1
+        Press Keys    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[2]/div/input      BACKSPACE
+        IF    ${index_d} == ${description_length}+1    BREAK
     END
-    Input Text    id=description-${link_index}    ${new_description}
+    Input Text    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/div[2]/div/input    ${new_description}
 
 Send Edited Link
     [Documentation]    Saves the edited link.
@@ -84,5 +84,27 @@ Set Link DB To Initial State
 Delete Link
     [Documentation]    Deletes the link.
     [Arguments]    ${link_index}
-    Click Element    xpath=//*[@id="root"]/div[2]/div/div[2]/div[${link_index}]/div/div/div/div/button
+    # Scroll Element Into View    id=delete-${link_index}
+    Sleep    1
+    Click Element    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/button
     Page Should Contain    Muokkaa linkkejä
+
+Add Link
+    [Documentation]    Adds a new link.
+    [Arguments]    ${link_name}    ${link_description}    ${link_url}
+    #Click Element    id=add-new-link-button
+    Wait Until Element Is Visible    id=newLinkName
+    Input Text    id=newLinkName   ${link_name}
+    Wait Until Element Is Visible    id=newLinkDescription
+    Input Text    id=newLinkDescription    ${link_description}
+    Wait Until Element Is Visible    id=newLinkURL
+    Input Text    id=newLinkURL    ${link_url}
+    Click Button    Lisää uusi linkki
+    Wait Until Page Contains    Muokkaa linkkejä
+
+Check Link Was Added Successfully
+    [Documentation]    Checks that a link was added successfully.
+    ${count_before}=    Get Element Count    id=linkComponent
+    Add Link    Test Link    Test Description    http://test.com
+    ${count_after}=    Get Element Count    id=linkComponent
+    Should Be True    ${count_after} > ${count_before}

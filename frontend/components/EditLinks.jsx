@@ -201,7 +201,7 @@ const EditLinks = () => {
         </picture>
         <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', fontFamily: '"Lato", sans-serif' }}>Muokkaa linkkejä</h1>
         {links.map((link) => (
-          <Accordion key={link.id} style={{
+          <Accordion key={link.id} id={'linkComponent'} style={{
             marginBottom: '20px',
             backgroundColor: '#f8f8f8',
             border: '1px solid #ddd',
@@ -237,6 +237,7 @@ const EditLinks = () => {
                 style={{ marginBottom: '20px' }}
               />
               <Button
+                id={`delete-${link.id}`}
                 variant="contained"
                 color="secondary"
                 onClick={() => handleDelete(link.id)}
@@ -259,6 +260,7 @@ const EditLinks = () => {
         </div>
         <TextField
           label="Uuden linkin nimi"
+          id={'newLinkName'}
           variant="outlined"
           value={newLink.name}
           onChange={(e) => setNewLink({ ...newLink, name: e.target.value })}
@@ -269,6 +271,7 @@ const EditLinks = () => {
         />
         <TextField
           label="Uuden linkin kuvaus"
+          id={'newLinkDescription'}
           variant="outlined"
           value={newLink.description}
           onChange={(e) => setNewLink({ ...newLink, description: e.target.value })}
@@ -279,6 +282,7 @@ const EditLinks = () => {
         />
         <TextField
           label="Uuden linkin URL"
+          id={'newLinkURL'}
           variant="outlined"
           value={newLink.url}
           onChange={(e) => setNewLink({ ...newLink, url: e.target.value })}

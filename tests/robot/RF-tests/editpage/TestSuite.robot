@@ -24,27 +24,35 @@ Edit Page Is Open
     Check Edit Results Is Visible
     Check Log Out Is Visible
 
+Check Link Was Added Successfully
+    [Documentation]    Checks that a link was added successfully.
+    Go To Edit Link Page
+    ${count_before}=    Get Element Count    id=linkComponent
+    Add Link    Test Link    Test Description    http://test.com
+    ${COUNTAFTER}=    Get Element Count    id=linkComponent
+    Should Be True    ${COUNTAFTER} == ${count_before} + 1
+    Set Suite Variable    ${COUNTAFTER}
+
 Edit Link Successfully
     [Documentation]    Checks that an user can edit a links name.
     Go To Edit Link Page
-    Open Link Info   1
-    Edit Link Name    1    Testinimi
+    Open Link Info   ${COUNTAFTER}
+    Edit Link Name    ${COUNTAFTER}    Testilinkin nimimuutos
     Send Edited Link
     Check Link Was Updated Successfully
-
-    Set Link DB To Initial State    link_index=1    edited_part=name    initial_value=Kirjoittajan ABC
 
 Edit Link Unsuccessfully
     [Documentation]    Checks that an user can't input empty link description.
     Go To Edit Link Page
-    Open Link Info    2
-    Edit Link Description    2    new_description=
+    Open Link Info    ${COUNTAFTER}
+    Edit Link Description    ${COUNTAFTER}    new_description=
     Send Edited Link
     Check Link Was Updated Unsuccessfully
 
 Delete Link Successfully
     [Documentation]    Checks that an user can delete a link.
     Go To Edit Link Page
-    Open Link Info    2
+    Open Link Info    ${COUNTAFTER}
     Sleep    3s
-    Delete Link    2
+    Delete Link    ${COUNTAFTER}
+    Sleep    3s

@@ -26,7 +26,7 @@ Go To Frontpage
 Open And Configure Browser
     [Documentation]    Opens and configures the browser
     Open Browser    browser=${BROWSER}
-    Set Window Size    1920    1080
+    Maximize Browser Window
     Set Selenium Speed    ${DELAY}
 
 Go To Testpage
