@@ -3,7 +3,6 @@ Documentation    Tests for editing functionalities.
 
 Resource    ../../RF-keywords/CommonFunctions.resource
 Resource  suiteKeywords.resource
-Resource    ../API/suiteKeywords.resource
 
 Suite Setup
 ...        Run Keywords
@@ -43,23 +42,29 @@ Edit Link Successfully
     Check Object Was Updated Successfully
 
 Edit Link Unsuccessfully
-    [Documentation]    Checks that correct error message is shown when necessary.
+    [Documentation]    Checks that an user can't input empty link description.
     Go To Edit Link Page
     Open Link Info    ${COUNTAFTER}
     Edit Link Description    ${COUNTAFTER}    new_description=
     Send Edited Object
     Check Object Was Updated Unsuccessfully
 
+Delete Link Successfully
+    [Documentation]    Checks that an user can delete a link.
+    Go To Edit Link Page
+    Open Link Info    ${COUNTAFTER}
+    Delete Link    ${COUNTAFTER}
+
 Edit Statement Successfully
     # robocop: disable=0508
     [Documentation]    Checks that an user can edit a statement successfully.
     Go To Edit Statements Page
-    Open Statement Category Info    2
-    Edit Statement    6545515993b2b555b81aebc6    Testiväittämä
+    Open Statement Category Info    1
+    Edit Statement    1    Testiväittämä
     Send Edited Object
     Check Object Was Updated Successfully
 
-    Set Statement DB To Initial State    2    6545515993b2b555b81aebc6    Osaan kirjoittaa erilaisia oman alan tekstilajeja.
+    Set Statement DB To Initial State    1    1    Kirjoittaessani sosiaalinen tuki on avuksi.
     # robocop: enable=0508
 
 Edit Analysis Successfully
@@ -71,12 +76,3 @@ Edit Analysis Successfully
     Check Object Was Updated Successfully
 
     Set Analysis DB To Initial State    analysis_index=5    initial_link_name=    initial_link_url=
-
-# Delete Link Successfully
-#     [Documentation]    Checks that an user can delete a link.
-#     Go To Edit Link Page
-#     Open Link Info    ${COUNTAFTER}
-    Sleep    3s
-    Delete Link    ${COUNTAFTER}
-#     Sleep    3s
-# 
