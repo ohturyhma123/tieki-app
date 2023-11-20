@@ -16,9 +16,14 @@ resultsRouter.get('/', async (req, res) => {
 
 resultsRouter.put('/', AdminCheck, async (req, res) => {
   const updatedResults = req.body
-
+  console.log(updatedResults)
   try {
     for (const updatedResult of updatedResults) {
+      for (const segment of updatedResult.textSegments) {
+        if (segment.length === 0) {
+          throw new Error('Segment can not be empty')
+        }
+      }
       await Result.findOneAndUpdate({ id: updatedResult.id }, updatedResult)
     }
     res.json({ message: 'results updated successfully' })

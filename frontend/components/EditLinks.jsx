@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+//import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { TextField, Button, Accordion, AccordionSummary, AccordionDetails, Typography, Grid, CircularProgress, Box } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
@@ -7,13 +7,18 @@ import '../assets/EditLinks.css'
 import homeBackground from '../assets/home-background.jpg'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import useAdminCheck from '../hooks/useAdminCheck'
+import SaveConfirm from './SaveConfirm'
+import SaveError from './SaveError'
 
 const baseUrl = '/api/links'
 
 const EditLinks = () => {
   const [links, setLinks] = useState([])
+  const [openSaveConfirm, setOpenSaveConfirm] = useState(false)
+  const [hasError, setHasError] = useState(false)
+  const [newLink, setNewLink] = useState({ name: '', description: '', url: '' })
 
-  const navigate = useNavigate()
+  //const navigate = useNavigate()
 
   /**
    * Fetch links from the backend when the component is mounted.
@@ -62,6 +67,37 @@ const EditLinks = () => {
     setLinks(updatedLinks)
   }
 
+  const handleAddLink = async () => {
+    try {
+      // Save new link to the backend
+      const response = await axios.post(baseUrl, newLink, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      // Add new link to the links array in the state
+      setLinks([...links, response.data])
+
+      // Reset new link
+      setNewLink({ name: '', description: '', url: '' })
+    } catch (error) {
+      setHasError(true)
+    }
+  }
+
+  const handleDelete = async (id) => {
+    try {
+      // Delete link from the backend
+      await axios.delete(`${baseUrl}/${id}`)
+
+      // Remove link from the links array in the state
+      setLinks(links.filter((link) => link.id !== id))
+    } catch (error) {
+      setHasError(true)
+    }
+  }
+
   /**
    * Update the url of the link with the given id.
    */
@@ -76,16 +112,18 @@ const EditLinks = () => {
    * Save the updated links to the backend.
    */
   const handleSaveClick = async () => {
+
     try {
+      //throw new Error('Simulated error')
       // Update links on the backend
       await axios.put(baseUrl, links, {
         headers: {
           'Content-Type': 'application/json',
         },
       })
-      navigate('/edit')
+      setOpenSaveConfirm(true)
     } catch (error) {
-      throw new Error('Failed to save data')
+      setHasError(true)
     }
   }
 
@@ -163,7 +201,7 @@ const EditLinks = () => {
         </picture>
         <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', fontFamily: '"Lato", sans-serif' }}>Muokkaa linkkejä</h1>
         {links.map((link) => (
-          <Accordion key={link.id} style={{
+          <Accordion key={link.id} id={'linkComponent'} style={{
             marginBottom: '20px',
             backgroundColor: '#f8f8f8',
             border: '1px solid #ddd',
@@ -198,17 +236,73 @@ const EditLinks = () => {
                 onChange={(e) => handleUrlChange(link.id, e.target.value)}
                 style={{ marginBottom: '20px' }}
               />
+              <Button
+                id={`delete-${link.id}`}
+                variant="contained"
+                color="secondary"
+                onClick={() => handleDelete(link.id)}
+                style={{ marginTop: '20px' }}
+              >
+        Poista linkki
+              </Button>
             </AccordionDetails>
           </Accordion>
         ))}
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleSaveClick}
-          style={{ backgroundColor: '#00000', marginBottom: '20px' }}
-        >
-          Tallenna
-        </Button>
+        <div style={{ order: 1 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSaveClick}
+            style={{ backgroundColor: '#00000', marginBottom: '20px' }}
+          >
+      Tallenna
+          </Button>
+        </div>
+        <TextField
+          label="Uuden linkin nimi"
+          id={'newLinkName'}
+          variant="outlined"
+          value={newLink.name}
+          onChange={(e) => setNewLink({ ...newLink, name: e.target.value })}
+          style={{ marginBottom: '20px' }}
+          InputProps={{
+            style: { backgroundColor: 'white' },
+          }}
+        />
+        <TextField
+          label="Uuden linkin kuvaus"
+          id={'newLinkDescription'}
+          variant="outlined"
+          value={newLink.description}
+          onChange={(e) => setNewLink({ ...newLink, description: e.target.value })}
+          style={{ marginBottom: '20px' }}
+          InputProps={{
+            style: { backgroundColor: 'white' },
+          }}
+        />
+        <TextField
+          label="Uuden linkin URL"
+          id={'newLinkURL'}
+          variant="outlined"
+          value={newLink.url}
+          onChange={(e) => setNewLink({ ...newLink, url: e.target.value })}
+          style={{ marginBottom: '20px' }}
+          InputProps={{
+            style: { backgroundColor: 'white' },
+          }}
+        />
+        <div style={{ order: 1 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleAddLink}
+            style={{ backgroundColor: '#00000', marginBottom: '20px' }}
+          >
+      Lisää uusi linkki
+          </Button>
+        </div>
+        <SaveConfirm open={openSaveConfirm} onClose={() => setOpenSaveConfirm(false)} />
+        <SaveError open={hasError} onClose={() => setHasError(false)} />
       </div>
     </div>
   )

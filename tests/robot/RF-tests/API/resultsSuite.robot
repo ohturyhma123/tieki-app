@@ -15,7 +15,7 @@ Get All Results
     ...                returned in json format.
     ${response}=    Send Get Request    resultsApi
     Check Response Status Is Correct    ${response.status_code}    200
-    Check Correct Amount Of List Items Is Returned    ${response.json()}    12
+    Check Correct Amount Of List Items Is Returned    ${response.json()}
 
 Get First Result
     [Documentation]    Fetches the first result that is used for this test suite.

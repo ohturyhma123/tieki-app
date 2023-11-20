@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { TextField, Button, Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
@@ -7,6 +6,8 @@ import '../assets/EditLinks.css'
 import homeBackground from '../assets/home-background.jpg'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import useAdminCheck from '../hooks/useAdminCheck'
+import SaveConfirm from './SaveConfirm'
+import SaveError from './SaveError'
 
 const baseUrl = '/api/results'
 
@@ -15,8 +16,9 @@ const EditResults = () => {
 
   const positiveResults = results.filter((result) => result.positive === true)
   const negativeResults = results.filter((result) => result.positive === false)
+  const [openSaveConfirm, setOpenSaveConfirm] = useState(false)
+  const [hasError, setHasError] = useState(false)
 
-  const navigate = useNavigate()
 
   /**
    * Fetch results from the backend when the component is mounted.
@@ -115,9 +117,9 @@ const EditResults = () => {
           'Content-Type': 'application/json',
         },
       })
-      navigate('/edit')
+      setOpenSaveConfirm(true)
     } catch (error) {
-      throw new Error('Failed to save data')
+      setHasError(true)
     }
   }
 
@@ -358,6 +360,8 @@ const EditResults = () => {
         >
           Tallenna
         </Button>
+        <SaveConfirm open={openSaveConfirm} onClose={() => setOpenSaveConfirm(false)} />
+        <SaveError open={hasError} onClose={() => setHasError(false)} />
       </div>
     </div>
   )

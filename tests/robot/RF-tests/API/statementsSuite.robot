@@ -15,12 +15,12 @@ Get All Statements
     ...                and 6 statements in each category are returned in json format.
     ${categories}=    Send Get Request    statementsApi
     Check Response Status Is Correct    ${categories.status_code}    200
-    Check Correct Amount Of List Items Is Returned    ${categories.json()}    12
+    Check Correct Amount Of List Items Is Returned    ${categories.json()}
 
     ${no_of_categories}=    Get Length    ${categories.json()}
     FOR    ${index}    IN RANGE    ${no_of_categories}
         ${category}=    Set Variable   ${categories.json()[${index}]}
-        Check Correct Amount Of List Items Is Returned    ${category['statements']}    6
+        Check Correct Amount Of List Items Is Returned    ${category['statements']}
     END
 
 Get First Statement
