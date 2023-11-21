@@ -1,7 +1,7 @@
 [
   {
     "category": "Kirjoittamiseen liittyvät tunteet ja ajatukset",
-    "boolean": "True",
+    "boolean": true,
     "statements": [
       {
         "id": 1,
@@ -37,7 +37,7 @@
   },
   {
     "category":"Kirjoittamiseen liittyvät tunteet ja ajatukset",
-    "boolean": "False",
+    "boolean": false,
     "statements": [
       {
         "id": 7,
@@ -73,7 +73,7 @@
   },
   {
     "category":"Akateemiset käytänteet ja tekstilajit",
-    "boolean": "True",
+    "boolean": true,
     "statements": [
       {
         "id": 13,
@@ -109,7 +109,7 @@
   },
   {
     "category":"Akateemiset käytänteet ja tekstilajit",
-    "boolean": "False",
+    "boolean": false,
     "statements": [
       {
         "id": 19,
@@ -145,7 +145,7 @@
   },
   {
     "category":"Lukeminen ja lähteiden käyttö",
-    "boolean": "True",
+    "boolean": true,
     "statements": [
       {
         "id": 25,
@@ -181,7 +181,7 @@
   },
   {
     "category":"Lukeminen ja lähteiden käyttö",
-    "boolean": "False",
+    "boolean": false,
     "statements": [
       {
         "id": 31,
@@ -217,7 +217,7 @@
   },
   {
     "category":"Kirjoittaminen prosessina",
-    "boolean": "True",
+    "boolean": true,
     "statements": [
       {
         "id": 37,
@@ -253,7 +253,7 @@
   },
   {
     "category":"Kirjoittaminen prosessina",
-    "boolean": "False",
+    "boolean": false,
     "statements": [
       {
         "id": 43,
@@ -289,7 +289,7 @@
   },
   {
     "category":"Tekstin rakenne",
-    "boolean": "True",
+    "boolean": true,
     "statements": [
       {
         "id": 49,
@@ -325,7 +325,7 @@
   },
   {
     "category":"Tekstin rakenne",
-    "boolean": "False",
+    "boolean": false,
     "statements": [
       {
         "id": 55,
@@ -361,7 +361,7 @@
   },
   {
     "category":"Kielelliset seikat",
-    "boolean": "True",
+    "boolean": true,
     "statements": [
       {
         "id": 61,
@@ -397,7 +397,7 @@
   },
   {
     "category":"Kielelliset seikat",
-    "boolean": "False",
+    "boolean": false,
     "statements": [
       {
         "id": 67,

@@ -9,7 +9,7 @@ const getPositiveStatements = (statements) => {
 
   for (const statementSetIndex in statements) {
     const statementSet = statements[statementSetIndex]
-    if (statementSet.boolean === 'True') {
+    if (statementSet.boolean === true) {
       positiveStatementSets.push(statementSet)
     }
   }

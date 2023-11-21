@@ -13,7 +13,7 @@
         "link":"https://webcgi.oulu.fi/oykk/abc/kirjoittamisprosessi/yhdessa_kirjoittaminen_ja_yhteiskirjoittaminen/"
       },
       {
-        "description":"Lue lisää motivaatiosta ja tavoitteiden asettamisesta (Gradutakuu)",
+        "description":"Lue lisää motivaatiosta ja tavoitteiden asettamisesta (Gradutakuu):",
         "link":"https://gradutakuu.fi/sisallys/"
       }
     ],
@@ -40,7 +40,15 @@
       },
       {
         "description": "Miten vähentää prokrastinaatiota? (Nyyti ry):",
-        "link":"https://blogs.helsinki.fi/kielijelppi/ideointivaihe/"
+        "link":"https://www.nyyti.fi/opiskelijoille/opi-elamantaitoa/ajanhallinta/prokrastinaatio/miten-vahentaa-prokrastinaatiota/"
+      },
+      {
+        "description": "Hyviä vinkkejä kirjoittamisen esteiden voittamiseen löytyy kirjoittamisoppaista kuten Svinhufvudin \"Kokonaisvaltainen kirjoittaminen\" ja \"Riittävän hyvää kirjoittamista\" sekä Hakalan \"Tulevan maisterin graduopas\" ja Gradutakuu-sivustolta:",
+        "link":"https://gradutakuu.fi/sisallys/"
+      },
+      {
+        "description": "Jos sinua mietityttää esim. lukivaikeuteen tai mielen hyvinvointiin liittyvät asiat, saat lisätietoa korkeakoulusi verkkosivuilta (HY):",
+        "link":"https://studies.helsinki.fi/ohjeet/artikkeli/opiskelun-tueksi"
       }
     ],
     "positive": false
@@ -55,7 +63,7 @@
     "listPoints":[],
     "links":[
       {
-        "description":"Lue lisää akateemisista tekstitaidoista (Kokonaisvaltainen kirjoittaminen -blogi)",
+        "description":"Lue lisää akateemisista tekstitaidoista (Kokonaisvaltainen kirjoittaminen -blogi):",
         "link":"https://kokonaisvaltainenkirjoittaminen.fi/2011/02/15/akateemisen-kirjoittamisen-opetus/"
       }
     ],
@@ -82,6 +90,10 @@
       {
         "description":"Akateeminen essee for dummies (Plotti):",
         "link":"http://www.plotti.fi/2021/02/23/akateeminen-opiskeluessee-for-dummies/"
+      },
+      {
+        "description":"Lue akateemisista käytänteistä e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
+        "link":"https://www.ellibslibrary.com/book/9789523455115"
       }
     ],
     "positive": false
@@ -107,7 +119,7 @@
     "id": 6,
     "textSegments":[
       "Vastauksissasi korostuu lähteidenkäytön harjoittelemisen tarve ja lähdekirjallisuuden referoimiseen liittyvä epävarmuus. Kumpaakin taitoa voi onneksi harjoitella, ja pääset hyvään alkuun tutustumalla oman alasi teksteihin ja kirjoitusohjeisiin.",
-      "Kun luet vuorostaan lähdekirjallisuutta, on hyödyllistä miettiä, miten käsitellyt asiat liittyvät toisiinsa, mitkä ovat oman tekstisi kannalta olennaisia asioita ja miten onnistuneesti tekstissä argumentoidaan. Tee lukiessasi muistiinpanoja:",
+      "Kun luet vuorostaan lähdekirjallisuutta, on hyödyllistä miettiä, miten käsitellyt asiat liittyvät toisiinsa, mitkä ovat oman tekstisi kannalta olennaisia asioita ja miten onnistuneesti tekstissä argumentoidaan. Tee lukiessasi muistiinpanoja.",
       "Anna toisinaan itsellesi mahdollisuus lukea myös vapaasti ja “pänttäämättä”. Tällöin teksteistä voi nousta esiin yllättäviä ja luovia ajatuksia. Voit vuorotella analyyttista lukemista ja vapaata, rentoa lukemista. Tieteellisiä tekstejä voi myös mahdollisuuksien mukaan lukea ja analysoida yhdessä muiden kanssa."
     ],
     "listPoints":[
@@ -116,8 +128,20 @@
     ],
     "links":[
       {
-        "description":["Lue tieteellisen referoimisesta (luku 6) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):"],
+        "description":"Lue tieteellisen referoimisesta (luku 6) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
         "link":"https://blogs.helsinki.fi/kielijelppi/lukeminen-ja-referoiminen/"
+      },
+      {
+        "description":"Tiedon käyttö ja arviointi (Opiskelijan digitaidot):",
+        "link":"https://blogs.helsinki.fi/opiskelijan-digitaidot/3-tiedonhankinta/3-4-loydetyn-tiedon-kaytto-ja-arviointi/"
+      },
+      {
+        "description":"Lähteiden käyttö ja tekijänoikeudet:",
+        "link":"https://tiedelukutaito.mooc.fi/part-5/2-lahteiden-kaytto-ja-tekijanoikeudet"
+      },
+      {
+        "description":"Lue argumentoinnista, referoimisesta ja viittaamisesta (luvut 5 ja 6) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
+        "link":"https://www.ellibslibrary.com/book/9789523455115"
       }
     ],
     "positive": false
@@ -132,8 +156,12 @@
     "listPoints":[],
     "links":[
       {
-        "description":["Lue lisää palautteesta (Plotti):"],
+        "description":"Lue lisää palautteesta (Plotti):",
         "link":"http://www.plotti.fi/2020/08/14/palautetta-hopeatarjottimella-vaikuta-palautekokemuksiisi/"
+      },
+      {
+        "description":"Lue kirjoittamisen sosiaalisesta luonteesta:",
+        "link":"https://antroblogi.fi/2017/06/sinun-tekstisi-ei-ole-sinun/"
       }
     ],
     "positive": true
@@ -153,12 +181,20 @@
     ],
     "links":[
       {
-        "description":["Apua suunnitteluun Gradutakuu-sivustolta:","Kalmanviiva häämöttää (Plotti):"],
+        "description":"Apua suunnitteluun Gradutakuu-sivustolta:",
         "link":"https://gradutakuu.fi/sisallys/"
       },
       {
         "description":"Kalmanviiva häämöttää (Plotti):",
         "link":"http://www.plotti.fi/2023/04/20/kalmanviiva/"
+      },
+      {
+        "description":"Tehoa kirjoittamiseen Pomodoro-tekniikan avulla (Gradutakuu):",
+        "link":"https://gradutakuu.fi/2010/02/18/pomodoro-tekniikalla-tehokkuutta-ja-ajanhallintaa/"
+      },
+      {
+        "description":"Miten vähentää prokrastinaatiota? (Nyyti ry):",
+        "link":"https://www.nyyti.fi/opiskelijoille/opi-elamantaitoa/ajanhallinta/prokrastinaatio/miten-vahentaa-prokrastinaatiota/"
       }
     ],
     "positive": false
@@ -173,8 +209,8 @@
     "listPoints":[],
     "links":[
       {
-        "description":["Lue tieteellisen tekstin rakenteesta ja argumentoinnista (luvut 4 ja 5) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):"],
-        "link":["https://www.ellibslibrary.com/book/9789523455115"]
+        "description":"Lue tieteellisen tekstin rakenteesta ja argumentoinnista (luvut 4 ja 5) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
+        "link":"https://www.ellibslibrary.com/book/9789523455115"
       }
     ],
     "positive": true
@@ -193,12 +229,16 @@
       "link":"https://blogs.helsinki.fi/kielijelppi/jasentelyvaihe-antaa-tekstille-hahmon/"
     },
     {
-      "description":"Informaatiorakenne (Kirjoittajan ABC)",
+      "description":"Informaatiorakenne (Kirjoittajan ABC):",
       "link":"https://webcgi.oulu.fi/oykk/abc/tekstinhuolto/tekstin_rakenne/informaatiorakenne/"
     },
     {
       "description":"Sidosteisuus (Kirjoittajan ABC):",
       "link":"https://webcgi.oulu.fi/oykk/abc/tekstinhuolto/tekstin_rakenne/sidosteisuus/"
+    },
+    {
+      "description":"Lue metatekstistä ja tieteellisen tekstin rakenteesta (luvut 4 ja 5) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
+      "link":"https://www.ellibslibrary.com/book/9789523455115"
     }
   ],
     "positive": false
@@ -208,7 +248,8 @@
     "id": 11,
     "textSegments":[
       "Vastauksissasi näkyy, että pidät tekstin hyvää kieliasua tärkeänä ja tunnet hallitsevasi oikeinkirjoitusasiat. Tekstien huolelliseen viimeistelyyn kannattaakin panostaa, sillä myös lukijat arvostavat selkeää kieltä ja kirjoitetun kielen normien hallintaa.",
-      "Kirjoittajan asiantuntemukseen kuuluu myös se, että osaa käyttää hakuteoksia ja kielioppaita oman kirjoittamisen tukena. Hienoa, jos hyödynnät tätäkin mahdollisuutta jo riittävästi."
+      "Kirjoittajan asiantuntemukseen kuuluu myös se, että osaa käyttää hakuteoksia ja kielioppaita oman kirjoittamisen tukena. Hienoa, jos hyödynnät tätäkin mahdollisuutta jo riittävästi.",
+      "Jos kielenhuolto kuitenkin askarruttaa, tutustu näihin:"
     ],
     "listPoints":[],
     "links":[
@@ -243,6 +284,14 @@
       {
         "description":"Tukea tekstin viimeistelyyn (Kielijelppi):",
         "link":"https://blogs.helsinki.fi/kielijelppi/viimeistely/"
+      },
+      {
+        "description":"Ahdistavaa pilkunviilausta ja kuivaa kielioppia vai jotakin muuta? (Plotti):",
+        "link":"http://www.plotti.fi/2018/10/04/ahdistavaa-pilkunviilausta-ja-kuivaa-kielioppia-vai-jotakin-muuta-kokemuksia-kielen-ja-tekstinhuollon-kurssilta/"
+      },
+      {
+        "description":"Lisää apua saat Kielitoimiston ohjepankista:",
+        "link":"http://www.kielitoimistonohjepankki.fi/"
       }
     ],
     "positive": false
