@@ -6,15 +6,15 @@
       "Vastauksissasi korostuu kirjoittamisen palkitsevuus. Myönteinen asenne kirjoittamiseen sujuvoittaa työskentelyä monella tavalla: aloittaminen helpottuu, tekstiä syntyy helposti eri tarkoituksiin ja kirjoitusprosessista voi nauttia. Itsevarmuus kirjoittajana auttaa myös uusissa tilanteissa, sillä vaativiinkin kirjoitustehtäviin voi suhtautua luottavaisesti.",
       "Tutkimusten mukaan sosiaalinen tuki auttaa kirjoitusprosessissa, ja sen vuoksi kirjoittamisesta kannattaakin tehdä yhteisöllistä. Hienoa, jos olet oivaltanut myös tämän kirjoittamisen ulottuvuuden ja mahdollisuuden kehittyä kirjoittajana koko ajan monipuolisemmaksi ja paremmaksi."
     ],
-    "listPoints":[],
-    "links":[
+    "listPoints": [],
+    "links": [
       {
-        "description":"Lue lisää yhdessä kirjoittamisesta (Kirjoittajan ABC):",
-        "link":"https://webcgi.oulu.fi/oykk/abc/kirjoittamisprosessi/yhdessa_kirjoittaminen_ja_yhteiskirjoittaminen/"
+        "description": "Lue lisää yhdessä kirjoittamisesta (Kirjoittajan ABC):",
+        "link": "https://webcgi.oulu.fi/oykk/abc/kirjoittamisprosessi/yhdessa_kirjoittaminen_ja_yhteiskirjoittaminen/"
       },
       {
-        "description":"Lue lisää motivaatiosta ja tavoitteiden asettamisesta (Gradutakuu)",
-        "link":"https://gradutakuu.fi/sisallys/"
+        "description": "Lue lisää motivaatiosta ja tavoitteiden asettamisesta (Gradutakuu):",
+        "link": "https://gradutakuu.fi/sisallys/"
       }
     ],
     "positive": true
@@ -22,7 +22,7 @@
   {
     "category": "Kirjoittamiseen liittyvät tunteet ja ajatukset",
     "id": 2,
-    "textSegments":[
+    "textSegments": [
       "Vastaustesi perusteella saattaisit hyötyä siitä, että kokeilet uusia kirjoittamiseen liittyviä toimintatapoja. Kirjoittaminen on vaativaa kognitiivista toimintaa ja edellyttää myös sosiaalisten ja kielellisten käytänteiden hallitsemista, joten ei siis ole ihme, että kirjoittaminen aiheuttaa monelle kirjoittajalle ahdistuksen ja pelon tunteita. Kannattaakin pysähtyä miettimään, mitä on näiden ahdistavien tunteiden takana, ja etsiä keinoja, joilla kirjoittamisesi muuttuisi helpommaksi ja mukavammaksi.",
       "Tässä muutamia neuvoja:"
     ],
@@ -33,36 +33,44 @@
       "Pilko isommat tehtävät pieniin konkreettisiin paloihin",
       "Suunnittele, mitä asiaa edistät milloinkin."
     ],
-    "links":[
+    "links": [
       {
-        "description":"Kangertaako kandityö? (Plotti):",
-        "link":"http://www.plotti.fi/2018/01/29/kangertaako-kandityo/"
+        "description": "Kangertaako kandityö? (Plotti):",
+        "link": "http://www.plotti.fi/2018/01/29/kangertaako-kandityo/"
       },
       {
         "description": "Miten vähentää prokrastinaatiota? (Nyyti ry):",
-        "link":"https://blogs.helsinki.fi/kielijelppi/ideointivaihe/"
+        "link": "https://www.nyyti.fi/opiskelijoille/opi-elamantaitoa/ajanhallinta/prokrastinaatio/miten-vahentaa-prokrastinaatiota/"
+      },
+      {
+        "description": "Hyviä vinkkejä kirjoittamisen esteiden voittamiseen löytyy kirjoittamisoppaista kuten Svinhufvudin \"Kokonaisvaltainen kirjoittaminen\" ja \"Riittävän hyvää kirjoittamista\" sekä Hakalan \"Tulevan maisterin graduopas\" ja Gradutakuu-sivustolta:",
+        "link": "https://gradutakuu.fi/sisallys/"
+      },
+      {
+        "description": "Jos sinua mietityttää esim. lukivaikeuteen tai mielen hyvinvointiin liittyvät asiat, saat lisätietoa korkeakoulusi verkkosivuilta (HY):",
+        "link": "https://studies.helsinki.fi/ohjeet/artikkeli/opiskelun-tueksi"
       }
     ],
     "positive": false
   },
   {
-    "category":"Akateemiset käytänteet ja tekstilajit",
+    "category": "Akateemiset käytänteet ja tekstilajit",
     "id": 3,
     "textSegments": [
       "Vastaustesi perusteella olet jo hyvin perillä oman alasi käytänteistä ja tieteellisten tekstilajien ominaispiirteistä. Kirjoittaminen voidaan ymmärtää sosiaalisena toimintana, joka tapahtuu sosiaalisessa kontekstissa, jollaista edustaa esimerkiksi oma ala ja oma oppiaine.",
       "Oletkin arvattavasti jo harjoitellut tieteellistä kirjoittamista - taidon oppiminen nimittäin vaatii oman alan monesti hiljaisten käytänteiden omaksumista, mikä ei tapahdu aivan yhtäkkiä. Niinpä jos teet eri alojen opintoja, voi olla, että joudut samalla opettelemaan kokonaan uusia tekstilajeja ja uusia käytänteitä."
     ],
-    "listPoints":[],
-    "links":[
+    "listPoints": [],
+    "links": [
       {
-        "description":"Lue lisää akateemisista tekstitaidoista (Kokonaisvaltainen kirjoittaminen -blogi)",
-        "link":"https://kokonaisvaltainenkirjoittaminen.fi/2011/02/15/akateemisen-kirjoittamisen-opetus/"
+        "description": "Lue lisää akateemisista tekstitaidoista (Kokonaisvaltainen kirjoittaminen -blogi):",
+        "link": "https://kokonaisvaltainenkirjoittaminen.fi/2011/02/15/akateemisen-kirjoittamisen-opetus/"
       }
     ],
     "positive": true
   },
   {
-    "category":"Akateemiset käytänteet ja tekstilajit",
+    "category": "Akateemiset käytänteet ja tekstilajit",
     "id": 4,
     "textSegments": [
       "Vastaustesi perusteella akateemiset käytänteet ja akateemiset tekstilajit eivät ole välttämättä sinulle vielä tuttuja ja kaipaat varmuutta oman alan tekstien tuottamiseen.",
@@ -74,175 +82,216 @@
       "Ole aktiivinen, sillä asiantuntijaksi kasvaminen on sosiaalista; hakeudu esimerkiksi kursseille, joissa kirjoittamista harjoitellaan.",
       "Anna tekstiäsi luettavaksi opiskelijakollegoille ja oman alasi osaajille."
     ],
-    "links":[
+    "links": [
       {
-        "description":"Millaisia tekstilajeja opiskelija tarvitsee? (Kielijelppi):",
-        "link":"https://blogs.helsinki.fi/kielijelppi/opiskelijoiden-tekstilajeja/"
+        "description": "Millaisia tekstilajeja opiskelija tarvitsee? (Kielijelppi):",
+        "link": "https://blogs.helsinki.fi/kielijelppi/opiskelijoiden-tekstilajeja/"
       },
       {
-        "description":"Akateeminen essee for dummies (Plotti):",
-        "link":"http://www.plotti.fi/2021/02/23/akateeminen-opiskeluessee-for-dummies/"
+        "description": "Akateeminen essee for dummies (Plotti):",
+        "link": "http://www.plotti.fi/2021/02/23/akateeminen-opiskeluessee-for-dummies/"
+      },
+      {
+        "description": "Lue akateemisista käytänteistä e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
+        "link": "https://www.ellibslibrary.com/book/9789523455115"
       }
     ],
     "positive": false
   },
   {
-    "category":"Lukeminen ja lähteiden käyttö",
+    "category": "Lukeminen ja lähteiden käyttö",
     "id": 5,
-    "textSegments":[
+    "textSegments": [
       "Vastauksissasi korostuu lähteiden käytön hallinta. Sovitat käyttämäsi lähteet osaksi omaa tekstiäsi ja osaat hyödyntää niitä tuottaessasi uutta tietoa.",
       "Tieteellisen kirjoittamisen ydintä onkin toisten kirjoittamien tekstien lukeminen, tiedon kriittinen arviointi ja analysointi sekä tekstien ydinajatusten löytäminen. Lisäksi on tärkeää hallita oman alan lähdeviittaustekniikka ja noudattaa sitä. Yhteiset pelisäännöt viittauksissa edistävät tieteellisen tiedon rakentumisen läpinäkyvyyttä ja ohjaavat lukijat käyttämiesi lähteiden äärelle. Lukiessasi ja kirjoittaessasi olet osa tiedeyhteisöä!"
     ],
-    "listPoints":[],
-    "links":[
+    "listPoints": [],
+    "links": [
       {
-        "description":"Lue tieteellisen referoimisesta (luku 6) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
-        "link":"https://www.ellibslibrary.com/book/9789523455115"
+        "description": "Lue tieteellisen referoimisesta (luku 6) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
+        "link": "https://www.ellibslibrary.com/book/9789523455115"
       }
     ],
     "positive": true
   },
   {
-    "category":"Lukeminen ja lähteiden käyttö",
+    "category": "Lukeminen ja lähteiden käyttö",
     "id": 6,
-    "textSegments":[
+    "textSegments": [
       "Vastauksissasi korostuu lähteidenkäytön harjoittelemisen tarve ja lähdekirjallisuuden referoimiseen liittyvä epävarmuus. Kumpaakin taitoa voi onneksi harjoitella, ja pääset hyvään alkuun tutustumalla oman alasi teksteihin ja kirjoitusohjeisiin.",
-      "Kun luet vuorostaan lähdekirjallisuutta, on hyödyllistä miettiä, miten käsitellyt asiat liittyvät toisiinsa, mitkä ovat oman tekstisi kannalta olennaisia asioita ja miten onnistuneesti tekstissä argumentoidaan. Tee lukiessasi muistiinpanoja:",
+      "Kun luet vuorostaan lähdekirjallisuutta, on hyödyllistä miettiä, miten käsitellyt asiat liittyvät toisiinsa, mitkä ovat oman tekstisi kannalta olennaisia asioita ja miten onnistuneesti tekstissä argumentoidaan. Tee lukiessasi muistiinpanoja.",
       "Anna toisinaan itsellesi mahdollisuus lukea myös vapaasti ja “pänttäämättä”. Tällöin teksteistä voi nousta esiin yllättäviä ja luovia ajatuksia. Voit vuorotella analyyttista lukemista ja vapaata, rentoa lukemista. Tieteellisiä tekstejä voi myös mahdollisuuksien mukaan lukea ja analysoida yhdessä muiden kanssa."
     ],
-    "listPoints":[
+    "listPoints": [
       "Kirjaa ylös havaintojasi, teksteistä heränneitä kysymyksiä sekä eri tekstien välisiä yhteyksiä, eroja ja mahdollisia ristiriitoja.",
       "Hyödynnä erilaisia visuaalisia apukeinoja kuten miellekarttoja."
     ],
-    "links":[
+    "links": [
       {
-        "description":["Lue tieteellisen referoimisesta (luku 6) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):"],
-        "link":"https://blogs.helsinki.fi/kielijelppi/lukeminen-ja-referoiminen/"
+        "description": "Lue tieteellisen referoimisesta (luku 6) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
+        "link": "https://blogs.helsinki.fi/kielijelppi/lukeminen-ja-referoiminen/"
+      },
+      {
+        "description": "Tiedon käyttö ja arviointi (Opiskelijan digitaidot):",
+        "link": "https://blogs.helsinki.fi/opiskelijan-digitaidot/3-tiedonhankinta/3-4-loydetyn-tiedon-kaytto-ja-arviointi/"
+      },
+      {
+        "description": "Lähteiden käyttö ja tekijänoikeudet:",
+        "link": "https://tiedelukutaito.mooc.fi/part-5/2-lahteiden-kaytto-ja-tekijanoikeudet"
+      },
+      {
+        "description": "Lue argumentoinnista, referoimisesta ja viittaamisesta (luvut 5 ja 6) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
+        "link": "https://www.ellibslibrary.com/book/9789523455115"
       }
     ],
     "positive": false
   },
   {
-    "category":"Kirjoittaminen prosessina",
+    "category": "Kirjoittaminen prosessina",
     "id": 7,
-    "textSegments":[
+    "textSegments": [
       "Olet vastaustesi perusteella selvästi ymmärtänyt tieteellisen kirjoittamisen prosessimaisen luonteen, vaikka et välttämättä aina voisikaan käyttää haluamaasi aikaa kirjoittamisen jokaiseen vaiheeseen. Olet omaksunut tavan työstää tekstiäsi useassa vaiheessa ja pystyt soveltamaan kirjoittamisprosessin eri vaiheita tarpeen mukaan. Pitkää tekstiä ei voikaan tehdä valmiiksi yhdeltä istumalta.",
       "Tiedostat myös palautteen tärkeyden ja osaat tarvittaessa hyödyntää sitä. Palautetta kannattaa oman ohjaajan lisäksi pyytää opiskelukaverilta."
     ],
-    "listPoints":[],
-    "links":[
+    "listPoints": [],
+    "links": [
       {
-        "description":["Lue lisää palautteesta (Plotti):"],
-        "link":"http://www.plotti.fi/2020/08/14/palautetta-hopeatarjottimella-vaikuta-palautekokemuksiisi/"
+        "description": "Lue lisää palautteesta (Plotti):",
+        "link": "http://www.plotti.fi/2020/08/14/palautetta-hopeatarjottimella-vaikuta-palautekokemuksiisi/"
+      },
+      {
+        "description": "Lue kirjoittamisen sosiaalisesta luonteesta:",
+        "link": "https://antroblogi.fi/2017/06/sinun-tekstisi-ei-ole-sinun/"
       }
     ],
     "positive": true
   },
   {
-    "category":"Kirjoittaminen prosessina",
+    "category": "Kirjoittaminen prosessina",
     "id": 8,
-    "textSegments":[
+    "textSegments": [
       "Vastauksissasi korostuvat kirjoittamisprosessin hallinnan ongelmat. Ajankäyttöä, kirjoittamislukkojen avaamista ja erilaisia työtapoja voi kuitenkin harjoitella monin tavoin:"
     ],
-    "listPoints":[
+    "listPoints": [
       "Tee työsuunnitelma ja pyri pitämään siitä kiinni.",
       "Hyväksy se, että teksti rakentuu vaihe vaiheelta: luonnostele, kirjoita, muokkaa, kirjoita uudelleen, editoi, viimeistele.",
       "Jaa suuren tekstikokonaisuuden kirjoittaminen pienempiin osiin.",
       "Merkitse kalenteriin kirjoittamiselle varatut ajat ja suunnittele, mitä kirjoitat milloinkin.",
       "Älä epäröi pyytää palautetta keskeneräisestä tekstistä!"
     ],
-    "links":[
+    "links": [
       {
-        "description":["Apua suunnitteluun Gradutakuu-sivustolta:","Kalmanviiva häämöttää (Plotti):"],
-        "link":"https://gradutakuu.fi/sisallys/"
+        "description": "Apua suunnitteluun Gradutakuu-sivustolta:",
+        "link": "https://gradutakuu.fi/sisallys/"
       },
       {
-        "description":"Kalmanviiva häämöttää (Plotti):",
-        "link":"http://www.plotti.fi/2023/04/20/kalmanviiva/"
+        "description": "Kalmanviiva häämöttää (Plotti):",
+        "link": "http://www.plotti.fi/2023/04/20/kalmanviiva/"
+      },
+      {
+        "description": "Tehoa kirjoittamiseen Pomodoro-tekniikan avulla (Gradutakuu):",
+        "link": "https://gradutakuu.fi/2010/02/18/pomodoro-tekniikalla-tehokkuutta-ja-ajanhallintaa/"
+      },
+      {
+        "description": "Miten vähentää prokrastinaatiota? (Nyyti ry):",
+        "link": "https://www.nyyti.fi/opiskelijoille/opi-elamantaitoa/ajanhallinta/prokrastinaatio/miten-vahentaa-prokrastinaatiota/"
       }
     ],
     "positive": false
   },
   {
-    "category":"Tekstin rakenne",
+    "category": "Tekstin rakenne",
     "id": 9,
-    "textSegments":[
+    "textSegments": [
       "Vastauksiesi perusteella hahmotat hyvin sen, miten teksti rakentuu ja miten luoda eheää tekstiä. Tiedät, miten ajatukset saa tekstissä lukijalle ymmärrettävään muotoon ja myös, miten pystyt johdattamaan lukijaa tekstisi läpi.",
       "Kirjoittaminen tulee kuitenkin sitä luontevammaksi, mitä enemmän ja mitä erilaisempia tekstejä kirjoitat. Yhdenlaisen tekstin rakenne ja keinot eivät välttämättä sovellukaan toisenlaiseen tekstiin, vaan kirjoittamisen tapaa täytyy muuttaa tilanteen mukaan. Ehkä voisitkin kehittää osaamistasi kokeilemalla erilaisten tekstilajien kirjoittamista."
     ],
-    "listPoints":[],
-    "links":[
+    "listPoints": [],
+    "links": [
       {
-        "description":["Lue tieteellisen tekstin rakenteesta ja argumentoinnista (luvut 4 ja 5) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):"],
-        "link":["https://www.ellibslibrary.com/book/9789523455115"]
+        "description" :"Lue tieteellisen tekstin rakenteesta ja argumentoinnista (luvut 4 ja 5) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
+        "link": "https://www.ellibslibrary.com/book/9789523455115"
       }
     ],
     "positive": true
   },
   {
-    "category":"Tekstin rakenne",
+    "category": "Tekstin rakenne",
     "id": 10,
-    "textSegments":[
+    "textSegments": [
       "Vastaustesi perusteella näyttää siltä, ettet ole vielä varma, miten omista ajatuksista koostetaan yhtenäinen ja helposti seurattava teksti. Tekstin rakentamisen taito kehittyy kuitenkin vähitellen: kun luet ja kirjoitat, kehityt varmemmaksi kirjoittajaksi.",
       "Helppolukuisen ja yhtenäisen tekstin kirjoittaminen on haastava tehtävä, koska kirjoittaessaan joutuu pitämään mielessä paitsi sen, mitä itse tietää, myös sen, mitä lukija tietää tai ei tiedä. Monet tekstin rakenteen ongelmat juontavatkin juurensa siitä, että kirjoittaja ei muista kertoa lukijalle, mitä on tekemässä. Tekstiäsi voi siis vaivata sidoskeinojen ja metatekstin eli tekstistä kertovan tekstin puute."
     ],
-    "listPoints":[],
-    "links":[
+    "listPoints": [],
+    "links": [
     {
-      "description":"Tekstin rakenteeseen kannattaa perehtyä myös tietoisesti opettelemalla esimerkiksi jäsentelytapoja (Kielijelppi):",
-      "link":"https://blogs.helsinki.fi/kielijelppi/jasentelyvaihe-antaa-tekstille-hahmon/"
+      "description": "Tekstin rakenteeseen kannattaa perehtyä myös tietoisesti opettelemalla esimerkiksi jäsentelytapoja (Kielijelppi):",
+      "link": "https://blogs.helsinki.fi/kielijelppi/jasentelyvaihe-antaa-tekstille-hahmon/"
     },
     {
-      "description":"Informaatiorakenne (Kirjoittajan ABC)",
-      "link":"https://webcgi.oulu.fi/oykk/abc/tekstinhuolto/tekstin_rakenne/informaatiorakenne/"
+      "description": "Informaatiorakenne (Kirjoittajan ABC):",
+      "link": "https://webcgi.oulu.fi/oykk/abc/tekstinhuolto/tekstin_rakenne/informaatiorakenne/"
     },
     {
-      "description":"Sidosteisuus (Kirjoittajan ABC):",
-      "link":"https://webcgi.oulu.fi/oykk/abc/tekstinhuolto/tekstin_rakenne/sidosteisuus/"
+      "description": "Sidosteisuus (Kirjoittajan ABC):",
+      "link": "https://webcgi.oulu.fi/oykk/abc/tekstinhuolto/tekstin_rakenne/sidosteisuus/"
+    },
+    {
+      "description": "Lue metatekstistä ja tieteellisen tekstin rakenteesta (luvut 4 ja 5) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
+      "link": "https://www.ellibslibrary.com/book/9789523455115"
     }
   ],
     "positive": false
   },
   {
-    "category":"Kielelliset seikat",
+    "category": "Kielelliset seikat",
     "id": 11,
-    "textSegments":[
+    "textSegments": [
       "Vastauksissasi näkyy, että pidät tekstin hyvää kieliasua tärkeänä ja tunnet hallitsevasi oikeinkirjoitusasiat. Tekstien huolelliseen viimeistelyyn kannattaakin panostaa, sillä myös lukijat arvostavat selkeää kieltä ja kirjoitetun kielen normien hallintaa.",
-      "Kirjoittajan asiantuntemukseen kuuluu myös se, että osaa käyttää hakuteoksia ja kielioppaita oman kirjoittamisen tukena. Hienoa, jos hyödynnät tätäkin mahdollisuutta jo riittävästi."
+      "Kirjoittajan asiantuntemukseen kuuluu myös se, että osaa käyttää hakuteoksia ja kielioppaita oman kirjoittamisen tukena. Hienoa, jos hyödynnät tätäkin mahdollisuutta jo riittävästi.",
+      "Jos kielenhuolto kuitenkin askarruttaa, tutustu näihin:"
     ],
-    "listPoints":[],
-    "links":[
+    "listPoints": [],
+    "links": [
       {
-        "description":"Kielitoimiston ohjepankki:",
-        "link":"http://www.kielitoimistonohjepankki.fi/"
+        "description": "Kielitoimiston ohjepankki:",
+        "link": "http://www.kielitoimistonohjepankki.fi/"
       },
       {
-        "description":"Tukea tekstin viimeistelyyn (Kielijelppi):",
-        "link":"https://blogs.helsinki.fi/kielijelppi/viimeistely/"
+        "description": "Tukea tekstin viimeistelyyn (Kielijelppi):",
+        "link": "https://blogs.helsinki.fi/kielijelppi/viimeistely/"
       }
     ],
     "positive": true
   },
   {
-    "category":"Kielelliset seikat",
+    "category": "Kielelliset seikat",
     "id": 12,
-    "textSegments":[
+    "textSegments": [
       "Vastauksissasi näkyy, että koet oikeinkirjoitusasiat ja tekstin viimeistelyn hankalaksi. Onneksi oikeinkirjoitusasioita voi varsin hyvin opiskella myös itsenäisesti, ja tekstin viimeistelyssä voi hyödyntää kielioppaita.",
       "Oma teksti kannattaa myös jättää kirjoittamisen jälkeen hetkeksi lepäämään, koska tauon jälkeen lauserakenteiden mahdolliset epäselvyydet havaitsee helpommin ja muokkaus sujuu paremmin. Tekstit kannattaa myös aina lukea huolellisesti viimeisen kerran läpi, ennen kuin luovuttaa ne eteenpäin."
     ],
-    "listPoints":[],
-    "links":[
+    "listPoints": [],
+    "links": [
       {
-        "description":"Tutustu esim. Kirjoittajan ABC-korttiin, jonka Kielenhuolto-osio on tarkoitettu pulmallisten kieliasioiden itseopiskeluun ja harjoitteluun:",
-        "link":"https://webcgi.oulu.fi/oykk/abc/"
+        "description": "Tutustu esim. Kirjoittajan ABC-korttiin, jonka Kielenhuolto-osio on tarkoitettu pulmallisten kieliasioiden itseopiskeluun ja harjoitteluun:",
+        "link": "https://webcgi.oulu.fi/oykk/abc/"
       },
       {
-        "description":"Kielenhuoltopähkinät (Kotus):",
-        "link":"https://www.kotus.fi/ohjeet/kieli-_ja_nimitestit/kielenhuoltopahkinat"
+        "description": "Kielenhuoltopähkinät (Kotus):",
+        "link": "https://www.kotus.fi/ohjeet/kieli-_ja_nimitestit/kielenhuoltopahkinat"
       },
       {
-        "description":"Tukea tekstin viimeistelyyn (Kielijelppi):",
-        "link":"https://blogs.helsinki.fi/kielijelppi/viimeistely/"
+        "description": "Tukea tekstin viimeistelyyn (Kielijelppi):",
+        "link": "https://blogs.helsinki.fi/kielijelppi/viimeistely/"
+      },
+      {
+        "description": "Ahdistavaa pilkunviilausta ja kuivaa kielioppia vai jotakin muuta? (Plotti):",
+        "link": "http://www.plotti.fi/2018/10/04/ahdistavaa-pilkunviilausta-ja-kuivaa-kielioppia-vai-jotakin-muuta-kokemuksia-kielen-ja-tekstinhuollon-kurssilta/"
+      },
+      {
+        "description": "Lisää apua saat Kielitoimiston ohjepankista:",
+        "link": "http://www.kielitoimistonohjepankki.fi/"
       }
     ],
     "positive": false

@@ -1,7 +1,7 @@
 [
   {
     "category": "Kirjoittamiseen liittyvät tunteet ja ajatukset",
-    "boolean": "True",
+    "boolean": true,
     "statements": [
       {
         "id": 1,
@@ -36,8 +36,8 @@
     ]
   },
   {
-    "category":"Kirjoittamiseen liittyvät tunteet ja ajatukset",
-    "boolean": "False",
+    "category": "Kirjoittamiseen liittyvät tunteet ja ajatukset",
+    "boolean": false,
     "statements": [
       {
         "id": 7,
@@ -72,8 +72,8 @@
     ]
   },
   {
-    "category":"Akateemiset käytänteet ja tekstilajit",
-    "boolean": "True",
+    "category": "Akateemiset käytänteet ja tekstilajit",
+    "boolean": true,
     "statements": [
       {
         "id": 13,
@@ -108,8 +108,8 @@
     ]
   },
   {
-    "category":"Akateemiset käytänteet ja tekstilajit",
-    "boolean": "False",
+    "category": "Akateemiset käytänteet ja tekstilajit",
+    "boolean": false,
     "statements": [
       {
         "id": 19,
@@ -144,8 +144,8 @@
     ]
   },
   {
-    "category":"Lukeminen ja lähteiden käyttö",
-    "boolean": "True",
+    "category": "Lukeminen ja lähteiden käyttö",
+    "boolean": true,
     "statements": [
       {
         "id": 25,
@@ -180,8 +180,8 @@
     ]
   },
   {
-    "category":"Lukeminen ja lähteiden käyttö",
-    "boolean": "False",
+    "category": "Lukeminen ja lähteiden käyttö",
+    "boolean": false,
     "statements": [
       {
         "id": 31,
@@ -216,8 +216,8 @@
     ]
   },
   {
-    "category":"Kirjoittaminen prosessina",
-    "boolean": "True",
+    "category": "Kirjoittaminen prosessina",
+    "boolean": true,
     "statements": [
       {
         "id": 37,
@@ -252,8 +252,8 @@
     ]
   },
   {
-    "category":"Kirjoittaminen prosessina",
-    "boolean": "False",
+    "category": "Kirjoittaminen prosessina",
+    "boolean": false,
     "statements": [
       {
         "id": 43,
@@ -288,8 +288,8 @@
     ]
   },
   {
-    "category":"Tekstin rakenne",
-    "boolean": "True",
+    "category": "Tekstin rakenne",
+    "boolean": true,
     "statements": [
       {
         "id": 49,
@@ -324,8 +324,8 @@
     ]
   },
   {
-    "category":"Tekstin rakenne",
-    "boolean": "False",
+    "category": "Tekstin rakenne",
+    "boolean": false,
     "statements": [
       {
         "id": 55,
@@ -360,8 +360,8 @@
     ]
   },
   {
-    "category":"Kielelliset seikat",
-    "boolean": "True",
+    "category": "Kielelliset seikat",
+    "boolean": true,
     "statements": [
       {
         "id": 61,
@@ -396,8 +396,8 @@
     ]
   },
   {
-    "category":"Kielelliset seikat",
-    "boolean": "False",
+    "category": "Kielelliset seikat",
+    "boolean": false,
     "statements": [
       {
         "id": 67,
