@@ -2,6 +2,7 @@ import { Box, CircularProgress, Grid, Typography } from '@mui/material'
 import { Document, Page, Text, PDFViewer, StyleSheet, Link, PDFDownloadLink, Image } from '@react-pdf/renderer'
 import { useLocation } from 'react-router-dom'
 import CalculateCategoryScores from '../functions/CalculateCategoryScores'
+import monochromeBackground from '../assets/monochrome-background.jpg'
 import GetResults from '../functions/GetResults'
 import useApi from '../hooks/useApi'
 
@@ -124,12 +125,28 @@ const PDFView = () => {
   if (isMobile) {
     return(
       <div>
-        <Typography variant="h5">PDF-näkymä ei tue mobiililaitteita. Lataa PDF alla olevasta linkistä!</Typography>
+      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
+      <img
+          src={monochromeBackground}
+          alt="monochromeBackground"
+          style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
+            width: '100%', height: '100%', zIndex: -1 }}
+        />
+      <Box sx={{ p: 5 }}>
+        <Typography sx={{ my: 2, fontSize: 20, fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
+          PDF-näkymä ei tue mobiililaitteita. Lataa PDF alla olevasta linkistä!
+        </Typography>
         <PDFDownloadLink document={<View/>} fileName="Tieteellisen kirjoittamisen itsearviontitesti.pdf">
           {({ isLoading }) =>
-            isLoading ? 'Loading document...' : 'Lataa pdf'
+            isLoading 
+              ? 'Loading document...' 
+              : <Typography sx={{ my: 2, fontSize: 20, fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: 'blue' }}>
+                  Lataa pdf
+                </Typography>
           }
         </PDFDownloadLink>
+        </Box>
+      </Grid>
       </div>
     )
   }
