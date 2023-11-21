@@ -49,12 +49,10 @@ const verifyLogin = async (_tokenSet, userinfo, done) => {
     hyGroupCn: iamGroups,
   } = userinfo
 
-  const isAdmin = checkAdmin(iamGroups)
-
   const user = {
-    username: isAdmin ? username : 'guest',
-    iamGroups: isAdmin ? iamGroups : [],
-    isAdmin,
+    username,
+    iamGroups,
+    isAdmin: checkAdmin(iamGroups),
   }
 
   await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
