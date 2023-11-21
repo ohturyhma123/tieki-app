@@ -125,28 +125,28 @@ const PDFView = () => {
   if (isMobile) {
     return(
       <div>
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
-      <img
-          src={monochromeBackground}
-          alt="monochromeBackground"
-          style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
-            width: '100%', height: '100%', zIndex: -1 }}
-        />
-      <Box sx={{ p: 5 }}>
-        <Typography sx={{ my: 2, fontSize: 20, fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
+        <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
+          <img
+            src={monochromeBackground}
+            alt="monochromeBackground"
+            style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
+              width: '100%', height: '100%', zIndex: -1 }}
+          />
+          <Box sx={{ p: 5 }}>
+            <Typography sx={{ my: 2, fontSize: 20, fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
           PDF-näkymä ei tue mobiililaitteita. Lataa PDF alla olevasta linkistä!
-        </Typography>
-        <PDFDownloadLink document={<View/>} fileName="Tieteellisen kirjoittamisen itsearviontitesti.pdf">
-          {({ isLoading }) =>
-            isLoading 
-              ? 'Loading document...' 
-              : <Typography sx={{ my: 2, fontSize: 20, fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: 'blue' }}>
+            </Typography>
+            <PDFDownloadLink document={<View/>} fileName="Tieteellisen kirjoittamisen itsearviontitesti.pdf">
+              {({ isLoading }) =>
+                isLoading
+                  ? 'Loading document...'
+                  : <Typography sx={{ my: 2, fontSize: 20, fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: 'blue' }}>
                   Lataa pdf
-                </Typography>
-          }
-        </PDFDownloadLink>
-        </Box>
-      </Grid>
+                  </Typography>
+              }
+            </PDFDownloadLink>
+          </Box>
+        </Grid>
       </div>
     )
   }
