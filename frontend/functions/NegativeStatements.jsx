@@ -9,7 +9,7 @@ const getNegativeStatements = (statements) => {
 
   for (const statementSetIndex in statements) {
     const statementSet = statements[statementSetIndex]
-    if (statementSet.boolean === 'False') {
+    if (statementSet.boolean === false) {
       negativeStatementSets.push(statementSet)
     }
   }

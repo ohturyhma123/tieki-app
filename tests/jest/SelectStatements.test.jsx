@@ -7,7 +7,7 @@ import selectOneStatementFromEachPositiveSet from '../../frontend/functions/Sele
 const testStatements = [
   {
     'category': 'Category 1',
-    'boolean': 'True',
+    'boolean': true,
     'statements': [
       {
         'id': 1,
@@ -23,7 +23,7 @@ const testStatements = [
   },
   {
     'category': 'Category 1',
-    'boolean': 'False',
+    'boolean': false,
     'statements': [
       {
         'id': 3,
@@ -39,7 +39,7 @@ const testStatements = [
   },
   {
     'category': 'Category 2',
-    'boolean': 'True',
+    'boolean': true,
     'statements': [
       {
         'id': 5,
@@ -55,7 +55,7 @@ const testStatements = [
   },
   {
     'category': 'Category 2',
-    'boolean': 'False',
+    'boolean': false,
     'statements': [
       {
         'id': 7,
@@ -75,7 +75,7 @@ test('selects negative statements only', () => {
   const expectedOutput = [
     {
       'category': 'Category 1',
-      'boolean': 'False',
+      'boolean': false,
       'statements': [
         {
           'id': 3,
@@ -91,7 +91,7 @@ test('selects negative statements only', () => {
     },
     {
       'category': 'Category 2',
-      'boolean': 'False',
+      'boolean': false,
       'statements': [
         {
           'id': 7,
@@ -114,7 +114,7 @@ test('selects positive statements only', () => {
   const expectedOutput = [
     {
       'category': 'Category 1',
-      'boolean': 'True',
+      'boolean': true,
       'statements': [
         {
           'id': 1,
@@ -130,7 +130,7 @@ test('selects positive statements only', () => {
     },
     {
       'category': 'Category 2',
-      'boolean': 'True',
+      'boolean': true,
       'statements': [
         {
           'id': 5,
