@@ -75,7 +75,7 @@ const Home = () => {
             </picture>
             <Typography
               variant='body2'
-              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: -0.2, mt: 2.3, ml: -7.2, lineHeight: 1.5 }}>
+              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: -0.2, mt: 2.3, ml: -7.2 }}>
                 Tämän testin avulla voit arvioida osaamistasi tieteellisen tekstin kirjoittajana.<br />
                 Testissä on väitteitä seuraavilta kirjoittamisen osa-alueilta:
             </Typography>
