@@ -6,7 +6,7 @@ const resultsRouter = express()
 
 resultsRouter.get('/', async (req, res) => {
   try {
-    const resultsData = await Result.find().sort({ 'id': 1 })
+    const resultsData = await Result.find()
     res.json(resultsData)
   } catch (error) {
     console.error(error)
