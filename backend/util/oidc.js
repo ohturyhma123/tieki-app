@@ -76,7 +76,6 @@ const setupAuthentication = async () => {
 
   passport.serializeUser((user, done) => {
     const { username, iamGroups, isAdmin } = user
-    console.log(user)
     return done(null, { username, iamGroups, isAdmin })
   })
 
