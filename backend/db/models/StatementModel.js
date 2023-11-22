@@ -8,7 +8,6 @@ const statementSchema = new mongoose.Schema({
 
 const categorySchema = new mongoose.Schema({
   category: String,
-  categoryId: Number,
   boolean: Boolean,
   statements: [statementSchema]
 }, {
