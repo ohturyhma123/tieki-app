@@ -49,13 +49,23 @@ const verifyLogin = async (_tokenSet, userinfo, done) => {
     hyGroupCn: iamGroups,
   } = userinfo
 
+  const isAdmin = checkAdmin(iamGroups)
+
   const user = {
-    username,
-    iamGroups,
-    isAdmin: checkAdmin(iamGroups),
+    username: isAdmin ? username : 'guest',
+    iamGroups: isAdmin ? iamGroups : [],
+    isAdmin,
   }
 
-  await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
+  if (!isAdmin) {
+    const existingUser = await User.findOne({ username: 'guest' })
+
+    if (!existingUser) {
+      await User.create({ ...user })
+    }
+  } else {
+    await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
+  }
 
   done(null, user)
 }
