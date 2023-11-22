@@ -57,7 +57,11 @@ const verifyLogin = async (_tokenSet, userinfo, done) => {
     isAdmin,
   }
 
-  await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
+  if (isAdmin) {
+    await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
+  } else {
+    await User.findOneAndUpdate({ username: 'guest' }, { ...user }, { upsert: true })
+  }
 
   done(null, user)
 }
@@ -73,19 +77,11 @@ const setupAuthentication = async () => {
   })
 
   passport.deserializeUser(
-    async ({ username, iamGroups }, done) => {
-      let user
-
-      const isAdmin = checkAdmin(iamGroups)
-      if (isAdmin) {
-        user = await User.findOne({ username }).lean()
-      } else {
-        user = {
-          username: 'guest',
-          iamGroups: [],
-          isAdmin: false,
-        }
-      }
+    async (
+      { username, iamGroups },
+      done
+    ) => {
+      const user = await User.findOne({ username }).lean()
 
       if (!user) return done(new Error('User not found'))
 
