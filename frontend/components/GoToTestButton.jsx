@@ -7,14 +7,15 @@ const LargeButton = ({ backgroundColor, color, buttonText }) => {
     color: color,
     borderColor: backgroundColor,
     fontWeight: '700',
-    fontSize: '20px',
+    fontSize: '24px',
     fontFamily: '"Lato", sans-serif',
     cursor: 'pointer',
-    padding: '0.5rem 2.25rem',
-    borderRadius: '24px',
+    padding: '0.7rem 3.3rem',
+    borderRadius: '30px',
     textTransform: 'none',
-    marginTop: '20px',
     border: '2px solid',
+    marginLeft: '-70px',
+    marginTop: '5px',
     '&:hover': {
       backgroundColor: color,
       color: backgroundColor,
@@ -23,10 +24,10 @@ const LargeButton = ({ backgroundColor, color, buttonText }) => {
     '@media (max-width: 480px)': {
       display: 'flex',
       margin: 'auto',
-      fontSize: '22px',
+      fontSize: '24px',
       marginTop: '40px',
       marginBottom: '40px',
-      padding: '0.7rem 4rem',
+      padding: '0.7rem 3.7rem',
     }
   }))
 
