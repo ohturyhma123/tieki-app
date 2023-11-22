@@ -6,7 +6,7 @@ const linksRouter = express()
 
 linksRouter.get('/', async (req, res) => {
   try {
-    const linksData = await Link.find()
+    const linksData = await Link.find().sort({ 'id': 1 })
     res.json(linksData)
   } catch (error) {
     console.error(error)
