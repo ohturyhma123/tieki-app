@@ -57,10 +57,14 @@ const verifyLogin = async (_tokenSet, userinfo, done) => {
     isAdmin,
   }
 
-  if (isAdmin) {
-    await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
+  if (!isAdmin) {
+    const existingUser = await User.findOne({ username: 'guest' })
+
+    if (!existingUser) {
+      await User.create({ ...user })
+    }
   } else {
-    await User.findOneAndUpdate({ username: 'guest' }, { ...user }, { upsert: true })
+    await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
   }
 
   done(null, user)
