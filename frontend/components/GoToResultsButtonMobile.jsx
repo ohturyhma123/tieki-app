@@ -8,7 +8,7 @@ const GoToResultsButtonMobile = styled(Button)( () => ({
   fontSize: '22px',
   fontFamily: '"Lato", sans-serif',
   cursor: 'pointer',
-  padding: '0.7rem 4rem',
+  padding: '0.7rem 3.7rem',
   borderRadius: '24px',
   textTransform: 'none',
   border: '2px solid',
