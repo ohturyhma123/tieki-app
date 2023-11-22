@@ -4,7 +4,7 @@
 
 Tieki
 
-Tallennamme ja käsittelemme Helsingin yliopiston opiskelijoiden henkilötietoja, käyttäjätunnuksia ja iam-ryhmiä EU:n tietosuojaasetuksen mukaisesti.
+Tallennamme ja käsittelemme Helsingin yliopiston opiskelijoiden käyttäjätunnuksia ja IAM-ryhmiä EU:n tietosuoja-asetuksen mukaisesti.
 
 ## Rekisterinpitäjä
 
@@ -19,22 +19,18 @@ PL 68 (Pietari Kalmin katu 5)
 
 ## Henkilötietojen käsittelyn tarkoitus
 
-Asiakasrekisteriin tallennettuja henkilötietoja, käyttäjätunnuksia ja iam-ryhmiä käytetään käyttäjien yksilöintiin linkkien, väittämien ja analyysien muokkaamista varten.
+Asiakasrekisteriin tallennettuja käyttäjätunnuksia ja IAM-ryhmiä käytetään käyttäjien yksilöintiin linkkien, väittämien ja analyysien muokkaamista varten.
 
 ## Rekisterin tietosisältö
 
 Henkilötiedot:
 
-* Etu- ja sukunimi
-* Sähköpostiosoite
-* Opiskelijanumero
-* Henkilökuntanumero
 * Käyttäjätunnus
-* Iam-ryhmä
+* IAM-ryhmä
 
 Muu tietosisältö:
 
-* Linkkien, väitteiden ja analyysien muokkaussivun tiedot; linkin kuvaus, linkin nimi, linkin url, väitteen tyyppi, väitteen kategoria, väite, analyysin tyyppi, analyysin tekstisegmentit, analyysin linkit (linkin kuvaus, linkin url).
+* Linkkien, väitteiden ja analyysien muokkaussivun tiedot; linkin kuvaus, linkin nimi, linkin URL, väitteen tyyppi, väitteen kategoria, väite, analyysin tyyppi, analyysin tekstisegmentit, analyysin linkit (linkin kuvaus, linkin URL).
 
 ## Säännönmukaiset tietolähteet
 
@@ -46,9 +42,9 @@ Muokatut linkit, väitteet ja analyysit saadaan muokkauksen tehneeltä henkilöl
 
 ## Henkilötietojen tallentaminen, säilyttäminen, suojaaminen ja käsittely
 
-Linkkien, väittämien ja anlyysien muokkaussivu näkyy henkilöille, jotka on opintotietojärjestelmässä merkitty määritellyn iam-ryhmän jäseniksi. Iam-ryhmä saadaan kirjautumalla käyttjätunnuksella helsingin yliopiston kirjautumisen kautta.
+Linkkien, väittämien ja analyysien muokkaussivu näkyy henkilöille, jotka on opintotietojärjestelmässä merkitty määritellyn IAM-ryhmän jäseniksi. IAM-ryhmä saadaan kirjautumalla käyttäjätunnuksella Helsingin yliopiston kirjautumisen kautta.
 
-Henkilötiedot on suojattu asiattomalta pääsyltä ja käsittelemiseltä. Tiedot säilytetään Suomessa. Henkilötietojen käsittelyssä on huomioitu EU:n tietosuoja-asetuksen vaatimukset. Tietosisällöstä tallennetaan varmuuskopioita.???? Rekisterinpitäjä tallentaa ehyttä ja luotettavaa tietoa, esimerkiksi varmuuskopioiden kautta varmennettuna.
+Henkilötiedot on suojattu asiattomalta pääsyltä ja käsittelemiseltä. Tiedot säilytetään EU:ssa. Henkilötietojen käsittelyssä on huomioitu EU:n tietosuoja-asetuksen vaatimukset. Tietosisällöstä tallennetaan varmuuskopioita.???? Rekisterinpitäjä tallentaa ehyttä ja luotettavaa tietoa, esimerkiksi varmuuskopioiden kautta varmennettuna.
 
 ## Tietojen siirto EU:n tai ETA:n ulkopuolelle
 
