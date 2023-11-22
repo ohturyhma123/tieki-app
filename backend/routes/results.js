@@ -6,7 +6,7 @@ const resultsRouter = express()
 
 resultsRouter.get('/', async (req, res) => {
   try {
-    const resultsData = await Result.find()
+    const resultsData = await Result.find().sort({ 'id': 1 })
     res.json(resultsData)
   } catch (error) {
     console.error(error)
@@ -16,7 +16,7 @@ resultsRouter.get('/', async (req, res) => {
 
 resultsRouter.put('/', AdminCheck, async (req, res) => {
   const updatedResults = req.body
-  console.log(updatedResults)
+
   try {
     for (const updatedResult of updatedResults) {
       for (const segment of updatedResult.textSegments) {

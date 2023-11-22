@@ -6,7 +6,7 @@ const statementsRouter = express()
 
 statementsRouter.get('/', async (req, res) => {
   try {
-    const statementsData = await Statement.find()
+    const statementsData = await Statement.find().sort({ 'categoryId': 1 })
     res.json(statementsData)
   } catch (error) {
     console.error(error)
