@@ -49,10 +49,12 @@ const verifyLogin = async (_tokenSet, userinfo, done) => {
     hyGroupCn: iamGroups,
   } = userinfo
 
+  const isAdmin = checkAdmin(iamGroups)
+
   const user = {
-    username,
-    iamGroups,
-    isAdmin: checkAdmin(iamGroups),
+    username: isAdmin ? username : 'guest',
+    iamGroups: isAdmin ? iamGroups : [],
+    isAdmin,
   }
 
   await User.findOneAndUpdate({ username }, { ...user }, { upsert: true })
@@ -66,15 +68,24 @@ const setupAuthentication = async () => {
 
   passport.serializeUser((user, done) => {
     const { username, iamGroups, isAdmin } = user
+    console.log(user)
     return done(null, { username, iamGroups, isAdmin })
   })
 
   passport.deserializeUser(
-    async (
-      { username, iamGroups },
-      done
-    ) => {
-      const user = await User.findOne({ username }).lean()
+    async ({ username, iamGroups }, done) => {
+      let user
+
+      const isAdmin = checkAdmin(iamGroups)
+      if (isAdmin) {
+        user = await User.findOne({ username }).lean()
+      } else {
+        user = {
+          username: 'guest',
+          iamGroups: [],
+          isAdmin: false,
+        }
+      }
 
       if (!user) return done(new Error('User not found'))
 
