@@ -58,6 +58,7 @@ const verifyLogin = async (_tokenSet, userinfo, done) => {
   }
 
   if (!isAdmin) {
+    await User.findOneAndDelete({ username, isAdmin: true })
     const existingUser = await User.findOne({ username: 'guest' })
 
     if (!existingUser) {
