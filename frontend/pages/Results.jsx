@@ -101,7 +101,7 @@ const Results = () => {
             <div>
               <Grid container direction="column" spacing={10} justifyContent="center">
                 <Grid item>
-                  <Link id='to_pdfview' to={'/pdfview'} target='_blank' state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>
+                  <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>
                     <Typography sx={{ textAlign: 'right' }}>Näytä tulokset PDF-tiedostona</Typography>
                   </Link>
                 </Grid>
