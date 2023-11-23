@@ -26,7 +26,7 @@ const LargeButton = ({ backgroundColor, color, buttonText }) => {
       margin: 'auto',
       fontSize: '24px',
       marginTop: '40px',
-      marginBottom: '40px',
+      marginBottom: '20px',
       padding: '0.7rem 3.7rem',
     }
   }))

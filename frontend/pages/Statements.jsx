@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Paper, Typography, LinearProgress, Box, Grid, CircularProgress } from '@mui/material'
+import { Paper, Typography, LinearProgress, Box, Grid, CircularProgress, Container } from '@mui/material'
 import getPositiveStatements from '../functions/PositiveStatements'
 import getNegativeStatements from '../functions/NegativeStatements'
 import selectOneStatementFromEachPositiveSet from '../functions/SelectOnePositiveStatementFromEachCategory'
@@ -208,7 +208,7 @@ const Statements = () => {
   }
 
   return (
-    <Grid container direction="column" justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
+    <Grid container direction="column" alignItems="center" style={{ height: '80vh' }}>
       <img
         src={monochromeBackground}
         alt="monochromeBackground"
@@ -216,59 +216,61 @@ const Statements = () => {
           width: '100%', height: '100%', zIndex: -1 }}
       />
       {isMobile ? (
-        <Swiper
-          className="swiper"
-          spaceBetween={30}
-          pagination={{ type: 'progressbar' }}
-          modules={[Pagination, EffectCreative]}
-          effect={'creative'}
-          speed={200}
-          creativeEffect={{
-            prev: {
-              translate: [-75, 0, 0],
-            },
-            next: {
-              translate: [75, 0, 0]
-            },
-          }}
-          onSlideChange={(swiper) => {
-            swiper.realIndex > swiper.previousIndex ?
-              handleNextStatementSet() :
-              handlePreviousStatementSet()
-          }}>
-          {statementsData.map((s, i) => (
-            <SwiperSlide key={i}>
-              <Typography sx={{ mt: 1, mb: currentURL === '/test/1' ? 0 : 2.5, fontSize: 10, fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
-                {`${currentStatementSetIndex + 1}/12`}
-              </Typography>
-              {currentURL === '/test/1' && (
-                <Typography sx={{ py: 1.5, ml: 0, mb: 0, mt: 0, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
-                  '@media (max-width: 340px)': { fontSize: 15 } }}>
+        <Container>
+          <Swiper
+            className="swiper"
+            spaceBetween={30}
+            pagination={{ type: 'progressbar' }}
+            modules={[Pagination, EffectCreative]}
+            effect={'creative'}
+            speed={200}
+            creativeEffect={{
+              prev: {
+                translate: [-75, 0, 0],
+              },
+              next: {
+                translate: [75, 0, 0]
+              },
+            }}
+            onSlideChange={(swiper) => {
+              swiper.realIndex > swiper.previousIndex ?
+                handleNextStatementSet() :
+                handlePreviousStatementSet()
+            }}>
+            {statementsData.map((s, i) => (
+              <SwiperSlide key={i}>
+                <Typography sx={{ mt: 1, mb: currentURL === '/test/1' ? 0 : 2.5, fontSize: 10, fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
+                  {`${currentStatementSetIndex + 1}/12`}
+                </Typography>
+                {currentURL === '/test/1' && (
+                  <Typography sx={{ py: 1, ml: 0, mb: 0, mt: 0, fontSize: 16.5, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                    '@media (max-width: 360px)': { fontSize: 15 } }}>
                     Valitse 0–3 väitettä<br />
                     Mene eteen- ja taaksepäin pyyhkäisemällä
-                </Typography>
-              )}
-              {statements.map((s) => (
-                <div
-                  key={s.id}
-                  className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
-                  onClick={() => handleStatementClick(s.id)}>
-                  <Typography sx={{ fontSize: 15, fontFamily: '"Lato", sans-serif', color: '#00011b',
-                    '@media (max-width: 340px)': { fontSize: 13 } }}>
-                    {s.statement}
                   </Typography>
-                </div>
-              ))}
-              {currentURL === '/test/12' && (
-                <GoToResultsButtonMobile
-                  id='results-btn-mobile'
-                  onClick={() => navigate('/results', { state: { selectedStatements } })}>
+                )}
+                {statements.map((s) => (
+                  <div
+                    key={s.id}
+                    className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
+                    onClick={() => handleStatementClick(s.id)}>
+                    <Typography sx={{ fontSize: 15, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                      '@media (max-width: 360px)': { fontSize: 13 } }}>
+                      {s.statement}
+                    </Typography>
+                  </div>
+                ))}
+                {currentURL === '/test/12' && (
+                  <GoToResultsButtonMobile
+                    id='results-btn-mobile'
+                    onClick={() => navigate('/results', { state: { selectedStatements } })}>
                     Tulokset
-                </GoToResultsButtonMobile>
-              )}
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                  </GoToResultsButtonMobile>
+                )}
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </Container>
         /** End of the code for mobile UI, start of desktop UI code. */
       ) : (
         <Paper
