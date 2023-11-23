@@ -216,7 +216,7 @@ const Statements = () => {
           width: '100%', height: '100%', zIndex: -1 }}
       />
       {isMobile ? (
-        <Container>
+        <Container sx={{ padding: 0 }}>
           <Swiper
             className="swiper"
             spaceBetween={30}
@@ -243,8 +243,8 @@ const Statements = () => {
                   {`${currentStatementSetIndex + 1}/12`}
                 </Typography>
                 {currentURL === '/test/1' && (
-                  <Typography sx={{ py: 1, ml: 0, mb: 0, mt: 0, fontSize: 16.5, fontFamily: '"Lato", sans-serif', color: '#00011b',
-                    '@media (max-width: 360px)': { fontSize: 15 } }}>
+                  <Typography sx={{ py: 1, ml: 0, mb: 0, mt: 0, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                    '@media (max-width: 340px)': { fontSize: 15 } }}>
                     Valitse 0–3 väitettä<br />
                     Mene eteen- ja taaksepäin pyyhkäisemällä
                   </Typography>
@@ -254,8 +254,8 @@ const Statements = () => {
                     key={s.id}
                     className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
                     onClick={() => handleStatementClick(s.id)}>
-                    <Typography sx={{ fontSize: 15, fontFamily: '"Lato", sans-serif', color: '#00011b',
-                      '@media (max-width: 360px)': { fontSize: 13 } }}>
+                    <Typography sx={{ fontSize: 14.5, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                      '@media (max-width: 340px)': { fontSize: 13 } }}>
                       {s.statement}
                     </Typography>
                   </div>

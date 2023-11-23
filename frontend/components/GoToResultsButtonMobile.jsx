@@ -15,8 +15,8 @@ const GoToResultsButtonMobile = styled(Button)(() => ({
     display: 'flex',
     margin: 'auto',
     fontSize: '24px',
-    marginTop: '40px',
-    marginBottom: '20px',
+    marginTop: '30px',
+    marginBottom: '30px',
     padding: '0.7rem 3.7rem',
   },
 }))
