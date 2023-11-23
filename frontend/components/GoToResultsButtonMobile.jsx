@@ -1,20 +1,25 @@
 import { Button, styled } from '@mui/material'
 
-const GoToResultsButtonMobile = styled(Button)( () => ({
+const GoToResultsButtonMobile = styled(Button)(() => ({
   backgroundColor: '#fff',
   color: '#00011b',
   borderColor: '#fff',
   fontWeight: '700',
-  fontSize: '22px',
+  fontSize: '24px',
   fontFamily: '"Lato", sans-serif',
   cursor: 'pointer',
-  padding: '0.7rem 3.7rem',
-  borderRadius: '24px',
+  borderRadius: '30px',
   textTransform: 'none',
   border: '2px solid',
-  display: 'flex',
-  margin: 'auto',
-  marginTop: '50px'
+  '@media (max-width: 480px)': {
+    display: 'flex',
+    margin: 'auto',
+    fontSize: '24px',
+    marginTop: '40px',
+    marginBottom: '20px',
+    padding: '0.7rem 3.7rem',
+  },
 }))
+
 
 export default GoToResultsButtonMobile

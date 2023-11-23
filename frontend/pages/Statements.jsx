@@ -99,7 +99,6 @@ const Statements = () => {
       setCurrentStatementSetIndex(currentStatementSetIndex + 1)
       const countOnNextPage = selectedStatementsCountOnPage[currentStatementSetIndex + 1]
       setSelectedStatementsCount(countOnNextPage)
-
       navigate(`/test/${currentStatementSetIndex + 2}`)
     } else {
       Submit({ navigate, selectedStatements })
@@ -232,56 +231,43 @@ const Statements = () => {
               translate: [75, 0, 0]
             },
           }}
-          /**
-            User is navigated to /test/confirm/ after the last statement set and back to /test/12/ from /test/confirm/ when swiping right.
-            Otherwise, runs function handleNextStatementSet when swiping left to the next slide,
-            and handlePreviousStatementSet when swiping right to the previous slide.
-           */
           onSlideChange={(swiper) => {
-            currentURL === '/test/confirm' ?
-              navigate('/test/12') :
-              swiper.realIndex === 12 ?
-                navigate('/test/confirm') :
-                swiper.realIndex > swiper.previousIndex ?
-                  handleNextStatementSet() :
-                  handlePreviousStatementSet()
+            swiper.realIndex > swiper.previousIndex ?
+              handleNextStatementSet() :
+              handlePreviousStatementSet()
           }}>
           {statementsData.map((s, i) => (
             <SwiperSlide key={i}>
-              <Typography sx={{ mt: 0.7, fontSize: 9, fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
+              <Typography sx={{ mt: 1, mb: currentURL === '/test/1' ? 0 : 2.5, fontSize: 10, fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
                 {`${currentStatementSetIndex + 1}/12`}
               </Typography>
-              <Typography sx={{ py: 1.5, ml: 0, mb: 0, mt: 0, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
-                '@media (max-width: 340px)': { fontSize: 13 } }}>
-                Valitse 0-3 väitettä<br />
-                Mene eteen- ja taaksepäin pyyhkäisemällä
-              </Typography>
+              {currentURL === '/test/1' && (
+                <Typography sx={{ py: 1.5, ml: 0, mb: 0, mt: 0, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                  '@media (max-width: 340px)': { fontSize: 15 } }}>
+                    Valitse 0–3 väitettä<br />
+                    Mene eteen- ja taaksepäin pyyhkäisemällä
+                </Typography>
+              )}
               {statements.map((s) => (
                 <div
                   key={s.id}
                   className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
                   onClick={() => handleStatementClick(s.id)}>
-                  <Typography sx={{ fontSize: 14, fontFamily: '"Lato", sans-serif', color: '#00011b',
-                    '@media (max-width: 340px)': { fontSize: 10 } }}>
+                  <Typography sx={{ fontSize: 15, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                    '@media (max-width: 340px)': { fontSize: 13 } }}>
                     {s.statement}
                   </Typography>
                 </div>
               ))}
+              {currentURL === '/test/12' && (
+                <GoToResultsButtonMobile
+                  id='results-btn-mobile'
+                  onClick={() => navigate('/results', { state: { selectedStatements } })}>
+                    Tulokset
+                </GoToResultsButtonMobile>
+              )}
             </SwiperSlide>
           ))}
-          {/** Separate slide at the end with the url /test/confirm/ for the results button. */}
-          <SwiperSlide>
-            <Typography sx={{ py: 2, ml: 0, mb: 12, mt: 0.5, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
-              '@media (max-width: 340px)': { fontSize: 13 } }}>
-                Jos haluat vielä muuttaa vastauksiasi,<br />
-                pyyhkäise oikealle
-            </Typography>
-            <GoToResultsButtonMobile
-              id='results-btn-mobile'
-              onClick={() => navigate('/results', { state: { selectedStatements } })}>
-                Tulokset
-            </GoToResultsButtonMobile>
-          </SwiperSlide>
         </Swiper>
         /** End of the code for mobile UI, start of desktop UI code. */
       ) : (
