@@ -14,7 +14,7 @@ const ListItemMobile = ({ text }) => {
         primary={
           <Typography
             variant='body2'
-            style={{ color: '#00011b', fontSize: '13.5px', fontFamily: '"Lato", sans-serif', fontStyle: 'italic', fontWeight: '500', marginLeft: -23 }}>
+            style={{ color: '#00011b', fontSize: '13.5px', fontFamily: '"Lato", sans-serif', fontWeight: '500', marginLeft: -23 }}>
             {text}
           </Typography>
         }/>
