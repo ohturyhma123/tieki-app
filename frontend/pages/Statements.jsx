@@ -225,7 +225,7 @@ const Statements = () => {
           speed={200}
           creativeEffect={{
             prev: {
-              translate: [75, 0, 0],
+              translate: [-75, 0, 0],
             },
             next: {
               translate: [75, 0, 0]
