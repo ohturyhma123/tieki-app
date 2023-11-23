@@ -99,7 +99,7 @@ const Results = () => {
           {positiveResults.length > 0 || negativeResults.length > 0
             ?
             <div>
-              <Grid container direction={{xs: "row", md: "column"}} spacing={10} justifyContent="center">
+              <Grid container direction={{ xs: 'row', md: 'column' }} spacing={10} justifyContent="center">
                 <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
                   <Typography sx={{ textAlign: 'center', color: '#323E45', mb: 6 }} variant='h2'>Tulokset</Typography>
                   <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45', mb: 4 }} variant='body2'>
