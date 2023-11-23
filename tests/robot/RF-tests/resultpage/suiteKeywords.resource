@@ -16,6 +16,28 @@ Go To Resultpage
     Click Button    Tulokset
     Click Button    Kyllä
 
+Go To Resultpage No Results
+    [Documentation]    Goes to the Resultpage
+    Go To Testpage
+    Wait Until Page Contains    jotka kuvaavat sinua parhaiten
+    # robocop: disable
+    FOR    ${index}    IN RANGE    1    3
+        Go To Next Page
+        Select Statements    1
+    END
+    FOR    ${index}    IN RANGE    1    10
+        Go To Next Page
+    END
+    # robocop: enable
+    Click Button    Tulokset
+    Click Button    Kyllä
+
+Check No Results
+    [Documentation]
+    Wait Until Page Contains    Et valinnut tarpeeksi väitteitä
+    Page Should Contain    Voit tehdä testin uudelleen
+    Page Should Contain    Hyödyllisiä linkkejä löydät linkkisivulta
+
 Check Headers
     [Documentation]    Checks that the headers are in order.
     Wait Until Page Contains    Tulokset

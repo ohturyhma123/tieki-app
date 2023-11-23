@@ -8,7 +8,6 @@ Resource    suiteKeywords.resource
 Test Setup
 ...        Run Keywords
 ...        Open And Configure Browser
-...        AND    Go To Resultpage
 ...        AND    Register Keyword To Run On Failure    Nothing
 Test Teardown    Close Browser
 
@@ -18,8 +17,20 @@ Test Tags    resultpage
 *** Test Cases ***
 Resultpage Headers
     [Documentation]    Checks the headers at resultpage.
+    Go To Resultpage
     Check Headers
 
 Resultpage Analyses
     [Documentation]    Checks the number of analyses
+    Go To Resultpage
     Check Analysis
+
+Resultpage PDF
+    [Documentation]    Goes to the pdfview from results.
+    Go To Resultpage
+    Go To PDF View From Bottom
+
+Resultpage No Results
+    [Documentation]    Checks that there are no results.
+    Go To Resultpage No Results
+    Check No Results
