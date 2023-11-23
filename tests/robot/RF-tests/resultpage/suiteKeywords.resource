@@ -33,7 +33,7 @@ Go To Resultpage No Results
     Click Button    Kyllä
 
 Check No Results
-    [Documentation]
+    [Documentation]    Checks that the loaded page is the correct one.
     Wait Until Page Contains    Et valinnut tarpeeksi väitteitä
     Page Should Contain    Voit tehdä testin uudelleen
     Page Should Contain    Hyödyllisiä linkkejä löydät linkkisivulta
