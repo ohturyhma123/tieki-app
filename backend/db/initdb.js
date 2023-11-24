@@ -17,6 +17,26 @@ const insertData = async () => {
     try {
       await connectToDatabase()
 
+      // Drop collections if they exist
+      try {
+        await Link.collection.drop()
+        console.log('links collection dropped successfully')
+      } catch (error) {
+        console.error('links collection does not exist')
+      }
+      try {
+        await Result.collection.drop()
+        console.log('results collection dropped successfully')
+      } catch (error) {
+        console.error('results collection does not exist')
+      }
+      try {
+        await Statement.collection.drop()
+        console.log('statements collection dropped successfully')
+      } catch (error) {
+        console.error('statements collection does not exist')
+      }
+
       // Insert data into the collections
       await Link.insertMany(linksData)
       console.log('linksData.json inserted successfully')
