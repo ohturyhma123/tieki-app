@@ -17,6 +17,20 @@ Send Put Request
     ${response}=    PUT On Session    ${session}    /    json=${body}    headers=${headers}
     RETURN    ${response}
 
+Send Delete Request
+    [Documentation]    Sends a DELETE request to the specified endpoint.
+    [Arguments]    ${session}    ${id}
+    ${headers}=    Create Dictionary    Content-Type=application/json
+    ${response}=    DELETE On Session   ${session}    /${id}    headers=${headers}
+    RETURN    ${response}
+
+Send Post Request
+    [Documentation]    Sends a POST request for given session with given body.
+    [Arguments]    ${session}    ${body}
+    ${headers}=    Create Dictionary    accept=application/json
+    ${response}=    POST On Session    ${session}    /    json=${body}    headers=${headers}
+    RETURN    ${response}
+
 Check Response Status Is Correct
     [Documentation]    Checks that a HTTP request has correct response status.
     [Arguments]    ${status_code}    ${expected_status_code}
