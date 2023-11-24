@@ -17,11 +17,6 @@ const insertData = async () => {
     try {
       await connectToDatabase()
 
-      // Drop existing collections
-      await Link.collection.drop();
-      await Result.collection.drop();
-      await Statement.collection.drop();
-
       // Insert data into the collections
       await Link.insertMany(linksData)
       console.log('linksData.json inserted successfully')
