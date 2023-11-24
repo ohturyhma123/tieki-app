@@ -1,11 +1,24 @@
 import app from './app.js'
-import connectToDatabase from './db/connection.js'
+import { connectToDatabase, disconnectFromDatabase } from './db/connection.js'
 import setupAuthentication from './util/oidc.js'
 
 const PORT = 3001
 
+// Start the server
 app.listen(PORT, async () => {
   await connectToDatabase()
   await setupAuthentication()
   console.log(`Server running on port ${PORT}`)
 })
+
+// Handle server termination gracefully
+const handleTermination = async (signal) => {
+  console.log(`Received ${signal}. Disconnecting from the database...`)
+  await disconnectFromDatabase()
+  console.log('Server has been stopped.')
+  process.exit(0)
+}
+
+process.on('SIGINT', () => handleTermination('SIGINT'))
+process.on('SIGTERM', () => handleTermination('SIGTERM'))
+process.on('exit', () => handleTermination('exit'))

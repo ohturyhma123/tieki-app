@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
-import { MONGODB_URI, MONGODB_TEST_URI, inTestMode } from '../util/config.js'
+import { MONGODB_TEST_URI, MONGODB_URI, inTestMode } from '../util/config.js'
 
-const connectToDatabase = () => {
+const connectToDatabase = async () => {
   const uri = inTestMode ? MONGODB_TEST_URI : MONGODB_URI
 
   mongoose.connect(uri)
@@ -15,4 +15,13 @@ const connectToDatabase = () => {
   return connection
 }
 
-export default connectToDatabase
+const disconnectFromDatabase = async () => {
+  try {
+    await mongoose.disconnect()
+    console.log('Disconnected from the database')
+  } catch (error) {
+    console.error('Error disconnecting from the database:', error)
+  }
+}
+
+export { connectToDatabase, disconnectFromDatabase }
