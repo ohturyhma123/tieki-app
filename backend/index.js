@@ -12,8 +12,7 @@ app.listen(PORT, async () => {
 })
 
 // Handle server termination gracefully
-const handleTermination = async (signal) => {
-  console.log(`Received ${signal}. Disconnecting from the database...`)
+const handleTermination = async () => {
   await disconnectFromDatabase()
   console.log('Server has been stopped.')
   process.exit(0)
