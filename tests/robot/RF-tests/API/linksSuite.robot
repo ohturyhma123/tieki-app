@@ -68,6 +68,7 @@ Post Link API Test
     ${last_linkki}=    Set Variable    ${all_links.json()[-1]['name']}
     Should Be Equal    ${last_linkki}    ${LAST_LINK_NAME}
 
+
 *** Keywords ***
 Initialize Session
     [Documentation]    Creates API session for tests.
