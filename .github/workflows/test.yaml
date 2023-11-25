@@ -1,12 +1,14 @@
-name: Pull request tests
+name: tests
 
-on: [pull_request]
+on: [pull_request, workflow_call, workflow_dispatch]
 
 jobs:
 
   eslint-autofix:
 
     runs-on: ubuntu-latest
+
+    if: github.ref != 'refs/heads/main'
 
     permissions:
       # Give the default GITHUB_TOKEN write permission to commit and push the
@@ -27,6 +29,21 @@ jobs:
       with:
         commit_message: Auto-fix ESLint
         file_pattern: '*.js *.jsx'
+
+  eslint-main:
+
+    runs-on: ubuntu-latest
+
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install node packages
+      run: npm install
+
+    - name: Run ESLint
+      run: npm run lint
 
   jest:
 
@@ -63,18 +80,21 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    env:
-      MONGODB_TEST_URI: ${{ secrets.MONGODB_TEST_URI }}
-      SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
-      OIDC_CLIENT_ID: ${{ secrets.OIDC_CLIENT_ID }}
-      OIDC_CLIENT_SECRET: ${{ secrets.OIDC_CLIENT_SECRET }}
-      OIDC_REDIRECT_URI: ${{ secrets.OIDC_REDIRECT_URI }}
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+        options: --name mongodb
 
     steps:
     - uses: actions/checkout@v4
 
     - name: Install node packages
       run: npm install
+
+    - name: Insert JSON to database
+      run: npm run init
 
     - name: Set up Python 3.10
       uses: actions/setup-python@v4
