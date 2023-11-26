@@ -27,13 +27,13 @@ const Navbar = () => {
     },
     [theme.breakpoints.down('962')]: {
       fontSize: '24.5px',
-      margin: theme.spacing(2.5, 4, 0, -2)
+      margin: theme.spacing(2.5, 4, 0, -3)
     },
-    [theme.breakpoints.down('650')]: {
+    [theme.breakpoints.down('632')]: {
       fontSize: '22px',
-      margin: theme.spacing(0.8, 4, 0, -2)
+      margin: theme.spacing(0.8, 9, 0, -2)
     },
-    [theme.breakpoints.down('450')]: {
+    [theme.breakpoints.down('460')]: {
       fontSize: '14.5px',
       margin: theme.spacing(2.3, 6, 0, -2)
     },

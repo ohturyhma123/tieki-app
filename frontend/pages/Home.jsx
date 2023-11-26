@@ -94,7 +94,7 @@ const Home = () => {
               sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mt: 2, ml: -7.2 }}>
                 Valitse joka sivulla 0–3 väitettä, jotka kuvaavat omaa tieteellisen tekstin kirjoittamistasi.<br />
                 Itsearviointitestin tekeminen vie aikaa noin 10 minuuttia.<br />
-                 Testi on anonyymi.
+                Testi on anonyymi.
             </Typography>
             <Typography
               variant='body2'
