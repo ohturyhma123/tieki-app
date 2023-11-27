@@ -9,7 +9,6 @@ import {
 } from 'chart.js'
 import { Radar } from 'react-chartjs-2'
 import SplitLongStrings from '../functions/SplitLongStrings'
-import '../assets/RadarChart.css'
 
 ChartJS.register(
   RadialLinearScale,
