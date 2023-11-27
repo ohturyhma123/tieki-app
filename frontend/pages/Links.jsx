@@ -1,31 +1,20 @@
 import React from 'react'
-import { Box, Link, List, ListItem, Typography, Grid, CircularProgress, Container, Paper } from '@mui/material'
+import { Link, List, ListItem, Typography, Grid, Container, Paper } from '@mui/material'
 import useApi from '../hooks/useApi'
 import monochromeBackground from '../assets/monochrome-background.jpg'
+import LoadingScreen from '../components/LoadingScreen'
+import LoadingError from '../components/LoadingError'
 
 const Links = () => {
   const { data: links, loading, error } = useApi('/api/links')
   const isMobile = window.innerWidth <= 480
 
   if (loading) {
-    return (
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <CircularProgress sx={{ mr: 2 }} />
-          <Typography>Ladataan sivua...</Typography>
-        </Box>
-      </Grid>
-    )
+    return <LoadingScreen/>
   }
 
   if (error) {
-    return (
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
-        <Box sx={{ p: 5 }}>
-          <Typography>Virhe linkkien lataamisessa</Typography>
-        </Box>
-      </Grid>
-    )
+    return <LoadingError errorMessage={'Virhe linkkien lataamisessa'}/>
   }
 
   const formatLinkText = (text) => {

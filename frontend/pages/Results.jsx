@@ -2,12 +2,14 @@ import { Link, useLocation } from 'react-router-dom'
 import ResultAccordion from '../components/ResultAccordion'
 import RadarChart from '../components/RadarChart'
 import monochromeBackground from '../assets/monochrome-background.jpg'
-import { Box, Paper, Typography, Grid, Container, CircularProgress } from '@mui/material'
+import { Box, Paper, Typography, Grid, Container } from '@mui/material'
 import { useEffect, useState } from 'react'
 import * as htmlToImage from 'html-to-image'
 import CalculateCategoryScores from '../functions/CalculateCategoryScores'
 import GetResults from '../functions/GetResults'
 import useApi from '../hooks/useApi'
+import LoadingScreen from '../components/LoadingScreen'
+import LoadingError from '../components/LoadingError'
 
 const Results = () => {
 
@@ -54,36 +56,11 @@ const Results = () => {
   }
 
   if (loadingStatements || loadingResults) {
-    return (
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
-        <img
-          src={monochromeBackground}
-          alt="monochromeBackground"
-          style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
-            width: '100%', height: '100%', zIndex: -1 }}
-        />
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <CircularProgress sx={{ mr: 2 }} />
-          <Typography>Ladataan sivua...</Typography>
-        </Box>
-      </Grid>
-    )
+    return <LoadingScreen/>
   }
 
   if (errorStatements || errorResults) {
-    return (
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
-        <img
-          src={monochromeBackground}
-          alt="monochromeBackground"
-          style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
-            width: '100%', height: '100%', zIndex: -1 }}
-        />
-        <Box sx={{ p: 5 }}>
-          <Typography>Virhe tulosten lataamisessa</Typography>
-        </Box>
-      </Grid>
-    )
+    return <LoadingError errorMessage={'Virhe tulosten lataamisessa'}/>
   }
 
   return (

@@ -1,10 +1,12 @@
-import { Box, CircularProgress, Grid, Typography } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 import { Document, Page, Text, PDFViewer, StyleSheet, Link, PDFDownloadLink, Image } from '@react-pdf/renderer'
 import { useLocation } from 'react-router-dom'
 import CalculateCategoryScores from '../functions/CalculateCategoryScores'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import GetResults from '../functions/GetResults'
 import useApi from '../hooks/useApi'
+import LoadingScreen from '../components/LoadingScreen'
+import LoadingError from '../components/LoadingError'
 
 const PDFView = () => {
 
@@ -102,24 +104,11 @@ const PDFView = () => {
   })
 
   if (loadingStatements || loadingResults) {
-    return (
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <CircularProgress sx={{ mr: 2 }} />
-          <Typography>Ladataan sivua...</Typography>
-        </Box>
-      </Grid>
-    )
+    return <LoadingScreen/>
   }
 
   if (errorStatements || errorResults) {
-    return (
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
-        <Box sx={{ p: 5 }}>
-          <Typography>Virhe tulosten lataamisessa</Typography>
-        </Box>
-      </Grid>
-    )
+    return <LoadingError errorMessage={'Virhe tulosten lataamisessa'}/>
   }
 
   if (isMobile) {

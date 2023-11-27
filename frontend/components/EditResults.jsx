@@ -8,6 +8,9 @@ import monochromeBackground from '../assets/monochrome-background.jpg'
 import useAdminCheck from '../hooks/useAdminCheck'
 import SaveConfirm from './SaveConfirm'
 import SaveError from './SaveError'
+import LoadingScreen from './LoadingScreen'
+import LoadingError from './LoadingError'
+import NotAdmin from './NotAdmin'
 
 const baseUrl = '/api/results'
 
@@ -126,15 +129,15 @@ const EditResults = () => {
   const { isAdmin, loading, error } = useAdminCheck()
 
   if (loading) {
-    return <div>Ladataan sivua...</div>
+    return <LoadingScreen/>
   }
 
   if (!isAdmin) {
-    return <div>Käyttö estetty</div>
+    return <NotAdmin/>
   }
 
   if (error) {
-    return <div>Virhe käyttäjän oikeuksien tarkistuksessa</div>
+    return <LoadingError errorMessage={'Virhe käyttäjän oikeuksien tarkistuksessa'}/>
   }
 
   return (
