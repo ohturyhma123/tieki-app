@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Paper, Typography, LinearProgress, Box, Grid, CircularProgress, Container } from '@mui/material'
+import { Paper, Typography, LinearProgress, Box, Grid, Container } from '@mui/material'
 import getPositiveStatements from '../functions/PositiveStatements'
 import getNegativeStatements from '../functions/NegativeStatements'
 import selectOneStatementFromEachPositiveSet from '../functions/SelectOnePositiveStatementFromEachCategory'
@@ -17,6 +17,8 @@ import '../assets/Swiper.css'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/effect-creative'
+import LoadingScreen from '../components/LoadingScreen'
+import LoadingError from '../components/LoadingError'
 
 const Statements = () => {
   const [selectedStatements, setSelectedStatements] = useState([])
@@ -156,36 +158,11 @@ const Statements = () => {
   }
 
   if (loading) {
-    return (
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
-        <img
-          src={monochromeBackground}
-          alt="monochromeBackground"
-          style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
-            width: '100%', height: '100%', zIndex: -1 }}
-        />
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <CircularProgress sx={{ mr: 2 }} />
-          <Typography>Ladataan sivua...</Typography>
-        </Box>
-      </Grid>
-    )
+    return <LoadingScreen/>
   }
 
   if (error) {
-    return (
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
-        <img
-          src={monochromeBackground}
-          alt="monochromeBackground"
-          style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
-            width: '100%', height: '100%', zIndex: -1 }}
-        />
-        <Box sx={{ p: 5 }}>
-          <Typography>Virhe väitteiden lataamisessa</Typography>
-        </Box>
-      </Grid>
-    )
+    return <LoadingError errorMessage={'Virhe väitteiden lataamisessa'}/>
   }
 
   /** Progress bar for the desktop UI. */
@@ -274,7 +251,7 @@ const Statements = () => {
         /** End of the code for mobile UI, start of desktop UI code. */
       ) : (
         <Paper
-          sx={{ mt: 10.5, mb: 10, p: 6, pb: 3.5, height: '100%', width: '77%' , background: '#fdf3e9' }}
+          sx={{ mt: 10.5, mb: 10, p: 6, pb: 3.5, width: '77%' , background: '#fdf3e9' }}
           variant='elevation'
         >
           <Typography sx={{ py: 2, ml: 0.7, mb: 1.3, mt: -2.5, fontStyle: 'italic', fontSize: '22px', fontFamily: '"Lato", sans-serif' }}>

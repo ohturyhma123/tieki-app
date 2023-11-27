@@ -21,19 +21,15 @@ const Login = () => {
           <CustomBox>
             <Box sx={{ flex: '1' }}>
               <Typography sx={{ pb: 3 }} variant='h3'>Kirjaudu sisään (vain ylläpitäjät)</Typography>
-              <Typography>
-                <List>
-                  <ListItem>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <LoginButton backgroundColor='#fff'
-                        color='#00011b'
-                        buttonText='HY-kirjautuminen'
-                        href='/api/oidc'
-                      />
-                    </div>
-                  </ListItem>
-                </List>
-              </Typography>
+              <List>
+                <ListItem>
+                  <LoginButton backgroundColor='#fff'
+                    color='#00011b'
+                    buttonText='HY-kirjautuminen'
+                    href='/api/oidc'
+                  />
+                </ListItem>
+              </List>
             </Box>
           </CustomBox>
         </Container>
