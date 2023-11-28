@@ -26,7 +26,7 @@ Asiakasrekisteriin tallennettuja käyttäjätunnuksia ja IAM-ryhmiä käytetää
 Henkilötiedot:
 
 * Käyttäjätunnus
-* IAM-ryhmä
+* IAM-ryhmät
 
 Muu tietosisältö:
 
