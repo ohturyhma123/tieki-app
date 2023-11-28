@@ -254,7 +254,7 @@ const Statements = () => {
           sx={{ mt: 10.5, mb: 10, p: 6, pb: 3.5, width: '77%' , background: '#fdf3e9' }}
           variant='elevation'
         >
-          <Typography sx={{ py: 2, ml: 0.7, mb: 1.3, mt: -2.5, fontStyle: 'italic', fontSize: '22px', fontFamily: '"Lato", sans-serif' }}>
+          <Typography sx={{ py: 2, ml: 1, mb: 1.3, mt: -2.5, fontSize: '22px', fontFamily: '"Lato", sans-serif' }}>
             Valitse 0–3 väitettä, jotka kuvaavat sinua parhaiten tieteellisen tekstin kirjoittajana
           </Typography>
           {/**
