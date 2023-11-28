@@ -15,7 +15,7 @@ PL 68 (Pietari Kalmin katu 5)
 
 ## Rekisteriasioista vastaava henkilö
 
-????Matti Luukkainen, matti.luukkainen@helsinki.fi????
+Matti Luukkainen, matti.luukkainen@helsinki.fi
 
 ## Henkilötietojen käsittelyn tarkoitus
 
@@ -36,15 +36,13 @@ Muu tietosisältö:
 
 Rekisterinpitäjä tallentaa asiakasrekisteriin ne tiedot, jotka asiakas luovuttaa kirjautuessaan sovellukseen ja käyttäessään sovellusta.
 
-???Rekisterinpitäjä täydentää loput tarpeelliset ja tietosisällössä luetellut tiedot, kuten ilmoittautumistiedot, opintotietojärjestelmästä (SISU) rajapintojen avulla.??? pitääkö paikkansa
-
 Muokatut linkit, väitteet ja analyysit saadaan muokkauksen tehneeltä henkilöltä.
 
 ## Henkilötietojen tallentaminen, säilyttäminen, suojaaminen ja käsittely
 
 Linkkien, väittämien ja analyysien muokkaussivu näkyy henkilöille, jotka on opintotietojärjestelmässä merkitty määritellyn IAM-ryhmän jäseniksi. IAM-ryhmä saadaan kirjautumalla käyttäjätunnuksella Helsingin yliopiston kirjautumisen kautta.
 
-Henkilötiedot on suojattu asiattomalta pääsyltä ja käsittelemiseltä. Tiedot säilytetään EU:ssa. Henkilötietojen käsittelyssä on huomioitu EU:n tietosuoja-asetuksen vaatimukset. Tietosisällöstä tallennetaan varmuuskopioita.???? Rekisterinpitäjä tallentaa ehyttä ja luotettavaa tietoa, esimerkiksi varmuuskopioiden kautta varmennettuna.
+Henkilötiedot on suojattu asiattomalta pääsyltä ja käsittelemiseltä. Tiedot säilytetään EU:ssa. Henkilötietojen käsittelyssä on huomioitu EU:n tietosuoja-asetuksen vaatimukset. Tietosisällöstä tallennetaan varmuuskopioita. Rekisterinpitäjä tallentaa ehyttä ja luotettavaa tietoa, esimerkiksi varmuuskopioiden kautta varmennettuna.
 
 ## Tietojen siirto EU:n tai ETA:n ulkopuolelle
 
