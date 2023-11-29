@@ -11,7 +11,7 @@ done
 echo "Server started"
 
 # Run robot tests headless
-robot --variable browser:$1 --variable delay:0 -e edit tests/robot/
+robot --variable browser:$1 --variable delay:0 tests/robot/
 
 # Status code
 status=$?
