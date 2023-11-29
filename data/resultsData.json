@@ -9,10 +9,12 @@
     "listPoints": [],
     "links": [
       {
+        "id": 1,
         "description": "Lue lisää yhdessä kirjoittamisesta (Kirjoittajan ABC):",
         "link": "https://webcgi.oulu.fi/oykk/abc/kirjoittamisprosessi/yhdessa_kirjoittaminen_ja_yhteiskirjoittaminen/"
       },
       {
+        "id": 2,
         "description": "Lue lisää motivaatiosta ja tavoitteiden asettamisesta (Gradutakuu):",
         "link": "https://gradutakuu.fi/sisallys/"
       }
@@ -35,18 +37,22 @@
     ],
     "links": [
       {
+        "id": 3,
         "description": "Kangertaako kandityö? (Plotti):",
         "link": "http://www.plotti.fi/2018/01/29/kangertaako-kandityo/"
       },
       {
+        "id": 4,
         "description": "Miten vähentää prokrastinaatiota? (Nyyti ry):",
         "link": "https://www.nyyti.fi/opiskelijoille/opi-elamantaitoa/ajanhallinta/prokrastinaatio/miten-vahentaa-prokrastinaatiota/"
       },
       {
+        "id": 5,
         "description": "Hyviä vinkkejä kirjoittamisen esteiden voittamiseen löytyy kirjoittamisoppaista kuten Svinhufvudin \"Kokonaisvaltainen kirjoittaminen\" ja \"Riittävän hyvää kirjoittamista\" sekä Hakalan \"Tulevan maisterin graduopas\" ja Gradutakuu-sivustolta:",
         "link": "https://gradutakuu.fi/sisallys/"
       },
       {
+        "id": 6,
         "description": "Jos sinua mietityttää esim. lukivaikeuteen tai mielen hyvinvointiin liittyvät asiat, saat lisätietoa korkeakoulusi verkkosivuilta (HY):",
         "link": "https://studies.helsinki.fi/ohjeet/artikkeli/opiskelun-tueksi"
       }
@@ -63,6 +69,7 @@
     "listPoints": [],
     "links": [
       {
+        "id": 7,
         "description": "Lue lisää akateemisista tekstitaidoista (Kokonaisvaltainen kirjoittaminen -blogi):",
         "link": "https://kokonaisvaltainenkirjoittaminen.fi/2011/02/15/akateemisen-kirjoittamisen-opetus/"
       }
@@ -84,14 +91,17 @@
     ],
     "links": [
       {
+        "id": 8,
         "description": "Millaisia tekstilajeja opiskelija tarvitsee? (Kielijelppi):",
         "link": "https://blogs.helsinki.fi/kielijelppi/opiskelijoiden-tekstilajeja/"
       },
       {
+        "id": 9,
         "description": "Akateeminen essee for dummies (Plotti):",
         "link": "http://www.plotti.fi/2021/02/23/akateeminen-opiskeluessee-for-dummies/"
       },
       {
+        "id": 10,
         "description": "Lue akateemisista käytänteistä e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
         "link": "https://www.ellibslibrary.com/book/9789523455115"
       }
@@ -108,6 +118,7 @@
     "listPoints": [],
     "links": [
       {
+        "id": 11,
         "description": "Lue tieteellisen referoimisesta (luku 6) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
         "link": "https://www.ellibslibrary.com/book/9789523455115"
       }
@@ -128,18 +139,22 @@
     ],
     "links": [
       {
+        "id": 12,
         "description": "Lue tieteellisen referoimisesta (luku 6) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
         "link": "https://blogs.helsinki.fi/kielijelppi/lukeminen-ja-referoiminen/"
       },
       {
+        "id": 13,
         "description": "Tiedon käyttö ja arviointi (Opiskelijan digitaidot):",
         "link": "https://blogs.helsinki.fi/opiskelijan-digitaidot/3-tiedonhankinta/3-4-loydetyn-tiedon-kaytto-ja-arviointi/"
       },
       {
+        "id": 14,
         "description": "Lähteiden käyttö ja tekijänoikeudet:",
         "link": "https://tiedelukutaito.mooc.fi/part-5/2-lahteiden-kaytto-ja-tekijanoikeudet"
       },
       {
+        "id": 15,
         "description": "Lue argumentoinnista, referoimisesta ja viittaamisesta (luvut 5 ja 6) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
         "link": "https://www.ellibslibrary.com/book/9789523455115"
       }
@@ -156,10 +171,12 @@
     "listPoints": [],
     "links": [
       {
+        "id": 16,
         "description": "Lue lisää palautteesta (Plotti):",
         "link": "http://www.plotti.fi/2020/08/14/palautetta-hopeatarjottimella-vaikuta-palautekokemuksiisi/"
       },
       {
+        "id": 17,
         "description": "Lue kirjoittamisen sosiaalisesta luonteesta:",
         "link": "https://antroblogi.fi/2017/06/sinun-tekstisi-ei-ole-sinun/"
       }
@@ -181,18 +198,22 @@
     ],
     "links": [
       {
+        "id": 18,
         "description": "Apua suunnitteluun Gradutakuu-sivustolta:",
         "link": "https://gradutakuu.fi/sisallys/"
       },
       {
+        "id": 19,
         "description": "Kalmanviiva häämöttää (Plotti):",
         "link": "http://www.plotti.fi/2023/04/20/kalmanviiva/"
       },
       {
+        "id": 20,
         "description": "Tehoa kirjoittamiseen Pomodoro-tekniikan avulla (Gradutakuu):",
         "link": "https://gradutakuu.fi/2010/02/18/pomodoro-tekniikalla-tehokkuutta-ja-ajanhallintaa/"
       },
       {
+        "id": 21,
         "description": "Miten vähentää prokrastinaatiota? (Nyyti ry):",
         "link": "https://www.nyyti.fi/opiskelijoille/opi-elamantaitoa/ajanhallinta/prokrastinaatio/miten-vahentaa-prokrastinaatiota/"
       }
@@ -209,6 +230,7 @@
     "listPoints": [],
     "links": [
       {
+        "id": 22,
         "description" :"Lue tieteellisen tekstin rakenteesta ja argumentoinnista (luvut 4 ja 5) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
         "link": "https://www.ellibslibrary.com/book/9789523455115"
       }
@@ -225,18 +247,22 @@
     "listPoints": [],
     "links": [
     {
+      "id": 23,
       "description": "Tekstin rakenteeseen kannattaa perehtyä myös tietoisesti opettelemalla esimerkiksi jäsentelytapoja (Kielijelppi):",
       "link": "https://blogs.helsinki.fi/kielijelppi/jasentelyvaihe-antaa-tekstille-hahmon/"
     },
     {
+      "id": 24,
       "description": "Informaatiorakenne (Kirjoittajan ABC):",
       "link": "https://webcgi.oulu.fi/oykk/abc/tekstinhuolto/tekstin_rakenne/informaatiorakenne/"
     },
     {
+      "id": 25,
       "description": "Sidosteisuus (Kirjoittajan ABC):",
       "link": "https://webcgi.oulu.fi/oykk/abc/tekstinhuolto/tekstin_rakenne/sidosteisuus/"
     },
     {
+      "id": 26,
       "description": "Lue metatekstistä ja tieteellisen tekstin rakenteesta (luvut 4 ja 5) e-kirjasta Tiede ja teksti – Tehoa ja taitoa tutkielman kirjoittamiseen (lainattavissa Haka-tunnuksilla ja kirjastoista):",
       "link": "https://www.ellibslibrary.com/book/9789523455115"
     }
@@ -254,10 +280,12 @@
     "listPoints": [],
     "links": [
       {
+        "id": 27,
         "description": "Kielitoimiston ohjepankki:",
         "link": "http://www.kielitoimistonohjepankki.fi/"
       },
       {
+        "id": 28,
         "description": "Tukea tekstin viimeistelyyn (Kielijelppi):",
         "link": "https://blogs.helsinki.fi/kielijelppi/viimeistely/"
       }
@@ -274,22 +302,27 @@
     "listPoints": [],
     "links": [
       {
+        "id": 29,
         "description": "Tutustu esim. Kirjoittajan ABC-korttiin, jonka Kielenhuolto-osio on tarkoitettu pulmallisten kieliasioiden itseopiskeluun ja harjoitteluun:",
         "link": "https://webcgi.oulu.fi/oykk/abc/"
       },
       {
+        "id": 30,
         "description": "Kielenhuoltopähkinät (Kotus):",
         "link": "https://www.kotus.fi/ohjeet/kieli-_ja_nimitestit/kielenhuoltopahkinat"
       },
       {
+        "id": 31,
         "description": "Tukea tekstin viimeistelyyn (Kielijelppi):",
         "link": "https://blogs.helsinki.fi/kielijelppi/viimeistely/"
       },
       {
+        "id": 32,
         "description": "Ahdistavaa pilkunviilausta ja kuivaa kielioppia vai jotakin muuta? (Plotti):",
         "link": "http://www.plotti.fi/2018/10/04/ahdistavaa-pilkunviilausta-ja-kuivaa-kielioppia-vai-jotakin-muuta-kokemuksia-kielen-ja-tekstinhuollon-kurssilta/"
       },
       {
+        "id": 33,
         "description": "Lisää apua saat Kielitoimiston ohjepankista:",
         "link": "http://www.kielitoimistonohjepankki.fi/"
       }
