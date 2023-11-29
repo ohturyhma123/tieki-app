@@ -195,7 +195,7 @@ const EditResults = () => {
                       })}
                     </AccordionDetails>
                   </Accordion>
-                  <p>Huom! Muista lisätä HTTP- tai HTTPS-protokolla (http:// tai https://) linkin alkuun, jotta linkki toimii oikein.</p>
+                  <p>Huom! Muista lisätä HTTP- tai HTTPS-protokolla (http:// tai https://) linkin url-osoitteen alkuun, jotta linkki toimii oikein.</p>
                   <Accordion style={{
                     marginBottom: '20px',
                     backgroundColor: '#f8f8f8',
@@ -312,6 +312,7 @@ const EditResults = () => {
                       }
                     </AccordionDetails>
                   </Accordion>
+                  <p>Huom! Muista lisätä HTTP- tai HTTPS-protokolla (http:// tai https://) linkin url-osoitteen alkuun, jotta linkki toimii oikein.</p>
                   <Accordion style={{
                     marginBottom: '20px',
                     backgroundColor: '#f8f8f8',

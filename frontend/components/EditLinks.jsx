@@ -184,7 +184,7 @@ const EditLinks = () => {
                 onChange={(e) => handleDescriptionChange(link.id, e.target.value)}
                 style={{ marginBottom: '20px' }}
               />
-              <p>Huom! Muista lisätä HTTP- tai HTTPS-protokolla (http:// tai https://) linkin alkuun, jotta linkki toimii oikein.</p>
+              <p>Huom! Muista lisätä HTTP- tai HTTPS-protokolla (http:// tai https://) linkin url-osoitteen alkuun, jotta linkki toimii oikein.</p>
               <TextField
                 id={`url-${link.id}`}
                 label="Linkin URL"
@@ -215,7 +215,7 @@ const EditLinks = () => {
       Tallenna
           </Button>
         </div>
-        <p style={{ background: 'white', padding: '10px', borderRadius: '3px' }}>Huom! Muista lisätä HTTP- tai HTTPS-protokolla (http:// tai https://) linkin alkuun, jotta linkki toimii oikein.</p>
+        <p style={{ background: 'white', padding: '10px', borderRadius: '3px' }}>Huom! Muista lisätä HTTP- tai HTTPS-protokolla (http:// tai https://) linkin url-osoitteen alkuun, jotta linkki toimii oikein.</p>
         <TextField
           label="Uuden linkin nimi"
           id={'newLinkName'}
