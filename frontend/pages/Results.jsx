@@ -16,9 +16,7 @@ const Results = () => {
   const [imgSource, setImageSource] = useState(null)
 
   useEffect(() => {
-
     const fetchImage = async () => {
-
       const chart = document.getElementsByClassName('radarchart').radarchart
       const image = await htmlToImage.toPng(chart)
       setImageSource(image)
@@ -67,7 +65,7 @@ const Results = () => {
     <Grid container direction="column" justifyContent="center" alignItems="center">
       <img
         src={monochromeBackground}
-        alt="monochromeBackground"
+        alt="monochrome background"
         style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
           width: '100%', height: '100%', zIndex: -1 }}
       />
@@ -109,10 +107,13 @@ const Results = () => {
                   </div>
                 </Grid>
               </Grid>
-              <Grid sx={{ my: 3 }} container direction="column" spacing={10} justifyContent="center">
+              <Grid sx={{ my: 2, mt: 3 }} container direction="column" spacing={12} justifyContent="center">
                 <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
                   <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
-                    Voit tallentaa koosteen itsellesi <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>pdf-muodossa.</Link>
+                    Voit tallentaa koosteen itsellesi <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>pdf-muodossa</Link>.
+                  </Typography>
+                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                    Voit palata <Link to='/'>etusivulle</Link> tehdäksesi testin uudelleen.
                   </Typography>
                   <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
                     Voit halutessasi <Link to="https://elomake.helsinki.fi/lomakkeet/126370/lomake.html" target="_blank" rel='noopener noreferrer'>antaa palautetta</Link> testin tekijöille. Kiitos!
@@ -122,9 +123,10 @@ const Results = () => {
             </div>
             :
             <Box>
-              <Typography sx={{ pt: 2 }} variant='h4'>Et valinnut tarpeeksi väitteitä, jotta koosteen voisi muodostaa</Typography>
-              <Typography sx={{ pt: 2, pb: 10 }} variant='h5'>Voit tehdä testin uudelleen ja valita tällä kertaa enemmän väitteitä.</Typography>
-              <Typography variant='h5' >Hyödyllisiä linkkejä löydät <Link to='/links'>linkkisivulta</Link></Typography>
+              <Typography sx={{ pt: 3, pl: 2 }} variant='h4'>Et valinnut tarpeeksi väitteitä, jotta koosteen voisi muodostaa.</Typography>
+              <Typography sx={{ pt: 2, pb: 10, pl: 2 }} variant='h5'>Voit tehdä testin uudelleen ja valita tällä kertaa enemmän väitteitä.</Typography>
+              <Typography sx={{ pl: 2 }} variant='h5'>Palaa tästä <Link to='/'>etusivulle</Link></Typography><p />
+              <Typography sx={{ pl: 2, mb: -1 }} variant='h5' >Hyödyllisiä linkkejä löydät <Link to='/links'>linkkisivulta</Link></Typography>
             </Box>
           }
         </Paper>

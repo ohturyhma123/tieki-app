@@ -134,8 +134,8 @@ User Is Able To Continue Test After Reloading Page
     ${previous_statements}=    Number Of Statements Clicked
     Should Be Equal As Integers    ${previous_statements}    3
 
-User Is Not Able To See Selected Statements After Going Back To Front Page
-    [Documentation]    Checks that the user is not able to see previously selected statements
+User Is Able To See Selected Statements After Going Back To Front Page
+    [Documentation]    Checks that the user is able to see previously selected statements
     ...                after going back to the frontpage.
     Select Statements    1
     Go To Next Page
@@ -145,4 +145,4 @@ User Is Not Able To See Selected Statements After Going Back To Front Page
     Wait Until Page Contains    jotka kuvaavat sinua parhaiten
     Go To Next Page
     ${previous_statements}=    Number Of Statements Clicked
-    Should Be Equal As Integers    ${previous_statements}    0
+    Should Be Equal As Integers    ${previous_statements}    2
