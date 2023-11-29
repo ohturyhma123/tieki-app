@@ -57,10 +57,7 @@ const Statements = () => {
     @param {string} statementId - The id of statement being clicked.
   */
 
-  const homeRoute = () => {
-    sessionStorage.clear()
-    navigate('/')
-  }
+  const homeRoute = () => { navigate('/') }
 
   const handleStatementClick = (statementId) => {
     if (selectedStatements.includes(statementId)) {
