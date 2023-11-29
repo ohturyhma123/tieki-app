@@ -37,6 +37,7 @@ Check No Results
     Wait Until Page Contains    Et valinnut tarpeeksi väitteitä
     Page Should Contain    Voit tehdä testin uudelleen
     Page Should Contain    Hyödyllisiä linkkejä löydät linkkisivulta
+    Page Should Contain    Palaa tästä etusivulle
 
 Check Headers
     [Documentation]    Checks that the headers are in order.
@@ -61,6 +62,6 @@ Go To PDF View From Top
 Go To PDF View From Bottom
     [Documentation]    Clicks the link that takes user to pdf view of the results.
     Wait Until Page Contains    Tulokset
-    Click Link    pdf-muodossa.
+    Click Link    pdf-muodossa
     ${pdf_url}=    Get Location
     Should Be Equal    ${pdf_url}    ${APP_URL}/pdfview
