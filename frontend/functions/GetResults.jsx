@@ -1,5 +1,5 @@
 const GetResults = (scores, resultsData) => {
-  
+
   const positiveCategories = Object.keys(scores).filter((category) => scores[category][0] >= 2)
   const negativeCategories = Object.keys(scores).filter((category) => scores[category][1] <= -2)
 
