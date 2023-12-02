@@ -285,7 +285,7 @@ const EditResults = () => {
                         ?
                         results.links.map((result, index) => {
                           return(
-                            <div key={index}>
+                            <div key={index} style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
                               <TextField
                                 id={`${results._id}`}
                                 label={`Linkin kuvaus ${index+1}`}
@@ -318,7 +318,7 @@ const EditResults = () => {
                       }
                     </AccordionDetails>
                     <AccordionDetails>
-                      <div>
+                      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
                         <TextField
                           label="Linkin kuvaus"
                           variant="outlined"
@@ -436,7 +436,7 @@ const EditResults = () => {
                         ?
                         results.links.map((result, index) => {
                           return(
-                            <div key={index+24}>
+                            <div key={index+24} style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
                               <TextField
                                 id={`${results._id}`}
                                 label={`Linkin kuvaus ${index+1}`}
@@ -469,7 +469,7 @@ const EditResults = () => {
                       }
                     </AccordionDetails>
                     <AccordionDetails>
-                      <div>
+                      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
                         <TextField
                           label="Linkin kuvaus"
                           variant="outlined"
