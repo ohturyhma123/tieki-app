@@ -160,10 +160,10 @@ const EditResults = () => {
         setNewLinkDescription('')
         setNewLinkUrl('')
       } else {
-        console.error('Failed to add link')
+        setHasError(true)
       }
     } catch (error) {
-      console.error(error)
+      setHasError(true)
     }
   }
 
@@ -188,20 +188,18 @@ const EditResults = () => {
 
           // Delete the link at the given index
           if (linkIndex !== -1) {
-            result.links.splice(linkIndex, 1);
+            result.links.splice(linkIndex, 1)
           }
           // Update the state
-          setResults(resultsCopy);
-        } else {
-          console.error('Failed to find result containing link with id: ' + linkId);
+          setResults(resultsCopy)
         }
       } else {
-        console.error('Failed to delete link');
+        setHasError(true)
       }
     } catch (error) {
-      console.error(error);
+      setHasError(true)
     }
-  };
+  }
 
   const { isAdmin, loading, error } = useAdminCheck()
 
