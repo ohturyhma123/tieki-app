@@ -287,7 +287,7 @@ const EditResults = () => {
                           return(
                             <div key={index} style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
                               <TextField
-                                id={`${results._id}`}
+                                id={'linkinkuvaus'}
                                 label={`Linkin kuvaus ${index+1}`}
                                 variant="outlined"
                                 value={result.description}
@@ -320,6 +320,7 @@ const EditResults = () => {
                     <AccordionDetails>
                       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
                         <TextField
+                          id="linkdesc"
                           label="Linkin kuvaus"
                           variant="outlined"
                           value={newLinkDescription}
@@ -327,6 +328,7 @@ const EditResults = () => {
                           style={{ marginBottom: '20px' }}
                         />
                         <TextField
+                          id="linkurl"
                           label="Linkki"
                           variant="outlined"
                           value={newLinkUrl}
@@ -334,6 +336,7 @@ const EditResults = () => {
                           style={{ marginBottom: '20px' }}
                         />
                         <Button
+                          id='addlink'
                           variant="contained"
                           color="primary"
                           onClick={() => handleAddLink(results.id)}

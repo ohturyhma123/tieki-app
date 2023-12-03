@@ -180,3 +180,11 @@ Delete Link
     Wait Until Keyword Succeeds    5x    1s
     ...    Click Element    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/button
     Page Should Contain    Muokkaa linkkejä
+
+Add New Analysis Link
+    # robocop: disable=0508
+    [Documentation]    Adds a new analysis link.
+    [Arguments]    ${linkName}    ${linkUrl}
+    Input Text    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/input    ${linkName}
+    Input Text    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[2]/div/input    ${linkUrl}
+    Click Button    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/button
