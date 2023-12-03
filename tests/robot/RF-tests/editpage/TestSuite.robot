@@ -89,4 +89,12 @@ Add New Analysis Link Sucessfully
     ${COUNTAFTER}=    Get Element Count    id=linkinkuvaus
     Should Be True    ${COUNTAFTER} == ${count_before} + 1
 
-    #Set Analysis DB To Initial State    analysis_index=5    initial_link_name=    initial_link_url=
+Delete Analysis Link Successfully
+    [Documentation]    Checks that an user can delete a link from an analysis.
+    Go To Edit Analysis Page
+    Open Analysis Category Info    5
+    Click Element    xpath=//*[@id="root"]/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[1]
+    ${count_before}=    Get Element Count    id=linkinkuvaus
+    Delete Analysis Link
+    ${COUNTAFTER}=    Get Element Count    id=linkinkuvaus
+    Should Be True    ${COUNTAFTER} == ${count_before} - 1
