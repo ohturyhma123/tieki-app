@@ -309,7 +309,7 @@ const EditResults = () => {
                                 style={{ marginBottom: '20px' }}
                               />
                               <Button
-                                id={`delete-${index}`}
+                                id={'poistonappi'}
                                 variant="contained"
                                 color="secondary"
                                 onClick={() => handleDeleteClick(results.id, result.id)}
