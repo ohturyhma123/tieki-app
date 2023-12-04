@@ -10,7 +10,7 @@ ${APP_URL}    http://localhost:3000
 ${TEST_URL}    http://localhost:3000/test/1
 ${LINK_URL}    http://localhost:3000/links
 ${EDIT_URL}    http://localhost:3000/edit
-${BROWSER}    chrome
+${BROWSER}    headlesschrome
 ${DELAY}    0.5 seconds
 
 ${LINKSAPI}    http://localhost:3000/api/links
