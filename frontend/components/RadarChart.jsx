@@ -36,6 +36,7 @@ const RadarChart = ({ categories, results }) => {
   const options = {
     responsive: true,
     maintainAspectRatio: true,
+    devicePixelRatio: 1.5,
     plugins: {
       legend: {
         display: false
@@ -43,6 +44,12 @@ const RadarChart = ({ categories, results }) => {
     },
     scales: {
       r: {
+        angleLines: {
+          color: 'gray'
+        },
+        grid: {
+          color: 'gray'
+        },
         min: -6,
         max: 6,
         ticks: {
@@ -62,7 +69,7 @@ const RadarChart = ({ categories, results }) => {
     }
   }
   return (
-    <div style= { { width: '500px', height: '500px' } }>
+    <div style= { { width: '600px', height: '600px' } }>
       <Radar data={data} options={options} id="radarchart" className="radarchart" aria-label='radar chart'/>
     </div>
   )

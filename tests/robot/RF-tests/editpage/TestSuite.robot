@@ -12,8 +12,6 @@ Suite Teardown    Close Browser
 
 Test Setup    Go To Editpage
 
-Test Tags    edit
-
 
 *** Test Cases ***
 Edit Page Is Open
@@ -27,10 +25,10 @@ Edit Page Is Open
 Check Link Was Added Successfully
     [Documentation]    Checks that a link was added successfully.
     Go To Edit Link Page
-    Sleep    3
+    Sleep    0.5
     ${count_before}=    Get Element Count    id=linkComponent
     Add Link    Test Link    Test Description    http://test.com
-    Sleep    3
+    Sleep    0.5
     ${COUNTAFTER}=    Get Element Count    id=linkComponent
     Should Be True    ${COUNTAFTER} == ${count_before} + 1
     Set Suite Variable    ${COUNTAFTER}
@@ -76,6 +74,7 @@ Edit Analysis Successfully
     Edit Analysis Link    5    Testinimi    testi.com
     Send Edited Object
     Check Object Was Updated Successfully
+
 
     Set Analysis DB To Initial State    analysis_index=5    initial_link_name=    initial_link_url=
 
