@@ -193,3 +193,8 @@ Delete Analysis Link
     # robocop: disable=0508
     [Documentation]    Deletes an analysis link.
     Click Button    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[2]/button
+
+Click Link Info
+    [Documentation]    Clicks the link info.
+    [Arguments]    ${index}
+    Click Element    xpath=//*[@id="root"]/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[${index}]/div[1]
