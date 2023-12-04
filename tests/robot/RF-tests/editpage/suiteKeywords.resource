@@ -166,7 +166,7 @@ Add New Analysis Link
 Delete Analysis Link
     # robocop: disable=0508
     [Documentation]    Deletes an analysis link.
-    Wait Until Element Is Visible    id=poistonappi
+    Wait Until Element Is Enabled    Poista linkki    10
     Click Button    Poista linkki
 
 Click Link Info
