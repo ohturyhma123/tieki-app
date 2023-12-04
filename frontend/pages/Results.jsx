@@ -14,6 +14,7 @@ import LoadingError from '../components/LoadingError'
 const Results = () => {
 
   const [imgSource, setImageSource] = useState(null)
+  const isMobile = window.innerWidth <= 480
 
   useEffect(() => {
     const fetchImage = async () => {
@@ -76,14 +77,14 @@ const Results = () => {
             <div>
               <Grid container direction={{ xs: 'row', md: 'column' }} spacing={10} justifyContent="center">
                 <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
-                  <Typography sx={{ textAlign: 'center', color: '#323E45', mb: 6 }} variant='h2'>Tulokset</Typography>
-                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45', mb: 4 }} variant='body2'>
+                  <Typography sx={{ textAlign: 'center', color: '#323E45', mb: isMobile ? 3 : 5, mt: 2.5 }} variant={isMobile ? 'h3' : 'h2'}>Tulokset</Typography>
+                  <Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45', mb: 4 }} variant='body2'>
                     <strong>Tästä koosteesta näet, mitä kirjoittamisen osa-alueita painotit valinnoissasi.</strong>
                   </Typography>
-                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                  <Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
                     Tulokset näyttävät ensin vahvuutesi kirjoittajana ja sitten alueet, joissa tarvitset harjoitusta.
                   </Typography>
-                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45',  mt: 4, mb: 6, lineHeight: 2 }} variant='body2'>
+                  <Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45',  mt: 4, mb: 6, lineHeight: 2 }} variant='body2'>
                     Voit saada vahvuuksiin ja kehittämiskohteisiin saman osa-alueen, jos olet painottanut sitä aluetta valinnoissasi.<br/>
                     Tämä tarkoittaa, että pidät sitä tärkeänä: hallitset siihen kuuluvia asioita jo paljon, mutta haluat kehittyä yhä paremmaksi.<br/>
                     Lue tuloksesi ja niistä annetut tulkinnat huolellisesti ja hyödynnä niitä tarpeen mukaan.
@@ -96,37 +97,37 @@ const Results = () => {
               <Grid container direction="row" spacing={10} justifyContent="center">
                 <Grid item xs={12} sm={10} md={10} lg={7} >
                   <div>
-                    <Typography sx={{ py: 2, px:0, my: 2, textAlign: 'center', color: '#323E45' }} variant='h4' className='strengths'>Vahvuudet</Typography>
+                    <Typography sx={{ mb: 3, mt: isMobile ? -28 : 7, textAlign: 'center', fontFamily: '"Lato", sans-serif', color: '#323E45' }} variant='h4' className='strengths'>Vahvuudet</Typography>
                     {strengthText}
                     {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} color={'#d3e8df'} />)}
                   </div>
                   <div>
-                    <Typography sx={{ py: 2, px:0, mt: 4, mb: 2, textAlign: 'center', color: '#323E45' }} variant='h4' className='weaknesses'>Kehityskohteet</Typography>
+                    <Typography sx={{ mb: 3, mt: 9, textAlign: 'center', fontFamily: '"Lato", sans-serif', color: '#323E45' }} variant='h4' className='weaknesses'>Kehityskohteet</Typography>
                     {weaknessText}
                     {negativeResults.map((result) => <ResultAccordion key={result.id} result={result} color={'bisque'}/>)}
                   </div>
                 </Grid>
               </Grid>
-              <Grid sx={{ my: 2, mt: 3 }} container direction="column" spacing={12} justifyContent="center">
+              <Grid sx={{ my: 2, mt: isMobile ?  -1 : 3 }} container direction="column" spacing={12} justifyContent="center">
                 <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
-                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                  <Typography sx={{ fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
                     Voit tallentaa koosteen itsellesi <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>pdf-muodossa</Link>.
                   </Typography>
-                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                  <Typography sx={{ fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
                     Voit palata <Link to='/'>etusivulle</Link> tehdäksesi testin uudelleen.
                   </Typography>
-                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
-                    Voit halutessasi <Link to="https://elomake.helsinki.fi/lomakkeet/126370/lomake.html" target="_blank" rel='noopener noreferrer'>antaa palautetta</Link> testin tekijöille. Kiitos!
+                  <Typography sx={{ fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                    Voit halutessasi <Link to="https://elomake.helsinki.fi/lomakkeet/126370/lomake.html"
+                      target="_blank" rel='noopener noreferrer'>antaa palautetta</Link> testin tekijöille. Kiitos!
                   </Typography>
                 </Grid>
               </Grid>
             </div>
             :
             <Box>
-              <Typography sx={{ pt: 3, pl: 2 }} variant='h4'>Et valinnut tarpeeksi väitteitä, jotta koosteen voisi muodostaa.</Typography>
-              <Typography sx={{ pt: 2, pb: 10, pl: 2 }} variant='h5'>Voit tehdä testin uudelleen ja valita tällä kertaa enemmän väitteitä.</Typography>
-              <Typography sx={{ pl: 2 }} variant='h5'>Palaa tästä <Link to='/'>etusivulle</Link></Typography><p />
-              <Typography sx={{ pl: 2, mb: -1 }} variant='h5' >Hyödyllisiä linkkejä löydät <Link to='/links'>linkkisivulta</Link></Typography>
+              <Typography sx={{ fontFamily: '"Lato", sans-serif', pt: 3, pb: 4, pl: 2 }} variant='h4'>Et valinnut tarpeeksi väitteitä, jotta koosteen voisi muodostaa.</Typography>
+              <Typography sx={{ fontFamily: '"Lato", sans-serif', pt: 2, pb: 4, pl: 2  }} variant='h5'>Palaa tästä <Link to='/'>etusivulle</Link> tehdäksesi testin uudelleen.</Typography><p />
+              <Typography sx={{ fontFamily: '"Lato", sans-serif', pl: 2, mb: -1 }} variant='h5' >Hyödyllisiä linkkejä löydät <Link to='/links'>linkkisivulta</Link>.</Typography>
             </Box>
           }
         </Paper>

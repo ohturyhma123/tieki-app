@@ -35,7 +35,6 @@ Go To Resultpage No Results
 Check No Results
     [Documentation]    Checks that the loaded page is the correct one.
     Wait Until Page Contains    Et valinnut tarpeeksi väitteitä
-    Wait Until Page Contains    Voit tehdä testin uudelleen
     Wait Until Page Contains    Hyödyllisiä linkkejä löydät linkkisivulta
     Wait Until Page Contains    Palaa tästä etusivulle
 
