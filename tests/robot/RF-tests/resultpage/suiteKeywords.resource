@@ -35,9 +35,9 @@ Go To Resultpage No Results
 Check No Results
     [Documentation]    Checks that the loaded page is the correct one.
     Wait Until Page Contains    Et valinnut tarpeeksi väitteitä
-    Page Should Contain    Voit tehdä testin uudelleen
-    Page Should Contain    Hyödyllisiä linkkejä löydät linkkisivulta
-    Page Should Contain    Palaa tästä etusivulle
+    Wait Until Page Contains    Voit tehdä testin uudelleen
+    Wait Until Page Contains    Hyödyllisiä linkkejä löydät linkkisivulta
+    Wait Until Page Contains    Palaa tästä etusivulle
 
 Check Headers
     [Documentation]    Checks that the headers are in order.
