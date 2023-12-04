@@ -47,21 +47,21 @@ const PDFView = () => {
           <Page size={'A4'} style={styles.body}>
             <Image src={imgSrc}></Image>
             {positiveResults.length > 0
-            ? 
+              ?
               <div>
                 <Text style={styles.title}>Vahvuudet</Text>
                 {positiveResults.map(result => <Result key={result.id} result={result} />)}
               </div>
-            : null
+              : null
             }
             <Text style={ { paddingVertical: 25 } }> </Text>
             {negativeResults.length > 0
-            ? 
+              ?
               <div>
                 <Text style={styles.title}>Kehityskohteet</Text>
                 {negativeResults.map(result => <Result key={result.id} result={result} />)}
               </div>
-            : null
+              : null
             }
           </Page>
         </Document>
@@ -75,22 +75,22 @@ const PDFView = () => {
         <Page size={'A4'} style={styles.body}>
           <Image src={imgSrc}></Image>
           {positiveResults.length > 0
-            ? 
-              <div>
-                <Text style={styles.title}>Vahvuudet</Text>
-                {positiveResults.map(result => <Result key={result.id} result={result} />)}
-              </div>
+            ?
+            <div>
+              <Text style={styles.title}>Vahvuudet</Text>
+              {positiveResults.map(result => <Result key={result.id} result={result} />)}
+            </div>
             : null
-            }
-            <Text style={ { paddingVertical: 25 } }> </Text>
-            {negativeResults.length > 0
-            ? 
-              <div>
-                <Text style={styles.title}>Kehityskohteet</Text>
-                {negativeResults.map(result => <Result key={result.id} result={result} />)}
-              </div>
+          }
+          <Text style={ { paddingVertical: 25 } }> </Text>
+          {negativeResults.length > 0
+            ?
+            <div>
+              <Text style={styles.title}>Kehityskohteet</Text>
+              {negativeResults.map(result => <Result key={result.id} result={result} />)}
+            </div>
             : null
-            }
+          }
         </Page>
       </Document>
     )
