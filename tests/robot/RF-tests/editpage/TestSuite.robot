@@ -75,8 +75,8 @@ Edit Analysis Successfully
     Send Edited Object
     Check Object Was Updated Successfully
 
-
     Set Analysis DB To Initial State    analysis_index=5    initial_link_name=    initial_link_url=
+    # robocop: enable=0508
 
 Add New Analysis Link Sucessfully
     [Documentation]    Checks that an user can add a new link to an analysis.
