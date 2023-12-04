@@ -166,8 +166,7 @@ Add New Analysis Link
 Delete Analysis Link
     # robocop: disable=0508
     [Documentation]    Deletes an analysis link.
-    Wait Until Element Is Enabled    Poista linkki    10
-    Click Button    Poista linkki
+    Click Element    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[1]/button
 
 Click Link Info
     [Documentation]    Clicks the link info.
