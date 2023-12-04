@@ -84,6 +84,7 @@ Add New Analysis Link Sucessfully
     Click Link Info    2
     ${count_before}=    Get Element Count    id=linkinkuvaus
     Add New Analysis Link    Testinimi    testi.com
+    Sleep    2
     ${COUNTAFTER}=    Get Element Count    id=linkinkuvaus
     Should Be True    ${COUNTAFTER} == ${count_before} + 1
 

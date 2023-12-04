@@ -161,7 +161,7 @@ Add New Analysis Link
     [Arguments]    ${linkName}    ${linkUrl}
     Input Text    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/input    ${linkName}
     Input Text    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[2]/div/input    ${linkUrl}
-    Click Button    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/button
+    Click Element    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/button
 
 Delete Analysis Link
     # robocop: disable=0508
