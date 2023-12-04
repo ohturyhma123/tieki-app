@@ -18,28 +18,7 @@ The instructions are slightly outdated. If there is no "allow access from anywhe
 
 As long as you have created the cluster and created the database user, you can continue.
 
-3. Install MongoDB Database Tools
-
-Needed for mongoimport
-
-https://www.mongodb.com/docs/database-tools/installation/installation/
-
-After installing, run:
-```bash
-mongoimport --version
-```
-Output should resemble something like this:
-
-```bash
-mongoimport version: 100.9.0
-git version: 4ba95fe0a5b89e20a209c90d0261f6b30bbc0169
-Go version: go1.20.10
-   os: linux
-   arch: amd64
-   compiler: gc
-```
-
-4. Setup project to use your database
+3. Setup project to use your database
 
 Copy .env-template file and rename it .env. Replace `<connection_string>` with your databse URI. You can get the URI from "Connect" -> "Drivers" -> "Step 3". Replace `<password>` with the database password. MAKE SURE to add the DATABASE NAME to the URI (example mongodb.net/tieki-app), it's not there by default.
 
@@ -48,7 +27,7 @@ Example:
 MONGODB_URI=mongodb+srv://mycoolusername:supersecretpassword@cluster0.ahbnuse.mongodb.net/tieki-app?retryWrites=true&w=majority
 ```
 
-5. Import JSON files to MongoDB
+4. Import JSON files to MongoDB
 
 Run in project root:
 ```bash

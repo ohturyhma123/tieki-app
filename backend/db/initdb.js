@@ -1,53 +1,56 @@
-import { exec } from 'child_process'
+import Link from './models/LinkModel.js'
+import Result from './models/ResultModel.js'
+import Statement from './models/StatementModel.js'
+import linksData from '../../data/linksData.json' assert { type: 'json' }
+import resultsData from '../../data/resultsData.json' assert { type: 'json' }
+import statementsData from '../../data/statementsData.json' assert { type: 'json' }
+import { connectToDatabase, disconnectFromDatabase } from './connection.js'
 import { MONGODB_URI } from '../util/config.js'
 
 /**
   This file is only needed to run once: npm run init
 */
-if (MONGODB_URI === '<connection_string>' || MONGODB_URI === '') {
-  console.log('MONGODB_URI environment variable is not set.')
-} else {
-  // Imports the 3 .json files to the database using mongoimport
-  // Check if the URI contains '?', if yes cut the string after, including the ?
-  const index = MONGODB_URI.indexOf('?')
-  const formattedURI = index !== -1 ? MONGODB_URI.slice(0, index) : MONGODB_URI
-  const command1 = `mongoimport --uri ${formattedURI} --collection links --type JSON --file data/linksData.json --jsonArray --maintainInsertionOrder`
+const insertData = async () => {
+  if (MONGODB_URI === '<connection_string>' || MONGODB_URI === '') {
+    console.log('MONGODB_URI environment variable is not set.')
+  } else {
+    try {
+      await connectToDatabase()
 
-  exec(command1, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error: ${error.message}`)
-      return
-    }
-    if (stderr) {
-      console.error(`stderr: ${stderr}`)
-      return
-    }
-    console.log(`stdout: ${stdout}`)
-  })
-  const command2 = `mongoimport --uri ${formattedURI} --collection statements --type JSON --file data/statementsData.json --jsonArray --maintainInsertionOrder`
+      // Drop collections if they exist
+      try {
+        await Link.collection.drop()
+        console.log('links collection dropped successfully')
+      } catch (error) {
+        console.error('links collection does not exist')
+      }
+      try {
+        await Result.collection.drop()
+        console.log('results collection dropped successfully')
+      } catch (error) {
+        console.error('results collection does not exist')
+      }
+      try {
+        await Statement.collection.drop()
+        console.log('statements collection dropped successfully')
+      } catch (error) {
+        console.error('statements collection does not exist')
+      }
 
-  exec(command2, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error: ${error.message}`)
-      return
-    }
-    if (stderr) {
-      console.error(`stderr: ${stderr}`)
-      return
-    }
-    console.log(`stdout: ${stdout}`)
-  })
-  const command3 = `mongoimport --uri ${formattedURI} --collection results --type JSON --file data/resultsData.json --jsonArray --maintainInsertionOrder`
+      // Insert data into the collections
+      await Link.insertMany(linksData)
+      console.log('linksData.json inserted successfully')
+      await Result.insertMany(resultsData)
+      console.log('resultsData.json inserted successfully')
+      await Statement.insertMany(statementsData)
+      console.log('statementsData.json inserted successfully')
 
-  exec(command3, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error: ${error.message}`)
-      return
+    } catch (error) {
+      console.error('Error inserting data:', error)
+    } finally {
+      await disconnectFromDatabase()
     }
-    if (stderr) {
-      console.error(`stderr: ${stderr}`)
-      return
-    }
-    console.log(`stdout: ${stdout}`)
-  })
+  }
 }
+
+insertData()

@@ -49,7 +49,7 @@ const Home = () => {
                 <Typography
                   variant='body2'
                   sx={{ fontSize: 15, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
-                    Valitse joka sivulla 0-3 väitettä, jotka kuvaavat omaa tieteellisen tekstin kirjoittamistasi.
+                    Valitse joka sivulla 0–3 väitettä, jotka kuvaavat omaa tieteellisen tekstin kirjoittamistasi.
                     Liiku eteen- ja taaksepäin pyyhkäisemällä. Takaisin etusivulle pääsee logoa painamalla.<p />
                     Itsearviointitestin tekeminen vie aikaa noin 10 minuuttia. Testi on anonyymi.<p />
                     Lopuksi saat valitsemiesi väitteiden pohjalta koosteen kirjoittamisesi vahvuuksista ja kehittämiskohteista.
@@ -94,7 +94,7 @@ const Home = () => {
               sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mt: 2, ml: -7.2 }}>
                 Valitse joka sivulla 0–3 väitettä, jotka kuvaavat omaa tieteellisen tekstin kirjoittamistasi.<br />
                 Itsearviointitestin tekeminen vie aikaa noin 10 minuuttia.<br />
-                 Testi on anonyymi.
+                Testi on anonyymi.
             </Typography>
             <Typography
               variant='body2'

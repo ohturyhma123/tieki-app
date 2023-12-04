@@ -8,6 +8,7 @@
     "prod": "NODE_ENV=production node backend/index.js",
     "e2e": "cross-env NODE_ENV=test concurrently \"nodemon backend/index.js\" \"vite\"",
     "init": "node backend/db/initdb.js",
+    "init-e2e": "cross-env NODE_ENV=test node backend/db/initdb.js",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "lint-fix": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0 --fix",

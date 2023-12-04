@@ -25,7 +25,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/test/:urlIndex" element={<Statements />} />
-        <Route path="/test/confirm" element={<Statements />} />
         <Route path="/results" element={<Results />} />
         <Route path="/pdfview" element={<PDFView />} />
         <Route path="/links" element={<Links />} />

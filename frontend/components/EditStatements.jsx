@@ -10,6 +10,9 @@ import getPositiveStatements from '../functions/PositiveStatements'
 import getNegativeStatements from '../functions/NegativeStatements'
 import SaveConfirm from './SaveConfirm'
 import SaveError from './SaveError'
+import LoadingScreen from './LoadingScreen'
+import NotAdmin from './NotAdmin'
+import LoadingError from './LoadingError'
 
 const baseUrl = '/api/statements'
 
@@ -83,15 +86,15 @@ const EditStatements = () => {
   const { isAdmin, loading, error } = useAdminCheck()
 
   if (loading) {
-    return <div>Ladataan sivua...</div>
+    return <LoadingScreen/>
   }
 
   if (!isAdmin) {
-    return <div>Käyttö estetty</div>
+    return <NotAdmin/>
   }
 
   if (error) {
-    return <div>Virhe käyttäjän oikeuksien tarkistuksessa</div>
+    return <LoadingError errorMessage={'Virhe käyttäjän oikeuksien tarkistuksessa'}/>
   }
 
   return (

@@ -2,21 +2,21 @@ import { Link, useLocation } from 'react-router-dom'
 import ResultAccordion from '../components/ResultAccordion'
 import RadarChart from '../components/RadarChart'
 import monochromeBackground from '../assets/monochrome-background.jpg'
-import { Box, Paper, Typography, Grid, Container, CircularProgress } from '@mui/material'
+import { Box, Paper, Typography, Grid, Container } from '@mui/material'
 import { useEffect, useState } from 'react'
 import * as htmlToImage from 'html-to-image'
 import CalculateCategoryScores from '../functions/CalculateCategoryScores'
 import GetResults from '../functions/GetResults'
 import useApi from '../hooks/useApi'
+import LoadingScreen from '../components/LoadingScreen'
+import LoadingError from '../components/LoadingError'
 
 const Results = () => {
 
   const [imgSource, setImageSource] = useState(null)
 
   useEffect(() => {
-
     const fetchImage = async () => {
-
       const chart = document.getElementsByClassName('radarchart').radarchart
       const image = await htmlToImage.toPng(chart)
       setImageSource(image)
@@ -54,43 +54,18 @@ const Results = () => {
   }
 
   if (loadingStatements || loadingResults) {
-    return (
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
-        <img
-          src={monochromeBackground}
-          alt="monochromeBackground"
-          style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
-            width: '100%', height: '100%', zIndex: -1 }}
-        />
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <CircularProgress sx={{ mr: 2 }} />
-          <Typography>Ladataan sivua...</Typography>
-        </Box>
-      </Grid>
-    )
+    return <LoadingScreen/>
   }
 
   if (errorStatements || errorResults) {
-    return (
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
-        <img
-          src={monochromeBackground}
-          alt="monochromeBackground"
-          style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
-            width: '100%', height: '100%', zIndex: -1 }}
-        />
-        <Box sx={{ p: 5 }}>
-          <Typography>Virhe tulosten lataamisessa</Typography>
-        </Box>
-      </Grid>
-    )
+    return <LoadingError errorMessage={'Virhe tulosten lataamisessa'}/>
   }
 
   return (
     <Grid container direction="column" justifyContent="center" alignItems="center">
       <img
         src={monochromeBackground}
-        alt="monochromeBackground"
+        alt="monochrome background"
         style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
           width: '100%', height: '100%', zIndex: -1 }}
       />
@@ -99,21 +74,16 @@ const Results = () => {
           {positiveResults.length > 0 || negativeResults.length > 0
             ?
             <div>
-              <Grid container direction="column" spacing={10} justifyContent="center">
-                <Grid item>
-                  <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>
-                    <Typography sx={{ textAlign: 'right' }}>Näytä tulokset PDF-tiedostona</Typography>
-                  </Link>
-                </Grid>
+              <Grid container direction={{ xs: 'row', md: 'column' }} spacing={10} justifyContent="center">
                 <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
-                  <Typography sx={{ textAlign: 'center', color: '#323E45', mb: 15 }} variant='h2'>Tulokset</Typography>
+                  <Typography sx={{ textAlign: 'center', color: '#323E45', mb: 6 }} variant='h2'>Tulokset</Typography>
                   <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45', mb: 4 }} variant='body2'>
                     <strong>Tästä koosteesta näet, mitä kirjoittamisen osa-alueita painotit valinnoissasi.</strong>
                   </Typography>
                   <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
                     Tulokset näyttävät ensin vahvuutesi kirjoittajana ja sitten alueet, joissa tarvitset harjoitusta.
                   </Typography>
-                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45',  mt: 4, mb: 15, lineHeight: 2 }} variant='body2'>
+                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45',  mt: 4, mb: 6, lineHeight: 2 }} variant='body2'>
                     Voit saada vahvuuksiin ja kehittämiskohteisiin saman osa-alueen, jos olet painottanut sitä aluetta valinnoissasi.<br/>
                     Tämä tarkoittaa, että pidät sitä tärkeänä: hallitset siihen kuuluvia asioita jo paljon, mutta haluat kehittyä yhä paremmaksi.<br/>
                     Lue tuloksesi ja niistä annetut tulkinnat huolellisesti ja hyödynnä niitä tarpeen mukaan.
@@ -137,10 +107,13 @@ const Results = () => {
                   </div>
                 </Grid>
               </Grid>
-              <Grid sx={{ my: 3 }} container direction="column" spacing={10} justifyContent="center">
+              <Grid sx={{ my: 2, mt: 3 }} container direction="column" spacing={12} justifyContent="center">
                 <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
                   <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
-                    Voit tallentaa koosteen itsellesi <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>pdf-muodossa.</Link>
+                    Voit tallentaa koosteen itsellesi <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>pdf-muodossa</Link>.
+                  </Typography>
+                  <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                    Voit palata <Link to='/'>etusivulle</Link> tehdäksesi testin uudelleen.
                   </Typography>
                   <Typography sx={{ fontSize: '18px', textAlign: 'center', color: '#323E45' }} variant='body2'>
                     Voit halutessasi <Link to="https://elomake.helsinki.fi/lomakkeet/126370/lomake.html" target="_blank" rel='noopener noreferrer'>antaa palautetta</Link> testin tekijöille. Kiitos!
@@ -150,9 +123,10 @@ const Results = () => {
             </div>
             :
             <Box>
-              <Typography sx={{ pt: 2 }} variant='h4'>Et valinnut tarpeeksi väitteitä, jotta koosteen voisi muodostaa</Typography>
-              <Typography sx={{ pt: 2, pb: 10 }} variant='h5'>Voit tehdä testin uudelleen ja valita tällä kertaa enemmän väitteitä.</Typography>
-              <Typography variant='h5' >Hyödyllisiä linkkejä löydät <Link to='/links'>linkkisivulta</Link></Typography>
+              <Typography sx={{ pt: 3, pl: 2 }} variant='h4'>Et valinnut tarpeeksi väitteitä, jotta koosteen voisi muodostaa.</Typography>
+              <Typography sx={{ pt: 2, pb: 10, pl: 2 }} variant='h5'>Voit tehdä testin uudelleen ja valita tällä kertaa enemmän väitteitä.</Typography>
+              <Typography sx={{ pl: 2 }} variant='h5'>Palaa tästä <Link to='/'>etusivulle</Link></Typography><p />
+              <Typography sx={{ pl: 2, mb: -1 }} variant='h5' >Hyödyllisiä linkkejä löydät <Link to='/links'>linkkisivulta</Link></Typography>
             </Box>
           }
         </Paper>

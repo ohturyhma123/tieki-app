@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 //import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { TextField, Button, Accordion, AccordionSummary, AccordionDetails, Typography, Grid, CircularProgress, Box } from '@mui/material'
+import { TextField, Button, Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import '../assets/EditLinks.css'
 import homeBackground from '../assets/home-background.jpg'
@@ -9,6 +9,9 @@ import monochromeBackground from '../assets/monochrome-background.jpg'
 import useAdminCheck from '../hooks/useAdminCheck'
 import SaveConfirm from './SaveConfirm'
 import SaveError from './SaveError'
+import LoadingScreen from './LoadingScreen'
+import LoadingError from './LoadingError'
+import NotAdmin from './NotAdmin'
 
 const baseUrl = '/api/links'
 
@@ -130,61 +133,15 @@ const EditLinks = () => {
   const { isAdmin, loading, error } = useAdminCheck()
 
   if (loading) {
-    return (
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
-        <picture>
-          <source media="(max-width: 1200px), (max-height: 700px)" srcSet={monochromeBackground} />
-          <img
-            src={homeBackground}
-            alt="homeBackground"
-            style={{ maxWidth: '100%', maxHeight: '100%', position: 'absolute', top: 0, left: 0, right: 0,
-              width: '100%', height: '100%', zIndex: -1 }}
-          />
-        </picture>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <CircularProgress sx={{ mr: 2 }} />
-          <Typography>Ladataan sivua...</Typography>
-        </Box>
-      </Grid>
-    )
+    return <LoadingScreen/>
   }
 
   if (!isAdmin) {
-    return (
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
-        <picture>
-          <source media="(max-width: 1200px), (max-height: 700px)" srcSet={monochromeBackground} />
-          <img
-            src={homeBackground}
-            alt="homeBackground"
-            style={{ maxWidth: '100%', maxHeight: '100%', position: 'absolute', top: 0, left: 0, right: 0,
-              width: '100%', height: '100%', zIndex: -1 }}
-          />
-        </picture>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography>Tämä sivu on vain ylläpitäjille</Typography>
-        </Box>
-      </Grid>
-    )
+    return <NotAdmin/>
   }
 
   if (error) {
-    return (
-      <Grid container justifyContent="center" alignItems="center" style={{ height: '80vh' }}>
-        <picture>
-          <source media="(max-width: 1200px), (max-height: 700px)" srcSet={monochromeBackground} />
-          <img
-            src={homeBackground}
-            alt="homeBackground"
-            style={{ maxWidth: '100%', maxHeight: '100%', position: 'absolute', top: 0, left: 0, right: 0,
-              width: '100%', height: '100%', zIndex: -1 }}
-          />
-        </picture>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography>Virhe käyttäjän oikeuksien tarkistuksessa</Typography>
-        </Box>
-      </Grid>
-    )
+    return <LoadingError errorMessage={'Virhe käyttäjän oikeuksien tarkistuksessa'}/>
   }
 
   return (
