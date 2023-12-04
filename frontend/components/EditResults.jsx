@@ -129,6 +129,12 @@ const EditResults = () => {
   }
 
   const handleAddLink = async (resultId) => {
+    // Check if the input is empty
+    if (!newLinkDescription || !newLinkUrl) {
+      setHasError(true)
+      return
+    }
+
     // Create a new link object
     const newLink = {
       description: newLinkDescription,

@@ -98,3 +98,12 @@ Delete Analysis Link Successfully
     Delete Analysis Link
     ${COUNTAFTER}=    Get Element Count    id=linkinkuvaus
     Should Be True    ${COUNTAFTER} == ${count_before} - 1
+
+Empty Link Description And URL Cannot Be Added
+    # robocop: disable=0508
+    [Documentation]    Checks that an error message is shown when the user tries to add a link with an empty description and URL.
+    Go To Edit Analysis Page
+    Open Analysis Category Info    5
+    Click Element    xpath=//*[@id="root"]/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[1]
+    Add New Analysis Link    ${EMPTY}    ${EMPTY}
+    Wait Until Page Contains    Tietojen tallennus epäonnistui
