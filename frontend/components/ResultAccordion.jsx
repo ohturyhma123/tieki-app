@@ -5,7 +5,10 @@ import Typography from '@mui/material/Typography'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { Link, List, ListItem } from '@mui/material'
 
-const ResultAccordion = ({ result, color }) => {
+const ResultAccordion = ({ result, color, index }) => {
+
+  const analysisId = `analysis${index}`
+
   return (
     <Accordion sx={{ borderRadius: 2 }}>
       <AccordionSummary
@@ -19,7 +22,7 @@ const ResultAccordion = ({ result, color }) => {
           px: 2,
         }}
       >
-        <Typography variant='h5'>{result.category}</Typography>
+        <Typography variant='h5' className={analysisId}>{result.category}</Typography>
       </AccordionSummary>
       <AccordionDetails sx={{ pt: 2, backgroundColor: 'silk' }}>
         {result.textSegments.map((result) => <Typography variant='body1' key={result} paragraph>{result}</Typography>)}
