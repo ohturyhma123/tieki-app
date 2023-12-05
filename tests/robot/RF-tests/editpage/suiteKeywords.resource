@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    This file contains common keywords and variables used with test suites.
 
+Library    SeleniumLibrary
 
 *** Keywords ***
 Check Edit Links Is Visible
@@ -8,15 +9,15 @@ Check Edit Links Is Visible
     Page Should Contain    Muokkaa linkkejä
 
 Check Edit Statements Is Visible
-    [Documentation]    Checks that the edit links button is visible.
+    [Documentation]    Checks that the edit statements button is visible.
     Page Should Contain    Muokkaa väittämiä
 
 Check Edit Results Is Visible
-    [Documentation]    Checks that the edit links button is visible.
+    [Documentation]    Checks that the edit results button is visible.
     Page Should Contain    Muokkaa analyyseja
 
 Check Log Out Is Visible
-    [Documentation]    Checks that the edit links button is visible.
+    [Documentation]    Checks that the logout button is visible.
     Page Should Contain    Kirjaudu ulos
 
 Go To Edit Link Page
@@ -24,12 +25,14 @@ Go To Edit Link Page
     Click Button    Muokkaa linkkejä
     Page Should Contain    Muokkaa linkkejä
     Page Should Contain    Tallenna
+    Wait Until Page Contains    Kirjoittajan ABC
 
 Go To Edit Statements Page
     [Documentation]    Clicks the button that takes the user to edit statements page.
     Click Button    Muokkaa väittämiä
     Page Should Contain    Positiiviset väittämät
     Page Should Contain    Negatiiviset väittämät
+    Wait Until Page Contains    Kirjoittamiseen liittyvät tunteet ja ajatukset
 
 Go To Edit Analysis Page
     [Documentation]    Clicks the button that takes the user to edit analyses page.
@@ -37,56 +40,43 @@ Go To Edit Analysis Page
     Page Should Contain    Muokkaa analyyseja
     Page Should Contain    Positiiviset analyysit
     Page Should Contain    Negatiiviset analyysit
+    Wait Until Page Contains    Kirjoittamiseen liittyvät tunteet ja ajatukset
 
 Open Link Info
     [Documentation]    Opens the links info that is edited.
     [Arguments]    ${link_index}
     Click Element    xpath=//*[@id="root"]/div[2]/div/div[${link_index}]/div[1]
+    Sleep    0.5
 
 Open Statement Category Info
     [Documentation]    Opens the statement category info that is edited.
     [Arguments]    ${category_index}
     Click Element    xpath=//*[@id="root"]/div[2]/div/div[${category_index}]/div/div[1]
+    Sleep    0.5
 
 Open Analysis Category Info
     [Documentation]    Opens the analyses info that is edited.
     [Arguments]    ${analysis_index}
     Click Element    xpath=//*[@id="root"]/div[2]/div/div[${analysis_index}]/div/div[1]/div[1]
+    Sleep    0.5
 
 Edit Analysis Link
-    # robocop: disable=0508,0503
+    # robocop: disable=0508
     [Documentation]    Edits analysis text segment.
     [Arguments]    ${analysis_index}    ${new_link_name}    ${new_url}
     Click Element    xpath=//*[@id="root"]/div[2]/div/div[${analysis_index}]/div/div[2]/div/div/div/div/div[2]/div[1]
-
-    ${link_name}=    Get Element Attribute    locator=xpath:/html/body/div/div[2]/div/div[${analysis_index}]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/input   attribute=value
-    ${link_name_length}=    Get Length    ${link_name}
-    FOR    ${index_n}    IN RANGE    0    ${link_name_length}
-        Press Keys    xpath=/html/body/div/div[2]/div/div[${analysis_index}]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/input    BACKSPACE
-        IF    ${index_n} == ${link_name_length}    BREAK
-    END
+    Sleep    0.5
+    Press Keys    xpath=/html/body/div/div[2]/div/div[${analysis_index}]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/input    CTRL+A+BACKSPACE
     Input Text    xpath=/html/body/div/div[2]/div/div[${analysis_index}]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/input    ${new_link_name}
-
-    ${link_url}=    Get Element Attribute    locator=xpath:/html/body/div/div[2]/div/div[${analysis_index}]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div/div/div[2]/div/input   attribute=value
-    ${link_url_length}=    Get Length    ${link_url}
-    FOR    ${index_n}    IN RANGE    0    ${link_url_length}
-        Press Keys    xpath=/html/body/div/div[2]/div/div[${analysis_index}]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div/div/div[2]/div/input    BACKSPACE
-        IF    ${index_n} == ${link_url_length}    BREAK
-    END
+    Press Keys    xpath=/html/body/div/div[2]/div/div[${analysis_index}]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div/div/div[2]/div/input    CTRL+A+BACKSPACE
     Input Text    xpath=/html/body/div/div[2]/div/div[${analysis_index}]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div/div/div[2]/div/input    ${new_url}
-    # robocop: disable=0508,0503
+    # robocop: disable=0508
 
 Edit Statement
     [Documentation]    Removes old statement and inputs new statement.
     [Arguments]    ${statement_id}    ${new_statement}
-    ${statement}=    Get Element Attribute    locator=id:statement-${statement_id}   attribute=value
-    ${statement_length}=    Get Length    ${statement}
-    FOR    ${index_n}    IN RANGE    0    ${statement_length}
-        Press Keys    id=statement-${statement_id}    BACKSPACE
-        IF    ${index_n} == ${statement_length}    BREAK
-    END
-    Wait Until Keyword Succeeds    5x    1s
-    ...    Input Text    id=statement-${statement_id}    ${new_statement}
+    Press Keys    id=statement-${statement_id}    CTRL+A+BACKSPACE
+    Input Text    id=statement-${statement_id}    ${new_statement}
 
 Add Link
     [Documentation]    Adds a new link.
@@ -101,46 +91,31 @@ Add Link
     Wait Until Page Contains    Muokkaa linkkejä
 
 Edit Link Name
-    # robocop: disable=0508
     [Documentation]    Removes old link name and inputs new name.
     [Arguments]    ${link_index}    ${new_name}
-    ${name}=    Get Element Attribute    locator=id:name-${link_index}    attribute=value
-    ${name_length}=    Get Length    ${name}
-    FOR    ${index_n}    IN RANGE    0    ${name_length}+1
-        Press Keys    id=name-${link_index}    BACKSPACE
-        IF    ${index_n} == ${name_length}+1    BREAK
-    END
+    Press Keys    id=name-${link_index}    CTRL+A+BACKSPACE
     Input Text    id=name-${link_index}     ${new_name}
 
 Edit Link Description
-    # robocop: disable=0508
     [Documentation]    Removes old link name and inputs new name.
     [Arguments]    ${link_index}    ${new_description}
-    ${description}=    Get Element Attribute    locator=id:description-${link_index}    attribute=value
-    ${description_length}=    Get Length    ${description}
-    FOR    ${index_d}    IN RANGE    0    ${description_length}+1
-        Press Keys    id=description-${link_index}      BACKSPACE
-        IF    ${index_d} == ${description_length}+1    BREAK
-    END
+    Press Keys    id=description-${link_index}      CTRL+A+BACKSPACE
     Input Text    id=description-${link_index}    ${new_description}
 
 Send Edited Object
     [Documentation]    Saves the edited link.
     Click Button    Tallenna
-    Sleep    3
 
 Check Object Was Updated Successfully
     [Documentation]    Checks that correct alert occurs if link is saved successfully.
-    Page Should Contain    Tiedot tallennettu onnistuneesti
+    Wait Until Page Contains    Tiedot tallennettu onnistuneesti
     Click Button    OK
-    Sleep    3
     Page Should Contain    Muokkaussivu
 
 Check Object Was Updated Unsuccessfully
     [Documentation]    Checks that correct alert occurs if link is not saved.
-    Page Should Contain    Tietojen tallennus epäonnistui
+    Wait Until Page Contains    Tietojen tallennus epäonnistui
     Click Button    OK
-    Sleep    3
     Page Should Contain    Tallenna
 
 Set Link DB To Initial State
@@ -177,6 +152,27 @@ Set Analysis DB To Initial State
 Delete Link
     [Documentation]    Deletes the link.
     [Arguments]    ${link_index}
-    Wait Until Keyword Succeeds    5x    1s
-    ...    Click Element    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/button
+    Click Element    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/button
+    Sleep    0.5
     Page Should Contain    Muokkaa linkkejä
+
+Add New Analysis Link
+    # robocop: disable=0508
+    [Documentation]    Adds a new analysis link.
+    [Arguments]    ${linkName}    ${linkUrl}
+    Wait Until Element Is Enabled    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/input    10
+    Input Text    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/input    ${linkName}
+    Wait Until Element Is Enabled    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[2]/div/input    10
+    Input Text    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[2]/div/input    ${linkUrl}
+    Click Element    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/button
+
+Delete Analysis Link
+    # robocop: disable=0508
+    [Documentation]    Deletes an analysis link.
+    Wait Until Element Is Enabled    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[1]/button    10
+    Click Element    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[1]/button
+
+Click Link Info
+    [Documentation]    Clicks the link info.
+    [Arguments]    ${index}
+    Click Element    xpath=//*[@id="root"]/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[${index}]/div[1]

@@ -56,6 +56,9 @@ const Statements = () => {
     If statement is not selected and the count is less than 3, it selects the statement and increments count.
     @param {string} statementId - The id of statement being clicked.
   */
+
+  const homeRoute = () => { navigate('/') }
+
   const handleStatementClick = (statementId) => {
     if (selectedStatements.includes(statementId)) {
       // Statement is already selected, so unselect it and decrease the count.
@@ -188,19 +191,30 @@ const Statements = () => {
     <Grid container direction="column" alignItems="center" style={{ height: '80vh' }}>
       <img
         src={monochromeBackground}
-        alt="monochromeBackground"
+        alt="monochrome background"
         style={{ maxWidth: '100%', position: 'fixed', top: 0, left: 0, right: 0,
           width: '100%', height: '100%', zIndex: -1 }}
       />
       {isMobile ? (
+        /**
+         Swiper library instead of buttons for mobile UI.
+
+         spaceBetween: Space between slides in px.
+         speed: Transition speed in ms.
+         pagination: Config for pagination.
+         modules: Swiper modules to enable.
+         effect: Transition effect type when changing slides.
+         creativeEffect: Transition effect magnitude (x, y, z axis).
+         onSlideChange: Callback for handling slide changes.
+        */
         <Container sx={{ padding: 0 }}>
           <Swiper
             className="swiper"
             spaceBetween={30}
+            speed={200}
             pagination={{ type: 'progressbar' }}
             modules={[Pagination, EffectCreative]}
             effect={'creative'}
-            speed={200}
             creativeEffect={{
               prev: {
                 translate: [-75, 0, 0],
@@ -216,11 +230,12 @@ const Statements = () => {
             }}>
             {statementsData.map((s, i) => (
               <SwiperSlide key={i}>
-                <Typography sx={{ mt: 1, mb: currentURL === '/test/1' ? 0 : 2.5, fontSize: 10, fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
+                <Typography sx={{ mt: 1, mb: currentURL === '/test/1' ? 0 : 2.5, fontSize: 10,
+                  fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
                   {`${currentStatementSetIndex + 1}/12`}
                 </Typography>
                 {currentURL === '/test/1' && (
-                  <Typography sx={{ py: 1, ml: 0, mb: 0, mt: 0, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                  <Typography sx={{ py: 1.05, ml: 0, mb: 0, mt: 0, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
                     '@media (max-width: 340px)': { fontSize: 15 } }}>
                     Valitse 0–3 väitettä<br />
                     Mene eteen- ja taaksepäin pyyhkäisemällä
@@ -231,8 +246,8 @@ const Statements = () => {
                     key={s.id}
                     className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
                     onClick={() => handleStatementClick(s.id)}>
-                    <Typography sx={{ fontSize: 14.5, fontFamily: '"Lato", sans-serif', color: '#00011b',
-                      '@media (max-width: 340px)': { fontSize: 13 } }}>
+                    <Typography sx={{ fontSize: 16, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                      '@media (max-width: 340px)': { fontSize: 13.5 } }}>
                       {s.statement}
                     </Typography>
                   </div>
@@ -254,7 +269,7 @@ const Statements = () => {
           sx={{ mt: 10.5, mb: 10, p: 6, pb: 3.5, width: '77%' , background: '#fdf3e9' }}
           variant='elevation'
         >
-          <Typography sx={{ py: 2, ml: 0.7, mb: 1.3, mt: -2.5, fontStyle: 'italic', fontSize: '22px', fontFamily: '"Lato", sans-serif' }}>
+          <Typography sx={{ py: 2, ml: 1.3, mb: 1.3, mt: -3, fontSize: 21, fontFamily: '"Lato", sans-serif' }}>
             Valitse 0–3 väitettä, jotka kuvaavat sinua parhaiten tieteellisen tekstin kirjoittajana
           </Typography>
           {/**
@@ -273,8 +288,11 @@ const Statements = () => {
           ))}
           <LinearProgressWithLabel value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
           <Box sx={{ display: 'flex' }}>
-            {urlIndex > 0 && (
-              <NextPrevButton id='previous-btn' sx={{ mr: 1 }} onClick={handlePreviousStatementSet}>Edellinen</NextPrevButton>
+            {/** Renders navigation buttons based on the current URL and statement set index. */}
+            {urlIndex > 0 && currentURL !== '/test/1' ? (
+              <NextPrevButton id='previous-btn' onClick={handlePreviousStatementSet}>Edellinen</NextPrevButton>
+            ) : (
+              <NextPrevButton id='home-btn' onClick={homeRoute}>Etusivulle</NextPrevButton>
             )}
             <Box sx={{ marginLeft: 'auto' }}>
               {currentStatementSetIndex < statementsData.length - 1

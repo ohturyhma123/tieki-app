@@ -5,7 +5,7 @@ Documentation    This file contains common keywords and variables used with test
 *** Keywords ***
 Title Is Correct
     [Documentation]    Checks that the correct title is shown.
-    Title Should Be    Tieki
+    Title Should Be    Tieki – Tieteellisen kirjoittamisen itsearviointitesti
 
 Check Intro
     [Documentation]    Checks that intro text is shown on front page.

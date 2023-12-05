@@ -21,6 +21,8 @@ const EditResults = () => {
   const negativeResults = results.filter((result) => result.positive === false)
   const [openSaveConfirm, setOpenSaveConfirm] = useState(false)
   const [hasError, setHasError] = useState(false)
+  const [newLinkDescription, setNewLinkDescription] = useState('')
+  const [newLinkUrl, setNewLinkUrl] = useState('')
 
 
   /**
@@ -126,6 +128,85 @@ const EditResults = () => {
     }
   }
 
+  const handleAddLink = async (resultId) => {
+    // Check if the input is empty
+    if (!newLinkDescription || !newLinkUrl) {
+      setHasError(true)
+      return
+    }
+
+    // Create a new link object
+    const newLink = {
+      description: newLinkDescription,
+      link: newLinkUrl,
+    }
+
+    try {
+      // Make a POST request to the server
+      const response = await fetch(`/api/results/${resultId}/links`, { // Modify this line as needed to get the correct result id
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newLink),
+      })
+
+      // Check if the request was successful
+      if (response.ok) {
+        // Get the updated result from the response
+        const updatedResult = await response.json()
+
+        // Update the state
+        const resultsCopy = [...results]
+        const resultIndex = resultsCopy.findIndex(result => result.id === updatedResult.result.id)
+        resultsCopy[resultIndex] = updatedResult.result
+        setResults(resultsCopy)
+
+        // Clear the input fields
+        setNewLinkDescription('')
+        setNewLinkUrl('')
+      } else {
+        setHasError(true)
+      }
+    } catch (error) {
+      setHasError(true)
+    }
+  }
+
+  const handleDeleteClick = async (resultId, linkId) => {
+    try {
+      // Make a DELETE request to the server
+      const response = await fetch(`${baseUrl}/${resultId}/links/${linkId}`, {
+        method: 'DELETE',
+      })
+      // Check if the request was successful
+      if (response.ok) {
+        // Get the updated results
+        const resultsCopy = [...results]
+        // Find the result that contains the link with the given id
+        const result = resultsCopy.find(result =>
+          result.id === resultId
+        )
+        // Check if result is defined
+        if (result) {
+          // Find the index of the link with the given id
+          const linkIndex = result.links.findIndex(link => link.id === linkId)
+
+          // Delete the link at the given index
+          if (linkIndex !== -1) {
+            result.links.splice(linkIndex, 1)
+          }
+          // Update the state
+          setResults(resultsCopy)
+        }
+      } else {
+        setHasError(true)
+      }
+    } catch (error) {
+      setHasError(true)
+    }
+  }
+
   const { isAdmin, loading, error } = useAdminCheck()
 
   if (loading) {
@@ -211,9 +292,9 @@ const EditResults = () => {
                         ?
                         results.links.map((result, index) => {
                           return(
-                            <div key={index}>
+                            <div key={index} style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
                               <TextField
-                                id={`${results._id}`}
+                                id={'linkinkuvaus'}
                                 label={`Linkin kuvaus ${index+1}`}
                                 variant="outlined"
                                 value={result.description}
@@ -228,11 +309,49 @@ const EditResults = () => {
                                 onChange={(e) => handleLinkChange(results._id, index, e.target.value)}
                                 style={{ marginBottom: '20px' }}
                               />
+                              <Button
+                                id={'poistonappi'}
+                                variant="contained"
+                                color="secondary"
+                                onClick={() => handleDeleteClick(results.id, result.id)}
+                                style={{ marginBottom: '20px' }}
+                              >
+                                Poista linkki
+                              </Button>
                             </div>
                           )
                         })
                         : null
                       }
+                    </AccordionDetails>
+                    <AccordionDetails>
+                      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+                        <TextField
+                          id="linkdesc"
+                          label="Linkin kuvaus"
+                          variant="outlined"
+                          value={newLinkDescription}
+                          onChange={(e) => setNewLinkDescription(e.target.value)}
+                          style={{ marginBottom: '20px' }}
+                        />
+                        <TextField
+                          id="linkurl"
+                          label="Linkki"
+                          variant="outlined"
+                          value={newLinkUrl}
+                          onChange={(e) => setNewLinkUrl(e.target.value)}
+                          style={{ marginBottom: '20px' }}
+                        />
+                        <Button
+                          id='addlink'
+                          variant="contained"
+                          color="primary"
+                          onClick={() => handleAddLink(results.id)}
+                          style={{ marginBottom: '20px' }}
+                        >
+                              Lisää linkki
+                        </Button>
+                      </div>
                     </AccordionDetails>
                   </Accordion>
                 </AccordionDetails>
@@ -328,7 +447,7 @@ const EditResults = () => {
                         ?
                         results.links.map((result, index) => {
                           return(
-                            <div key={index+24}>
+                            <div key={index+24} style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
                               <TextField
                                 id={`${results._id}`}
                                 label={`Linkin kuvaus ${index+1}`}
@@ -345,11 +464,46 @@ const EditResults = () => {
                                 onChange={(e) => handleLinkChange(results._id, index, e.target.value)}
                                 style={{ marginBottom: '20px' }}
                               />
+                              <Button
+                                id={`delete-${index}`}
+                                variant="contained"
+                                color="secondary"
+                                onClick={() => handleDeleteClick(results.id, result.id)}
+                                style={{ marginBottom: '20px' }}
+                              >
+                                Poista
+                              </Button>
                             </div>
                           )
                         })
                         : null
                       }
+                    </AccordionDetails>
+                    <AccordionDetails>
+                      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+                        <TextField
+                          label="Linkin kuvaus"
+                          variant="outlined"
+                          value={newLinkDescription}
+                          onChange={(e) => setNewLinkDescription(e.target.value)}
+                          style={{ marginBottom: '20px' }}
+                        />
+                        <TextField
+                          label="Linkki"
+                          variant="outlined"
+                          value={newLinkUrl}
+                          onChange={(e) => setNewLinkUrl(e.target.value)}
+                          style={{ marginBottom: '20px' }}
+                        />
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          onClick={() => handleAddLink(results.id)}
+                          style={{ marginBottom: '20px' }}
+                        >
+                              Lisää linkki
+                        </Button>
+                      </div>
                     </AccordionDetails>
                   </Accordion>
                 </AccordionDetails>
