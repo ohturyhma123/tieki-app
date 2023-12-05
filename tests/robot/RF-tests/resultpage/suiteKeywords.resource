@@ -46,14 +46,14 @@ Check Headers
     Element Text Should Be    class:weaknesses    Kehityskohteet
 
 Check Analysis
-    [Documentation]    Checks that four analyses is shown.
+    [Documentation]    Checks that four analyses are shown.
     Wait Until Page Contains    Tulokset
     ${analysis}=    Get WebElements    xpath=//*[@id="panel1a-header"]
     ${analysis_count}=    Get Length    ${analysis}
     Should Be Equal As Integers    ${analysis_count}    4
 
 Check Analysis Order
-    [Documentation]    Checks that the first analysis shown is the correct one
+    [Documentation]    Checks that the analyses are in correct order
     Wait Until Page Contains    Tulokset
     Element Text Should Be    class:analysis0    Kielelliset seikat
     Element Text Should Be    class:analysis1    Kirjoittamiseen liittyvät tunteet ja ajatukset

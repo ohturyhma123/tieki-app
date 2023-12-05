@@ -21,7 +21,7 @@ Resultpage Headers
     Check Headers
 
 Resultpage Analyses
-    [Documentation]    Checks the number of analyses
+    [Documentation]    Checks the order and number of analyses.
     Go To Resultpage
     Check Analysis
     Check Analysis Order
