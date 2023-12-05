@@ -153,4 +153,25 @@ Delete Link
     [Arguments]    ${link_index}
     Click Element    xpath=/html/body/div/div[2]/div/div[${link_index}]/div[2]/div/div/div/div/button
     Sleep    0.5
-    Wait Until Page Contains    Muokkaa linkkejä
+    Page Should Contain    Muokkaa linkkejä
+
+Add New Analysis Link
+    # robocop: disable=0508
+    [Documentation]    Adds a new analysis link.
+    [Arguments]    ${linkName}    ${linkUrl}
+    Wait Until Element Is Enabled    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/input    10
+    Wait Until Keyword Succeeds    5 x    2 s    Input Text    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/input    ${linkName}
+    Wait Until Element Is Enabled    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[2]/div/input    10
+    Input Text    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[2]/div/input    ${linkUrl}
+    Click Element    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/button
+
+Delete Analysis Link
+    # robocop: disable=0508
+    [Documentation]    Deletes an analysis link.
+    Wait Until Element Is Enabled    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[1]/button    10
+    Click Element    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[1]/button
+
+Click Link Info
+    [Documentation]    Clicks the link info.
+    [Arguments]    ${index}
+    Click Element    xpath=//*[@id="root"]/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[${index}]/div[1]

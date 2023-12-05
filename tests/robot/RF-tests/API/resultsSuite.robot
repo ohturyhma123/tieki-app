@@ -1,3 +1,4 @@
+# robocop: disable=0505
 *** Settings ***
 Documentation    This test suite contains tests for results API.
 
@@ -44,6 +45,39 @@ Result Can Be Modified
     Set Updated Item To List    ${initial}    ${first_result_copy['links']}    0
     Convert List To Initial State    ${ALL_RESULTS.json()}    ${FIRST_RESULT}    0
     ...                              links    ${first_result_copy['links']}    resultsApi
+
+Add Link To Result
+    [Documentation]    Adds a link to result by result id.
+    ${results_before}=    Send Get Request    resultsApi
+    ${first_result_before}=    Get Item Of Json By Index    ${results_before.json()}    0
+    ${first_result_links_before}=    Set Variable    ${first_result_before['links']}
+    ${links_before_length}=    Get Length    ${first_result_links_before}
+
+    ${new_link}=    Create Dictionary    description=testi123    link=testi.com
+    Send Post Request With Path    session=resultsApi    path=1/links    body=${new_link}
+
+    ${results_after}=    Send Get Request    resultsApi
+    ${first_result_after}=    Get Item Of Json By Index    ${results_after.json()}    0
+    ${first_result_links_after}=    Set Variable    ${first_result_after['links']}
+    ${links_after_length}=    Get Length    ${first_result_links_after}
+
+    Should Be True    ${links_after_length} == ${links_before_length} + 1
+
+Delete Link From Result
+    [Documentation]    Deletes a link from result by result id and results links id.
+    ${results_before}=    Send Get Request    resultsApi
+    ${first_result_before}=    Get Item Of Json By Index    ${results_before.json()}    0
+    ${first_result_links_before}=    Set Variable    ${first_result_before['links']}
+    ${links_before_length}=    Get Length    ${first_result_links_before}
+
+    Send Delete Result Link Request    session=resultsApi    result_id=1    link_id=34
+
+    ${results_after}=    Send Get Request    resultsApi
+    ${first_result_after}=    Get Item Of Json By Index    ${results_after.json()}    0
+    ${first_result_links_after}=    Set Variable    ${first_result_after['links']}
+    ${links_after_length}=    Get Length    ${first_result_links_after}
+
+    Should Be True    ${links_after_length} == ${links_before_length} - 1
 
 # robocop: enable=0505
 

@@ -24,11 +24,25 @@ Send Delete Request
     ${response}=    DELETE On Session   ${session}    /${id}    headers=${headers}
     RETURN    ${response}
 
+Send Delete Result Link Request
+    [Documentation]    Sends a DELETE request to the specified endpoint.
+    [Arguments]    ${session}    ${result_id}    ${link_id}
+    ${headers}=    Create Dictionary    Content-Type=application/json
+    ${response}=    DELETE On Session   ${session}    /${result_id}/links/${link_id}    headers=${headers}
+    RETURN    ${response}
+
 Send Post Request
     [Documentation]    Sends a POST request for given session with given body.
     [Arguments]    ${session}    ${body}
     ${headers}=    Create Dictionary    accept=application/json
     ${response}=    POST On Session    ${session}    /    json=${body}    headers=${headers}
+    RETURN    ${response}
+
+Send Post Request With Path
+    [Documentation]    Sends a POST request for given session with given path and body.
+    [Arguments]    ${session}    ${path}    ${body}
+    ${headers}=    Create Dictionary    accept=application/json
+    ${response}=    POST On Session    ${session}    ${path}    json=${body}    headers=${headers}
     RETURN    ${response}
 
 Check Response Status Is Correct
