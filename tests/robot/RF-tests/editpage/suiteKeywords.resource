@@ -6,40 +6,40 @@ Library    SeleniumLibrary
 *** Keywords ***
 Check Edit Links Is Visible
     [Documentation]    Checks that the edit links button is visible.
-    Page Should Contain    Muokkaa linkkejä
+    Wait Until Page Contains    Muokkaa linkkejä
 
 Check Edit Statements Is Visible
     [Documentation]    Checks that the edit statements button is visible.
-    Page Should Contain    Muokkaa väittämiä
+    Wait Until Page Contains    Muokkaa väittämiä
 
 Check Edit Results Is Visible
     [Documentation]    Checks that the edit results button is visible.
-    Page Should Contain    Muokkaa analyyseja
+    Wait Until Page Contains    Muokkaa analyyseja
 
 Check Log Out Is Visible
     [Documentation]    Checks that the logout button is visible.
-    Page Should Contain    Kirjaudu ulos
+    Wait Until Page Contains    Kirjaudu ulos
 
 Go To Edit Link Page
     [Documentation]    Clicks the button that takes the user to edit links page.
     Click Button    Muokkaa linkkejä
-    Page Should Contain    Muokkaa linkkejä
-    Page Should Contain    Tallenna
+    Wait Until Page Contains    Muokkaa linkkejä
+    Wait Until Page Contains    Tallenna
     Wait Until Page Contains    Kirjoittajan ABC
 
 Go To Edit Statements Page
     [Documentation]    Clicks the button that takes the user to edit statements page.
     Click Button    Muokkaa väittämiä
-    Page Should Contain    Positiiviset väittämät
-    Page Should Contain    Negatiiviset väittämät
+    Wait Until Page Contains    Positiiviset väittämät
+    Wait Until Page Contains    Negatiiviset väittämät
     Wait Until Page Contains    Kirjoittamiseen liittyvät tunteet ja ajatukset
 
 Go To Edit Analysis Page
     [Documentation]    Clicks the button that takes the user to edit analyses page.
     Click Button    Muokkaa analyyseja
-    Page Should Contain    Muokkaa analyyseja
-    Page Should Contain    Positiiviset analyysit
-    Page Should Contain    Negatiiviset analyysit
+    Wait Until Page Contains    Muokkaa analyyseja
+    Wait Until Page Contains    Positiiviset analyysit
+    Wait Until Page Contains    Negatiiviset analyysit
     Wait Until Page Contains    Kirjoittamiseen liittyvät tunteet ja ajatukset
 
 Open Link Info
@@ -110,13 +110,13 @@ Check Object Was Updated Successfully
     [Documentation]    Checks that correct alert occurs if link is saved successfully.
     Wait Until Page Contains    Tiedot tallennettu onnistuneesti
     Click Button    OK
-    Page Should Contain    Muokkaussivu
+    Wait Until Page Contains    Muokkaussivu
 
 Check Object Was Updated Unsuccessfully
     [Documentation]    Checks that correct alert occurs if link is not saved.
     Wait Until Page Contains    Tietojen tallennus epäonnistui
     Click Button    OK
-    Page Should Contain    Tallenna
+    Wait Until Page Contains    Tallenna
 
 Set Link DB To Initial State
     [Documentation]    Sets the database to initial state.
