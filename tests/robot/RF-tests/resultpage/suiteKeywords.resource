@@ -11,6 +11,7 @@ Go To Resultpage
     FOR    ${index}    IN RANGE    1    12
         Go To Next Page
         Select Statements    1
+        Click Element    //*[@id="root"]/div[2]/div/div[5]
     END
     # robocop: enable
     Click Button    Tulokset
@@ -45,11 +46,17 @@ Check Headers
     Element Text Should Be    class:weaknesses    Kehityskohteet
 
 Check Analysis
-    [Documentation]    Checks that two analyses is shown.
+    [Documentation]    Checks that four analyses is shown.
     Wait Until Page Contains    Tulokset
     ${analysis}=    Get WebElements    xpath=//*[@id="panel1a-content"]
     ${analysis_count}=    Get Length    ${analysis}
-    Should Be Equal As Integers    ${analysis_count}    2
+    Should Be Equal As Integers    ${analysis_count}    4
+    Element Text Should Be    ${analysis}    Kielelliset seikat
+
+Check Analysis Order
+    [Documentation]    Checks that the first analysis shown is the correct one
+    Wait Until Page Contains    Tulokset
+    ${analysis}=    Get WebElements    xpath=//*[@id="panel1a-content"]
 
 Go To PDF View From Top
     [Documentation]    Clicks the link that takes user to pdf view of the results.
