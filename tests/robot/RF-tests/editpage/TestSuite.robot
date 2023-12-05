@@ -11,6 +11,7 @@ Suite Setup
 Suite Teardown    Close Browser
 
 Test Setup    Go To Editpage
+Test Tags    edit
 
 
 *** Test Cases ***
