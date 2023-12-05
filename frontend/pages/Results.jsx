@@ -99,7 +99,7 @@ const Results = () => {
                   <div>
                     <Typography sx={{ mb: 3, mt: isMobile ? -28 : 7, textAlign: 'center', fontFamily: '"Lato", sans-serif', color: '#323E45' }} variant='h4' className='strengths'>Vahvuudet</Typography>
                     {strengthText}
-                    {positiveResults.map((result) => <ResultAccordion key={result.id} result={result} color={'#d3e8df'} />)}
+                    {positiveResults.map((result, index) => <ResultAccordion key={result.id} result={result} color={'#d3e8df'} index={index} />)}
                   </div>
                   <div>
                     <Typography sx={{ mb: 3, mt: 9, textAlign: 'center', fontFamily: '"Lato", sans-serif', color: '#323E45' }} variant='h4' className='weaknesses'>Kehityskohteet</Typography>

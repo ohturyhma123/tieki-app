@@ -9,9 +9,9 @@ Go To Resultpage
     Wait Until Page Contains    jotka kuvaavat sinua parhaiten
     # robocop: disable
     FOR    ${index}    IN RANGE    1    12
+        Click Element    //*[@id="root"]/div[2]/div/div[6]
         Go To Next Page
         Select Statements    1
-        Click Element    //*[@id="root"]/div[2]/div/div[5]
     END
     # robocop: enable
     Click Button    Tulokset
@@ -48,15 +48,15 @@ Check Headers
 Check Analysis
     [Documentation]    Checks that four analyses is shown.
     Wait Until Page Contains    Tulokset
-    ${analysis}=    Get WebElements    xpath=//*[@id="panel1a-content"]
+    ${analysis}=    Get WebElements    xpath=//*[@id="panel1a-header"]
     ${analysis_count}=    Get Length    ${analysis}
     Should Be Equal As Integers    ${analysis_count}    4
-    Element Text Should Be    ${analysis}    Kielelliset seikat
 
 Check Analysis Order
     [Documentation]    Checks that the first analysis shown is the correct one
     Wait Until Page Contains    Tulokset
-    ${analysis}=    Get WebElements    xpath=//*[@id="panel1a-content"]
+    Element Text Should Be    class:analysis0    Kielelliset seikat
+    Element Text Should Be    class:analysis1    Kirjoittamiseen liittyvät tunteet ja ajatukset
 
 Go To PDF View From Top
     [Documentation]    Clicks the link that takes user to pdf view of the results.
