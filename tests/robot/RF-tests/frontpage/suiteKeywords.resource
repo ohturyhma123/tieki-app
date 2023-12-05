@@ -47,12 +47,12 @@ Go To Feedback Form Using Keyboard
     Wait Until Page Contains    Palaute
 
 Go To About Page
-    [Documentation]    Clicks on the button that takes the user to the linkpage.
+    [Documentation]    Clicks on the button that takes the user to the about page.
     Wait Until Keyword Succeeds    3x    200ms    Click Link    Tekijät
     Wait Until Page Contains    Tieteellisen kirjoittamisen itsearviointitestin sisällön
 
 Go To About Page Using Keyboard
-    [Documentation]    Use keyboard to press the button that takes the user to the linkpage.
+    [Documentation]    Use keyboard to press the button that takes the user to the about page.
     Set Focus To Element    //*[@id="root"]/div[1]/header/div/ul/li[3]/a
     Press Keys    None    ENTER
     Wait Until Page Contains    Tieteellisen kirjoittamisen itsearviointitestin sisällön
