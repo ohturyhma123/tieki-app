@@ -73,7 +73,7 @@ const Navbar = () => {
               to="/links"
               className='nav-links'
               onClick={closeMobileMenu}>
-                Hyödyllisiä linkkejä
+                Linkit
             </NavLink>
           </li>
           <li className="nav-item">
@@ -88,10 +88,18 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <NavLink
+              to="/about"
+              className='nav-links'
+              onClick={closeMobileMenu}>
+                Tekijät
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
               to="/login"
               className='nav-links'
               onClick={closeMobileMenu}>
-                Admin
+                Ylläpito
             </NavLink>
           </li>
         </ul>
