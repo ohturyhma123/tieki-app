@@ -10,7 +10,6 @@ const ListItemMobile = ({ text }) => {
         <SchoolIcon style={{ fontSize: '15px' }} />
       </ListItemIcon>
       <ListItemText
-        disableTypography
         primary={
           <Typography
             variant='body2'

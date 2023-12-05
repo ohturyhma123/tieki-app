@@ -43,14 +43,26 @@ const PDFView = () => {
   const PDFViewerView = () => {
     return(
       <PDFViewer width={'100%'} height={'100%'} >
-        <Document>
+        <Document renderMode="svg">
           <Page size={'A4'} style={styles.body}>
             <Image src={imgSrc}></Image>
-            <Text style={styles.title}>Vahvuudet</Text>
-            {positiveResults.map(result => <Result key={result.id} result={result} />)}
+            {positiveResults.length > 0
+              ?
+              <div>
+                <Text style={styles.title}>Vahvuudet</Text>
+                {positiveResults.map(result => <Result key={result.id} result={result} />)}
+              </div>
+              : null
+            }
             <Text style={ { paddingVertical: 25 } }> </Text>
-            <Text style={styles.title}>Kehityskohteet</Text>
-            {negativeResults.map(result => <Result key={result.id} result={result} />)}
+            {negativeResults.length > 0
+              ?
+              <div>
+                <Text style={styles.title}>Kehityskohteet</Text>
+                {negativeResults.map(result => <Result key={result.id} result={result} />)}
+              </div>
+              : null
+            }
           </Page>
         </Document>
       </PDFViewer>
@@ -59,14 +71,26 @@ const PDFView = () => {
 
   const View = () => {
     return(
-      <Document>
+      <Document renderMode="svg">
         <Page size={'A4'} style={styles.body}>
           <Image src={imgSrc}></Image>
-          <Text style={styles.title}>Vahvuudet</Text>
-          {positiveResults.map(result => <Result key={result.id} result={result} />)}
+          {positiveResults.length > 0
+            ?
+            <div>
+              <Text style={styles.title}>Vahvuudet</Text>
+              {positiveResults.map(result => <Result key={result.id} result={result} />)}
+            </div>
+            : null
+          }
           <Text style={ { paddingVertical: 25 } }> </Text>
-          <Text style={styles.title}>Kehityskohteet</Text>
-          {negativeResults.map(result => <Result key={result.id} result={result} />)}
+          {negativeResults.length > 0
+            ?
+            <div>
+              <Text style={styles.title}>Kehityskohteet</Text>
+              {negativeResults.map(result => <Result key={result.id} result={result} />)}
+            </div>
+            : null
+          }
         </Page>
       </Document>
     )
