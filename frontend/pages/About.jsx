@@ -1,6 +1,5 @@
-import { Box, Container, Grid, List, ListItem, Paper, Typography } from '@mui/material'
+import { Box, Container, Grid, Link, List, ListItem, Paper, Typography } from '@mui/material'
 import monochromeBackground from '../assets/monochrome-background.jpg'
-
 
 const About = () => {
   return (
@@ -21,13 +20,13 @@ const About = () => {
                 ohjelmistotuotantoprojekti-kurssin opiskelijat syksyllä 2023:
                 <Typography variant='subtitle1'>
                   <List dense sx={{ listStyleType: 'disc', pl: 4 }}>
-                    <ListItem sx={{ display: 'list-item' }}>Ilkka Luukkonen</ListItem>
-                    <ListItem sx={{ display: 'list-item' }}>Janika Kalliokoski</ListItem>
-                    <ListItem sx={{ display: 'list-item' }}>Juska Juselius</ListItem>
-                    <ListItem sx={{ display: 'list-item' }}>Kristian Kataja</ListItem>
-                    <ListItem sx={{ display: 'list-item' }}>Nikita Essine</ListItem>
-                    <ListItem sx={{ display: 'list-item' }}>Patrik Alanen</ListItem>
-                    <ListItem sx={{ display: 'list-item' }}>Wäinö Everhall</ListItem>
+                    <ListItem sx={{ display: 'list-item' }}>Ilkka Luukkonen (<Link href='https://github.com/ilkkaluu'>GitHub</Link>) </ListItem>
+                    <ListItem sx={{ display: 'list-item' }}>Janika Kalliokoski (<Link href='https://github.com/janikakalliokoski'>GitHub</Link>) </ListItem>
+                    <ListItem sx={{ display: 'list-item' }}>Juska Juselius (<Link href='https://github.com/Jusq17'>GitHub</Link>) </ListItem>
+                    <ListItem sx={{ display: 'list-item' }}>Kristian Kataja (<Link href='https://github.com/katajak'>GitHub</Link>) </ListItem>
+                    <ListItem sx={{ display: 'list-item' }}>Nikita Essine (<Link href='https://github.com/nikitaessine'>GitHub</Link>) </ListItem>
+                    <ListItem sx={{ display: 'list-item' }}>Patrik Alanen (<Link href='https://github.com/alanenpa'>GitHub</Link>) </ListItem>
+                    <ListItem sx={{ display: 'list-item' }}>Wäinö Everhall (<Link href='https://github.com/weverhall'>GitHub</Link>) </ListItem>
                   </List>
                 </Typography>
               </Typography>
