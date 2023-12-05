@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    This file contains common keywords and variables used with test suites.
 
+Library    SeleniumLibrary
 
 *** Keywords ***
 Check Edit Links Is Visible
@@ -159,10 +160,8 @@ Add New Analysis Link
     # robocop: disable=0508
     [Documentation]    Adds a new analysis link.
     [Arguments]    ${linkName}    ${linkUrl}
-    Wait Until Element Is Visible    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/input    10
     Wait Until Element Is Enabled    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/input    10
     Input Text    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div/input    ${linkName}
-    Wait Until Element Is Visible    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[2]/div/input    10
     Wait Until Element Is Enabled    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[2]/div/input    10
     Input Text    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[2]/div/input    ${linkUrl}
     Click Element    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/button
@@ -170,6 +169,7 @@ Add New Analysis Link
 Delete Analysis Link
     # robocop: disable=0508
     [Documentation]    Deletes an analysis link.
+    Wait Until Element Is Enabled    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[1]/button    10
     Click Element    xpath=/html/body/div/div[2]/div/div[5]/div/div[2]/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[1]/button
 
 Click Link Info

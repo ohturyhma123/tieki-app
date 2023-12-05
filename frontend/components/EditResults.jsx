@@ -469,7 +469,7 @@ const EditResults = () => {
                                 onClick={() => handleDeleteClick(results.id, result.id)}
                                 style={{ marginBottom: '20px' }}
                               >
-                                Poista linkki
+                                Poista
                               </Button>
                             </div>
                           )
