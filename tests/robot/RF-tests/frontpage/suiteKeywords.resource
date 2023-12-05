@@ -26,7 +26,7 @@ First Test Page
 
 Go To Linkpage
     [Documentation]    Clicks on the button that takes the user to the linkpage.
-    Wait Until Keyword Succeeds    3x    200ms    Click Link    Hyödyllisiä linkkejä
+    Wait Until Keyword Succeeds    3x    200ms    Click Link    Linkit
     Wait Until Page Contains    Hyödyllisiä linkkejä
 
 Go To Linkpage Using Keyboard
@@ -45,3 +45,14 @@ Go To Feedback Form Using Keyboard
     Set Focus To Element    //*[@id="root"]/div[1]/header/div/ul/li[2]/a
     Press Keys    None    ENTER
     Wait Until Page Contains    Palaute
+
+Go To About Page
+    [Documentation]    Clicks on the button that takes the user to the linkpage.
+    Wait Until Keyword Succeeds    3x    200ms    Click Link    Tekijät
+    Wait Until Page Contains    Tieteellisen kirjoittamisen itsearviointitestin sisällön
+
+Go To About Page Using Keyboard
+    [Documentation]    Use keyboard to press the button that takes the user to the linkpage.
+    Set Focus To Element    //*[@id="root"]/div[1]/header/div/ul/li[3]/a
+    Press Keys    None    ENTER
+    Wait Until Page Contains    Tieteellisen kirjoittamisen itsearviointitestin sisällön
