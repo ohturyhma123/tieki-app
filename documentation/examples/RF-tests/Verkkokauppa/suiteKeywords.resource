@@ -11,7 +11,7 @@ ${EMAIL}    test@test.com
 *** Keywords ***
 Title Is Correct
     [Documentation]    Once the home page is open, checks that the correct title is shown
-    Title Should Be    Verkkokauppa.com - todennäköisesti aina halvempi
+    Title Should Be    Verkkokauppa.com - todennäköisesti aina halvempi!
 
 Go To Log In
     [Documentation]    Opens the log in page
