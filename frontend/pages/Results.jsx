@@ -48,7 +48,7 @@ const Results = () => {
   let weaknessText = null
 
   if (positiveResults.length < 1) {
-    strengthText = <Typography sx={{ pt: 2, pb: 1, textAlign: 'center' }} variant='h5' className='strengths'>Valintojesi perusteella sinulla ei ole vahvuuksia.</Typography>
+    strengthText = <Typography sx={{ pt: 2, pb: 1, textAlign: 'center' }} variant='h5' className='strengths'>Valintojesi perusteella sinulla ei ole erityisiä vahvuuksia.</Typography>
   }
   if (negativeResults.length < 1) {
     weaknessText = <Typography sx={{ pt: 2, pb: 1, textAlign: 'center' }} variant='h5' className='weaknesses'>Valintojesi perusteella sinulla ei ole kehityskohteita.</Typography>
@@ -126,7 +126,7 @@ const Results = () => {
             :
             <Box>
               <Typography sx={{ fontFamily: '"Lato", sans-serif', pt: 3, pb: 4, pl: 2 }} variant='h4'>Et valinnut tarpeeksi väitteitä, jotta koosteen voisi muodostaa.</Typography>
-              <Typography sx={{ fontFamily: '"Lato", sans-serif', pt: 2, pb: 4, pl: 2  }} variant='h5'>Palaa tästä <Link to='/'>etusivulle</Link> tehdäksesi testin uudelleen.</Typography><p />
+              <Typography sx={{ fontFamily: '"Lato", sans-serif', pt: 2, pb: 4, pl: 2  }} variant='h5'>Palaa <Link to='/'>etusivulle</Link> tehdäksesi testin uudelleen.</Typography><p />
               <Typography sx={{ fontFamily: '"Lato", sans-serif', pl: 2, mb: -1 }} variant='h5' >Hyödyllisiä linkkejä löydät <Link to='/links'>linkkisivulta</Link>.</Typography>
             </Box>
           }
