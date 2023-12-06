@@ -39,12 +39,13 @@ const Links = () => {
           <List>
             {links.map((link, index) => (
               <ListItem key={index} id={`${index + 1}`}>
-                {/** Handle line breaks for mobile UI. */}
                 {isMobile ? (
                   <Typography sx={{ fontSize: 14, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
+                    {/** Add a colon at the end of link description only if it doesn't end in a question mark. */}
                     {formatLinkText(link.description).slice(-1) === '?' ?
                       formatLinkText(link.description) :
                       formatLinkText(link.description) + ':'}
+                    {/** Handle line breaks for mobile UI. */}
                     <Link sx={{ pl: 0.5 }} href={link.url} target="_blank" rel="noopener noreferrer">
                       {(link.description + link.name).length <= 60 && (link.description + link.name).length >= 35 ? (
                         <><br />{link.name}</>
@@ -57,7 +58,7 @@ const Links = () => {
                 ) : (
                   /** Reduce font size if either description or name length is over 180 chars. */
                   (link.description.length > 180 || link.name.length > 180) ? (
-                    <Typography sx={{ fontSize: 12.5, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
+                    <Typography sx={{ fontSize: 14, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
                       {formatLinkText(link.description).slice(-1) === '?' ?
                         formatLinkText(link.description) :
                         formatLinkText(link.description) + ':'}
@@ -67,7 +68,7 @@ const Links = () => {
                     </Typography>
                   ) : (
                     /** If description and name length sum is 175 chars or less, don't insert a line break (and vice versa). */
-                    <Typography sx={{ fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
+                    <Typography sx={{ fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
                       {formatLinkText(link.description).slice(-1) === '?' ?
                         formatLinkText(link.description) :
                         formatLinkText(link.description) + ':'}
