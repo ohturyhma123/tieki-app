@@ -1,9 +1,13 @@
 # tieki-app
 
+![GHA workflow badge](https://github.com/ohturyhma123/tieki-app/actions/workflows/production.yaml/badge.svg
+)
 ![GHA workflow badge](https://github.com/ohturyhma123/tieki-app/actions/workflows/staging.yaml/badge.svg
 )
 ![GHA workflow badge](https://github.com/ohturyhma123/tieki-app/actions/workflows/test.yaml/badge.svg
 )
+
+Linkki sovelluksen tuotantoversioon: https://tieki.helsinki.fi/
 
 Linkki sovelluksen stagingiin: https://tieki.ext.ocp-test-0.k8s.it.helsinki.fi/
 
@@ -18,4 +22,3 @@ Linkki sovelluksen stagingiin: https://tieki.ext.ocp-test-0.k8s.it.helsinki.fi/
 - Testikattavuus 70%
 - Hyväksymiskriteerit määritelty user storylle
 - Hyväksymiskriteerit läpi ja testattu robotilla
-
