@@ -10,7 +10,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 const Home = () => {
   const isMobile = window.innerWidth <= 480
   const backgroundStyle = {
-    maxWidth: '100%', maxHeight: '100%', width: '100%', height: '100%',
+    maxWidth: '100%', maxHeight: '100%', width: '100%', height: '100%', objectFit: 'cover', minWidth: '100vw', maxHeight: '100vh',
     position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1
   }
 
@@ -75,13 +75,13 @@ const Home = () => {
             </picture>
             <Typography
               variant='body2'
-              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: -0.2, mt: 2.3, ml: -7.2 }}>
+              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: -0.2, mt: 2.3 }}>
                 Tämän testin avulla voit arvioida osaamistasi tieteellisen tekstin kirjoittajana.<br />
                 Testissä on väitteitä seuraavilta kirjoittamisen osa-alueilta:
             </Typography>
             <List
               dense
-              sx={{ flex: '1', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: 2.5, mt: 0.5, ml: -7.2 }}>
+              sx={{ flex: '1', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: 2.5, mt: 0.5 }}>
               <ListItemDesktop text='Kirjoittamiseen liittyvät tunteet ja ajatukset' />
               <ListItemDesktop text='Akateemiset käytänteet ja tekstilajit' />
               <ListItemDesktop text='Lukeminen ja lähteiden käyttö' />
@@ -91,14 +91,14 @@ const Home = () => {
             </List>
             <Typography
               variant='body2'
-              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mt: 2, ml: -7.2 }}>
+              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mt: 2 }}>
                 Valitse joka sivulla 0–3 väitettä, jotka kuvaavat omaa tieteellisen tekstin kirjoittamistasi.<br />
                 Itsearviointitestin tekeminen vie aikaa noin 10 minuuttia.<br />
                 Testi on anonyymi.
             </Typography>
             <Typography
               variant='body2'
-              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mt: 2, mb: 5, ml: -7.2 }}>
+              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mt: 2, mb: 5 }}>
                 Lopuksi saat valitsemiesi väitteiden pohjalta koosteen,<br />
                 jossa käsitellään kirjoittamisesi vahvuuksia ja kehittämiskohteita.<br />
                 Kategoriat eivät ole toisiansa poissulkevia.
