@@ -16,7 +16,15 @@ const NextPrevButton = styled(Button)( () => ({
     backgroundColor: '#fff',
     color: '#00011b',
     borderColor: '#00011b'
-  }
+  },
+  '@media (max-width: 480px)': {
+    marginBottom: '20px',
+    marginTop: '15px',
+    marginLeft: '5px',
+    marginRight: '5px',
+    fontSize: '19px',
+    padding: '0.52rem 1.35rem'
+  },
 }))
 
 export default NextPrevButton
