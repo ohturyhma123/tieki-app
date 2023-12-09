@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Paper, Typography, LinearProgress, Box, Grid, Container } from '@mui/material'
+import { Paper, Typography, LinearProgress, Box, Grid, Container, Switch, FormControlLabel } from '@mui/material'
 import getPositiveStatements from '../functions/PositiveStatements'
 import getNegativeStatements from '../functions/NegativeStatements'
 import selectOneStatementFromEachPositiveSet from '../functions/SelectOnePositiveStatementFromEachCategory'
@@ -26,6 +26,7 @@ const Statements = () => {
   const [currentStatementSetIndex, setCurrentStatementSetIndex] = useState(0)
   const [visitedStatementSetIndices, setVisitedStatementSetIndices] = useState([])
   const [selectedStatementsCountHistory, setSelectedStatementsCountHistory] = useState([])
+  const [isSwiping, setIsSwiping] = useState(false)
   const [selectedStatementsCountOnPage, setSelectedStatementsCountOnPage] = useState(
     Array.from({ length: 12 }, () => 0)
   )
@@ -58,6 +59,10 @@ const Statements = () => {
   */
 
   const homeRoute = () => { navigate('/') }
+
+  const toggleSwiping = () => {
+    setIsSwiping((prevIsSwiping) => !prevIsSwiping)
+  }
 
   const handleStatementClick = (statementId) => {
     if (selectedStatements.includes(statementId)) {
@@ -168,7 +173,7 @@ const Statements = () => {
     return <LoadingError errorMessage={'Virhe väitteiden lataamisessa'}/>
   }
 
-  /** Progress bar for the desktop UI. */
+  /** Progress bar for desktop UI. */
   const LinearProgressWithLabel = (props) => {
     return (
       <Box sx={{ pt: 2.5, pb: 3, display: 'flex', alignItems: 'center' }}>
@@ -187,6 +192,20 @@ const Statements = () => {
     )
   }
 
+  /** Progress bar for togglable mobile buttons UI. */
+  const LinearProgressWithLabelMobile = (props) => {
+    return (
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ width: '100%' }}>
+          <LinearProgress sx={{ height: 4, borderRadius: 3, '& .MuiLinearProgress-bar': {
+            backgroundColor: '#30ad7d',
+          }, backgroundColor: '#a2a9a8' }}
+          variant="determinate" {...props} />
+        </Box>
+      </Box>
+    )
+  }
+
   return (
     <Grid container direction="column" alignItems="center" style={{ height: '80vh' }}>
       <img
@@ -196,6 +215,7 @@ const Statements = () => {
           width: '100%', height: '100%', zIndex: -1 }}
       />
       {isMobile ? (
+        isSwiping ? (
         /**
          Swiper library instead of buttons for mobile UI.
 
@@ -207,63 +227,118 @@ const Statements = () => {
          creativeEffect: Transition effect magnitude (x, y, z axis).
          onSlideChange: Callback for handling slide changes.
         */
-        <Container sx={{ padding: 0 }}>
-          <Swiper
-            className="swiper"
-            spaceBetween={30}
-            speed={200}
-            pagination={{ type: 'progressbar' }}
-            modules={[Pagination, EffectCreative]}
-            effect={'creative'}
-            creativeEffect={{
-              prev: {
-                translate: [-75, 0, 0],
-              },
-              next: {
-                translate: [75, 0, 0]
-              },
-            }}
-            onSlideChange={(swiper) => {
-              swiper.realIndex > swiper.previousIndex ?
-                handleNextStatementSet() :
-                handlePreviousStatementSet()
-            }}>
-            {statementsData.map((s, i) => (
-              <SwiperSlide key={i}>
-                <Typography sx={{ mt: 1, mb: currentURL === '/test/1' ? 0 : 2.5, fontSize: 10,
-                  fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
-                  {`${currentStatementSetIndex + 1}/12`}
-                </Typography>
-                {currentURL === '/test/1' && (
-                  <Typography sx={{ py: 1.05, ml: 0, mb: 0, mt: 0, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
-                    '@media (max-width: 340px)': { fontSize: 15 } }}>
-                    Valitse 0–3 väitettä<br />
-                    Mene eteen- ja taaksepäin pyyhkäisemällä
+          <Container sx={{ padding: 0 }}>
+            <Swiper
+              className="swiper"
+              spaceBetween={30}
+              speed={200}
+              pagination={{ type: 'progressbar' }}
+              modules={[Pagination, EffectCreative]}
+              effect={'creative'}
+              creativeEffect={{
+                prev: {
+                  translate: [-75, 0, 0],
+                },
+                next: {
+                  translate: [75, 0, 0]
+                },
+              }}
+              onSlideChange={(swiper) => {
+                swiper.realIndex > swiper.previousIndex ?
+                  handleNextStatementSet() :
+                  handlePreviousStatementSet()
+              }}>
+              {statementsData.map((s, i) => (
+                <SwiperSlide key={i}>
+                  <Typography sx={{ mt: 1, mb: currentURL === '/test/1' ? 0 : 2.5, fontSize: 10,
+                    fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
+                    {`${currentStatementSetIndex + 1}/12`}
                   </Typography>
-                )}
-                {statements.map((s) => (
-                  <div
-                    key={s.id}
-                    className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
-                    onClick={() => handleStatementClick(s.id)}>
-                    <Typography sx={{ fontSize: 16, fontFamily: '"Lato", sans-serif', color: '#00011b',
-                      '@media (max-width: 340px)': { fontSize: 13.5 } }}>
-                      {s.statement}
+                  {currentURL === '/test/1' && (
+                    <Typography sx={{ py: 1.05, ml: 0, mb: 0, mt: 0, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                      '@media (max-width: 340px)': { fontSize: 15 } }}>
+                      <FormControlLabel
+                        control={<Switch checked={isSwiping} onChange={toggleSwiping} size="small" />}
+                        label="Swipe!" /><br />
+                        Valitse 0–3 väitettä<br />
+                        Mene eteen- ja taaksepäin pyyhkäisemällä
                     </Typography>
-                  </div>
-                ))}
-                {currentURL === '/test/12' && (
-                  <GoToResultsButtonMobile
-                    id='results-btn-mobile'
+                  )}
+                  {statements.map((s) => (
+                    <div
+                      key={s.id}
+                      className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
+                      onClick={() => handleStatementClick(s.id)}>
+                      <Typography sx={{ fontSize: 16, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                        '@media (max-width: 340px)': { fontSize: 13.5 } }}>
+                        {s.statement}
+                      </Typography>
+                    </div>
+                  ))}
+                  {currentURL === '/test/12' && (
+                    <GoToResultsButtonMobile
+                      id='results-btn-mobile'
+                      onClick={() => navigate('/results', { state: { selectedStatements } })}>
+                      Tulokset
+                    </GoToResultsButtonMobile>
+                  )}
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </Container>
+          /** End of the code for buttons view, start of togglable Swiper code. */
+        ) : (
+          <Container sx={{ padding: 0, textAlign: 'center' }}>
+            <LinearProgressWithLabelMobile value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
+            <Typography sx={{ mt: 0.5, mb: currentURL === '/test/1' ? 0 : 2.5, fontSize: 10,
+              fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
+              {`${currentStatementSetIndex + 1}/12`}
+            </Typography>
+            {currentURL === '/test/1' && (
+              <Typography sx={{ py: 1.05, ml: 0, mb: 0, mt: 0, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                '@media (max-width: 340px)': { fontSize: 15 } }}>
+                <FormControlLabel
+                  control={<Switch checked={isSwiping} onChange={toggleSwiping} size="small" />}
+                  label="Swipe?" /><br />
+                  Valitse 0–3 väitettä
+              </Typography>
+            )}
+            {/**
+            Iterate through the array and create an element for each statement.
+            Conditionally add the "selected" CSS class if the statement is in the "selectedStatements" array.
+            */}
+            {statements.map((s) => (
+              <div
+                key={s.id}
+                className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
+                onClick={() => handleStatementClick(s.id)}
+                onKeyDown={e => handleStatementKeyDown(e, s.id)}
+                tabIndex={0}>
+                <Typography sx={{ fontSize: 16, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                  '@media (max-width: 340px)': { fontSize: 13.5 } }}>
+                  {s.statement}
+                </Typography>
+              </div>
+            ))}
+            <Box sx={{ display: 'flex' }}>
+              {/** Renders navigation buttons based on the current URL and statement set index. */}
+              {urlIndex > 0 && currentURL !== '/test/1' ? (
+                <NextPrevButton id='previous-btn' onClick={handlePreviousStatementSet}>Edellinen</NextPrevButton>
+              ) : (
+                <NextPrevButton id='home-btn' onClick={homeRoute}>Etusivulle</NextPrevButton>
+              )}
+              <Box sx={{ marginLeft: 'auto' }}>
+                {currentStatementSetIndex < statementsData.length - 1
+                  ? <NextPrevButton id='next-btn' onClick={handleNextStatementSet}>Seuraava</NextPrevButton>
+                  : <NextPrevButton id='results-btn'
                     onClick={() => navigate('/results', { state: { selectedStatements } })}>
                     Tulokset
-                  </GoToResultsButtonMobile>
-                )}
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </Container>
-        /** End of the code for mobile UI, start of desktop UI code. */
+                  </NextPrevButton>
+                }
+              </Box>
+            </Box>
+          </Container>)
+      /** End of the code for mobile UI, start of desktop UI code. */
       ) : (
         <Paper
           sx={{ mt: 10.5, mb: 10, p: 6, pb: 3.5, width: '77%' , background: '#fdf3e9' }}
@@ -272,10 +347,6 @@ const Statements = () => {
           <Typography sx={{ py: 2, ml: 1.3, mb: 1.3, mt: -3, fontSize: 21, fontFamily: '"Lato", sans-serif' }}>
             Valitse 0–3 väitettä, jotka kuvaavat sinua parhaiten tieteellisen tekstin kirjoittajana
           </Typography>
-          {/**
-          Iterate through the array and create an element for each statement.
-          Conditionally add the "selected" CSS class if the statement is in the "selectedStatements" array.
-          */}
           {statements.map((s) => (
             <div
               key={s.id}
@@ -288,7 +359,6 @@ const Statements = () => {
           ))}
           <LinearProgressWithLabel value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
           <Box sx={{ display: 'flex' }}>
-            {/** Renders navigation buttons based on the current URL and statement set index. */}
             {urlIndex > 0 && currentURL !== '/test/1' ? (
               <NextPrevButton id='previous-btn' onClick={handlePreviousStatementSet}>Edellinen</NextPrevButton>
             ) : (
