@@ -258,7 +258,7 @@ const EditResults = () => {
                     boxShadow: 'none',
                   }}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />} >
-                      <Typography>Teksti segmentit</Typography>
+                      <Typography>Tekstisegmentit</Typography>
                     </AccordionSummary>
                     <AccordionDetails style={{ display: 'flex', flexDirection: 'column' }}>
                       {results.textSegments.map((result, index) => {
@@ -383,7 +383,7 @@ const EditResults = () => {
                     boxShadow: 'none',
                   }}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />} >
-                      <Typography>Teksti segmentit</Typography>
+                      <Typography>Tekstisegmentit</Typography>
                     </AccordionSummary>
                     <AccordionDetails style={{ display: 'flex', flexDirection: 'column' }}>
                       {results.textSegments.map((result, index) => {
