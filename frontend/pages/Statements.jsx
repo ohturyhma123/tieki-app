@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Paper, Typography, LinearProgress, Box, Grid, Container, Switch, FormControlLabel } from '@mui/material'
+import SwipeOutlinedIcon from '@mui/icons-material/SwipeOutlined'
 import getPositiveStatements from '../functions/PositiveStatements'
 import getNegativeStatements from '../functions/NegativeStatements'
 import selectOneStatementFromEachPositiveSet from '../functions/SelectOnePositiveStatementFromEachCategory'
@@ -250,7 +251,7 @@ const Statements = () => {
               }}>
               {statementsData.map((s, i) => (
                 <SwiperSlide key={i}>
-                  <Typography sx={{ mt: 1, mb: currentURL === '/test/1' ? 0 : 2.5, fontSize: 10,
+                  <Typography sx={{ mt: 1, mb: currentURL === '/test/1' ? 0.3 : 2.5, fontSize: 10,
                     fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
                     {`${currentStatementSetIndex + 1}/12`}
                   </Typography>
@@ -258,8 +259,8 @@ const Statements = () => {
                     <Typography sx={{ py: 1.05, ml: 0, mb: 0, mt: 0, fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b',
                       '@media (max-width: 340px)': { fontSize: 15 } }}>
                       <FormControlLabel
-                        control={<Switch checked={isSwiping} onChange={toggleSwiping} size="small" />}
-                        label="Swipe!" /><br />
+                        control={<Switch checked={isSwiping} onChange={toggleSwiping} size="small" color="success" />}
+                        label={<SwipeOutlinedIcon style={{ color: isSwiping ? 'green' : 'inherit' }} />}/><br />
                         Valitse 0–3 väitettä<br />
                         Mene eteen- ja taaksepäin pyyhkäisemällä
                     </Typography>
@@ -269,7 +270,7 @@ const Statements = () => {
                       key={s.id}
                       className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
                       onClick={() => handleStatementClick(s.id)}>
-                      <Typography sx={{ fontSize: 16, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                      <Typography sx={{ fontSize: 15.5, fontFamily: '"Lato", sans-serif', color: '#00011b',
                         '@media (max-width: 340px)': { fontSize: 13.5 } }}>
                         {s.statement}
                       </Typography>
@@ -290,7 +291,7 @@ const Statements = () => {
         ) : (
           <Container sx={{ padding: 0, textAlign: 'center' }}>
             <LinearProgressWithLabelMobile value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
-            <Typography sx={{ mt: 0.5, mb: currentURL === '/test/1' ? 0 : 2.5, fontSize: 10,
+            <Typography sx={{ mt: 0.5, mb: currentURL === '/test/1' ? 0.3 : 2.5, fontSize: 10,
               fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
               {`${currentStatementSetIndex + 1}/12`}
             </Typography>
@@ -299,7 +300,7 @@ const Statements = () => {
                 '@media (max-width: 340px)': { fontSize: 15 } }}>
                 <FormControlLabel
                   control={<Switch checked={isSwiping} onChange={toggleSwiping} size="small" />}
-                  label="Swipe?" /><br />
+                  label={<SwipeOutlinedIcon />}/><br />
                   Valitse 0–3 väitettä
               </Typography>
             )}
@@ -314,7 +315,7 @@ const Statements = () => {
                 onClick={() => handleStatementClick(s.id)}
                 onKeyDown={e => handleStatementKeyDown(e, s.id)}
                 tabIndex={0}>
-                <Typography sx={{ fontSize: 16, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                <Typography sx={{ fontSize: 15.5, fontFamily: '"Lato", sans-serif', color: '#00011b',
                   '@media (max-width: 340px)': { fontSize: 13.5 } }}>
                   {s.statement}
                 </Typography>
