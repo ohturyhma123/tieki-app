@@ -87,28 +87,30 @@ const PDFView = () => {
 
   const View = () => {
     return(
-      <Document renderMode="svg" onRender={ (blob) => onRenderDocument(blob) }>
-        <Page size={'A4'} style={styles.body}>
-          <Image src={imgSrc}></Image>
-          {positiveResults.length > 0
-            ?
-            <div>
-              <Text style={styles.title}>Vahvuudet</Text>
-              {positiveResults.map(result => <Result key={result.id} result={result} />)}
-            </div>
-            : null
-          }
-          <Text style={ { paddingVertical: 25 } }> </Text>
-          {negativeResults.length > 0
-            ?
-            <div>
-              <Text style={styles.title}>Kehityskohteet</Text>
-              {negativeResults.map(result => <Result key={result.id} result={result} />)}
-            </div>
-            : null
-          }
-        </Page>
-      </Document>
+      <PDFViewer width={'100%'} height={'100%'} >
+        <Document renderMode="svg" onRender={ (blob) => onRenderDocument(blob) }>
+          <Page size={'A4'} style={styles.body}>
+            <Image src={imgSrc}></Image>
+            {positiveResults.length > 0
+              ?
+              <div>
+                <Text style={styles.title}>Vahvuudet</Text>
+                {positiveResults.map(result => <Result key={result.id} result={result} />)}
+              </div>
+              : null
+            }
+            <Text style={ { paddingVertical: 25 } }> </Text>
+            {negativeResults.length > 0
+              ?
+              <div>
+                <Text style={styles.title}>Kehityskohteet</Text>
+                {negativeResults.map(result => <Result key={result.id} result={result} />)}
+              </div>
+              : null
+            }
+          </Page>
+        </Document>
+      </PDFViewer>
     )
   }
 

@@ -11,8 +11,8 @@ const About = () => {
           width: '100%', height: '100%', zIndex: -1 }}
       />
       <Grid item>
-        <Container maxWidth='xl'>
-          <Paper sx={{ m: -1, mt: 3, mb: 5, mx: 'auto', p: 2, pb: 7, background: '#FCF8F4', width: '80%' }} variant='elevation' elevation={10}>
+        <Container maxWidth='lg'>
+          <Paper sx={{ m: -1, mt: 3, mb: 5, mx: 'auto', p: 2, pb: 5, background: '#FCF8F4', width: '100%' }} variant='elevation' elevation={10}>
             <Box>
               <Typography sx={{ pt: 3, pl: 2 }} variant='h6'>
                 Tieteellisen kirjoittamisen itsearviointitestin sisällön on tuottanut Helsingin yliopiston kielikeskuksen äidinkielen ja finskan yksikkö.
@@ -29,6 +29,14 @@ const About = () => {
                   <ListItem sx={{ display: 'list-item' }}>Patrik Alanen (<Link href='https://github.com/alanenpa'>GitHub</Link>) </ListItem>
                   <ListItem sx={{ display: 'list-item' }}>Wäinö Everhall (<Link href='https://github.com/weverhall'>GitHub</Link>) </ListItem>
                 </List>
+              </Typography>
+              <Typography sx={{ pl: 5 }} variant='h6'>
+              <Link 
+                href='https://elomake.helsinki.fi/lomakkeet/126370/lomake.html' 
+                rel='noopener noreferrer'
+                target="_blank">
+                  Anna palautetta
+              </Link>
               </Typography>
             </Box>
           </Paper>
