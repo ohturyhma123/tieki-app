@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import ResultAccordion from '../components/ResultAccordion'
 import RadarChart from '../components/RadarChart'
 import monochromeBackground from '../assets/monochrome-background.jpg'
-import { Box, Paper, Typography, Grid, Container } from '@mui/material'
+import { Box, Paper, Typography, Grid, Container, Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 import { useEffect, useState } from 'react'
 import * as htmlToImage from 'html-to-image'
 import CalculateCategoryScores from '../functions/CalculateCategoryScores'
@@ -10,7 +10,7 @@ import GetResults from '../functions/GetResults'
 import useApi from '../hooks/useApi'
 import LoadingScreen from '../components/LoadingScreen'
 import LoadingError from '../components/LoadingError'
-
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 const Results = () => {
 
   const [imgSource, setImageSource] = useState(null)
@@ -81,14 +81,35 @@ const Results = () => {
                   <Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45', mb: 4 }} variant='body2'>
                     <strong>Tästä koosteesta näet, mitä kirjoittamisen osa-alueita painotit valinnoissasi.</strong>
                   </Typography>
-                  <Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
-                    Tulokset näyttävät ensin vahvuutesi kirjoittajana ja sitten alueet, joissa tarvitset harjoitusta.
-                  </Typography>
-                  <Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45',  mt: 4, mb: 6, lineHeight: 2 }} variant='body2'>
-                    Voit saada vahvuuksiin ja kehittämiskohteisiin saman osa-alueen, jos olet painottanut sitä aluetta valinnoissasi.<br/>
-                    Tämä tarkoittaa, että pidät sitä tärkeänä: hallitset siihen kuuluvia asioita jo paljon, mutta haluat kehittyä yhä paremmaksi.<br/>
-                    Lue tuloksesi ja niistä annetut tulkinnat huolellisesti ja hyödynnä niitä tarpeen mukaan.
-                  </Typography>
+                  { isMobile ? (
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography sx={{ fontSize: '17px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                          Lisätietoa tuloksista
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                          Tulokset näyttävät ensin vahvuutesi kirjoittajana ja sitten alueet, joissa tarvitset harjoitusta.<p />
+                          Voit saada vahvuuksiin ja kehittämiskohteisiin saman osa-alueen, jos olet painottanut sitä aluetta valinnoissasi.
+                          Tämä tarkoittaa, että pidät sitä tärkeänä: hallitset siihen kuuluvia asioita jo paljon, mutta haluat kehittyä yhä paremmaksi.<p />
+                          Lue tuloksesi ja niistä annetut tulkinnat huolellisesti ja hyödynnä niitä tarpeen mukaan.
+                        </Typography>
+                      </AccordionDetails>
+                    </Accordion>
+                  ) : (
+                    <><Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                        Tulokset näyttävät ensin vahvuutesi kirjoittajana ja sitten alueet, joissa tarvitset harjoitusta.
+                    </Typography><Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45', mt: 4, mb: 6, lineHeight: 2 }} variant='body2'>
+                          Voit saada vahvuuksiin ja kehittämiskohteisiin saman osa-alueen, jos olet painottanut sitä aluetta valinnoissasi.<br />
+                          Tämä tarkoittaa, että pidät sitä tärkeänä: hallitset siihen kuuluvia asioita jo paljon, mutta haluat kehittyä yhä paremmaksi.<br />
+                          Lue tuloksesi ja niistä annetut tulkinnat huolellisesti ja hyödynnä niitä tarpeen mukaan.
+                    </Typography></>
+                  )}
                   <Box display="flex" justifyContent="center">
                     <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
                   </Box>
