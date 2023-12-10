@@ -42,15 +42,16 @@ const Home = () => {
                 <Typography
                   variant='body2'
                   sx={{ fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
-                    Ohjeita ja lisätietoa
+                    Lue ensin ohjeet
                 </Typography>
               </AccordionSummary>
               <AccordionDetails sx={{ pt: 2, backgroundColor: 'silk' }}>
                 <Typography
                   variant='body2'
                   sx={{ fontSize: 15, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
-                    Valitse joka sivulla 0–3 väitettä, jotka kuvaavat omaa tieteellisen tekstin kirjoittamistasi.
-                    Liiku eteen- ja taaksepäin pyyhkäisemällä. Takaisin etusivulle pääsee logoa painamalla.<p />
+                    Valitse joka sivulla 0–3 väitettä, jotka kuvaavat omaa tieteellisen tekstin kirjoittamistasi.<p />
+                    Ensimmäisen testisivun ylälaidan kuvaketta painamalla voit aktivoida pyyhkäisyllä liikkumisen nappien käytön sijasta.
+                    Takaisin etusivulle pääsee logoa painamalla.<p />
                     Itsearviointitestin tekeminen vie aikaa noin 10 minuuttia. Testi on anonyymi.<p />
                     Lopuksi saat valitsemiesi väitteiden pohjalta koosteen kirjoittamisesi vahvuuksista ja kehittämiskohteista.
                     Kategoriat eivät ole toisiansa poissulkevia.
