@@ -2,6 +2,8 @@ import * as dotenv from 'dotenv'
 
 dotenv.config()
 
+export const PORT = process.env.PORT || 3001
+
 export const inDevelopment = process.env.NODE_ENV === 'development'
 
 export const inStaging = process.env.STAGING === 'true'

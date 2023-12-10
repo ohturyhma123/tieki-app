@@ -20,7 +20,7 @@ const Submit = ({ navigate, selectedStatements }) => {
         },
         {
           className: 'no-btn',
-          label: 'Ei',
+          label: 'En',
           onClick: () => navigate('/test/12', { state: { selectedStatements } }),
           tabIndex: 0
         }

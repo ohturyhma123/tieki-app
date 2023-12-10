@@ -1,8 +1,7 @@
 import app from './app.js'
 import { connectToDatabase, disconnectFromDatabase } from './db/connection.js'
+import { PORT } from './util/config.js'
 import setupAuthentication from './util/oidc.js'
-
-const PORT = 3001
 
 // Start the server
 app.listen(PORT, async () => {
