@@ -31,12 +31,12 @@ const About = () => {
                 </List>
               </Typography>
               <Typography sx={{ pl: 5 }} variant='h6'>
-              <Link 
-                href='https://elomake.helsinki.fi/lomakkeet/126370/lomake.html' 
-                rel='noopener noreferrer'
-                target="_blank">
+                <Link
+                  href='https://elomake.helsinki.fi/lomakkeet/126370/lomake.html'
+                  rel='noopener noreferrer'
+                  target="_blank">
                   Anna palautetta
-              </Link>
+                </Link>
               </Typography>
             </Box>
           </Paper>
