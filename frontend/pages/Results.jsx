@@ -110,7 +110,7 @@ const Results = () => {
                           Lue tuloksesi ja niistä annetut tulkinnat huolellisesti ja hyödynnä niitä tarpeen mukaan.
                     </Typography></>
                   )}
-                  <Box sx={{ mt: 2}} display="flex" justifyContent="center">
+                  <Box sx={{ mt: 2 }} display="flex" justifyContent="center">
                     <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
                   </Box>
                 </Grid>
