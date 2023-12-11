@@ -124,7 +124,7 @@ const PDFView = () => {
     },
     title: {
       fontSize: 20,
-      overflowwrap: 'break word'
+      overFlowWrap: 'break word'
     },
     subtitle: {
       whiteSpace: 'pre-wrap',
