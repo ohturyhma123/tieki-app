@@ -77,8 +77,8 @@ const Results = () => {
             <div>
               <Grid container direction={{ xs: 'row', md: 'column' }} spacing={10} justifyContent="center">
                 <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
-                  <Typography sx={{ textAlign: 'center', color: '#323E45', mb: isMobile ? 3 : 5, mt: 2.5 }} variant={isMobile ? 'h3' : 'h2'}>Tulokset</Typography>
-                  <Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45', mb: 4 }} variant='body2'>
+                  <Typography sx={{ textAlign: 'center', color: '#00011b', mb: isMobile ? 3 : 5, mt: 2.5 }} variant={isMobile ? 'h3' : 'h2'}>Tulokset</Typography>
+                  <Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#00011b', mb: 4 }} variant='body2'>
                     <strong>Tästä koosteesta näet, mitä kirjoittamisen osa-alueita painotit valinnoissasi.</strong>
                   </Typography>
                   { isMobile ? (
@@ -87,13 +87,14 @@ const Results = () => {
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1a-content"
                         id="panel1a-header"
+                        sx={{ backgroundColor: '#8463f321', borderRadius: 0.5, px: 2 }}
                       >
-                        <Typography sx={{ fontSize: '17px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                        <Typography sx={{ fontSize: '17px', fontFamily: '"Lato", sans-serif', color: '#00011b', textAlign: 'center'  }} variant='body2'>
                           Lisätietoa tuloksista
                         </Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                        <Typography sx={{ fontSize: isMobile ? '15px' : '18px', fontFamily: '"Lato", sans-serif', color: '#00011b', mt: 0.8 }} variant='body2'>
                           Tulokset näyttävät ensin vahvuutesi kirjoittajana ja sitten alueet, joissa tarvitset harjoitusta.<p />
                           Voit saada vahvuuksiin ja kehittämiskohteisiin saman osa-alueen, jos olet painottanut sitä aluetta valinnoissasi.
                           Tämä tarkoittaa, että pidät sitä tärkeänä: hallitset siihen kuuluvia asioita jo paljon, mutta haluat kehittyä yhä paremmaksi.<p />
@@ -102,15 +103,15 @@ const Results = () => {
                       </AccordionDetails>
                     </Accordion>
                   ) : (
-                    <><Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                    <><Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', color: '#00011b', textAlign: 'center'  }} variant='body2'>
                         Tulokset näyttävät ensin vahvuutesi kirjoittajana ja sitten alueet, joissa tarvitset harjoitusta.
-                    </Typography><Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45', mt: 4, mb: 6, lineHeight: 2 }} variant='body2'>
+                    </Typography><Typography sx={{ fontSize: isMobile ? '17px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#00011b', mt: 4, mb: 5, lineHeight: 2 }} variant='body2'>
                           Voit saada vahvuuksiin ja kehittämiskohteisiin saman osa-alueen, jos olet painottanut sitä aluetta valinnoissasi.<br />
                           Tämä tarkoittaa, että pidät sitä tärkeänä: hallitset siihen kuuluvia asioita jo paljon, mutta haluat kehittyä yhä paremmaksi.<br />
                           Lue tuloksesi ja niistä annetut tulkinnat huolellisesti ja hyödynnä niitä tarpeen mukaan.
                     </Typography></>
                   )}
-                  <Box sx={{ mt: 2 }} display="flex" justifyContent="center">
+                  <Box sx={{ mt: 5 }} display="flex" justifyContent="center">
                     <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
                   </Box>
                 </Grid>
@@ -118,33 +119,33 @@ const Results = () => {
               <Grid container direction="row" spacing={10} justifyContent="center">
                 <Grid item xs={12} sm={10} md={10} lg={7} >
                   <div>
-                    <Typography sx={{ mb: 3, mt: isMobile ? -28 : 5, textAlign: 'center', fontFamily: '"Lato", sans-serif', color: '#323E45' }} variant='h4' className='strengths'>Vahvuudet</Typography>
+                    <Typography sx={{ mb: 3, mt: isMobile ? -32 : 5, textAlign: 'center', fontFamily: '"Lato", sans-serif', color: '#00011b' }} variant='h4' className='strengths'>Vahvuudet</Typography>
                     {strengthText}
                     {positiveResults.map((result, index) => <ResultAccordion key={result.id} result={result} color={'#d3e8df'} index={index} />)}
                   </div>
                   <div>
-                    <Typography sx={{ mb: 3, mt: 9, textAlign: 'center', fontFamily: '"Lato", sans-serif', color: '#323E45' }} variant='h4' className='weaknesses'>Kehityskohteet</Typography>
+                    <Typography sx={{ mb: 3, mt: 9, textAlign: 'center', fontFamily: '"Lato", sans-serif', color: '#00011b' }} variant='h4' className='weaknesses'>Kehityskohteet</Typography>
                     {weaknessText}
                     {negativeResults.map((result) => <ResultAccordion key={result.id} result={result} color={'bisque'}/>)}
                   </div>
                 </Grid>
               </Grid>
-              <Grid sx={{ my: 2, mt: isMobile ?  -5 : 3 }} container direction="column" spacing={12} justifyContent="center">
+              <Grid sx={{ my: 1, mt: isMobile ?  -4 : 3.5 }} container direction="column" spacing={12} justifyContent="center">
                 <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
                   {!isMobile
                     ?
-                    <Typography sx={{ fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                    <Typography sx={{ fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#00011b' }} variant='body2'>
                         Voit tallentaa koosteen itsellesi <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>pdf-muodossa</Link>.
                     </Typography>
                     :
-                    <Typography sx={{ pb: '5px', fontSize: '16px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#182024' }} variant='body2'>
+                    <Typography sx={{ pb: '6px', fontSize: '13px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#182024' }} variant='body2'>
                       <strong>Tulokset eivät tallennu, joten otathan koosteesta tarvittaessa kuvakaappauksen.</strong>
                     </Typography>
                   }
-                  <Typography sx={{ mt: '5px', fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                  <Typography sx={{ mt: '3px', fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#00011b' }} variant='body2'>
                     Voit palata <Link to='/'>etusivulle</Link> tehdäksesi testin uudelleen.
                   </Typography>
-                  <Typography sx={{ fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                  <Typography sx={{ mt: '3px', fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#00011b' }} variant='body2'>
                     Voit halutessasi <Link to="https://elomake.helsinki.fi/lomakkeet/126370/lomake.html"
                       target="_blank" rel='noopener noreferrer'>antaa palautetta</Link> testin tekijöille. Kiitos!
                   </Typography>

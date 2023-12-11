@@ -251,7 +251,7 @@ const Statements = () => {
               }}>
               {statementsData.map((s, i) => (
                 <SwiperSlide key={i}>
-                  <Typography sx={{ mt: 1, mb: currentURL === '/test/1' ? 0.3 : 2.5, fontSize: 10,
+                  <Typography sx={{ mt: 1, mb: currentURL === '/test/1' ? 0.3 : 4, fontSize: 10,
                     fontFamily: '"Lato", sans-serif', fontStyle: 'italic', color: '#00011b' }}>
                     {`${currentStatementSetIndex + 1}/12`}
                   </Typography>
@@ -270,7 +270,7 @@ const Statements = () => {
                       key={s.id}
                       className={`statement ${selectedStatements.includes(s.id) ? 'selected' : ''}`}
                       onClick={() => handleStatementClick(s.id)}>
-                      <Typography sx={{ fontSize: 15.5, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                      <Typography sx={{ fontSize: 16, fontFamily: '"Lato", sans-serif', color: '#00011b',
                         '@media (max-width: 340px)': { fontSize: 13.5 } }}>
                         {s.statement}
                       </Typography>
@@ -287,7 +287,7 @@ const Statements = () => {
               ))}
             </Swiper>
           </Container>
-          /** End of the code for buttons view, start of togglable Swiper code. */
+        /** End of the code for togglable Swiper view, start of buttons view code. */
         ) : (
           <Container sx={{ padding: 0, textAlign: 'center' }}>
             <LinearProgressWithLabelMobile value={(currentStatementSetIndex + 1) / statementsData.length * 100 } />
@@ -315,7 +315,7 @@ const Statements = () => {
                 onClick={() => handleStatementClick(s.id)}
                 onKeyDown={e => handleStatementKeyDown(e, s.id)}
                 tabIndex={0}>
-                <Typography sx={{ fontSize: 15.5, fontFamily: '"Lato", sans-serif', color: '#00011b',
+                <Typography sx={{ fontSize: 16, fontFamily: '"Lato", sans-serif', color: '#00011b',
                   '@media (max-width: 340px)': { fontSize: 13.5 } }}>
                   {s.statement}
                 </Typography>
