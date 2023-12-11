@@ -49,14 +49,14 @@ const Home = () => {
                 <Typography
                   variant='body2'
                   sx={{ fontSize: 15, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
-                    Testi toimii luotettavimmin Chrome- tai Firefox-selaimilla.<p />
                     Valitse joka sivulla 0–3 väitettä,
                     jotka kuvaavat omaa tieteellisen tekstin kirjoittamistasi.<p />
                     Ensimmäisen testisivun ylälaidan kuvaketta painamalla voit aktivoida pyyhkäisyllä liikkumisen nappien käytön sijasta.
                     Takaisin etusivulle pääsee logoa painamalla.<p />
                     Itsearviointitestin tekeminen vie aikaa noin 10 minuuttia. Testi on anonyymi.<p />
                     Lopuksi saat valitsemiesi väitteiden pohjalta koosteen kirjoittamisesi vahvuuksista ja kehittämiskohteista.
-                    Kategoriat eivät ole toisiansa poissulkevia.
+                    Kategoriat eivät ole toisiansa poissulkevia.<p />
+                    Testi toimii luotettavimmin Chrome- ja Firefox-selaimilla.
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -78,13 +78,13 @@ const Home = () => {
             </picture>
             <Typography
               variant='body2'
-              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: -0.2, mt: 2.3 }}>
+              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: -0.2, mt: 2.3, ml: -2.5 }}>
                 Tämän testin avulla voit arvioida osaamistasi tieteellisen tekstin kirjoittajana.<br />
                 Testissä on väitteitä seuraavilta kirjoittamisen osa-alueilta:
             </Typography>
             <List
               dense
-              sx={{ flex: '1', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: 2.5, mt: 0.5 }}>
+              sx={{ flex: '1', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: 2.5, mt: 0.5, ml: -2.5 }}>
               <ListItemDesktop text='Kirjoittamiseen liittyvät tunteet ja ajatukset' />
               <ListItemDesktop text='Akateemiset käytänteet ja tekstilajit' />
               <ListItemDesktop text='Lukeminen ja lähteiden käyttö' />
@@ -94,12 +94,7 @@ const Home = () => {
             </List>
             <Typography
               variant='body2'
-              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mt: 2 }}>
-                Testi toimii luotettavimmin Chrome- tai Firefox-selaimilla.
-            </Typography>
-            <Typography
-              variant='body2'
-              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mt: 2 }}>
+              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mt: 2, ml: -2.5 }}>
                 Valitse joka sivulla 0–3 väitettä,<br />
                 jotka kuvaavat omaa tieteellisen tekstin kirjoittamistasi.<br />
                 Itsearviointitestin tekeminen vie aikaa noin 10 minuuttia.<br />
@@ -107,10 +102,15 @@ const Home = () => {
             </Typography>
             <Typography
               variant='body2'
-              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mt: 2, mb: 5 }}>
+              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mt: 2, ml: -2.5 }}>
                 Lopuksi saat valitsemiesi väitteiden pohjalta koosteen,<br />
                 jossa käsitellään kirjoittamisesi vahvuuksia ja kehittämiskohteita.<br />
                 Kategoriat eivät ole toisiansa poissulkevia.
+            </Typography>
+            <Typography
+              variant='body2'
+              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mt: 2, mb: 5, ml: -2.5 }}>
+                Testi toimii luotettavimmin Chrome- ja Firefox-selaimilla.
             </Typography>
             <GoToTestButton
               backgroundColor='#fff'
