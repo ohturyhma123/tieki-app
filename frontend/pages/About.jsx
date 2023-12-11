@@ -21,13 +21,14 @@ const About = () => {
               </Typography>
               <Typography sx={{ pl: 2 }} variant='subtitle1'>
                 <List dense sx={{ listStyleType: 'disc', pl: 4 }}>
-                  <ListItem sx={{ display: 'list-item' }}>Ilkka Luukkonen (<Link href='https://github.com/ilkkaluu'>GitHub</Link>) </ListItem>
-                  <ListItem sx={{ display: 'list-item' }}>Janika Kalliokoski (<Link href='https://github.com/janikakalliokoski'>GitHub</Link>) </ListItem>
-                  <ListItem sx={{ display: 'list-item' }}>Juska Juselius (<Link href='https://github.com/Jusq17'>GitHub</Link>) </ListItem>
-                  <ListItem sx={{ display: 'list-item' }}>Kristian Kataja (<Link href='https://github.com/katajak'>GitHub</Link>) </ListItem>
-                  <ListItem sx={{ display: 'list-item' }}>Nikita Essine (<Link href='https://github.com/nikitaessine'>GitHub</Link>) </ListItem>
-                  <ListItem sx={{ display: 'list-item' }}>Patrik Alanen (<Link href='https://github.com/alanenpa'>GitHub</Link>) </ListItem>
-                  <ListItem sx={{ display: 'list-item' }}>Wäinö Everhall (<Link href='https://github.com/weverhall'>GitHub</Link>) </ListItem>
+                  <ListItem sx={{ display: 'list-item' }}>Ilkka Luukkonen (<Link href='https://github.com/ilkkaluu'>GitHub</Link>)</ListItem>
+                  <ListItem sx={{ display: 'list-item' }}>Janika Kalliokoski (<Link href='https://github.com/janikakalliokoski'>GitHub</Link>)</ListItem>
+                  <ListItem sx={{ display: 'list-item' }}>Juska Juselius (<Link href='https://github.com/Jusq17'>GitHub</Link>)</ListItem>
+                  <ListItem sx={{ display: 'list-item' }}>Kristian Kataja (<Link href='https://github.com/katajak'>GitHub</Link>)</ListItem>
+                  <ListItem sx={{ display: 'list-item' }}>Nikita Essine (<Link href='https://github.com/nikitaessine'>GitHub</Link>)</ListItem>
+                  <ListItem sx={{ display: 'list-item' }}>Patrik Alanen (<Link href='https://github.com/alanenpa'>GitHub</Link>)</ListItem>
+                  <ListItem sx={{ display: 'list-item' }}>Wäinö Everhall (<Link href='https://github.com/weverhall'>GitHub</Link>)</ListItem>
+                  <ListItem sx={{ display: 'list-item' }}>Ohjaaja: Sini Arkko (<Link href='https://github.com/SiniCode'>GitHub</Link>)</ListItem>
                 </List>
               </Typography>
               <Typography sx={{ pl: 5 }} variant='h6'>
