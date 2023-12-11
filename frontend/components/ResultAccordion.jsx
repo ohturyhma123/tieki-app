@@ -22,7 +22,7 @@ const ResultAccordion = ({ result, color, index }) => {
           px: 2,
         }}
       >
-        <Typography variant='h5' className={analysisId}>{result.category}</Typography>
+        <Typography sx={{ fontFamily: '"Lato", sans-serif' }} variant='h5' className={analysisId}>{result.category}</Typography>
       </AccordionSummary>
       <AccordionDetails sx={{ pt: 2, backgroundColor: 'silk' }}>
         {result.textSegments.map((result) => <Typography variant='body1' key={result} paragraph>{result}</Typography>)}
