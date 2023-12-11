@@ -41,10 +41,15 @@ User Can Go to Linkpage Using Keyboard
     [Documentation]    Using keyboard only, press the button that takes the user to the linkpage.
     Go To Linkpage Using Keyboard
 
-User Can Open Feedback Form
-    [Documentation]    Clicks on the button that takes the user to the feedback form.
-    Go To Feedback Form
+User Can Open About Page
+    [Documentation]    Clicks on the button that takes the user to the authors page.
+    Go To About Page
 
-User Can Go to Feedback Form Using Keyboard
-    [Documentation]    Using keyboard only, press the button that takes the user to the linkpage.
-    Go To Feedback Form Using Keyboard
+User Can Go To About Page Using Keyboard
+    [Documentation]    Using keyboard only, press the button that takes the user to the authors page.
+    Go To About Page Using Keyboard
+
+User Can Go To Feedback Form
+    [Documentation]    Clicks on the link that takes the user to the feedback form.
+    Go To About Page
+    Go To Feedback Form
