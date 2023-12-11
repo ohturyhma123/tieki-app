@@ -110,7 +110,7 @@ const Results = () => {
                           Lue tuloksesi ja niistä annetut tulkinnat huolellisesti ja hyödynnä niitä tarpeen mukaan.
                     </Typography></>
                   )}
-                  <Box display="flex" justifyContent="center">
+                  <Box sx={{ mt: 2}} display="flex" justifyContent="center">
                     <RadarChart categories={Object.keys(sumScores)} results={Object.values(sumScores)}/>
                   </Box>
                 </Grid>
@@ -118,7 +118,7 @@ const Results = () => {
               <Grid container direction="row" spacing={10} justifyContent="center">
                 <Grid item xs={12} sm={10} md={10} lg={7} >
                   <div>
-                    <Typography sx={{ mb: 3, mt: isMobile ? -28 : 7, textAlign: 'center', fontFamily: '"Lato", sans-serif', color: '#323E45' }} variant='h4' className='strengths'>Vahvuudet</Typography>
+                    <Typography sx={{ mb: 3, mt: isMobile ? -28 : 5, textAlign: 'center', fontFamily: '"Lato", sans-serif', color: '#323E45' }} variant='h4' className='strengths'>Vahvuudet</Typography>
                     {strengthText}
                     {positiveResults.map((result, index) => <ResultAccordion key={result.id} result={result} color={'#d3e8df'} index={index} />)}
                   </div>
@@ -129,19 +129,19 @@ const Results = () => {
                   </div>
                 </Grid>
               </Grid>
-              <Grid sx={{ my: 2, mt: isMobile ?  -1 : 3 }} container direction="column" spacing={12} justifyContent="center">
+              <Grid sx={{ my: 2, mt: isMobile ?  -5 : 3 }} container direction="column" spacing={12} justifyContent="center">
                 <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
                   {!isMobile
-                    ? 
-                      <Typography sx={{ fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                    ?
+                    <Typography sx={{ fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
                         Voit tallentaa koosteen itsellesi <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>pdf-muodossa</Link>.
-                      </Typography>
-                    : 
-                      <Typography sx={{ fontSize: '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
-
-                      </Typography>
+                    </Typography>
+                    :
+                    <Typography sx={{ pb: '5px', fontSize: '16px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#182024' }} variant='body2'>
+                      <strong>Tulokset eivät tallennu, joten otathan koosteesta tarvittaessa kuvakaappauksen.</strong>
+                    </Typography>
                   }
-                  <Typography sx={{ fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                  <Typography sx={{ mt: '5px', fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
                     Voit palata <Link to='/'>etusivulle</Link> tehdäksesi testin uudelleen.
                   </Typography>
                   <Typography sx={{ fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
