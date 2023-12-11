@@ -25,8 +25,8 @@ const EditStatements = () => {
   const negativeStatements = getNegativeStatements(statementSets)
 
   /**
-   * Fetch statements from the backend when the component is mounted.
-   */
+  Fetch statements from the backend when the component is mounted.
+  */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -41,9 +41,8 @@ const EditStatements = () => {
   }, [])
 
   /**
-   * Prevent scrolling when the component is mounted.
-   */
-
+  Prevent scrolling when the component is mounted.
+  */
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => {
@@ -52,8 +51,8 @@ const EditStatements = () => {
   }, [])
 
   /**
-   * Update the name of the statement with the given id.
-   */
+  Update the name of the statement with the given id.
+  */
   const handleStatementChange = (setId, statementId, newStatement) => {
     const updatedStatements = statementSets.map((statementSet) =>
       statementSet._id === setId
@@ -65,20 +64,19 @@ const EditStatements = () => {
   }
 
   /**
-   * Save the updated statements to the backend.
-   */
+  Save the updated statements to the backend.
+  */
   const handleSaveClick = async () => {
 
     try {
-      //throw new Error('Simulated error')
-      // Update links on the backend
+      /** Update links on the backend
+      */
       await axios.put(baseUrl, statementSets, {
         headers: {
           'Content-Type': 'application/json',
         },
       })
       setOpenSaveConfirm(true)
-      ///navigate('/edit')
     } catch (error) {
       setHasError(true)
     }

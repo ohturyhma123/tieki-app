@@ -1,3 +1,8 @@
+/**
+  Gets positive and negative results based on scores.
+  @returns {positiveResults} - Object containing positive results, sorted by category scores
+  @returns {negativeResults} - Object containing negative results, sorted by category scores.
+*/
 const GetResults = (scores, resultsData) => {
 
   const positiveCategories = Object.keys(scores).filter((category) => scores[category][0] >= 2)

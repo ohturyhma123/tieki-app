@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    Tests for editing functionalities.
 
-Resource    ../../RF-keywords/CommonFunctions.resource
+Resource    ../../CommonKeywords/CommonFunctions.resource
 Resource  suiteKeywords.resource
 
 Suite Setup
