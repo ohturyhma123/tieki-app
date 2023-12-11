@@ -131,9 +131,16 @@ const Results = () => {
               </Grid>
               <Grid sx={{ my: 2, mt: isMobile ?  -1 : 3 }} container direction="column" spacing={12} justifyContent="center">
                 <Grid item xs={12} sm={8} md={6} lg={4} justifyContent="center">
-                  <Typography sx={{ fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
-                    Voit tallentaa koosteen itsellesi <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>pdf-muodossa</Link>.
-                  </Typography>
+                  {!isMobile
+                    ? 
+                      <Typography sx={{ fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
+                        Voit tallentaa koosteen itsellesi <Link id='to_pdfview' to={'/pdfview'} state={{ selectedStatements: location.state.selectedStatements, imgSrc: imgSource }}>pdf-muodossa</Link>.
+                      </Typography>
+                    : 
+                      <Typography sx={{ fontSize: '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
+
+                      </Typography>
+                  }
                   <Typography sx={{ fontSize: isMobile ? '13px' : '18px', fontFamily: '"Lato", sans-serif', textAlign: 'center', color: '#323E45' }} variant='body2'>
                     Voit palata <Link to='/'>etusivulle</Link> tehdäksesi testin uudelleen.
                   </Typography>
