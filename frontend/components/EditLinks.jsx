@@ -20,11 +20,9 @@ const EditLinks = () => {
   const [hasError, setHasError] = useState(false)
   const [newLink, setNewLink] = useState({ name: '', description: '', url: '' })
 
-  //const navigate = useNavigate()
-
   /**
-   * Fetch links from the backend when the component is mounted.
-   */
+  Fetch links from the backend when the component is mounted.
+  */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -39,9 +37,8 @@ const EditLinks = () => {
   }, [])
 
   /**
-   * Prevent scrolling when the component is mounted.
-   */
-
+  Prevent scrolling when the component is mounted.
+  */
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => {
@@ -50,8 +47,8 @@ const EditLinks = () => {
   }, [])
 
   /**
-   * Update the name of the link with the given id.
-   */
+  Update the name of the link with the given id.
+  */
   const handleNameChange = (id, newName) => {
     const updatedLinks = links.map((link) =>
       link.id === id ? { ...link, name: newName } : link
@@ -60,8 +57,8 @@ const EditLinks = () => {
   }
 
   /**
-   * Update the description of the link with the given id.
-   */
+  Update the description of the link with the given id.
+  */
   const handleDescriptionChange = (id, newDescription) => {
     const updatedLinks = links.map((link) =>
       link.id === id ? { ...link, description: newDescription } : link
@@ -71,17 +68,20 @@ const EditLinks = () => {
 
   const handleAddLink = async () => {
     try {
-      // Save new link to the backend
+      /** Save new link to the backend
+      */
       const response = await axios.post(baseUrl, newLink, {
         headers: {
           'Content-Type': 'application/json',
         },
       })
 
-      // Add new link to the links array in the state
+      /** Add new link to the links array in the state
+      */
       setLinks([...links, response.data])
 
-      // Reset new link
+      /** Reset new link
+      */
       setNewLink({ name: '', description: '', url: '' })
     } catch (error) {
       setHasError(true)
@@ -90,10 +90,12 @@ const EditLinks = () => {
 
   const handleDelete = async (id) => {
     try {
-      // Delete link from the backend
+      /** Delete link from the backend
+      */
       await axios.delete(`${baseUrl}/${id}`)
 
-      // Remove link from the links array in the state
+      /** Remove link from the links array in the state
+      */
       setLinks(links.filter((link) => link.id !== id))
     } catch (error) {
       setHasError(true)
@@ -101,8 +103,8 @@ const EditLinks = () => {
   }
 
   /**
-   * Update the url of the link with the given id.
-   */
+  Update the url of the link with the given id.
+  */
   const handleUrlChange = (id, newUrl) => {
     const updatedLinks = links.map((link) =>
       link.id === id ? { ...link, url: newUrl } : link
@@ -111,13 +113,13 @@ const EditLinks = () => {
   }
 
   /**
-   * Save the updated links to the backend.
-   */
+  Save the updated links to the backend.
+  */
   const handleSaveClick = async () => {
 
     try {
-      //throw new Error('Simulated error')
-      // Update links on the backend
+      /** Update links on the backend
+      */
       await axios.put(baseUrl, links, {
         headers: {
           'Content-Type': 'application/json',

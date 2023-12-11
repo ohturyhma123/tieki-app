@@ -42,14 +42,16 @@ const Home = () => {
                 <Typography
                   variant='body2'
                   sx={{ fontSize: 17, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
-                    Lue ensin ohjeet
+                    Lue ohjeet
                 </Typography>
               </AccordionSummary>
               <AccordionDetails sx={{ pt: 2, backgroundColor: 'silk' }}>
                 <Typography
                   variant='body2'
                   sx={{ fontSize: 15, fontFamily: '"Lato", sans-serif', color: '#00011b' }}>
-                    Valitse joka sivulla 0–3 väitettä, jotka kuvaavat omaa tieteellisen tekstin kirjoittamistasi.<p />
+                    Testi toimii luotettavimmin Chrome- tai Firefox-selaimilla.<p />
+                    Valitse joka sivulla 0–3 väitettä,
+                    jotka kuvaavat omaa tieteellisen tekstin kirjoittamistasi.<p />
                     Ensimmäisen testisivun ylälaidan kuvaketta painamalla voit aktivoida pyyhkäisyllä liikkumisen nappien käytön sijasta.
                     Takaisin etusivulle pääsee logoa painamalla.<p />
                     Itsearviointitestin tekeminen vie aikaa noin 10 minuuttia. Testi on anonyymi.<p />
@@ -93,7 +95,13 @@ const Home = () => {
             <Typography
               variant='body2'
               sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mt: 2 }}>
-                Valitse joka sivulla 0–3 väitettä, jotka kuvaavat omaa tieteellisen tekstin kirjoittamistasi.<br />
+                Testi toimii luotettavimmin Chrome- tai Firefox-selaimilla.
+            </Typography>
+            <Typography
+              variant='body2'
+              sx={{ fontSize: '21px', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mt: 2 }}>
+                Valitse joka sivulla 0–3 väitettä,<br />
+                jotka kuvaavat omaa tieteellisen tekstin kirjoittamistasi.<br />
                 Itsearviointitestin tekeminen vie aikaa noin 10 minuuttia.<br />
                 Testi on anonyymi.
             </Typography>

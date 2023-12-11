@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation    Tests for the linkpage of the app.
-Resource    ../../RF-keywords/CommonFunctions.resource
+Resource    ../../CommonKeywords/CommonFunctions.resource
 Resource    suiteKeywords.resource
 
 Suite Setup

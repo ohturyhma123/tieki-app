@@ -61,6 +61,7 @@ const PDFView = () => {
       <PDFViewer width={'100%'} height={'100%'} >
         <Document renderMode="svg" onRender={ (blob) => onRenderDocument(blob) }>
           <Page size={'A4'} style={styles.body}>
+            <Text style={styles.header}>Tulokset</Text>
             <Image src={imgSrc}></Image>
             {positiveResults.length > 0
               ?
@@ -117,6 +118,9 @@ const PDFView = () => {
   const styles = StyleSheet.create({
     body: {
       padding: 50
+    },
+    header: {
+      fontSize: 24
     },
     title: {
       fontSize: 20

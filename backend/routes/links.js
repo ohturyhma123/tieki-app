@@ -4,6 +4,8 @@ import AdminCheck from '../middleware/AdminCheck.js'
 
 const linksRouter = express()
 
+/** GET endpoint to fetch all links
+*/
 linksRouter.get('/', async (req, res) => {
   try {
     const linksData = await Link.find().sort({ 'id': 1 })
@@ -14,7 +16,8 @@ linksRouter.get('/', async (req, res) => {
   }
 })
 
-// PUT endpoint to update links
+/** PUT endpoint to update links
+*/
 linksRouter.put('/', AdminCheck, async (req, res) => {
   const updatedLinks = req.body
 
@@ -38,7 +41,8 @@ linksRouter.put('/', AdminCheck, async (req, res) => {
   }
 })
 
-// POST endpoint to create a new link
+/** POST endpoint to create a new link
+*/
 linksRouter.post('/', AdminCheck, async (req, res) => {
   const newLinkData = req.body
 
@@ -47,10 +51,12 @@ linksRouter.post('/', AdminCheck, async (req, res) => {
       throw new Error('Name and URL cannot be empty')
     }
 
-    // Get the link with the highest id
+    /** Get the link with the highest id
+    */
     const lastLink = await Link.findOne().sort({ id: -1 })
 
-    // Add 1 to the highest id for the new link
+    /** Add 1 to the highest id for the new link
+    */
     newLinkData.id = lastLink ? lastLink.id + 1 : 1
 
     const newLink = new Link(newLinkData)
@@ -63,11 +69,14 @@ linksRouter.post('/', AdminCheck, async (req, res) => {
   }
 })
 
-// DELETE endpoint to delete a link
+/** DELETE endpoint to delete a link
+*/
 linksRouter.delete('/:id', AdminCheck, async (req, res) => {
   const id = req.params.id
 
   try {
+    /** Get the link id to be deleted.
+    */
     await Link.findOneAndDelete({ id: id })
 
     res.json({ message: 'Link deleted successfully' })

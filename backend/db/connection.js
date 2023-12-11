@@ -1,6 +1,10 @@
 import mongoose from 'mongoose'
 import { MONGODB_URI } from '../util/config.js'
 
+/**
+Connects to MongoDB database.
+@returns connection
+*/
 const connectToDatabase = async () => {
   if (MONGODB_URI === '<connection_string>' || MONGODB_URI === '') {
     console.log('MONGODB_URI environment variable is not set.')
@@ -17,6 +21,9 @@ const connectToDatabase = async () => {
   return connection
 }
 
+/**
+Disconnects to MongoDB database.
+*/
 const disconnectFromDatabase = async () => {
   try {
     await mongoose.disconnect()

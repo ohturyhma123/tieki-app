@@ -35,17 +35,6 @@ Go To Linkpage Using Keyboard
     Press Keys    None    ENTER
     Wait Until Page Contains    Hyödyllisiä linkkejä
 
-Go To Feedback Form
-    [Documentation]    Clicks on the button that takes the user to the linkpage.
-    Wait Until Keyword Succeeds    3x    200ms    Click Link    Palaute
-    Wait Until Page Contains    Palaute
-
-Go To Feedback Form Using Keyboard
-    [Documentation]    Use keyboard to press the button that takes the user to the linkpage.
-    Set Focus To Element    //*[@id="root"]/div[1]/header/div/ul/li[2]/a
-    Press Keys    None    ENTER
-    Wait Until Page Contains    Palaute
-
 Go To About Page
     [Documentation]    Clicks on the button that takes the user to the about page.
     Wait Until Keyword Succeeds    3x    200ms    Click Link    Tekijät
@@ -53,6 +42,13 @@ Go To About Page
 
 Go To About Page Using Keyboard
     [Documentation]    Use keyboard to press the button that takes the user to the about page.
-    Set Focus To Element    //*[@id="root"]/div[1]/header/div/ul/li[3]/a
+    Set Focus To Element    //*[@id="root"]/div[1]/header/div/ul/li[2]/a
     Press Keys    None    ENTER
     Wait Until Page Contains    Tieteellisen kirjoittamisen itsearviointitestin sisällön
+
+Go To Feedback Form
+    [Documentation]    Clicks on the link that takes the user to the feedback form.
+    Wait Until Keyword Succeeds    3x    200ms    Click Link    Anna palautetta
+    Sleep    3
+    ${locs}=    Get Locations
+    Should Be Equal    ${locs[1]}    https://elomake.helsinki.fi/lomakkeet/126370/lomake.html
