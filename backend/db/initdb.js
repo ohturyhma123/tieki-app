@@ -17,7 +17,8 @@ const insertData = async () => {
     try {
       await connectToDatabase()
 
-      // Drop collections if they exist
+      /** Drop collections if they exist
+      */
       try {
         await Link.collection.drop()
         console.log('links collection dropped successfully')
@@ -37,7 +38,8 @@ const insertData = async () => {
         console.error('statements collection does not exist')
       }
 
-      // Insert data into the collections
+      /** Insert data into the collections
+      */
       await Link.insertMany(linksData)
       console.log('linksData.json inserted successfully')
       await Result.insertMany(resultsData)

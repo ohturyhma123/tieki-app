@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    This test suite contains tests for links API.
 
-Resource    ../../RF-keywords/CommonFunctions.resource
+Resource    ../../CommonKeywords/CommonFunctions.resource
 Resource    suiteKeywords.resource
 
 Suite Setup    Initialize Session

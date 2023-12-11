@@ -2,7 +2,7 @@
 *** Settings ***
 Documentation    This test suite contains tests for results API.
 
-Resource    ../../RF-keywords/CommonFunctions.resource
+Resource    ../../CommonKeywords/CommonFunctions.resource
 Resource    suiteKeywords.resource
 
 Suite Setup    Initialize Session

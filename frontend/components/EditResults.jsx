@@ -26,8 +26,8 @@ const EditResults = () => {
 
 
   /**
-   * Fetch results from the backend when the component is mounted.
-   */
+  Fetch results from the backend when the component is mounted.
+  */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -42,9 +42,8 @@ const EditResults = () => {
   }, [])
 
   /**
-   * Prevent scrolling when the component is mounted.
-   */
-
+  Prevent scrolling when the component is mounted.
+  */
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => {
@@ -53,8 +52,8 @@ const EditResults = () => {
   }, [])
 
   /**
-   * Update the textsegment with the given id.
-   */
+  Update the textsegment with the given id.
+  */
   const handleTextSegmentChange = (setId, textSegmentId, newtextSegment) => {
 
     const updatedResult = results.filter((result) => result._id === setId)
@@ -69,6 +68,9 @@ const EditResults = () => {
     setResults(updatedResults)
   }
 
+  /**
+  Update the list point with the given id.
+  */
   const handleListPointChange = (setId, listPointId, newlistPoint) => {
 
     const updatedResult = results.filter((result) => result._id === setId)
@@ -83,6 +85,9 @@ const EditResults = () => {
     setResults(updatedResults)
   }
 
+  /**
+  Update the link description with the given id.
+  */
   const handleLinkDescriptionChange = (setId, linkId, newLink) => {
 
     const updatedResult = results.filter((result) => result._id === setId)
@@ -97,6 +102,9 @@ const EditResults = () => {
     setResults(updatedResults)
   }
 
+  /**
+  Update the link with the given id.
+  */
   const handleLinkChange = (setId, linkId, newLink) => {
 
     const updatedResult = results.filter((result) => result._id === setId)
@@ -112,11 +120,12 @@ const EditResults = () => {
   }
 
   /**
-   * Save the updated results to the backend.
-   */
+  Save the updated results to the backend.
+  */
   const handleSaveClick = async () => {
     try {
-      // Update results on the backend
+      /** Update results on the backend
+      */
       await axios.put(baseUrl, results, {
         headers: {
           'Content-Type': 'application/json',
@@ -129,21 +138,24 @@ const EditResults = () => {
   }
 
   const handleAddLink = async (resultId) => {
-    // Check if the input is empty
+    /** Check if the input is empty
+    */
     if (!newLinkDescription || !newLinkUrl) {
       setHasError(true)
       return
     }
 
-    // Create a new link object
+    /** Create a new link object
+    */
     const newLink = {
       description: newLinkDescription,
       link: newLinkUrl,
     }
 
     try {
-      // Make a POST request to the server
-      const response = await fetch(`/api/results/${resultId}/links`, { // Modify this line as needed to get the correct result id
+      /** Make a POST request to the server
+      */
+      const response = await fetch(`/api/results/${resultId}/links`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -151,18 +163,22 @@ const EditResults = () => {
         body: JSON.stringify(newLink),
       })
 
-      // Check if the request was successful
+      /** Check if the request was successful
+      */
       if (response.ok) {
-        // Get the updated result from the response
+        /** Get the updated result from the response
+        */
         const updatedResult = await response.json()
 
-        // Update the state
+        /** Update the state
+        */
         const resultsCopy = [...results]
         const resultIndex = resultsCopy.findIndex(result => result.id === updatedResult.result.id)
         resultsCopy[resultIndex] = updatedResult.result
         setResults(resultsCopy)
 
-        // Clear the input fields
+        /** Clear the input fields
+        */
         setNewLinkDescription('')
         setNewLinkUrl('')
       } else {
@@ -175,28 +191,36 @@ const EditResults = () => {
 
   const handleDeleteClick = async (resultId, linkId) => {
     try {
-      // Make a DELETE request to the server
+      /** Make a DELETE request to the server
+      */
       const response = await fetch(`${baseUrl}/${resultId}/links/${linkId}`, {
         method: 'DELETE',
       })
-      // Check if the request was successful
+      /** Check if the request was successful
+      */
       if (response.ok) {
-        // Get the updated results
+        /** Get the updated results
+        */
         const resultsCopy = [...results]
-        // Find the result that contains the link with the given id
+        /** Find the result that contains the link with the given id
+        */
         const result = resultsCopy.find(result =>
           result.id === resultId
         )
-        // Check if result is defined
+        /** Check if result is defined
+        */
         if (result) {
-          // Find the index of the link with the given id
+          /** Find the index of the link with the given id
+          */
           const linkIndex = result.links.findIndex(link => link.id === linkId)
 
-          // Delete the link at the given index
+          /** Delete the link at the given index
+          */
           if (linkIndex !== -1) {
             result.links.splice(linkIndex, 1)
           }
-          // Update the state
+          /** Update the state
+          */
           setResults(resultsCopy)
         }
       } else {

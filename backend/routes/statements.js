@@ -4,6 +4,8 @@ import AdminCheck from '../middleware/AdminCheck.js'
 
 const statementsRouter = express()
 
+/** GET endpoint to fetch all statements
+*/
 statementsRouter.get('/', async (req, res) => {
   try {
     const statementsData = await Statement.find().sort({ 'categoryId': 1 })
@@ -14,6 +16,8 @@ statementsRouter.get('/', async (req, res) => {
   }
 })
 
+/** PUT endpoint to update statements
+*/
 statementsRouter.put('/', AdminCheck, async (req, res) => {
   const updatedStatements = req.body
 

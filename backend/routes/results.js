@@ -4,6 +4,8 @@ import AdminCheck from '../middleware/AdminCheck.js'
 
 const resultsRouter = express()
 
+/** GET endpoint to fetch all results
+*/
 resultsRouter.get('/', async (req, res) => {
   try {
     const resultsData = await Result.find().sort({ 'id': 1 })
@@ -14,6 +16,8 @@ resultsRouter.get('/', async (req, res) => {
   }
 })
 
+/** PUT endpoint to update results
+*/
 resultsRouter.put('/', AdminCheck, async (req, res) => {
   const updatedResults = req.body
 
@@ -33,6 +37,8 @@ resultsRouter.put('/', AdminCheck, async (req, res) => {
   }
 })
 
+/** POST endpoint to add result links
+*/
 resultsRouter.post('/:resultId/links', AdminCheck, async (req, res) => {
   const resultId = req.params.resultId
   const newLinkData = req.body
@@ -40,7 +46,8 @@ resultsRouter.post('/:resultId/links', AdminCheck, async (req, res) => {
   try {
     const resultsData = await Result.find().sort({ 'id': 1 })
 
-    // finds the link with highest id
+    /** finds the link with highest id
+    */
     let maxId = -1
     // eslint-disable-next-line no-unused-vars
     let maxIdLink = null
@@ -56,20 +63,24 @@ resultsRouter.post('/:resultId/links', AdminCheck, async (req, res) => {
       }
     })
 
-    // Sets id for the new link
+    /** Sets id for the new link
+    */
     newLinkData.id = maxId + 1
 
-    // Find the result by ID
+    /** Find the result by ID
+    */
     const result = await Result.findOne({ id: resultId })
 
     if (!result) {
       return res.status(404).json({ error: 'Result not found' })
     }
 
-    // Add the new link to the result
+    /** Add the new link to the result
+    */
     result.links.push(newLinkData)
 
-    // Save the updated result
+    /** Save the updated result
+    */
     await result.save()
 
     res.json({ message: 'Link added successfully', result })
@@ -79,12 +90,15 @@ resultsRouter.post('/:resultId/links', AdminCheck, async (req, res) => {
   }
 })
 
+/** DELETE endpoint to delete a result link
+*/
 resultsRouter.delete('/:resultId/links/:linkId', AdminCheck, async (req, res) => {
   const resultId = req.params.resultId
   const linkId = req.params.linkId
 
   try {
-    // Find the result by ID
+    /** Find the result by ID
+    */
     const result = await Result.findOne({ id: resultId })
 
     if (!result) {
@@ -93,17 +107,20 @@ resultsRouter.delete('/:resultId/links/:linkId', AdminCheck, async (req, res) =>
 
     const resultLinks = result.links
 
-    // Find the index of the link with the specified linkId
+    /** Find the index of the link with the specified linkId
+    */
     const linkToDelete = resultLinks.findIndex(link => link.id === parseInt(linkId))
 
     if (linkToDelete === -1) {
       return res.status(404).json({ error: 'Link not found' })
     }
 
-    // Remove the link at the specified index
+    /** Remove the link at the specified index
+    */
     result.links.splice(linkToDelete, 1)
 
-    // Save the updated result
+    /** Save the updated result
+    */
     await result.save()
 
     res.json({ message: 'Link deleted successfully', result })

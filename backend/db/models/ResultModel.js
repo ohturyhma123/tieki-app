@@ -6,7 +6,8 @@ const linkSchema = new mongoose.Schema({
   link: String
 })
 
-// Main Schema
+/** Main Schema
+*/
 const resultSchema = new mongoose.Schema({
   category: String,
   id: Number,
