@@ -14,7 +14,7 @@ const Login = () => {
     <Grid>
       <Box sx={{ flex: '1' }}>
         <picture>
-          <source media="(max-width: 1200px), (max-height: 700px)" srcSet={monochromeBackground} />
+          <source media="(max-width: 1200px)" srcSet={monochromeBackground} />
           <img
             src={homeBackground}
             alt="homeBackground"

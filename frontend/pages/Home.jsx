@@ -69,7 +69,7 @@ const Home = () => {
         ) : (
           <Box sx={{ flex: '1' }}>
             <picture>
-              <source media="(max-width: 1280px), (max-height: 720px)" srcSet={monochromeBackground} />
+              <source media="(max-width: 1200px)" srcSet={monochromeBackground} />
               <img src={homeBackground} alt="background with markers" style={backgroundStyle} />
               {/**
                Photo: Karolina Grabowska / Pexels
