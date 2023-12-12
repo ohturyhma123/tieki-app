@@ -11,6 +11,10 @@ Linkki sovelluksen tuotantoversioon: https://tieki.helsinki.fi/
 
 Linkki sovelluksen stagingiin: https://tieki.ext.ocp-test-0.k8s.it.helsinki.fi/
 
+## Ylläpito
+
+Ylläpitäjät voivat kirjautua järjestelmään omilla Helsingin yliopiston tunnuksilla muokatakseen sisältöä.
+
 ## Projekti
 
 - [Product Backlog](https://tasks.office.com/HelsinkiFI.onmicrosoft.com/en-GB/Home/Planner#/plantaskboard?groupId=e3d9f4a8-6004-4db1-be67-4c4facb50a63&planId=TfUJ6yRCo02iXTqYd6-hRJYAEW72)
@@ -19,6 +23,5 @@ Linkki sovelluksen stagingiin: https://tieki.ext.ocp-test-0.k8s.it.helsinki.fi/
 ## Definiton of Done
 
 - Ajantasainen koodi GitHub:ssa
-- Testikattavuus 70%
 - Hyväksymiskriteerit määritelty user storylle
 - Hyväksymiskriteerit läpi ja testattu robotilla
