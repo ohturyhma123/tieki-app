@@ -6,13 +6,14 @@ const LoginButton = ({ backgroundColor, color, buttonText, href }) => {
     color: color,
     borderColor: backgroundColor,
     fontWeight: '700',
-    fontSize: '20px',
+    fontSize: '22px',
     fontFamily: '"Lato", sans-serif',
     cursor: 'pointer',
-    padding: '0.5rem 2.25rem',
+    padding: '0.6rem 1.8rem',
     borderRadius: '24px',
     textTransform: 'none',
     border: '2px solid',
+    marginLeft: '-16px',
     '&:hover': {
       backgroundColor: color,
       color: backgroundColor,
@@ -20,10 +21,7 @@ const LoginButton = ({ backgroundColor, color, buttonText, href }) => {
     },
     '@media (max-width: 450px)': {
       display: 'flex',
-      margin: 'auto',
-      fontSize: '22px',
-      marginTop: '50px',
-      padding: '0.7rem 4rem',
+      margin: 'auto'
     }
   }))
 

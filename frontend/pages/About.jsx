@@ -14,12 +14,12 @@ const About = () => {
         <Container maxWidth='lg'>
           <Paper sx={{ m: -1, mt: 3, mb: 5, mx: 'auto', p: 2, pb: 5, background: '#FCF8F4', width: '100%' }} variant='elevation' elevation={10}>
             <Box>
-              <Typography sx={{ pt: 3, pl: 2 }} variant='h6'>
+              <Typography sx={{ pt: 3, pl: 2, fontFamily: '"Lato", sans-serif' }} variant='h6'>
                 Tieteellisen kirjoittamisen itsearviointitestin sisällön on tuottanut Helsingin yliopiston kielikeskuksen äidinkielen ja finskan yksikkö.
                 Testi julkaistiin alun perin vuonna 2013. Testin uusitun version laativat seuraavat Helsingin yliopiston tietojenkäsittelytieteen kandiohjelman
-                ohjelmistotuotantoprojekti-kurssin opiskelijat syksyllä 2023:
+                Ohjelmistotuotantoprojekti-kurssin opiskelijat syksyllä 2023:
               </Typography>
-              <Typography sx={{ pl: 2 }} variant='subtitle1'>
+              <Typography sx={{ pl: 2, fontFamily: '"Lato", sans-serif' }} variant='subtitle1'>
                 <List dense sx={{ listStyleType: 'disc', pl: 4 }}>
                   <ListItem sx={{ display: 'list-item' }}>Ilkka Luukkonen (<Link href='https://github.com/ilkkaluu'>GitHub</Link>)</ListItem>
                   <ListItem sx={{ display: 'list-item' }}>Janika Kalliokoski (<Link href='https://github.com/janikakalliokoski'>GitHub</Link>)</ListItem>
@@ -31,7 +31,8 @@ const About = () => {
                   <ListItem sx={{ display: 'list-item' }}>Ohjaaja: Sini Arkko (<Link href='https://github.com/SiniCode'>GitHub</Link>)</ListItem>
                 </List>
               </Typography>
-              <Typography sx={{ pl: 5 }} variant='h6'>
+              <p />
+              <Typography sx={{ pl: 5, fontFamily: '"Lato", sans-serif' }} variant='h6'>
                 <Link
                   href='https://elomake.helsinki.fi/lomakkeet/126370/lomake.html'
                   rel='noopener noreferrer'
