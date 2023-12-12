@@ -1,10 +1,10 @@
 ## How to setup MongoDB Atlas for testing the project on your computer
 
-1. Create MongoDB Atlas account
+# 1. Create MongoDB Atlas account
 
 https://www.mongodb.com/cloud/atlas/register
 
-2. Follow fullstack open instructions on creating the cluster
+# 2. Follow fullstack open instructions on creating the cluster
 
 Choose AWS Stockholm for the cluster.
 
@@ -18,7 +18,7 @@ The instructions are slightly outdated. If there is no "allow access from anywhe
 
 As long as you have created the cluster and created the database user, you can continue.
 
-3. Setup project to use your database
+# 3. Setup project to use your database
 
 Copy .env-template file and rename it .env. Replace `<connection_string>` with your databse URI. You can get the URI from "Connect" -> "Drivers" -> "Step 3". Replace `<password>` with the database password. MAKE SURE to add the DATABASE NAME to the URI (example mongodb.net/tieki-app), it's not there by default.
 
@@ -27,7 +27,7 @@ Example:
 MONGODB_URI=mongodb+srv://mycoolusername:supersecretpassword@cluster0.ahbnuse.mongodb.net/tieki-app?retryWrites=true&w=majority
 ```
 
-4. Import JSON files to MongoDB
+# 4. Import JSON files to MongoDB
 
 Run in project root:
 ```bash
