@@ -1,8 +1,8 @@
-## User guide
+# User guide
 
 This user guide has been written assuming you are on linux. You can follow most of the steps even on other operating systems.
 
-# 1. Install Node.js
+## 1. Install Node.js
 
 Install Node.js by following the instructions on the official website:
 
@@ -16,7 +16,7 @@ After installing run:
 node --version
 ```
 
-# 2. Downloading the repository
+## 2. Downloading the repository
 
 On the [main](https://github.com/ohturyhma123/tieki-app) page click on `Code` and select `Download ZIP`. Unzip the downloaded file. On linux you can go to the folder containing the zipped file and run:
 
@@ -30,7 +30,7 @@ Alternatively, if you have git installed you can just clone the repository with:
 git clone https://github.com/ohturyhma123/tieki-app.git
 ```
 
-# 3. Install packages
+## 3. Install packages
 
 Go to the project root and run:
 
@@ -40,11 +40,11 @@ npm install
 
 This installs the required packages for the project.
 
-# 4. Set up MongoDB
+## 4. Set up MongoDB
 
 Follow the instructions [here](https://github.com/ohturyhma123/tieki-app/blob/main/documentation/setup_mongodb_atlas.md) to set up a Mongo database for the project
 
-# 5. Start the app
+## 5. Start the app
 
 In the project root run:
 
