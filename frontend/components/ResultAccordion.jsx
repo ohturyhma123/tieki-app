@@ -25,12 +25,12 @@ const ResultAccordion = ({ result, color, index }) => {
         <Typography sx={{ fontFamily: '"Lato", sans-serif' }} variant='h5' className={analysisId}>{result.category}</Typography>
       </AccordionSummary>
       <AccordionDetails sx={{ pt: 2, backgroundColor: 'silk' }}>
-        {result.textSegments.map((result) => <Typography variant='body1' key={result} paragraph>{result}</Typography>)}
+        {result.textSegments.map((result) => <Typography sx={{ fontFamily: '"Lato", sans-serif' }} variant='body1' key={result} paragraph>{result}</Typography>)}
         <List sx = {{
           listStyleType: 'disc',
           pl: 4
         }}>
-          {result.listPoints.map((item, index) => <ListItem sx={{ pl: 0, display: 'list-item' }} key={index}><Typography variant='body1'>{item}</Typography></ListItem>)}
+          {result.listPoints.map((item, index) => <ListItem sx={{ pl: 0, display: 'list-item' }} key={index}><Typography sx={{ fontFamily: '"Lato", sans-serif' }} variant='body1'>{item}</Typography></ListItem>)}
         </List>
         {result.links.map((link, index) => {
           return(
