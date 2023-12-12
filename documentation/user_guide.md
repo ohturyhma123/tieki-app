@@ -52,7 +52,7 @@ In the project root run:
 npm run dev
 ```
 
-Open your web browser and go to http://localhost:3000/ you should see the frontend.
+Open your web browser and go to http://localhost:3000/, you should see the frontend.
 
 By default the vite frontend will be running on port 3000 and the backend on port 3001. You can change these by adding `PORT=<number>` and `VITE_PORT=<number>` to the .env file.
 
