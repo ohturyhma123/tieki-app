@@ -5,6 +5,11 @@ import CustomBox from '../components/CustomBox'
 import LoginButton from '../components/LoginButton'
 
 const Login = () => {
+  const backgroundStyle = {
+    maxWidth: '100%', maxHeight: '100vh', width: '100%', height: '100%', objectFit: 'cover', minWidth: '100vw',
+    position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: -1
+  }
+
   return (
     <Grid>
       <Box sx={{ flex: '1' }}>
@@ -13,8 +18,7 @@ const Login = () => {
           <img
             src={homeBackground}
             alt="homeBackground"
-            style={{ maxWidth: '100%', maxHeight: '100%', position: 'absolute', top: 0, left: 0, right: 0,
-              width: '100%', height: '100%', zIndex: -1 }}
+            style={backgroundStyle}
           />
         </picture>
         <Container>

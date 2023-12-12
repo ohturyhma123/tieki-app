@@ -14,8 +14,7 @@ const LargeButton = ({ backgroundColor, color, buttonText }) => {
     borderRadius: '30px',
     textTransform: 'none',
     border: '2px solid',
-    marginTop: '2px',
-    marginLeft: '-30px',
+    marginLeft: '-32px',
     '&:hover': {
       backgroundColor: color,
       color: backgroundColor,
