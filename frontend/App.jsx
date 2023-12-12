@@ -15,7 +15,7 @@ import EditResults from './components/EditResults'
 
 const App = () => {
   /**
-    Client-side routing setup that redirects to home if the url path isn't /test, /links, /pdfview or /results
+    Client-side routing setup that redirects to home if the url path is undefined
     Material UI components are used to improve the site's layout and navigation
   */
   return (
