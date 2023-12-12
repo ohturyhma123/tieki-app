@@ -249,7 +249,7 @@ const EditResults = () => {
     <div className="editLinksContainer">
       <div className="centeredContent" style={{ overflowY: 'auto', maxHeight: '80vh' }}>
         <picture>
-          <source media="(max-width: 1000px), (max-height: 600px)" srcSet={monochromeBackground} />
+          <source media="(max-width: 1200px)" srcSet={monochromeBackground} />
           <img
             src={homeBackground}
             alt="homeBackground"
