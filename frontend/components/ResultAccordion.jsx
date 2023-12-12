@@ -35,7 +35,7 @@ const ResultAccordion = ({ result, color, index }) => {
         {result.links.map((link, index) => {
           return(
             <div key={index}>
-              <Typography variant='body1'>{link.description}</Typography>
+              <Typography sx={{ fontFamily: '"Lato", sans-serif' }} variant='body1'>{link.description}</Typography>
               <Link sx={{ overflowWrap: 'break-word' }} variant='body1' className="link" href={link.link} target="_blank" rel="noopener noreferrer">{link.link}</Link>
             </div>
           )
