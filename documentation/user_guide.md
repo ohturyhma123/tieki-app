@@ -2,7 +2,6 @@
 
 This user guide has been written assuming you are on linux. You can follow most of the steps even on other operating systems.
 
-
 # 1. Install Node.js
 
 Install Node.js by following the instructions on the official website:
@@ -52,6 +51,8 @@ In the project root run:
 ```bash
 npm run dev
 ```
+
+By default the vite frontend will be running on port 3000 and the backend on port 3001. You can change these by adding `PORT=<number>` and `VITE_PORT=<number>` to the .env file.
 
 You can also run the app in production mode by running the following commands:
 
