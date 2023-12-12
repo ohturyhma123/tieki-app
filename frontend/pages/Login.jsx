@@ -20,7 +20,10 @@ const Login = () => {
         <Container>
           <CustomBox>
             <Box sx={{ flex: '1' }}>
-              <Typography sx={{ pb: 3 }} variant='h3'>Kirjaudu sisään (vain ylläpitäjät)</Typography>
+              <Typography sx={{ pb: 3, mt: 2, fontFamily: '"Lato", sans-serif' }} variant='h3'>
+                Kirjaudu sisään muokkaussivulle<br />
+                (vain ylläpitäjät)
+              </Typography>
               <List>
                 <ListItem>
                   <LoginButton backgroundColor='#fff'
