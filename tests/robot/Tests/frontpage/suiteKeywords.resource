@@ -48,7 +48,7 @@ Go To About Page Using Keyboard
 
 Go To Feedback Form
     [Documentation]    Clicks on the link that takes the user to the feedback form.
-    Wait Until Keyword Succeeds    3x    200ms    Click Link    Anna palautetta
+    Wait Until Keyword Succeeds    3x    200ms    Click Link    Anna palautetta testistä
     Sleep    3
     ${locs}=    Get Locations
     Should Be Equal    ${locs[1]}    https://elomake.helsinki.fi/lomakkeet/126370/lomake.html
