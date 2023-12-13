@@ -37,11 +37,15 @@ const Results = () => {
   /** Calculate and store category scores outside of JSX to prevent redundant calls with each render. */
   const scores = CalculateCategoryScores(location.state.selectedStatements, statementsData)
 
+  /** Create and object called sumScores that has the sum of the negative and positive statements for each category.
+      This object is used when displaying the radarchart.
+  */
   const sumScores = {}
   Object.entries(scores).forEach(([key, value]) => {
     sumScores[key] = value[0]+value[1]
   })
 
+  /** Get the positive and negative results that are displayed on the page */
   const [positiveResults, negativeResults] = GetResults(scores, resultsData)
 
   let strengthText = null
