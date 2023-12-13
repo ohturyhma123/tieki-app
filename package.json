@@ -22,7 +22,8 @@
     "testEnvironment": "jsdom",
     "moduleNameMapper": {
       "^.+\\.svg$": "jest-svg-transformer",
-      "^.+\\.(css|less|scss)$": "identity-obj-proxy"
+      "^.+\\.(css|less|scss)$": "identity-obj-proxy",
+      "\\.(jpg|jpeg|png|gif)$": "<rootDir>/tests/jest/imageMock.js"
     }
   },
   "dependencies": {
