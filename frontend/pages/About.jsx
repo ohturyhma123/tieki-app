@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Link, List, Paper, Typography, Hidden } from '@mui/material'
+import { Box, Container, Grid, Link, List, Paper, Typography } from '@mui/material'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import ListItemDesktopAbout from '../components/ListItemDesktopAbout'
 
