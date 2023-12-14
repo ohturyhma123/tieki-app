@@ -3,7 +3,7 @@ import SchoolIcon from '@mui/icons-material/School'
 import ListItem from '@mui/material/ListItem'
 import ListItemIcon from '@mui/material/ListItemIcon'
 
-const ListItemDesktop = ({ text }) => {
+const ListItemDesktopHome = ({ text }) => {
   return (
     <ListItem sx={{ margin: '-1px 0' }}>
       <ListItemIcon sx={{ color: '#00011b' }}>
@@ -21,4 +21,4 @@ const ListItemDesktop = ({ text }) => {
   )
 }
 
-export default ListItemDesktop
+export default ListItemDesktopHome

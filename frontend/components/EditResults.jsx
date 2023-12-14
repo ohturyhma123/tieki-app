@@ -24,7 +24,6 @@ const EditResults = () => {
   const [newLinkDescription, setNewLinkDescription] = useState('')
   const [newLinkUrl, setNewLinkUrl] = useState('')
 
-
   /**
   Fetch results from the backend when the component is mounted.
   */

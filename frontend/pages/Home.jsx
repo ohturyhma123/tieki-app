@@ -4,7 +4,7 @@ import homeBackground from '../assets/home-background.jpg'
 import monochromeBackground from '../assets/monochrome-background.jpg'
 import CustomBox from '../components/CustomBox'
 import ListItemMobile from '../components/ListItemMobile'
-import ListItemDesktop from '../components/ListItemDesktop'
+import ListItemDesktopHome from '../components/ListItemDesktopHome'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 const Home = () => {
@@ -85,12 +85,12 @@ const Home = () => {
             <List
               dense
               sx={{ flex: '1', fontFamily: '"Lato", sans-serif', color: '#00011b', fontWeight: '500', mb: 2.5, mt: 0.5, ml: -2.5 }}>
-              <ListItemDesktop text='Kirjoittamiseen liittyvät tunteet ja ajatukset' />
-              <ListItemDesktop text='Akateemiset käytänteet ja tekstilajit' />
-              <ListItemDesktop text='Lukeminen ja lähteiden käyttö' />
-              <ListItemDesktop text='Kirjoittaminen prosessina' />
-              <ListItemDesktop text='Tekstin rakenne' />
-              <ListItemDesktop text='Kielelliset seikat' />
+              <ListItemDesktopHome text='Kirjoittamiseen liittyvät tunteet ja ajatukset' />
+              <ListItemDesktopHome text='Akateemiset käytänteet ja tekstilajit' />
+              <ListItemDesktopHome text='Lukeminen ja lähteiden käyttö' />
+              <ListItemDesktopHome text='Kirjoittaminen prosessina' />
+              <ListItemDesktopHome text='Tekstin rakenne' />
+              <ListItemDesktopHome text='Kielelliset seikat' />
             </List>
             <Typography
               variant='body2'
