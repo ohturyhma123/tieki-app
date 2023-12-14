@@ -19,4 +19,4 @@ Ylläpitäjät voivat kirjautua järjestelmään omilla Helsingin yliopiston tun
 
 - [Product Backlog](https://tasks.office.com/HelsinkiFI.onmicrosoft.com/en-GB/Home/Planner#/plantaskboard?groupId=e3d9f4a8-6004-4db1-be67-4c4facb50a63&planId=TfUJ6yRCo02iXTqYd6-hRJYAEW72)
 - [Documentation](https://github.com/ohturyhma123/tieki-app/tree/main/documentation)
-- [Definition of Done](https://github.com/ohturyhma123/tieki-app/tree/main/documentation/definition_of_done.md)
+- [Definition of Done](https://github.com/ohturyhma123/tieki-app/blob/main/documentation/definition_of_done.md)
