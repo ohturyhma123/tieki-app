@@ -1,15 +1,15 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
-import ListItemDesktop from '../../frontend/components/ListItemDesktop.jsx'
+import ListItemDesktopHome from '../../frontend/components/ListItemDesktopHome.jsx'
 
 test('renders content without crashing', () => {
-  render(<ListItemDesktop/>)
+  render(<ListItemDesktopHome/>)
 })
 
 test('renders with the correct message', () => {
   const message = 'List item number 1'
 
-  const { getByText } = render(<ListItemDesktop text={message} />)
+  const { getByText } = render(<ListItemDesktopHome text={message} />)
 
   const element = getByText(message)
 
