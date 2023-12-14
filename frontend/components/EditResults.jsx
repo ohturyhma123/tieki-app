@@ -16,14 +16,12 @@ const baseUrl = '/api/results'
 
 const EditResults = () => {
   const [results, setResults] = useState([])
-
   const positiveResults = results.filter((result) => result.positive === true)
   const negativeResults = results.filter((result) => result.positive === false)
   const [openSaveConfirm, setOpenSaveConfirm] = useState(false)
   const [hasError, setHasError] = useState(false)
   const [newLinkDescription, setNewLinkDescription] = useState('')
   const [newLinkUrl, setNewLinkUrl] = useState('')
-
 
   /**
   Fetch results from the backend when the component is mounted.
@@ -37,7 +35,6 @@ const EditResults = () => {
         throw new Error('Failed to fetch data')
       }
     }
-
     fetchData()
   }, [])
 

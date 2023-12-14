@@ -11,8 +11,8 @@ import useApi from '../hooks/useApi'
 import LoadingScreen from '../components/LoadingScreen'
 import LoadingError from '../components/LoadingError'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-const Results = () => {
 
+const Results = () => {
   const [imgSource, setImageSource] = useState(null)
   const isMobile = window.innerWidth <= 480
 

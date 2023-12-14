@@ -3,7 +3,6 @@ import '../assets/Statement.css'
 import { Link, Typography } from '@mui/material'
 
 const ResultBlock = ({ result }) => {
-
   const [toggle, setToggle] = useState(false)
   const handleToggle = () => setToggle(!toggle)
   const handleToggleKeyDown = (e) => {
