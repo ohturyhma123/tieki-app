@@ -1,4 +1,4 @@
-# tieki-app
+# Tieki
 
 ![GHA workflow badge](https://github.com/ohturyhma123/tieki-app/actions/workflows/production.yaml/badge.svg
 )
@@ -19,9 +19,4 @@ Ylläpitäjät voivat kirjautua järjestelmään omilla Helsingin yliopiston tun
 
 - [Product Backlog](https://tasks.office.com/HelsinkiFI.onmicrosoft.com/en-GB/Home/Planner#/plantaskboard?groupId=e3d9f4a8-6004-4db1-be67-4c4facb50a63&planId=TfUJ6yRCo02iXTqYd6-hRJYAEW72)
 - [Documentation](https://github.com/ohturyhma123/tieki-app/tree/main/documentation)
-
-## Definiton of Done
-
-- Ajantasainen koodi GitHub:ssa
-- Hyväksymiskriteerit määritelty user storylle
-- Hyväksymiskriteerit läpi ja testattu robotilla
+- [Definition of Done](https://github.com/ohturyhma123/tieki-app/tree/main/documentation/definition_of_done.md)
