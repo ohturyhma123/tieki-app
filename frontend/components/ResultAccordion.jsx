@@ -6,7 +6,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { Link, List, ListItem } from '@mui/material'
 
 const ResultAccordion = ({ result, color, index }) => {
-
   const analysisId = `analysis${index}`
 
   return (

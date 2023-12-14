@@ -8,7 +8,6 @@ import LoadingScreen from '../components/LoadingScreen'
 import LoadingError from '../components/LoadingError'
 
 const PDFView = () => {
-
   const location = useLocation()
   const { data: statementsData, loading: loadingStatements, error: errorStatements } = useApi('/api/statements')
   const { data: resultsData, loading: loadingResults, error: errorResults } = useApi('/api/results')

@@ -7,8 +7,8 @@ import Button from '@mui/material/Button'
 import { useNavigate } from 'react-router-dom'
 
 const SaveConfirm = ({ open, onClose }) => {
-
   const navigate = useNavigate()
+
   return (
     <Dialog
       open={open}
