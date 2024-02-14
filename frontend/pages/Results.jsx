@@ -52,7 +52,7 @@ const Results = () => {
   let weaknessText = null
 
   if (positiveResults.length < 1) {
-    strengthText = <Typography sx={{ pt: 2, pb: 1, textAlign: 'center' }} variant='h5' className='strengths'>Valitettavasti valitsit liian vähän väitteitä. Tee testi uudelleen ja huomioi myös väitteet, jotka kuvaavat vahvuuksiasi kirjoittajana ja niitä asioita, jotka jo sujuvat.</Typography>
+    strengthText = <Typography sx={{ pt: 2, pb: 1, textAlign: 'center' }} variant='h6' className='strengths'>Valitettavasti valitsit liian vähän väitteitä. Tee testi uudelleen ja huomioi myös väitteet, jotka kuvaavat vahvuuksiasi kirjoittajana ja niitä asioita, jotka jo sujuvat.</Typography>
   }
   if (negativeResults.length < 1) {
     weaknessText = <Typography sx={{ pt: 2, pb: 1, textAlign: 'center' }} variant='h5' className='weaknesses'>Valintojesi perusteella sinulla ei ole kehityskohteita.</Typography>
