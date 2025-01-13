@@ -1,13 +1,20 @@
 ## How to do UI tests with Robot Framework and Selenium
 
+0. (Optional) Create a venv for robot framework testing stuff and go into there.
+```bash
+python -m venv rftest
+
+source rftest/bin/activate
+```
+
 1. Install Robot Framework
 ```bash
 pip install robotframework
 ```
 
-2. Install SeleniumLibrary for Robot Framework
+2. Install SeleniumLibrary for and RequestsLibrary Robot Framework
 ```bash
-pip install robotframework-seleniumlibrary
+pip install robotframework-seleniumlibrary robotframework-requests
 ```
 This also installs Selenium on your computer, but you have to downgrade selenium version to 4.9.1
 ```bash
